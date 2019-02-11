@@ -13,7 +13,7 @@ public class UserStudenteFactory {
         return singleton;
     }
 
-    UserStudenteFactory(){
+    UserStudenteFactory() {
 
         UserStudente user1 = new UserStudente();
         user1.setEmail("giannithunder@gmail.com");
@@ -35,7 +35,7 @@ public class UserStudenteFactory {
         getUserList().add(user2);
     }
 
-    public void addUserToFactory(String email, String name, String surname, String password, String phonenumber){
+    public void addUserToFactory(String email, String name, String surname, String password, String phonenumber) {
         UserStudente user = new UserStudente(email, name, surname, password, phonenumber);
         getUserList().add(user);
     }
@@ -49,18 +49,25 @@ public class UserStudenteFactory {
     }
 
     public UserStudente getUserByEmail(String email) {
-        try{
+        try {
             for (int i = 0; i < userList.size(); i++) {
                 if (userList.get(i).getEmail().equals(email)) {
                     return userList.get(i);
                 }
             }
-        }
-
-        catch(Exception UserNotFound){
+        } catch (Exception UserNotFound) {
             System.out.print(UserNotFound);
         }
         return null; //It's it right?
+    }
+
+    public Boolean isEmailInUserList(String email) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 
