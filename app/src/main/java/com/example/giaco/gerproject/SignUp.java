@@ -36,10 +36,10 @@ public class SignUp extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-        if(factory.isEmailInUserList(email.getText())){
+        if(factory.isEmailInUserList(email.getText().toString())){
                 //call error gui utente esiste già
             }else{
-                UserStudente newUser = new UserStudente(email.getText().toString(), name.getText().toString(), surname.getText().toString(), password.getText().toString(), confirmPassword.getText().toString(), phone.getText().toString());
+                UserStudente newUser = new UserStudente(email.getText().toString(), name.getText().toString(), surname.getText().toString(), password.getText().toString(), phone.getText().toString());
 
                 factory.getUserList().add(newUser);
                 //call success gui registrazione avvenuta con successo
