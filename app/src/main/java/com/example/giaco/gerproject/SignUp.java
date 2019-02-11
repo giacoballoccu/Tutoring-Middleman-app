@@ -1,0 +1,26 @@
+package com.example.giaco.gerproject;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.EditText;
+
+public class SignUp extends AppCompatActivity {
+
+    EditText email, nome, cognome, password, confermaPassword, cellulare;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.sign_up);
+
+        email = (EditText) findViewById(R.id.emailField);
+        nome = (EditText) findViewById(R.id.nameField);
+        cognome = (EditText) findViewById(R.id.surnameField);
+        password = (EditText) findViewById(R.id.passwordField);
+        confermaPassword = (EditText) findViewById(R.id.confirmPasswordField);
+        cellulare = (EditText) findViewById(R.id.phoneField);
+
+
+    }
+}
+
