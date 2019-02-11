@@ -178,6 +178,6 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toEndOf="@+id/logo"
     app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/info" />
+    />
 
 </android.support.constraint.ConstraintLayout>
