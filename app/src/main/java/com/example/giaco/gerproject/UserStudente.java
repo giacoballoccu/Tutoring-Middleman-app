@@ -5,22 +5,22 @@ public class UserStudente {
     private String password;
     private String name;
     private String surname;
-    private String phonenumber;
+    private String phone;
 
     public UserStudente(){
         email = "";
         password = "";
         name = "";
         surname = "";
-        phonenumber = "";
+        phone = "";
     }
 
-    public UserStudente(String email, String name, String surname, String password, String phonenumber) {
+    public UserStudente(String email, String name, String surname, String password, String phone) {
         this.setEmail(email);
         this.setPassword(password);
         this.setName(name);
         this.setSurname(surname);
-        this.setPhonenumber(phonenumber);
+        this.setPhone(phone);
     }
 
 
@@ -56,11 +56,11 @@ public class UserStudente {
         this.surname = surname;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

@@ -20,7 +20,7 @@ public class UserStudenteFactory {
         user1.setName("Gianni");
         user1.setSurname("Thunder");
         user1.setPassword("12345");
-        user1.setPhonenumber("3456789012");
+        user1.setPhone("3456789012");
 
         getUserList().add(user1);
 
@@ -30,7 +30,7 @@ public class UserStudenteFactory {
         user1.setName("Pietro");
         user1.setSurname("Pranu");
         user1.setPassword("12345");
-        user1.setPhonenumber("0123456789");
+        user1.setPhone("0123456789");
 
         getUserList().add(user2);
     }
