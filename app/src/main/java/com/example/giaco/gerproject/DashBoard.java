@@ -10,6 +10,10 @@ public class DashBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dash_board);
 
-        /*DOBBIAMO DISATTIVARE LA POSSIBILITA DI TORNARE INDIETRO, SENO SI SLOGGA*/
+    }
+
+    @Override
+    public void onBackPressed() {
+        // The user cannot go back to the previous activity pressing the back button, the only way is the loggout button
     }
 }
