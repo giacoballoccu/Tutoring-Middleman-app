@@ -26,14 +26,24 @@ public class UserStudenteFactory {
 
 
         UserStudente user2 = new UserStudente();
-        user1.setEmail("pietropranu@gmail.com");
-        user1.setName("Pietro");
-        user1.setSurname("Pranu");
-        user1.setPassword("12345");
-        user1.setPhone("0123456789");
+        user2.setEmail("pietropranu@gmail.com");
+        user2.setName("Pietro");
+        user2.setSurname("Pranu");
+        user2.setPassword("12345");
+        user2.setPhone("0123456789");
 
         getUserList().add(user2);
+
+        UserStudente user3 = new UserStudente();
+        user3.setEmail("nomail");
+        user3.setName("gino");
+        user3.setSurname("mandaresu");
+        user3.setPassword("12345");
+        user3.setPhone("0123456789");
+
+        getUserList().add(user3);
     }
+
 
     public void addUserToFactory(String email, String name, String surname, String password, String phonenumber) {
         UserStudente user = new UserStudente(email, name, surname, password, phonenumber);

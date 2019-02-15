@@ -12,12 +12,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class LoginPage extends AppCompatActivity {
+public class LoginPage extends AppCompatActivity implements View.OnClickListener {
 
     Button login;
 
     EditText email, password;
-    ImageButton infoLink;
+    Button infoLink;
 
     TextView loginError;
     TextView forgottenPass, signUp;
@@ -30,13 +30,10 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
-        infoLink = (ImageButton) findViewById(R.id.infoLink);
+        infoLink = (Button) findViewById(R.id.infoLink);
 
         email = (EditText) findViewById(R.id.emailEditText);
-        emailStr = email.getText().toString();
-
         password = (EditText) findViewById(R.id.passwordEditText);
-        passwordStr = password.getText().toString();
 
         loginError = (TextView) findViewById(R.id.loginError);
         loginError.setVisibility(View.GONE);
@@ -46,57 +43,52 @@ public class LoginPage extends AppCompatActivity {
 
         login = (Button) findViewById(R.id.login_button);
 
-        /*Controlli sugli input*/
 
-        if(TextUtils.isEmpty(emailStr)) {
-            email.setError("Inserire una mail valida");
-            return;
-        }
-        if(TextUtils.isEmpty(passwordStr)) {
-            password.setError("Inserire una password");
-            return;
-        }
+        infoLink.setOnClickListener(this);
+        signUp.setOnClickListener(this);
+        login.setOnClickListener(this);
 
-        /*Info*/
 
-        infoLink.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            Intent info = new Intent(LoginPage.this,
-                                                    Introduction.class);
-                                            //logged.putExtra("nome", username.getText().toString());
-                                            startActivity(info);
-                                        }
-                                    });
+    }
 
-        /*SignUp*/
-
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.infoLink: {
+                Intent info = new Intent(LoginPage.this,
+                        Introduction.class);
+                startActivity(info);
+                break;
+            }
+            case R.id.signUp: {
                 Intent signUp = new Intent(LoginPage.this,
                         SignUp.class);
-                //logged.putExtra("nome", username.getText().toString());
                 startActivity(signUp);
+                break;
             }
-        });
+            case R.id.login_button: {
+                emailStr = email.getText().toString();
+                passwordStr = password.getText().toString();
 
-        /*Login*/
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(factory.isEmailInUserList(emailStr)){
-                    if(factory.getUserByEmail(emailStr).getPassword().equals(passwordStr)){
+                if (factory.isEmailInUserList(emailStr)) {
+                    if (factory.getUserByEmail(emailStr).getPassword().equals(passwordStr)) {
                         Intent logged = new Intent(LoginPage.this,
                                 DashBoard.class);
                         //logged.putExtra("nome", username.getText().toString()); passaggio dati
                         startActivity(logged);
                     }
-                }else{
-                    loginError.setVisibility(View.VISIBLE);
+                } else {
+                    if(emailStr.length() == 0 || passwordStr.length() == 0){
+                        loginError.setText("Completare tutti i campi");
+                        loginError.setVisibility(View.VISIBLE);
+                    }else{
+                        loginError.setText("Dati errati");
+                        loginError.setVisibility(View.VISIBLE);
+                    }
                 }
+                break;
             }
-        });
+        }
     }
 }
+
