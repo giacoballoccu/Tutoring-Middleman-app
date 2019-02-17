@@ -73,7 +73,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                 if (factory.isEmailInUserList(emailStr)) {
                     if (factory.getUserByEmail(emailStr).getPassword().equals(passwordStr)) {
                         Intent logged = new Intent(LoginPage.this,
-                                DashBoard.class);
+                                MainActivity.class);
                         //logged.putExtra("nome", username.getText().toString()); passaggio dati
                         startActivity(logged);
                     }

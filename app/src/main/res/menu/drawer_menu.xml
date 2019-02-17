@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        tools:showIn="navigation_view>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:actionLayout="@layout/fragment_personal_page"
+            android:icon="@drawable/ic_mieidati"
+            android:title="I miei Dati"
+            android:id="@+id/nav_personalpage"/>
+        <item
+            android:actionLayout="@layout/fragment_dashboard"
+            android:icon="@drawable/ic_bacheca"
+            android:title="Bacheca"
+            android:id="@+id/nav_dashboard"/>
+        <item
+            android:actionLayout="@layout/buy_packages"
+            android:icon="@drawable/ic_comprapachetti"
+            android:title="Compra Pacchetti"
+            android:id="@+id/nav_buyPackages"/>
+        <item
+            android:actionLayout="@layout/fragment_my_reservations"
+            android:icon="@drawable/ic_prenotazioni"
+            android:title="Prenotazioni"
+            android:id="@+id/nav_myReservations"/>
+        <item
+            android:actionLayout="@layout/fragment_contact_us"
+            android:icon="@drawable/ic_contattaci"
+            android:title="Contattaci"
+            android:id="@+id/nav_contactUs"/>
+    </group>
+
+</menu>
