@@ -2,6 +2,9 @@ package com.example.giaco.gerproject;
 
 import android.content.Intent;
 import android.media.Image;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -74,11 +77,10 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                     if (factory.getUserByEmail(emailStr).getPassword().equals(passwordStr)) {
                         UserStudente actualUser = factory.getUserByEmail(emailStr);
 
-                        Intent logged = new Intent(LoginPage.this,
-                                MainActivity.class);
-                        logged.putExtra("actualUser", actualUser);
+                        Intent successfullyLogged = new Intent(LoginPage.this,MainActivity.class);
+                        successfullyLogged.putExtra("actualUser", actualUser);
+                        startActivity(successfullyLogged);
 
-                        startActivity(logged);
                     }
                 } else {
                     if(emailStr.length() == 0 || passwordStr.length() == 0){

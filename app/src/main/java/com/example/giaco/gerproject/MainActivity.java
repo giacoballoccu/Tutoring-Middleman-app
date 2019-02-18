@@ -1,6 +1,7 @@
 package com.example.giaco.gerproject;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -28,6 +29,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        /*Recupero utente*/
+        Intent intent = getIntent();
+        UserStudente loggedUser = intent.getParcelableExtra("actualUser");
+        /*Possiamo recuperare tutti i dati che vogliamo, ora bisogna passare l'utente ai fragment*/
+        String nome = loggedUser.getName();
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("actualUser", loggedUser);
+        // Moving bundle to every fragment present in our application after the loggin
+        DashBoardFragment dashboard = new DashBoardFragment();
+        dashboard.setArguments(bundle);
+
+        BuyPackagesFragment buyPackages = new BuyPackagesFragment();
+        buyPackages.setArguments(bundle);
+
+        ContactUsFragment contactUs = new ContactUsFragment();
+        contactUs.setArguments(bundle);
+
+        MyReservationsFragment myReservations = new MyReservationsFragment();
+        myReservations.setArguments(bundle);
+
+        PersonalPageFragment personalPage = new PersonalPageFragment();
+        personalPage.setArguments(bundle);
 
         /*Device rotation handler*/
         if(savedInstanceState == null){

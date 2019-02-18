@@ -1,6 +1,5 @@
 package com.example.giaco.gerproject;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -40,13 +39,20 @@ public class PersonalPageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("I Miei Dati");
+        UserStudente user =  getArguments().getParcelable("actualUser");
 
+
+        userName = (TextView) view.findViewById(R.id.username);
+        hours = (TextView) view.findViewById(R.id.hours);
         userImg = (ImageView) view.findViewById(R.id.profileImg);
         recharge = (Button) view.findViewById(R.id.rechargeButton);
         editProfile = (Button) view.findViewById(R.id.editButton);
 
-        /*if(TextUtils.isEmpty(userImg)){
-            userImg.setImageBitmap(); //forse dobbiamo usare i bitmap perchè dalla galleria si prendono quelli
+
+        userName.setText("" + user.getName() + " " + user.getSurname() + "");
+        hours.setText("" + user.getHours() + "");
+        /*if(TextUtils.isEmpty(user.getImgSrc())){
+            userImg.setBackgroundResource(R.drawable.emptyImg); //forse dobbiamo usare i bitmap perchè dalla galleria si prendono quelli
         }/*else{
             userImg.setBackground();
         }*/

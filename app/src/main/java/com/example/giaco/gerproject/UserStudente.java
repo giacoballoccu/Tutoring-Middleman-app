@@ -9,17 +9,10 @@ public class UserStudente implements Parcelable {
     private String name;
     private String surname;
     private String imgSrc;
-    private int hours;
+    private String hours;
     private String phone;
 
     public UserStudente(){
-        email = "";
-        password = "";
-        name = "";
-        surname = "";
-        imgSrc = "";
-        hours = 0;
-        phone = "";
     }
 
     public UserStudente(String email, String name, String surname, String password, String phone) {
@@ -28,7 +21,7 @@ public class UserStudente implements Parcelable {
         this.setName(name);
         this.setSurname(surname);
         this.setImgSrc("");
-        this.setHours(0);
+        this.setHours("0");
         this.setPhone(phone);
     }
 
@@ -81,11 +74,11 @@ public class UserStudente implements Parcelable {
         this.imgSrc = imgSrc;
     }
 
-    public int getHours() {
+    public String getHours() {
         return hours;
     }
 
-    public void setHours(int hours) {
+    public void setHours(String hours) {
         this.hours = hours;
     }
 
@@ -95,7 +88,7 @@ public class UserStudente implements Parcelable {
         name = in.readString();
         surname = in.readString();
         imgSrc = in.readString();
-        hours = in.readInt();
+        hours = in.readString();
         phone = in.readString();
     }
 
@@ -111,7 +104,7 @@ public class UserStudente implements Parcelable {
         dest.writeString(name);
         dest.writeString(surname);
         dest.writeString(imgSrc);
-        dest.writeInt(hours);
+        dest.writeString(hours);
         dest.writeString(phone);
     }
 

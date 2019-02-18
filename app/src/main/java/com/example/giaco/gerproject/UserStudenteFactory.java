@@ -19,6 +19,8 @@ public class UserStudenteFactory {
         user1.setEmail("giannithunder@gmail.com");
         user1.setName("Gianni");
         user1.setSurname("Thunder");
+        user1.setImgSrc("");
+        user1.setHours("0");
         user1.setPassword("12345");
         user1.setPhone("3456789012");
 
@@ -29,6 +31,8 @@ public class UserStudenteFactory {
         user2.setEmail("pietropranu@gmail.com");
         user2.setName("Pietro");
         user2.setSurname("Pranu");
+        user2.setImgSrc("");
+        user2.setHours("3");
         user2.setPassword("12345");
         user2.setPhone("0123456789");
 
@@ -38,6 +42,8 @@ public class UserStudenteFactory {
         user3.setEmail("nomail");
         user3.setName("gino");
         user3.setSurname("mandaresu");
+        user3.setImgSrc("");
+        user3.setHours("10");
         user3.setPassword("12345");
         user3.setPhone("0123456789");
 
