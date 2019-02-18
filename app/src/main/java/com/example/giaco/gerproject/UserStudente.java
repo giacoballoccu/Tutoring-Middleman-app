@@ -1,10 +1,15 @@
 package com.example.giaco.gerproject;
 
-public class UserStudente {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class UserStudente implements Parcelable {
     private String email;
     private String password;
     private String name;
     private String surname;
+    private String imgSrc;
+    private int hours;
     private String phone;
 
     public UserStudente(){
@@ -12,6 +17,8 @@ public class UserStudente {
         password = "";
         name = "";
         surname = "";
+        imgSrc = "";
+        hours = 0;
         phone = "";
     }
 
@@ -20,6 +27,8 @@ public class UserStudente {
         this.setPassword(password);
         this.setName(name);
         this.setSurname(surname);
+        this.setImgSrc("");
+        this.setHours(0);
         this.setPhone(phone);
     }
 
@@ -63,4 +72,59 @@ public class UserStudente {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
+    }
+
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    protected UserStudente(Parcel in) {
+        email = in.readString();
+        password = in.readString();
+        name = in.readString();
+        surname = in.readString();
+        imgSrc = in.readString();
+        hours = in.readInt();
+        phone = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(email);
+        dest.writeString(password);
+        dest.writeString(name);
+        dest.writeString(surname);
+        dest.writeString(imgSrc);
+        dest.writeInt(hours);
+        dest.writeString(phone);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<UserStudente> CREATOR = new Parcelable.Creator<UserStudente>() {
+        @Override
+        public UserStudente createFromParcel(Parcel in) {
+            return new UserStudente(in);
+        }
+
+        @Override
+        public UserStudente[] newArray(int size) {
+            return new UserStudente[size];
+        }
+    };
 }
