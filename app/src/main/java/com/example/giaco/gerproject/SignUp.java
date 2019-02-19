@@ -78,7 +78,7 @@ public class SignUp extends AppCompatActivity {
             }
 
             /*Check if the user has insert an email andress*/
-            Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
+            Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[AZa-z0-9.-]+-\\.[A-Za-z]{2,4}");
             Matcher mat = pattern.matcher(emailStr);
 
             if(mat.matches()){

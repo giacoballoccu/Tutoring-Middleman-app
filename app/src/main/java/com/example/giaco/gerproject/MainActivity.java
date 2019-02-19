@@ -14,6 +14,12 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+    BuyPackagesFragment buyPackages;
+    DashBoardFragment dashboard;
+    ContactUsFragment contactUs;
+    MyReservationsFragment myReservations;
+    PersonalPageFragment personalPage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,19 +45,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Bundle bundle = new Bundle();
         bundle.putParcelable("actualUser", loggedUser);
         // Moving bundle to every fragment present in our application after the loggin
-        DashBoardFragment dashboard = new DashBoardFragment();
+        dashboard = new DashBoardFragment();
         dashboard.setArguments(bundle);
 
-        BuyPackagesFragment buyPackages = new BuyPackagesFragment();
+        buyPackages = new BuyPackagesFragment();
         buyPackages.setArguments(bundle);
 
-        ContactUsFragment contactUs = new ContactUsFragment();
+        contactUs = new ContactUsFragment();
         contactUs.setArguments(bundle);
 
-        MyReservationsFragment myReservations = new MyReservationsFragment();
+        myReservations = new MyReservationsFragment();
         myReservations.setArguments(bundle);
 
-        PersonalPageFragment personalPage = new PersonalPageFragment();
+        personalPage = new PersonalPageFragment();
         personalPage.setArguments(bundle);
 
         /*Device rotation handler*/
@@ -66,19 +72,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch(menuItem.getItemId()){
             case R.id.nav_personalpage:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PersonalPageFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage).commit();
                 break;
             case R.id.nav_dashboard:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashBoardFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, dashboard).commit();
                 break;
             case R.id.nav_buyPackages:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BuyPackagesFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, buyPackages).commit();
                 break;
             case R.id.nav_myReservations:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MyReservationsFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, myReservations).commit();
                 break;
             case R.id.nav_contactUs:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactUsFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, contactUs).commit();
                 break;
         }
 
