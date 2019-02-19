@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /*Device rotation handler*/
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashBoardFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashBoardFragment()).addToBackStack(null).commit();
             navigationView.setCheckedItem(R.id.nav_dashboard);
         }
     }
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    /*Disable back button*/
+    /*ORA COME ORA è DISABILITATO SOLO IL BACK DOPO IL LOGGIN(grazie a .addToBackStack(null)), COMPLETAMENTE DISABILITATO DOVREMMO PERMETTERE DI TORNARE ALL'ALTRO FRAME*/
     @Override
     public void onBackPressed() {
 
