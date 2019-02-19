@@ -72,19 +72,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch(menuItem.getItemId()){
             case R.id.nav_personalpage:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage, "Personal Page").commit();
                 break;
             case R.id.nav_dashboard:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, dashboard).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, dashboard, "DashBoard").commit();
                 break;
             case R.id.nav_buyPackages:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, buyPackages).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, buyPackages, "Buy Packages").commit();
                 break;
             case R.id.nav_myReservations:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, myReservations).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, myReservations, "My Reservations").commit();
                 break;
             case R.id.nav_contactUs:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, contactUs).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, contactUs, "Contact Us").commit();
                 break;
         }
 
