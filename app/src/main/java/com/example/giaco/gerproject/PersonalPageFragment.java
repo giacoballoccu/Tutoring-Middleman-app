@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,9 +36,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            this.loggedUser =  getArguments().getParcelable("actualUser");
-        }
         // do your variables initialisations here except Views!!!
     }
 
@@ -55,7 +54,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         recharge = (Button) view.findViewById(R.id.rechargeButton);
         editProfile = (Button) view.findViewById(R.id.editButton);
 
-
+        /*Dynamic data*/
         userName.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         hours.setText("" + loggedUser.getHours() + "");
         if(TextUtils.isEmpty(loggedUser.getImgSrc())){
@@ -65,6 +64,32 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         }/*else{
             userImg.setBackground();
         }*/
+
+        recharge.setOnClickListener(this);
+        editProfile.setOnClickListener(this);
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.rechargeButton: {
+                BuyPackagesFragment clickedFragment = new BuyPackagesFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content, clickedFragment);
+                fragmentTransaction.commit();
+                break;
+            }
+            case R.id.editButton: {
+                EditProfileFragment clickedFragment = new EditProfileFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content, clickedFragment);
+                fragmentTransaction.commit();
+                break;
+            }
+        }
+    }
+
 }
 
