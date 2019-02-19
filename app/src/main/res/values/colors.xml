@@ -9,4 +9,6 @@
     <color name="GreenOff">#48cc92</color>
     <color name="HeavyPurple">#410c37</color>
     <color name="LightPurple">#b39daf</color>
+    <color name="White">#ffffff</color>
+    <color name="black">#000000</color>
 </resources>
