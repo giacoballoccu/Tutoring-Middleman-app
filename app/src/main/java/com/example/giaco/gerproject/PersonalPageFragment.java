@@ -59,7 +59,7 @@ public class PersonalPageFragment extends Fragment {
         userName.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         hours.setText("" + loggedUser.getHours() + "");
         if(TextUtils.isEmpty(loggedUser.getImgSrc())){
-            userImg.setBackgroundResource(R.drawable.emptyimg);
+            //userImg.setBackgroundResource(R.drawable.emptyimg);
             userImg.setMaxWidth(100);
             userImg.setMaxHeight(100); //forse dobbiamo usare i bitmap perchè dalla galleria si prendono quelli
         }/*else{
