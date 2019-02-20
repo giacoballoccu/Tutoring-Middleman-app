@@ -17,8 +17,6 @@ import java.util.ArrayList;
 public class DashBoardFragment extends Fragment {
     LinearLayout mparent;
     LayoutInflater layoutInflater;
-    ImageView avatar;
-    TextView nomeCognome, materia;
     View myView;
 
     UserTutorFactory factory = UserTutorFactory.getInstance();
@@ -44,37 +42,34 @@ public class DashBoardFragment extends Fragment {
                 case "Fisica":
                     myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
                     mparent.addView(myView);
-                    nomeCognome = myView.findViewById(R.id.nomeCognome);
-                    nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
-                    avatar = myView.findViewById(R.id.avatarTutor);
-                    avatar.setImageDrawable(tutorList.get(i).getImage());
-                    materia = myView.findViewById(R.id.materia);
-                    materia.setText("" + tutorList.get(i).getMateria() + "");
+                    updatePostit(tutorList.get(i), myView);
                     break;
                 case "Informatica":
                     myView = layoutInflater.inflate(R.layout.postitred, null, false);
                     mparent.addView(myView);
-                    nomeCognome = myView.findViewById(R.id.nomeCognome);
-                    nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
-                    avatar = myView.findViewById(R.id.avatarTutor);
-                    avatar.setImageDrawable(tutorList.get(i).getImage());
-                    materia = myView.findViewById(R.id.materia);
-                    materia.setText("" + tutorList.get(i).getMateria() + "");
+                    updatePostit(tutorList.get(i), myView);
                     break;
                 case "Matematica":
                     myView = layoutInflater.inflate(R.layout.postitblue, null, false);
                     mparent.addView(myView);
-                    nomeCognome = myView.findViewById(R.id.nomeCognome);
-                    nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
-                    materia = myView.findViewById(R.id.materia);
-                    avatar = myView.findViewById(R.id.avatarTutor);
-                    avatar.setImageDrawable(tutorList.get(i).getImage());
-                    materia.setText("" + tutorList.get(i).getMateria() + "");
+                    updatePostit(tutorList.get(i), myView);
                     break;
             }
 
         }
 
+    }
+
+    public void updatePostit (UserTutor tutor, View myView){
+        ImageView avatar;
+        TextView nomeCognome, materia;
+
+        nomeCognome = myView.findViewById(R.id.nomeCognome);
+        nomeCognome.setText("" + tutor.getName() + " " + tutor.getSurname() + "");
+        avatar = myView.findViewById(R.id.avatarTutor);
+        avatar.setImageDrawable(tutor.getImage());
+        materia = myView.findViewById(R.id.materia);
+        materia.setText("" + tutor.getMateria() + "");
     }
 
 
