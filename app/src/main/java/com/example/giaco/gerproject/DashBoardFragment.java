@@ -21,4 +21,6 @@ public class DashBoardFragment extends Fragment {
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Bacheca");
     }
+
+
 }
