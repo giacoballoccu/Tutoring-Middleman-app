@@ -1,5 +1,7 @@
 package com.example.giaco.gerproject.Classes;
 
+import java.util.ArrayList;
+
 public class Feedback {
     private String titolo;
     private String descrizione;
@@ -96,4 +98,6 @@ public class Feedback {
     public void setProfessore(UserTutor professore) {
         this.professore = professore;
     }
+
+
 }
