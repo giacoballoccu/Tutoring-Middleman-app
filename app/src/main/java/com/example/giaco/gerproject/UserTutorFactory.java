@@ -25,7 +25,7 @@ public class UserTutorFactory {
         user1.setPassword("12345");
         user1.setPhone("1234567890");
         user1.setMateria("Informatica");
-        
+
         getUserList().add(user1);
 
         UserTutor user2 = new UserTutor();
@@ -38,6 +38,17 @@ public class UserTutorFactory {
         user2.setMateria("Matematica");
 
         getUserList().add(user2);
+
+        UserTutor user3 = new UserTutor();
+        user3.setEmail("gigifinizzi@gmail.com");
+        user3.setName("Gigi");
+        user3.setSurname("Finizio");
+        user3.setImgSrc("");
+        user3.setPassword("12345");
+        user3.setPhone("1234567821");
+        user3.setMateria("Fisica");
+
+        getUserList().add(user3);
     }
 
     public ArrayList<UserTutor> getUserList() {
