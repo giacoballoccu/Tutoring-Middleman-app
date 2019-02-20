@@ -93,9 +93,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    /*ORA COME ORA è DISABILITATO SOLO IL BACK DOPO IL LOGGIN(grazie a .addToBackStack(null)), COMPLETAMENTE DISABILITATO DOVREMMO PERMETTERE DI TORNARE ALL'ALTRO FRAME*/
-    @Override
-    public void onBackPressed() {
 
-    }
 }
