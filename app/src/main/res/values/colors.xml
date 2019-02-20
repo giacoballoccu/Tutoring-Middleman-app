@@ -13,4 +13,6 @@
     <color name="black">#000000</color>
     <color name="blackGrey">#151515</color>
     <color name="rossoinformatica">#CC0000</color>
+    <color name="greenfisica">#009A6C</color>
+    <color name="bluematematica">#3848DC</color>
 </resources>

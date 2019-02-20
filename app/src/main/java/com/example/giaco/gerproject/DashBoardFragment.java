@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -41,7 +40,7 @@ public class DashBoardFragment extends Fragment {
         for(int i = 0; i < tutorList.size() ; i++) {
             switch (tutorList.get(i).getMateria()){
                 case "Fisica":
-                    myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                    myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
                     mparent.addView(myView);
                     nomeCognome = myView.findViewById(R.id.nomeCognome);
                     nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
@@ -57,7 +56,7 @@ public class DashBoardFragment extends Fragment {
                     materia.setText("" + tutorList.get(i).getMateria() + "");
                     break;
                 case "Matematica":
-                    myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                    myView = layoutInflater.inflate(R.layout.postitblue, null, false);
                     mparent.addView(myView);
                     nomeCognome = myView.findViewById(R.id.nomeCognome);
                     nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
