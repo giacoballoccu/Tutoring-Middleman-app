@@ -1,8 +1,11 @@
-package com.example.giaco.gerproject;
+package com.example.giaco.gerproject.Classes;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.res.ResourcesCompat;
+
+import com.example.giaco.gerproject.ApplicationContextProvider;
+import com.example.giaco.gerproject.R;
 
 import java.util.ArrayList;
 
