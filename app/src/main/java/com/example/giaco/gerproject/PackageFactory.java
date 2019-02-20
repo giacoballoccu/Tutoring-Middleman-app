@@ -22,14 +22,14 @@ public class PackageFactory {
         Context context = ApplicationContextProvider.getContext();
 
         Package pack1 = new Package();
-        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.libroarrabbiato, null);
+        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.unlibro , null);
         pack1.setImage(img1);
 
         getPackages().add(pack1);
 
         Package pack2 = new Package();
 
-        Drawable img2 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.libroprincipe, null);
+        Drawable img2 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.trelibri, null);
         pack1.setImage(img2);
 
         getPackages().add(pack2);
