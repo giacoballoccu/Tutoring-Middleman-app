@@ -51,7 +51,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="115" />
+                                                <entry key="scalingPercent" value="113" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -63,9 +63,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="$PROJECT_DIR$/../EnricoCarlo.png" />
-                                      <entry key="foregroundLayerName" value="ernioavatar" />
-                                      <entry key="outputName" value="ernioavatar1" />
+                                      <entry key="foregroundImage" value="$PROJECT_DIR$/../emptyimg.png" />
+                                      <entry key="foregroundLayerName" value="emptyimg" />
+                                      <entry key="outputName" value="emptyimg1" />
                                     </map>
                                   </option>
                                 </PersistentState>
