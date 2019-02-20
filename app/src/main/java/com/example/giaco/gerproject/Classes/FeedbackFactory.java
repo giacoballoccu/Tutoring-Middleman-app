@@ -59,4 +59,12 @@ public class FeedbackFactory {
         }
         return feedbackList;
     }
+
+    public int getVotoTotaleMedio (ArrayList<Feedback> feedbacks){
+        int votoMedio = 0;
+        for(int i = 1; i <= feedbacks.size(); i++){
+            votoMedio = votoMedio + feedbacks.get(i).getVotoMedio();
+        }
+        return votoMedio/(feedbacks.size()+1);
+    }
 }

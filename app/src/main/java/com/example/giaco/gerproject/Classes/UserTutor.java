@@ -1,9 +1,11 @@
 package com.example.giaco.gerproject.Classes;
 
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
-public class UserTutor {
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class UserTutor{
     private String email;
     private String password;
     private String name;
@@ -11,11 +13,15 @@ public class UserTutor {
     private Drawable image;
     private String phone;
     private String materia;
+    private String citta;
+    private String indirizzo;
+    private ArrayList<Feedback> feedbacks;
+    private int votoTotaleMedio;
 
     public UserTutor(){
     }
 
-    public UserTutor(String email, String name, String surname, String password, String phone, Drawable image, String materia) {
+    public UserTutor(String email, String name, String surname, String password, String phone, Drawable image, String materia, String citta, String indirizzo, ArrayList<Feedback> feedbacks, int votoTotaleMedio) {
         this.setEmail(email);
         this.setPassword(password);
         this.setName(name);
@@ -23,6 +29,10 @@ public class UserTutor {
         this.setImage(image);
         this.setPhone(phone);
         this.setMateria(materia);
+        this.setCitta(citta);
+        this.setIndirizzo(indirizzo);
+        this.setFeedbacks(feedbacks);
+        this.setVotoTotaleMedio(votoTotaleMedio);
     }
 
     public String getEmail() {
@@ -84,4 +94,38 @@ public class UserTutor {
     public Drawable getImage() {
         return image;
     }
+
+    public String getIndirizzo() {
+        return indirizzo;
+    }
+
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
+    }
+
+    public String getCitta() {
+        return citta;
+    }
+
+    public void setCitta(String citta) {
+        this.citta = citta;
+    }
+
+
+    public ArrayList<Feedback> getFeedbacks() {
+        return feedbacks;
+    }
+
+    public void setFeedbacks(ArrayList<Feedback> feedbacks) {
+        this.feedbacks = feedbacks;
+    }
+
+    public int getVotoTotaleMedio() {
+        return votoTotaleMedio;
+    }
+
+    public void setVotoTotaleMedio(int votoTotaleMedio) {
+        this.votoTotaleMedio = votoTotaleMedio;
+    }
+
 }

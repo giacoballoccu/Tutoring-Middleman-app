@@ -91,5 +91,10 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }
 
