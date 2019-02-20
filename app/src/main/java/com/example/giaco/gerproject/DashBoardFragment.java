@@ -36,12 +36,12 @@ public class DashBoardFragment extends Fragment {
 
 
         for(int i = 0; i < tutorList.size() ; i++) {
+            View myView = layoutInflater.inflate(R.layout.postitred, null, false);
+            mparent.addView(myView);
             nomeCognome = view.findViewById(R.id.nomeCognome);
             nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
             materia = view.findViewById(R.id.materia);
             materia.setText("" + tutorList.get(i).getMateria() + "");
-            View myView = layoutInflater.inflate(R.layout.postitred, null, false);
-            mparent.addView(myView);
         }
 
     }

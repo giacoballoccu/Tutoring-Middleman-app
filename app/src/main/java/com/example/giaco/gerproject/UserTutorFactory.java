@@ -24,7 +24,8 @@ public class UserTutorFactory {
         user1.setImgSrc("");
         user1.setPassword("12345");
         user1.setPhone("1234567890");
-
+        user1.setMateria("Informatica");
+        
         getUserList().add(user1);
 
         UserTutor user2 = new UserTutor();
@@ -34,6 +35,7 @@ public class UserTutorFactory {
         user2.setImgSrc("");
         user2.setPassword("12345");
         user2.setPhone("0987654321");
+        user2.setMateria("Matematica");
 
         getUserList().add(user2);
     }
