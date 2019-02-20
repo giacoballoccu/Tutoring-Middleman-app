@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/redpostit"></ImageView>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/avatarTutor"
         android:layout_width="97dp"
         android:layout_height="97dp"
         android:layout_alignStart="@+id/imageView"

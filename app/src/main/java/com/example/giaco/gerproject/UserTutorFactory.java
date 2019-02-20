@@ -54,4 +54,13 @@ public class UserTutorFactory {
         }
         return null;
     }
+
+    public UserTutor getUserByMateria(String materia) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getMateria().equals(materia)) {
+                return userList.get(i);
+            }
+        }
+        return null;
+    }
 }

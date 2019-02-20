@@ -9,10 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class DashBoardFragment extends Fragment {
     LinearLayout mparent;
     LayoutInflater layoutInflater;
+    TextView nomeCognome, materia;
+    UserTutorFactory factory = UserTutorFactory.getInstance();
+    ArrayList<UserTutor> tutorList = factory.getUserList();
 
     @Nullable
     @Override
@@ -28,8 +34,12 @@ public class DashBoardFragment extends Fragment {
         mparent = view.findViewById(R.id.mparent);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        //giusto per test purpose.
-        for(int i = 0; i < 10 ; i++) {
+
+        for(int i = 0; i < tutorList.size() ; i++) {
+            nomeCognome = view.findViewById(R.id.nomeCognome);
+            nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
+            materia = view.findViewById(R.id.materia);
+            materia.setText("" + tutorList.get(i).getMateria() + "");
             View myView = layoutInflater.inflate(R.layout.postitred, null, false);
             mparent.addView(myView);
         }
