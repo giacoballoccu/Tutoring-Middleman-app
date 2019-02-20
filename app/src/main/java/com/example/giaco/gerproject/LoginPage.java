@@ -1,19 +1,15 @@
 package com.example.giaco.gerproject;
 
 import android.content.Intent;
-import android.media.Image;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.giaco.gerproject.Classes.UserStudente;
+import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 
 public class LoginPage extends AppCompatActivity implements View.OnClickListener {
 

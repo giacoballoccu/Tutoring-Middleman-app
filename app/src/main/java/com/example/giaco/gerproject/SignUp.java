@@ -10,7 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.example.giaco.gerproject.Classes.UserStudente;
+import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

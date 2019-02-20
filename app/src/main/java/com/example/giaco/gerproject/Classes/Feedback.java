@@ -1,4 +1,4 @@
-package com.example.giaco.gerproject;
+package com.example.giaco.gerproject.Classes;
 
 public class Feedback {
     private String titolo;

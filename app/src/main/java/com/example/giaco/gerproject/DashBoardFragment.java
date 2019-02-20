@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.giaco.gerproject.Classes.UserTutor;
+import com.example.giaco.gerproject.Classes.UserTutorFactory;
+
 import java.util.ArrayList;
 
 public class DashBoardFragment extends Fragment {

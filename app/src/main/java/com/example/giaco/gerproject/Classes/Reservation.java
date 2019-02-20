@@ -1,4 +1,7 @@
-package com.example.giaco.gerproject;
+package com.example.giaco.gerproject.Classes;
+
+import com.example.giaco.gerproject.Classes.UserStudente;
+import com.example.giaco.gerproject.Classes.UserTutor;
 
 import java.util.Calendar;
 
