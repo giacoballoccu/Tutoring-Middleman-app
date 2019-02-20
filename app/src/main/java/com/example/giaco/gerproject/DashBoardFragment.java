@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class DashBoardFragment extends Fragment {
     LinearLayout mparent;
     LayoutInflater layoutInflater;
+    ImageView avatar;
     TextView nomeCognome, materia;
     View myView;
 
@@ -44,6 +46,8 @@ public class DashBoardFragment extends Fragment {
                     mparent.addView(myView);
                     nomeCognome = myView.findViewById(R.id.nomeCognome);
                     nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
+                    avatar = myView.findViewById(R.id.avatarTutor);
+                    avatar.setImageDrawable(tutorList.get(i).getImage());
                     materia = myView.findViewById(R.id.materia);
                     materia.setText("" + tutorList.get(i).getMateria() + "");
                     break;
@@ -52,6 +56,8 @@ public class DashBoardFragment extends Fragment {
                     mparent.addView(myView);
                     nomeCognome = myView.findViewById(R.id.nomeCognome);
                     nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
+                    avatar = myView.findViewById(R.id.avatarTutor);
+                    avatar.setImageDrawable(tutorList.get(i).getImage());
                     materia = myView.findViewById(R.id.materia);
                     materia.setText("" + tutorList.get(i).getMateria() + "");
                     break;
@@ -61,6 +67,8 @@ public class DashBoardFragment extends Fragment {
                     nomeCognome = myView.findViewById(R.id.nomeCognome);
                     nomeCognome.setText("" + tutorList.get(i).getName() + " " + tutorList.get(i).getSurname() + "");
                     materia = myView.findViewById(R.id.materia);
+                    avatar = myView.findViewById(R.id.avatarTutor);
+                    avatar.setImageDrawable(tutorList.get(i).getImage());
                     materia.setText("" + tutorList.get(i).getMateria() + "");
                     break;
             }

@@ -1,25 +1,26 @@
 package com.example.giaco.gerproject;
 
-import java.util.ArrayList;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 
 public class UserTutor {
     private String email;
     private String password;
     private String name;
     private String surname;
-    private String imgSrc;
+    private Drawable image;
     private String phone;
     private String materia;
 
     public UserTutor(){
     }
 
-    public UserTutor(String email, String name, String surname, String password, String phone, String materia) {
+    public UserTutor(String email, String name, String surname, String password, String phone, Drawable image, String materia) {
         this.setEmail(email);
         this.setPassword(password);
         this.setName(name);
         this.setSurname(surname);
-        this.setImgSrc("");
+        this.setImage(image);
         this.setPhone(phone);
         this.setMateria(materia);
     }
@@ -56,13 +57,6 @@ public class UserTutor {
         this.surname = surname;
     }
 
-    public String getImgSrc() {
-        return imgSrc;
-    }
-
-    public void setImgSrc(String imgSrc) {
-        this.imgSrc = imgSrc;
-    }
 
     public String getPhone() {
         return phone;
@@ -79,5 +73,15 @@ public class UserTutor {
 
     public void setMateria(String materia) {
         this.materia = materia;
+    }
+
+
+
+    public void setImage(Drawable image) {
+        this.image = image;
+    }
+
+    public Drawable getImage() {
+        return image;
     }
 }
