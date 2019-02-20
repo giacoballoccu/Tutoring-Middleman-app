@@ -10,113 +10,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/linearLayout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/mparent"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/postit1"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/postit2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.652"
-                app:srcCompat="@drawable/redpostit" />
-
-            <ImageView
-                android:id="@+id/postit2"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/postit3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/postit1"
-                app:srcCompat="@drawable/redpostit" />
-
-            <ImageView
-                android:id="@+id/postit3"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/postit2"
-                app:srcCompat="@drawable/redpostit" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="108dp"
-                android:layout_height="73dp"
-                android:text="Enrico Carlo"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/postit1"
-                app:layout_constraintEnd_toEndOf="@+id/postit1"
-                app:layout_constraintHorizontal_bias="0.864"
-                app:layout_constraintStart_toStartOf="@+id/postit1"
-                app:layout_constraintTop_toTopOf="@+id/postit1"
-                app:layout_constraintVertical_bias="0.303" />
-
-            <ImageView
-                android:id="@+id/postit4"
-                android:layout_width="116dp"
-                android:layout_height="119dp"
-                app:layout_constraintBottom_toBottomOf="@+id/postit1"
-                app:layout_constraintEnd_toEndOf="@+id/postit1"
-                app:layout_constraintHorizontal_bias="0.108"
-                app:layout_constraintStart_toStartOf="@+id/postit1"
-                app:layout_constraintTop_toTopOf="@+id/postit1"
-                app:layout_constraintVertical_bias="0.264"
-                app:srcCompat="@mipmap/ernioavatar1_round" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="172dp"
-                android:layout_height="40dp"
-                android:fontFamily="sans-serif-smallcaps"
-                android:text="Informatica"
-                android:textColor="@color/colorAccent"
-                android:textSize="30dp"
-                app:layout_constraintBottom_toBottomOf="@+id/postit1"
-                app:layout_constraintEnd_toEndOf="@+id/postit1"
-                app:layout_constraintStart_toStartOf="@+id/postit1"
-                app:layout_constraintTop_toTopOf="@+id/postit1"
-                app:layout_constraintVertical_bias="0.957" />
-
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
     </ScrollView>
 
 

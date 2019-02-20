@@ -11,4 +11,6 @@
     <color name="LightPurple">#b39daf</color>
     <color name="White">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="blackGrey">#151515</color>
+    <color name="rossoinformatica">#CC0000</color>
 </resources>
