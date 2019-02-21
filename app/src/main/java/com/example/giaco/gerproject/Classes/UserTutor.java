@@ -3,6 +3,7 @@ package com.example.giaco.gerproject.Classes;
 import android.graphics.drawable.Drawable;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 
 public class UserTutor{
@@ -15,6 +16,7 @@ public class UserTutor{
     private String materia;
     private String citta;
     private String indirizzo;
+    private ArrayList<Calendar> disponibilita;
     private ArrayList<Feedback> feedbacks;
     private int votoTotaleMedio;
 
@@ -31,8 +33,9 @@ public class UserTutor{
         this.setMateria(materia);
         this.setCitta(citta);
         this.setIndirizzo(indirizzo);
-       // this.setFeedbacks(feedbacks);
-        //this.setVotoTotaleMedio(votoTotaleMedio);
+        this.disponibilita = new ArrayList<>();
+        this.setFeedbacks(feedbacks);
+        this.setVotoTotaleMedio(votoTotaleMedio);
     }
 
     public String getEmail() {
@@ -128,20 +131,11 @@ public class UserTutor{
     }
 
 
-   /* public ArrayList<Feedback> getFeedbacks() {
-        return feedbacks;
+    public ArrayList<Calendar> getDisponibilita() {
+        return disponibilita;
     }
 
-    public void setFeedbacks(ArrayList<Feedback> feedbacks) {
-        this.feedbacks = feedbacks;
+    public void setDisponibilita(ArrayList<Calendar> disponibilita) {
+        this.disponibilita = disponibilita;
     }
-
-    public int getVotoTotaleMedio() {
-        return votoTotaleMedio;
-    }
-
-    public void setVotoTotaleMedio(int votoTotaleMedio) {
-        this.votoTotaleMedio = votoTotaleMedio;
-    }*/
-
 }

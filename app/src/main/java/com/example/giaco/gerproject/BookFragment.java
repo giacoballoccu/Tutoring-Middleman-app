@@ -54,7 +54,6 @@ public class BookFragment extends Fragment {
         nomeCognome = (TextView) view.findViewById(R.id.nome_cognome_prenotazione);
         materia = (TextView) view.findViewById(R.id.materia_prenotazione);
         indirizzo = (TextView) view.findViewById(R.id.indirizzo_residenza_prenotazione);
-        data_prenotazione = (TextView) view.findViewById(R.id.data_prenotazione);
 
         nomeCognome.setText("" + chosenTutor.getName() + " " + chosenTutor.getSurname() + "");
         materia.setText("" + chosenTutor.getMateria() + "");
