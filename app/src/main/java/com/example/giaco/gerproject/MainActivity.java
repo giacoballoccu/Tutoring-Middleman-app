@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         UserStudenteFactory factory = UserStudenteFactory.getInstance();
         UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
 
-        avatarMenu.setImageDrawable(resize(loggedUser.getImage()));
+        avatarMenu.setImageDrawable(loggedUser.getImage());
 
         nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
 
@@ -117,10 +117,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private Drawable resize(Drawable image) {
-        Bitmap b = ((BitmapDrawable)image).getBitmap();
-        Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 50, 50, false);
-        Context context = ApplicationContextProvider.getContext();
-        return new BitmapDrawable(context.getResources(), bitmapResized);
-    }
 }
