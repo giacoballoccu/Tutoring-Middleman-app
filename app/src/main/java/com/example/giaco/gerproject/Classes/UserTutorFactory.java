@@ -39,6 +39,8 @@ public class UserTutorFactory {
         user1.setMateria("Informatica");
         user1.setCitta("Cagliari");
         user1.setIndirizzo("Via roma 37");
+        user1.setFeedbacks(new ArrayList<Feedback>());
+        user1.setVotoTotaleMedio(0);
         //user1.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user1.getEmail()));
         //user1.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user1.getEmail())));
 
@@ -55,6 +57,8 @@ public class UserTutorFactory {
         user2.setMateria("Matematica");
         user2.setCitta("Cagliari");
         user2.setIndirizzo("Via Marengo 45");
+        user2.setFeedbacks(new ArrayList<Feedback>());
+        user2.setVotoTotaleMedio(0);
         //user2.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user2.getEmail()));
         //user2.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user2.getEmail())));
 
@@ -72,6 +76,8 @@ public class UserTutorFactory {
         user3.setMateria("Fisica");
         user3.setCitta("Cagliari");
         user3.setIndirizzo("Via Marengo 45");
+        user3.setFeedbacks(new ArrayList<Feedback>());
+        user3.setVotoTotaleMedio(0);
         //user3.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user3.getEmail()));
         //user3.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user3.getEmail())));
 
