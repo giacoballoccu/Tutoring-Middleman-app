@@ -1,6 +1,8 @@
 package com.example.giaco.gerproject.Classes;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -100,7 +102,6 @@ public class UserStudente{
     public void setImage(Drawable image) {
         this.image = image;
     }
-
 
 
 }

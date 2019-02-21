@@ -1,6 +1,10 @@
 package com.example.giaco.gerproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -77,9 +81,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         UserStudenteFactory factory = UserStudenteFactory.getInstance();
         UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
 
-        avatarMenu.setImageDrawable(loggedUser.getImage());
-        avatarMenu.setMaxWidth(50);
-        avatarMenu.setMaxHeight(50);
+        avatarMenu.setImageDrawable(resize(loggedUser.getImage()));
+
         nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
 
         /*Device rotation handler*/
@@ -114,5 +117,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
+    private Drawable resize(Drawable image) {
+        Bitmap b = ((BitmapDrawable)image).getBitmap();
+        Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 50, 50, false);
+        Context context = ApplicationContextProvider.getContext();
+        return new BitmapDrawable(context.getResources(), bitmapResized);
+    }
 }
