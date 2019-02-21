@@ -61,9 +61,9 @@
         android:textColor="@color/blackGrey"/>
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/stelle"
+        android:layout_width="196dp"
+        android:layout_height="48dp"
         android:layout_alignStart="@+id/imageView"
         android:layout_alignLeft="@+id/imageView"
         android:layout_alignTop="@+id/imageView"
@@ -73,9 +73,9 @@
         android:layout_marginStart="102dp"
         android:layout_marginLeft="102dp"
         android:layout_marginTop="203dp"
-        android:layout_marginEnd="258dp"
-        android:layout_marginRight="258dp"
-        android:layout_marginBottom="89dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginRight="113dp"
+        android:layout_marginBottom="91dp"
         app:srcCompat="@drawable/quattrostelle" />
 
     <TextView

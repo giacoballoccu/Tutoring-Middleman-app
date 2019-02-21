@@ -1,5 +1,12 @@
 package com.example.giaco.gerproject.Classes;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.res.ResourcesCompat;
+
+import com.example.giaco.gerproject.ApplicationContextProvider;
+import com.example.giaco.gerproject.R;
+
 import java.util.ArrayList;
 
 public class UserStudenteFactory {
@@ -19,7 +26,9 @@ public class UserStudenteFactory {
         user1.setEmail("giannithunder@gmail.com");
         user1.setName("Gianni");
         user1.setSurname("Thunder");
-        user1.setImgSrc("");
+        Context context = ApplicationContextProvider.getContext();
+        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
+        user1.setImage(img1);
         user1.setHours("0");
         user1.setPassword("12345");
         user1.setPhone("3456789012");
@@ -31,7 +40,8 @@ public class UserStudenteFactory {
         user2.setEmail("pietropranu@gmail.com");
         user2.setName("Pietro");
         user2.setSurname("Pranu");
-        user2.setImgSrc("");
+        Drawable img2 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
+        user2.setImage(img2);
         user2.setHours("3");
         user2.setPassword("12345");
         user2.setPhone("0123456789");
@@ -42,7 +52,8 @@ public class UserStudenteFactory {
         user3.setEmail("nomail");
         user3.setName("gino");
         user3.setSurname("mandaresu");
-        user3.setImgSrc("");
+        Drawable img3 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.unlibro, null);
+        user1.setImage(img3);
         user3.setHours("10");
         user3.setPassword("12345");
         user3.setPhone("0123456789");
@@ -51,8 +62,8 @@ public class UserStudenteFactory {
     }
 
 
-    public void addUserToFactory(String email, String name, String surname, String password, String phonenumber) {
-        UserStudente user = new UserStudente(email, name, surname, password, phonenumber);
+    public void addUserToFactory(String email, String name, String surname, String password, String phonenumber, Drawable image) {
+        UserStudente user = new UserStudente(email, name, surname, password, phonenumber, image);
         getUserList().add(user);
     }
 

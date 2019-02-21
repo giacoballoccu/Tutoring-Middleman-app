@@ -64,7 +64,7 @@ public class DashBoardFragment extends Fragment {
     }
 
     public void updatePostit (UserTutor tutor, View myView){
-        ImageView avatar;
+        ImageView avatar, recensioni;
         TextView nomeCognome, materia;
 
         nomeCognome = myView.findViewById(R.id.nomeCognome);

@@ -1,11 +1,14 @@
 package com.example.giaco.gerproject;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.widget.DrawableUtils;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,20 +56,29 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         userName = (TextView) view.findViewById(R.id.username);
         hours = (TextView) view.findViewById(R.id.hours);
         userImg = (ImageView) view.findViewById(R.id.profileImg);
+        //userImg.setImageDrawable(loggedUser.getImage());
         recharge = (Button) view.findViewById(R.id.rechargeButton);
         editProfile = (Button) view.findViewById(R.id.editButton);
 
         /*Dynamic data*/
         userName.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         hours.setText("" + loggedUser.getHours() + "");
-        if(TextUtils.isEmpty(loggedUser.getImgSrc())){
-            userImg.setBackgroundResource(R.mipmap.emptyimg1_round);
+
+
+        if(loggedUser.getImage() == null){
+
+            Context context = ApplicationContextProvider.getContext();
+
+            userImg.setImageDrawable(ResourcesCompat.getDrawable(context.getResources(), R.drawable.altroancora, null));
+            //userImg.setBackgroundResource(R.mipmap.emptyimg1_round);
             userImg.setMaxWidth(100);
             userImg.setMaxHeight(100); //forse dobbiamo usare i bitmap perchè dalla galleria si prendono quelli
         }/*else{
             userImg.setBackground();
         }*/
-
+        else{
+            userImg.setImageDrawable(loggedUser.getImage());
+        }
         recharge.setOnClickListener(this);
         editProfile.setOnClickListener(this);
     }

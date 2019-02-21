@@ -1,28 +1,47 @@
 package com.example.giaco.gerproject.Classes;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.content.res.ResourcesCompat;
+
+import com.example.giaco.gerproject.R;
 
 public class UserStudente implements Parcelable {
     private String email;
     private String password;
     private String name;
     private String surname;
-    private String imgSrc;
+    private Drawable image;
     private String hours;
     private String phone;
 
     public UserStudente(){
     }
 
+    public UserStudente(String email, String name, String surname, String password, String phone, Drawable image) {
+        this.setEmail(email);
+        this.setPassword(password);
+        this.setName(name);
+        this.setSurname(surname);
+        this.setHours("0");
+        this.setPhone(phone);
+        this.setImage(image);
+    }
+
+
     public UserStudente(String email, String name, String surname, String password, String phone) {
         this.setEmail(email);
         this.setPassword(password);
         this.setName(name);
         this.setSurname(surname);
-        this.setImgSrc("");
         this.setHours("0");
         this.setPhone(phone);
+        userImg.setImageDrawable(ResourcesCompat.getDrawable(context.getResources(), R.drawable.altroancora, null));
+        this.setImage().setImageDrawable(ResourcesCompat.getDrawable(context.getResources(), R.drawable.altroancora, null));
+        this.setImage(R.drawable.emptyimg);
     }
 
 
@@ -66,12 +85,12 @@ public class UserStudente implements Parcelable {
         this.phone = phone;
     }
 
-    public String getImgSrc() {
-        return imgSrc;
+    public void setImage(Drawable image) {
+        this.image = image;
     }
 
-    public void setImgSrc(String imgSrc) {
-        this.imgSrc = imgSrc;
+    public Drawable getImage() {
+        return image;
     }
 
     public String getHours() {
@@ -87,9 +106,11 @@ public class UserStudente implements Parcelable {
         password = in.readString();
         name = in.readString();
         surname = in.readString();
-        imgSrc = in.readString();
         hours = in.readString();
         phone = in.readString();
+        Bitmap bitmap = (Bitmap) ((BitmapDrawable) image).getBitmap();
+
+        in.writeParcelable(bitmap, 1);
     }
 
     @Override
@@ -103,7 +124,6 @@ public class UserStudente implements Parcelable {
         dest.writeString(password);
         dest.writeString(name);
         dest.writeString(surname);
-        dest.writeString(imgSrc);
         dest.writeString(hours);
         dest.writeString(phone);
     }

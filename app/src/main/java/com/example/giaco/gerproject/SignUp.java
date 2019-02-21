@@ -143,7 +143,7 @@ public class SignUp extends AppCompatActivity {
                 phone.setError("Questo campo non può essere vuoto");
             }
 
-            /*Check if the input is a telephon number (10 digits) and only digits*/
+            /*Check if the input is a telephone number (10 digits) and only digits*/
             if(TextUtils.isDigitsOnly(phoneStr) || phoneStr.length() == 10){
                 phone.setError("Inserire un numero di telefono valido");
             }

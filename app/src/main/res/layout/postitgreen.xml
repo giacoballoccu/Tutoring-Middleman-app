@@ -61,7 +61,7 @@
         android:textColor="@color/blackGrey"/>
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/stelle"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignStart="@+id/imageView"
