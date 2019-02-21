@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/competenza"
+            android:layout_width="140dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="12dp"
+            android:text="Competenza"
+            android:textSize="24sp"
+            app:fontFamily="sans-serif-light"
+            app:layout_constraintStart_toEndOf="@+id/stella2"
+            app:layout_constraintTop_toBottomOf="@+id/chiarezza" />
+
+        <ImageView
+            android:id="@+id/stella2"
+            android:layout_width="32dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@+id/votocompetenza"
+            app:layout_constraintTop_toBottomOf="@+id/stella1"
+            app:srcCompat="@drawable/stellasingolaparentesi" />
+
+        <TextView
+            android:id="@+id/votocompetenza"
+            android:layout_width="24dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="16dp"
+            android:text="1"
+            android:textSize="30sp"
+            app:fontFamily="serif-monospace"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/votochiarezza" />
+
+        <TextView
+            android:id="@+id/nomecognomefeedbackstatic"
+            android:layout_width="287dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="Nome Cognome"
+            android:textSize="24sp"
+            app:fontFamily="sans-serif-condensed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/recensionifeedbackstatic"
+            android:layout_width="182dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="114dp"
+            android:layout_marginLeft="114dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="115dp"
+            android:layout_marginRight="115dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nomecognomefeedbackstatic"
+            app:srcCompat="@drawable/quattrostelle" />
+
+        <TextView
+            android:id="@+id/votochiarezza"
+            android:layout_width="24dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="32dp"
+            android:text="4"
+            android:textSize="30sp"
+            app:fontFamily="serif-monospace"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recensionifeedbackstatic" />
+
+        <ImageView
+            android:id="@+id/stella1"
+            android:layout_width="32dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toEndOf="@+id/votochiarezza"
+            app:layout_constraintTop_toBottomOf="@+id/recensionifeedbackstatic"
+            app:srcCompat="@drawable/stellasingolaparentesi" />
+
+        <TextView
+            android:id="@+id/chiarezza"
+            android:layout_width="111dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="32dp"
+            android:text="Chiarezza"
+            android:textSize="24sp"
+            app:fontFamily="sans-serif-light"
+            app:layout_constraintStart_toEndOf="@+id/stella1"
+            app:layout_constraintTop_toBottomOf="@+id/recensionifeedbackstatic" />
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/votodisponibilita"
+        android:layout_width="24dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="312dp"
+        android:text="3"
+        android:textSize="30sp"
+        app:fontFamily="serif-monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
+
+    <ImageView
+        android:id="@+id/stella3"
+        android:layout_width="32dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        app:layout_constraintEnd_toStartOf="@+id/Disponibilita"
+        app:layout_constraintStart_toEndOf="@+id/votodisponibilita"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/stellasingolaparentesi" />
+
+    <TextView
+        android:id="@+id/Disponibilita"
+        android:layout_width="140dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="312dp"
+        android:text="Disponibilità"
+        android:textSize="24sp"
+        app:fontFamily="sans-serif-light"
+        app:layout_constraintStart_toEndOf="@+id/stella3"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
+
+</android.support.constraint.ConstraintLayout>
