@@ -25,7 +25,6 @@ public class DashBoardFragment extends Fragment {
     LayoutInflater layoutInflater;
     View myView;
     BookFragment book;
-    String email;
     ImageButton b;
 
     UserTutorFactory factory = UserTutorFactory.getInstance();
@@ -76,7 +75,6 @@ public class DashBoardFragment extends Fragment {
 
         ImageView avatar;
         TextView nomeCognome, materia;
-        email = tutor.getEmail();
 
         nomeCognome = myView.findViewById(R.id.nomeCognome);
         nomeCognome.setText("" + tutor.getName() + " " + tutor.getSurname() + "");
@@ -84,8 +82,11 @@ public class DashBoardFragment extends Fragment {
         avatar.setImageDrawable(tutor.getImage());
         materia = myView.findViewById(R.id.materia);
         materia.setText("" + tutor.getMateria() + "");
+        setOnClick(b,tutor.getEmail());
+    }
 
-        b.setOnClickListener(new View.OnClickListener() {
+    private void setOnClick(final ImageButton btn, final String email){
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -96,7 +97,8 @@ public class DashBoardFragment extends Fragment {
                 FragmentTransaction transaction = fm.beginTransaction();
                 transaction.replace(R.id.fragment_container , book);
                 transaction.commit();
-            }});
+            }
+        });
     }
 
 
