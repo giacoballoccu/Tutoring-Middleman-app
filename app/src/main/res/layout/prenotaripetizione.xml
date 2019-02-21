@@ -63,37 +63,44 @@
         android:layout_height="84dp"
         android:layout_marginStart="104dp"
         android:layout_marginLeft="104dp"
-        android:layout_marginTop="243dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/bluematematica"
         android:text="Prenota"
         android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="sans"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinner_orario"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_orario" />
 
     <Spinner
         android:id="@+id/spinner_data"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
+        android:layout_width="242dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/spinner_orario"
-        app:layout_constraintTop_toBottomOf="@+id/indirizzo_residenza_prenotazione"
-        tools:layout_editor_absoluteX="8dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/indirizzo_residenza_prenotazione" />
 
     <Spinner
         android:id="@+id/spinner_orario"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="396dp" />
+        android:layout_width="238dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="393dp" />
 
 </android.support.constraint.ConstraintLayout>
