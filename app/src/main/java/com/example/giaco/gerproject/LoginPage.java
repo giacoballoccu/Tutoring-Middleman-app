@@ -11,6 +11,7 @@ import android.widget.Toolbar;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
+import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 public class LoginPage extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,7 +25,8 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
     TextView forgottenPass, signUp;
     String emailStr, passwordStr;
 
-    UserStudenteFactory factory = UserStudenteFactory.getInstance();
+    UserStudenteFactory factoryStudente = UserStudenteFactory.getInstance();
+    UserTutorFactory factoryTutor = UserTutorFactory.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

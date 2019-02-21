@@ -29,6 +29,14 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     Button recharge;
     Button editProfile;
 
+    public boolean isTutor() {
+        if (loggedUser.getClass().getSimpleName().equals("UserTutor"))
+            return true;
+        else
+            return false;
+    }
+
+
 
     @Nullable
     @Override
@@ -37,13 +45,37 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         if (getArguments() != null) {
             this.loggedUser = getArguments().getParcelable("actualUser");
         }
-        return inflater.inflate(R.layout.fragment_personal_page, container, false);
+        if (this.isTutor() == false)
+            return inflater.inflate(R.layout.fragment_personal_page, container, false);
+        else return inflater.inflate(R.layout.fragment_tutor_personal_page, container, false);
     }
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // do your variables initialisations here except Views!!!
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.rechargeButton: {
+                BuyPackagesFragment clickedFragment = new BuyPackagesFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content, clickedFragment);
+                fragmentTransaction.commit();
+                break;
+            }
+            case R.id.editButton: {
+                EditProfileFragment clickedFragment = new EditProfileFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content, clickedFragment);
+                fragmentTransaction.commit();
+                break;
+            }
+        }
     }
 
     @Override
@@ -71,28 +103,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
 
         recharge.setOnClickListener(this);
         editProfile.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rechargeButton: {
-                BuyPackagesFragment clickedFragment = new BuyPackagesFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, clickedFragment);
-                fragmentTransaction.commit();
-                break;
-            }
-            case R.id.editButton: {
-                EditProfileFragment clickedFragment = new EditProfileFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, clickedFragment);
-                fragmentTransaction.commit();
-                break;
-            }
-        }
     }
 
     private Drawable resize(Drawable image) {
