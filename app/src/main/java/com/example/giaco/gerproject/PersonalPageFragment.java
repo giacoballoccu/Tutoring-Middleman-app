@@ -20,11 +20,12 @@ import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
+import com.example.giaco.gerproject.Classes.UserTutor;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 public class PersonalPageFragment extends Fragment implements View.OnClickListener {
     private UserStudente loggedStudente;
-    private UserStudente loggedTutor;
+    private UserTutor loggedTutor;
     ImageView userImg;
     String loggedUserMail;
     TextView userName, hours;
@@ -87,19 +88,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("I Miei Dati");
-        if (getArguments() != null) {
-            if(getArguments().getInt("flag") == 0) { //Studente
-                loggedUserMail = getArguments().getString("actualUserMail");
-                loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
-            }
-            else{   //Tutor
-                loggedUserMail = getArguments().getString("actualUserMail");
-                loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
-        }
-           //else
-             //  loggedUser = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
 
-        }
 
         userName = (TextView) view.findViewById(R.id.username);
         hours = (TextView) view.findViewById(R.id.hours);
@@ -107,10 +96,26 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         recharge = (Button) view.findViewById(R.id.rechargeButton);
         editProfile = (Button) view.findViewById(R.id.editButton);
 
-        /*Dynamic data*/
-        userName.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
-        hours.setText("" + loggedUser.getHours() + "");
-        userImg.setImageDrawable(resize(loggedUser.getImage()));
+        if (getArguments() != null) {
+            if(getArguments().getInt("flag") == 0) { //Studente
+                loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
+                /*Dynamic data*/
+                userName.setText("" + loggedStudente.getName() + " " + loggedStudente.getSurname() + "");
+                hours.setText("" + loggedStudente.getHours() + "");
+                userImg.setImageDrawable(resize(loggedStudente.getImage()));
+            }
+            else{   //Tutor
+                loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
+                /*Dynamic data*/
+                userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
+                userImg.setImageDrawable(resize(loggedTutor.getImage()));
+        }
+           //else
+             //  loggedUser = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
+
+        }
+
+
 
 
         recharge.setOnClickListener(this);
