@@ -25,7 +25,7 @@ public class ReservationFactory {
         data1.set(2019, 12, 10, 12, 00);
         reservation1.setProfessore(factoryT.getUserList().get(1));
         reservation1.setData(data1);
-        reservation1.setMateria("Informatica");
+        reservation1.setMateria(factoryT.getUserList().get(1).getMateria());
         getReservations().add(reservation1);
 
         Reservation reservation2 = new Reservation();
@@ -33,7 +33,7 @@ public class ReservationFactory {
         data2.set(2019, 10, 12, 9, 00);
         reservation2.setProfessore(factoryT.getUserList().get(0));
         reservation2.setData(data2);
-        reservation2.setMateria("Matematica");
+        reservation2.setMateria(factoryT.getUserList().get(0).getMateria());
         getReservations().add(reservation2);
 
     }
