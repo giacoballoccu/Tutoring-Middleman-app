@@ -1,5 +1,6 @@
 package com.example.giaco.gerproject.Classes;
 
+import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -8,11 +9,21 @@ public class UserStudente implements Parcelable {
     private String password;
     private String name;
     private String surname;
-    private String imgSrc;
+    private Drawable image;
     private String hours;
     private String phone;
 
     public UserStudente(){
+    }
+
+    public UserStudente(String email, String name, String surname, String password, String phone, Drawable image) {
+        this.setEmail(email);
+        this.setPassword(password);
+        this.setName(name);
+        this.setSurname(surname);
+        this.setImage(image);
+        this.setHours("0");
+        this.setPhone(phone);
     }
 
     public UserStudente(String email, String name, String surname, String password, String phone) {
@@ -20,7 +31,7 @@ public class UserStudente implements Parcelable {
         this.setPassword(password);
         this.setName(name);
         this.setSurname(surname);
-        this.setImgSrc("");
+        this.setImage(null);
         this.setHours("0");
         this.setPhone(phone);
     }
@@ -66,13 +77,6 @@ public class UserStudente implements Parcelable {
         this.phone = phone;
     }
 
-    public String getImgSrc() {
-        return imgSrc;
-    }
-
-    public void setImgSrc(String imgSrc) {
-        this.imgSrc = imgSrc;
-    }
 
     public String getHours() {
         return hours;
@@ -82,12 +86,20 @@ public class UserStudente implements Parcelable {
         this.hours = hours;
     }
 
+    public Drawable getImage() {
+        return image;
+    }
+
+    public void setImage(Drawable image) {
+        this.image = image;
+    }
+
     protected UserStudente(Parcel in) {
         email = in.readString();
         password = in.readString();
         name = in.readString();
         surname = in.readString();
-        imgSrc = in.readString();
+        //image = (Drawable) in.readValue(Drawable.class.getClassLoader());
         hours = in.readString();
         phone = in.readString();
     }
@@ -103,7 +115,7 @@ public class UserStudente implements Parcelable {
         dest.writeString(password);
         dest.writeString(name);
         dest.writeString(surname);
-        dest.writeString(imgSrc);
+        //dest.writeValue(image);
         dest.writeString(hours);
         dest.writeString(phone);
     }

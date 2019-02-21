@@ -59,14 +59,10 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         /*Dynamic data*/
         userName.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         hours.setText("" + loggedUser.getHours() + "");
-        if(TextUtils.isEmpty(loggedUser.getImgSrc())){
-            userImg.setBackgroundResource(R.mipmap.emptyimg1_round);
-            userImg.setMaxWidth(100);
-            userImg.setMaxHeight(100); //forse dobbiamo usare i bitmap perchè dalla galleria si prendono quelli
-        }/*else{
-            userImg.setBackground();
-        }*/
-
+        /*userImg.setImageDrawable(loggedUser.getImage());
+        userImg.setMaxWidth(100);
+        userImg.setMaxHeight(100);
+*/
         recharge.setOnClickListener(this);
         editProfile.setOnClickListener(this);
     }
