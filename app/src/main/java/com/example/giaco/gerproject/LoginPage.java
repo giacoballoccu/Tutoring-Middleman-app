@@ -76,7 +76,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                         UserStudente actualUser = factory.getUserByEmail(emailStr);
 
                         Intent successfullyLogged = new Intent(LoginPage.this,MainActivity.class);
-                        successfullyLogged.putExtra("actualUser", actualUser);
+                        successfullyLogged.putExtra("actualUserMail", actualUser.getEmail());
                         startActivity(successfullyLogged);
                         finish();
                     }

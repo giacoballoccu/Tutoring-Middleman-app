@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
+import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -43,12 +44,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /*Recupero utente*/
         Intent intent = getIntent();
-        UserStudente loggedUser = intent.getParcelableExtra("actualUser");
+        String loggedUserMail = intent.getStringExtra("ActualUserMail");
         /*Possiamo recuperare tutti i dati che vogliamo, ora bisogna passare l'utente ai fragment*/
-        String nome = loggedUser.getName();
+
 
         Bundle bundle = new Bundle();
-        bundle.putParcelable("actualUser", loggedUser);
+        bundle.putString("actualUserMail", loggedUserMail);
         // Moving bundle to every fragment present in our application after the loggin
         dashboard = new DashBoardFragment();
         dashboard.setArguments(bundle);
@@ -65,13 +66,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         personalPage = new PersonalPageFragment();
         personalPage.setArguments(bundle);
 
+
         avatarMenu = (ImageView) findViewById(R.id.avatarMenu);
         nomeCognome = (TextView) findViewById(R.id.nomeMenu);
 
-        /*avatarMenu.setImageDrawable(loggedUser.getImage());
+        UserStudenteFactory factory = UserStudenteFactory.getInstance();
+        UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
+
+        avatarMenu.setImageDrawable(loggedUser.getImage());
         avatarMenu.setMaxWidth(100);
         avatarMenu.setMaxHeight(100);
-        nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");*/
+        nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
 
         /*Device rotation handler*/
         if(savedInstanceState == null){
