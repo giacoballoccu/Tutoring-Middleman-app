@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class BuyPackagesFragment extends Fragment {
 
     TextView aux;
-    ImageView img;
     LinearLayout mparent;
     LayoutInflater layoutInflater;
     View myView;
@@ -48,15 +47,29 @@ public class BuyPackagesFragment extends Fragment {
         for (int i = 0; i < packList.size(); i++) {
             myView = layoutInflater.inflate(R.layout.single_pack, null, false);
             mparent.addView(myView);
-            aux = myView.findViewById(R.id.n_ore);
-            aux.setText(packList.get(i).getnOre());
-            aux = myView.findViewById(R.id.prezzo);
-            aux.setText(packList.get(i).getPrezzo()+" €");
-            img = myView.findViewById(R.id.imgpack);
-            if(packList.get(i).getPrezzo()> 4.99f){
-                Drawable myDrawable = getResources().getDrawable(R.drawable.trelibri);
-                img.setImageDrawable(myDrawable);
-            }
+            updatePackage(packList.get(i), myView);
         }
+    }
+
+    public void updatePackage (Package packet, View myView){
+        ImageView img;
+        TextView prezzo, ore;
+        float prezzoF;
+        int oreF;
+
+        prezzo = myView.findViewById(R.id.prezzo);
+        prezzoF = packet.getPrezzo();
+        prezzo.setText(String.valueOf(prezzoF) + " €");
+
+        ore = myView.findViewById(R.id.n_ore);
+        oreF = packet.getnOre();
+        ore.setText(String.valueOf(oreF) + " Ore di ripetizione");
+
+        if(packet.getPrezzo()> 4.99f){
+            Drawable myDrawable = packet.getImage();
+            img = myView.findViewById(R.id.imgpack);
+            img.setImageDrawable(myDrawable);
+        }
+
     }
 }
