@@ -1,11 +1,7 @@
 package com.example.giaco.gerproject.Classes;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.support.v4.content.res.ResourcesCompat;
 
 import com.example.giaco.gerproject.ApplicationContextProvider;
@@ -39,7 +35,7 @@ public class UserStudente{
         this.setName(name);
         this.setSurname(surname);
         Context context = ApplicationContextProvider.getContext();
-        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.emptyimg, null);
+        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.studente_default, null);
         this.setImage(img1);
         this.setHours("0");
         this.setPhone(phone);

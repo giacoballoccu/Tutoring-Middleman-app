@@ -5,10 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.GregorianCalendar;
 
 import com.example.giaco.gerproject.ApplicationContextProvider;
 import com.example.giaco.gerproject.R;
@@ -59,7 +55,7 @@ public class UserTutorFactory {
         user1.setName("Enrico");
         user1.setSurname("Carlo");
         Context context = ApplicationContextProvider.getContext();
-        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
+        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.tutor3, null);
         user1.setImage(img1);
         user1.setPassword("12345");
         user1.setPhone("1234567890");
@@ -78,7 +74,7 @@ public class UserTutorFactory {
         user2.setEmail("antonino@gmail.com");
         user2.setName("Antonino");
         user2.setSurname("Cufaniello");
-        Drawable img2 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.altro, null);
+        Drawable img2 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.tutor1, null);
         user2.setImage(img2);
         user2.setPassword("12345");
         user2.setPhone("0987654321");
@@ -98,7 +94,7 @@ public class UserTutorFactory {
         user3.setEmail("gigifinizzi@gmail.com");
         user3.setName("Gigi");
         user3.setSurname("Finizio");
-        Drawable img3 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.altroancora, null);
+        Drawable img3 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.tutor2, null);
         user3.setImage(img3);
         user3.setPassword("12345");
         user3.setPhone("1234567821");

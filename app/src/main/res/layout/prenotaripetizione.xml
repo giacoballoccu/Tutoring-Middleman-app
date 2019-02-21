@@ -19,11 +19,11 @@
 
     <TextView
         android:id="@+id/nome_cognome_prenotazione"
-        android:layout_width="169dp"
-        android:layout_height="36dp"
+        android:layout_width="162dp"
+        android:layout_height="78dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="44dp"
         android:text="Nome Cognome"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="materia"
         android:textSize="24sp"
         app:fontFamily="sans-serif-light"
