@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /*Recupero utente*/
         Intent intent = getIntent();
-        String loggedUserMail = intent.getStringExtra("ActualUserMail");
+        String loggedUserMail = intent.getStringExtra("actualUserMail");
         /*Possiamo recuperare tutti i dati che vogliamo, ora bisogna passare l'utente ai fragment*/
 
 

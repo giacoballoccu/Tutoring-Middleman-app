@@ -1,10 +1,15 @@
 package com.example.giaco.gerproject.Classes;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.content.res.ResourcesCompat;
 
-public class UserStudente implements Parcelable {
+import com.example.giaco.gerproject.ApplicationContextProvider;
+import com.example.giaco.gerproject.R;
+
+public class UserStudente{
     private String email;
     private String password;
     private String name;
@@ -31,7 +36,9 @@ public class UserStudente implements Parcelable {
         this.setPassword(password);
         this.setName(name);
         this.setSurname(surname);
-        this.setImage(null);
+        Context context = ApplicationContextProvider.getContext();
+        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.emptyimg, null);
+        this.setImage(img1);
         this.setHours("0");
         this.setPhone(phone);
     }
@@ -94,42 +101,6 @@ public class UserStudente implements Parcelable {
         this.image = image;
     }
 
-    protected UserStudente(Parcel in) {
-        email = in.readString();
-        password = in.readString();
-        name = in.readString();
-        surname = in.readString();
-        //image = (Drawable) in.readValue(Drawable.class.getClassLoader());
-        hours = in.readString();
-        phone = in.readString();
-    }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(email);
-        dest.writeString(password);
-        dest.writeString(name);
-        dest.writeString(surname);
-        //dest.writeValue(image);
-        dest.writeString(hours);
-        dest.writeString(phone);
-    }
-
-    @SuppressWarnings("unused")
-    public static final Parcelable.Creator<UserStudente> CREATOR = new Parcelable.Creator<UserStudente>() {
-        @Override
-        public UserStudente createFromParcel(Parcel in) {
-            return new UserStudente(in);
-        }
-
-        @Override
-        public UserStudente[] newArray(int size) {
-            return new UserStudente[size];
-        }
-    };
 }
