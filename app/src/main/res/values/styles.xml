@@ -1,13 +1,19 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="drawerArrowStyle">@style/DrawerIconStyle</item>
         <item name="toolbarStyle">@style/custom_toolbar</item>
+        <item name="android:textColor">@color/blackGrey</item>
+        <item name="android:windowBackground">@color/packgreen</item>
+        <item name="android:colorBackground">@color/packgreen</item>
+        <item name= "android:buttonCornerRadius">10dp</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">

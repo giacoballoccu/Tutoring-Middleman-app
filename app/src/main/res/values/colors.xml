@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff8a65</color>
-    <color name="colorPrimaryDark">#c75b39</color>
-    <color name="colorAccent">#ffbb93</color>
+    <color name="colorPrimary">#9E9E9E</color>
+    <color name="colorPrimaryDark">#616161</color>
+    <color name="colorAccent">#9E9E9E</color>
     <color name="Ivory">#fffff2</color>
     <color name="EletricBlue">#0000ff</color>
     <color name="Yellow">#ffff00</color>
@@ -11,10 +11,10 @@
     <color name="LightPurple">#b39daf</color>
     <color name="White">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="blackGrey">#151515</color>
+    <color name="blackGrey">#212121</color>
     <color name="rossoinformatica">#f44336</color>
     <color name="greenfisica">#64dd17</color>
     <color name="bluematematica">#2196F3</color>
-    <color name="packgreen">#88FCA3</color>
+    <color name="packgreen">#edfff1</color>
     <color name="yellow">#ffe082</color>
 </resources>
