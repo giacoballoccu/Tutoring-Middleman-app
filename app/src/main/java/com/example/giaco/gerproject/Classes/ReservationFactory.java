@@ -23,7 +23,7 @@ public class ReservationFactory {
         Reservation reservation1 = new Reservation();
         Calendar data1 = new GregorianCalendar();
         data1.set(2019, 12, 10, 12, 00);
-        reservation1.setProfessore(new UserTutor()); //NOT SETTATO
+        reservation1.setProfessore(factoryT.getUserList().get(1));
         reservation1.setData(data1);
         reservation1.setMateria("Informatica");
         getReservations().add(reservation1);
@@ -31,7 +31,7 @@ public class ReservationFactory {
         Reservation reservation2 = new Reservation();
         Calendar data2 = new GregorianCalendar();
         data2.set(2019, 10, 12, 9, 00);
-        reservation2.setProfessore(new UserTutor()); //NOT SETTATO
+        reservation2.setProfessore(factoryT.getUserList().get(0));
         reservation2.setData(data2);
         reservation2.setMateria("Matematica");
         getReservations().add(reservation2);

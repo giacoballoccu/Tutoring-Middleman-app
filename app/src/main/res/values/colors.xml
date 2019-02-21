@@ -12,9 +12,9 @@
     <color name="White">#ffffff</color>
     <color name="black">#000000</color>
     <color name="blackGrey">#151515</color>
-    <color name="rossoinformatica">#CC0000</color>
-    <color name="greenfisica">#009A6C</color>
-    <color name="bluematematica">#3848DC</color>
+    <color name="rossoinformatica">#f44336</color>
+    <color name="greenfisica">#64dd17</color>
+    <color name="bluematematica">#2196f3</color>
     <color name="packgreen">#88FCA3</color>
     <color name="yellow">#ffe082</color>
 </resources>
