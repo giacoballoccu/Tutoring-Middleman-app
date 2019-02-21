@@ -1,6 +1,7 @@
 package com.example.giaco.gerproject;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.giaco.gerproject.Classes.Feedback;
+import com.example.giaco.gerproject.Classes.FeedbackFactory;
 import com.example.giaco.gerproject.Classes.UserTutor;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
@@ -26,9 +29,10 @@ public class DashBoardFragment extends Fragment {
     View myView;
     BookFragment book;
     ImageButton b;
-
-    UserTutorFactory factory = UserTutorFactory.getInstance();
-    ArrayList<UserTutor> tutorList = factory.getUserList();
+    ArrayList<Feedback> feedbackList;
+    FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
+    UserTutorFactory userTutorFactory = UserTutorFactory.getInstance();
+    ArrayList<UserTutor> tutorList = userTutorFactory.getUserList();
 
     @Nullable
     @Override
@@ -75,13 +79,49 @@ public class DashBoardFragment extends Fragment {
 
         ImageView avatar;
         TextView nomeCognome, materia;
+        ImageView feedback;
+        int feedback_intero;
+        Drawable zerostelle, unastella, duestelle, trestelle,quattrostelle, cinquestelle;
+        zerostelle = getResources().getDrawable(R.drawable.zerostelle);
+        unastella = getResources().getDrawable(R.drawable.unastella);
+        duestelle = getResources().getDrawable(R.drawable.duestelle);
+        trestelle = getResources().getDrawable(R.drawable.trestelle);
+        quattrostelle = getResources().getDrawable(R.drawable.quattrostelle);
+        cinquestelle = getResources().getDrawable(R.drawable.cinquestelle);
 
         nomeCognome = myView.findViewById(R.id.nomeCognome);
         nomeCognome.setText("" + tutor.getName() + " " + tutor.getSurname() + "");
         avatar = myView.findViewById(R.id.avatarTutor);
         avatar.setImageDrawable(tutor.getImage());
+        feedback = myView.findViewById(R.id.feedback_stelle);
         materia = myView.findViewById(R.id.materia);
         materia.setText("" + tutor.getMateria() + "");
+        feedbackList = feedbackFactory.getFeedbackByTutorMail(tutor.getEmail());
+        if(feedbackList.size() > 0) {
+            feedback_intero = feedbackFactory.getVotoTotaleMedio(feedbackList);
+
+            switch (feedback_intero){
+                case 0 :
+                    feedback.setImageDrawable(zerostelle);
+                    break;
+                case 1 :
+                    feedback.setImageDrawable(unastella);
+                    break;
+                case 2 :
+                    feedback.setImageDrawable(duestelle);
+                    break;
+                case 3 :
+                    feedback.setImageDrawable(trestelle);
+                    break;
+                case 4 :
+                    feedback.setImageDrawable(quattrostelle);
+                    break;
+                case 5 :
+                    feedback.setImageDrawable(cinquestelle);
+                    break;
+         }
+        }
+
         setOnClick(b,tutor.getEmail());
     }
 

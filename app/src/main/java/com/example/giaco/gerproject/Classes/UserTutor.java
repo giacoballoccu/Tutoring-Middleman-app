@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 
 public class UserTutor{
     private String email;
@@ -16,7 +15,7 @@ public class UserTutor{
     private String materia;
     private String citta;
     private String indirizzo;
-    private ArrayList<Calendar> disponibilita;
+    private ArrayList<String> disponibilitaData;
     private ArrayList<Feedback> feedbacks;
     private int votoTotaleMedio;
 
@@ -33,7 +32,7 @@ public class UserTutor{
         this.setMateria(materia);
         this.setCitta(citta);
         this.setIndirizzo(indirizzo);
-        this.disponibilita = new ArrayList<>();
+        this.setDisponibilitaData(new ArrayList<String>());
         this.setFeedbacks(feedbacks);
         this.setVotoTotaleMedio(votoTotaleMedio);
     }
@@ -131,11 +130,12 @@ public class UserTutor{
     }
 
 
-    public ArrayList<Calendar> getDisponibilita() {
-        return disponibilita;
+    public ArrayList<String> getDisponibilitaData() {
+        return disponibilitaData;
     }
 
-    public void setDisponibilita(ArrayList<Calendar> disponibilita) {
-        this.disponibilita = disponibilita;
+    public void setDisponibilitaData(ArrayList<String> disponibilitaData) {
+        this.disponibilitaData = disponibilitaData;
     }
+
 }
