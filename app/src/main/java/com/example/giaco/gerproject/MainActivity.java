@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +37,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        View hView =  navigationView.getHeaderView(0);
+        avatarMenu = (ImageView) hView.findViewById(R.id.avatarMenu);
+        nomeCognome = (TextView) hView.findViewById(R.id.nomeMenu);
+
         navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -67,15 +73,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         personalPage.setArguments(bundle);
 
 
-        avatarMenu = (ImageView) findViewById(R.id.avatarMenu);
-        nomeCognome = (TextView) findViewById(R.id.nomeMenu);
 
         UserStudenteFactory factory = UserStudenteFactory.getInstance();
         UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
 
         avatarMenu.setImageDrawable(loggedUser.getImage());
-        avatarMenu.setMaxWidth(100);
-        avatarMenu.setMaxHeight(100);
+        avatarMenu.setMaxWidth(50);
+        avatarMenu.setMaxHeight(50);
         nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
 
         /*Device rotation handler*/
