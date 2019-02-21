@@ -15,8 +15,8 @@ public class UserTutor{
     private String materia;
     private String citta;
     private String indirizzo;
-   // private ArrayList<Feedback> feedbacks;
-    //private int votoTotaleMedio;
+    private ArrayList<Feedback> feedbacks;
+    private int votoTotaleMedio;
 
     public UserTutor(){
     }
@@ -109,6 +109,22 @@ public class UserTutor{
 
     public void setCitta(String citta) {
         this.citta = citta;
+    }
+
+    public ArrayList<Feedback> getFeedbacks() {
+        return feedbacks;
+    }
+
+    public void setFeedbacks(ArrayList<Feedback> feedbacks) {
+        this.feedbacks = feedbacks;
+    }
+
+    public int getVotoTotaleMedio() {
+        return votoTotaleMedio;
+    }
+
+    public void setVotoTotaleMedio(int votoTotaleMedio) {
+        this.votoTotaleMedio = votoTotaleMedio;
     }
 
 
