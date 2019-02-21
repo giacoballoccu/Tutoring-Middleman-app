@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/avatarTutor"
         android:layout_width="119dp"
         android:layout_height="126dp"
         android:layout_marginStart="28dp"
@@ -28,7 +28,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/avatarTutor"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -41,7 +41,7 @@
         android:text="materia"
         android:textSize="24sp"
         app:fontFamily="sans-serif-light"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/avatarTutor"
         app:layout_constraintTop_toBottomOf="@+id/nome_cognome_prenotazione" />
 
     <TextView
@@ -55,20 +55,7 @@
         android:textSize="24sp"
         app:fontFamily="sans-serif-light"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <EditText
-        android:id="@+id/data_prenotazione"
-        android:layout_width="301dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="date"
-        android:text="Inserire data prenotazione"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/indirizzo_residenza_prenotazione" />
+        app:layout_constraintTop_toBottomOf="@+id/avatarTutor" />
 
     <EditText
         android:id="@+id/editText2"
@@ -76,12 +63,11 @@
         android:layout_height="41dp"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
-        android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="time"
         android:text="Inserire orario prenotazione"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/data_prenotazione" />
+        tools:layout_editor_absoluteY="399dp" />
 
     <Button
         android:id="@+id/button"
@@ -97,5 +83,14 @@
         android:typeface="sans"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <TextView
+        android:id="@+id/data_prenotazione"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELEZIONA UNA DATA"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="318dp" />
 
 </android.support.constraint.ConstraintLayout>
