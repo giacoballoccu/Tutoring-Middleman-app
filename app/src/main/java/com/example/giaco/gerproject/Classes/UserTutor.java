@@ -15,8 +15,8 @@ public class UserTutor{
     private String materia;
     private String citta;
     private String indirizzo;
-    private ArrayList<Feedback> feedbacks;
-    private int votoTotaleMedio;
+   // private ArrayList<Feedback> feedbacks;
+    //private int votoTotaleMedio;
 
     public UserTutor(){
     }
@@ -31,8 +31,8 @@ public class UserTutor{
         this.setMateria(materia);
         this.setCitta(citta);
         this.setIndirizzo(indirizzo);
-        this.setFeedbacks(feedbacks);
-        this.setVotoTotaleMedio(votoTotaleMedio);
+        //this.setFeedbacks(feedbacks);
+        //this.setVotoTotaleMedio(votoTotaleMedio);
     }
 
     public String getEmail() {
@@ -112,7 +112,7 @@ public class UserTutor{
     }
 
 
-    public ArrayList<Feedback> getFeedbacks() {
+    /*public ArrayList<Feedback> getFeedbacks() {
         return feedbacks;
     }
 
@@ -127,5 +127,5 @@ public class UserTutor{
     public void setVotoTotaleMedio(int votoTotaleMedio) {
         this.votoTotaleMedio = votoTotaleMedio;
     }
-
+*/
 }

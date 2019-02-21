@@ -6,7 +6,6 @@ public class Feedback {
     private String titolo;
     private String descrizione;
     private String autore;
-    private UserTutor professore;
     private int votoChiarezza;
     private int votoDisponibilità;
     private int votoCompetenza;
@@ -16,7 +15,6 @@ public class Feedback {
         this.titolo = "";
         this.descrizione = "";
         this.autore = "";
-        this.setProfessore(new UserTutor());
         this.votoChiarezza = 0;
         this.votoCompetenza = 0;
         this.votoDisponibilità = 0;
@@ -28,7 +26,6 @@ public class Feedback {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.autore = autore;
-        this.setProfessore(professore);
         this.votoChiarezza = votoChiarezza;
         this.votoDisponibilità = votoDisponibilità;
         this.votoCompetenza = votoCompetenza;
@@ -91,13 +88,6 @@ public class Feedback {
         this.votoMedio = votoMedio;
     }
 
-    public UserTutor getProfessore() {
-        return professore;
-    }
-
-    public void setProfessore(UserTutor professore) {
-        this.professore = professore;
-    }
 
 
 }
