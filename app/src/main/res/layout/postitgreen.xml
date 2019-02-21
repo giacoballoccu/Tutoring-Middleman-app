@@ -65,22 +65,23 @@
 
     <TextView
         android:id="@+id/materia"
-        android:layout_width="wrap_content"
+        android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView6"
         android:layout_alignStart="@+id/imageButton"
         android:layout_alignLeft="@+id/imageButton"
         android:layout_alignEnd="@+id/imageButton"
         android:layout_alignRight="@+id/imageButton"
-        android:layout_marginStart="145dp"
-        android:layout_marginLeft="145dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="143dp"
-        android:layout_marginRight="143dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
         android:text="materia"
         android:textColor="@color/greenfisica"
         android:textSize="30sp"
-        app:fontFamily="sans-serif-condensed-light" />
+        app:fontFamily="sans-serif-condensed-light"
+        android:gravity="center"/>
 
 
 </RelativeLayout>
