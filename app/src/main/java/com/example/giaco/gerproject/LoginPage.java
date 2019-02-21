@@ -15,6 +15,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
     Button login;
 
+
     EditText email, password;
     Button infoLink;
 

@@ -13,7 +13,6 @@ import com.example.giaco.gerproject.R;
 
 public class UserTutorFactory {
     private static UserTutorFactory singleton;
-    private static FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
     private ArrayList<UserTutor> userList = new ArrayList<>();
 
     public static UserTutorFactory getInstance() {
@@ -27,6 +26,8 @@ public class UserTutorFactory {
     UserTutorFactory() {
 
         UserTutor user1 = new UserTutor();
+       // FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
+
         user1.setEmail("enricoCarlo@gmail.com");
         user1.setName("Enrico");
         user1.setSurname("Carlo");

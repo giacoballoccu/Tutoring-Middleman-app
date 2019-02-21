@@ -31,7 +31,7 @@ public class UserTutor{
         this.setMateria(materia);
         this.setCitta(citta);
         this.setIndirizzo(indirizzo);
-        //this.setFeedbacks(feedbacks);
+       // this.setFeedbacks(feedbacks);
         //this.setVotoTotaleMedio(votoTotaleMedio);
     }
 
@@ -112,7 +112,7 @@ public class UserTutor{
     }
 
 
-    /*public ArrayList<Feedback> getFeedbacks() {
+   /* public ArrayList<Feedback> getFeedbacks() {
         return feedbacks;
     }
 
@@ -126,6 +126,6 @@ public class UserTutor{
 
     public void setVotoTotaleMedio(int votoTotaleMedio) {
         this.votoTotaleMedio = votoTotaleMedio;
-    }
-*/
+    }*/
+
 }

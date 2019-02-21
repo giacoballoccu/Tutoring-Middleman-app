@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ContactUsFragment contactUs;
     MyReservationsFragment myReservations;
     PersonalPageFragment personalPage;
+    ImageView avatarMenu;
+    TextView nomeCognome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         personalPage = new PersonalPageFragment();
         personalPage.setArguments(bundle);
+
+        avatarMenu = (ImageView) findViewById(R.id.avatarMenu);
+        nomeCognome = (TextView) findViewById(R.id.nomeMenu);
+
+        /*avatarMenu.setImageDrawable(loggedUser.getImage());
+        avatarMenu.setMaxWidth(100);
+        avatarMenu.setMaxHeight(100);
+        nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");*/
 
         /*Device rotation handler*/
         if(savedInstanceState == null){
