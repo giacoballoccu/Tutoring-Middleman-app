@@ -46,7 +46,6 @@ public class FeedbackFactory {
     public ArrayList<Feedback> getFeedbacks() {
         return feedbacks;
     }
-
     public void setFeedbacks(ArrayList<Feedback> feedbacks) {
         this.feedbacks = feedbacks;
     }
