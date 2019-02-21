@@ -22,7 +22,7 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 import java.util.ArrayList;
 
-public class DashBoardFragment extends Fragment implements MyListener {
+public class DashBoardFragment extends Fragment{
     LinearLayout mparent;
     LayoutInflater layoutInflater;
     View myView;
@@ -49,34 +49,49 @@ public class DashBoardFragment extends Fragment implements MyListener {
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 
-        for(int i = 0; i < tutorList.size() ; i++) {
+        for(int i = 0; i < tutorList.size(); i++) {
             switch (tutorList.get(i).getMateria()){
+
                 case "Fisica":
                     myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                    myView.setId(i);
                     mparent.addView(myView);
                     b = myView.findViewById(R.id.postitverde);
-                    onClickListener = new MyListener(i);
-                    b.setOnClickListener(onClickListener);
-                    updatePostit(tutorList.get(i), myView);
                     break;
                 case "Informatica":
                     myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                    myView.setId(i);
                     mparent.addView(myView);
                     b = myView.findViewById(R.id.postitrosso);
-                    onClickListener = new MyListener(i);
-                    b.setOnClickListener(onClickListener);
-                    updatePostit(tutorList.get(i), myView);
                     break;
                 case "Matematica":
                     myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                    myView.setId(i);
                     mparent.addView(myView);
                     b = myView.findViewById(R.id.postitblu);
-                    onClickListener = new MyListener(i);
-                    b.setOnClickListener(onClickListener);
-                    updatePostit(tutorList.get(i), myView);
                     break;
             }
 
+            TextView t = myView.findViewById(R.id.emailTutor);
+            t.setText(tutorList.get(i).getEmail());
+
+
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    TextView t = myView.findViewById(R.id.emailTutor);
+                    String email = t.getText().toString();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("email", email);
+                    book = new BookFragment();
+                    book.setArguments(bundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container , book);
+                    transaction.commit();
+                }
+            });
+            updatePostit(tutorList.get(i), myView);
         }
 
     }
@@ -95,19 +110,6 @@ public class DashBoardFragment extends Fragment implements MyListener {
         materia.setText("" + tutor.getMateria() + "");
 
     }
-
-    @Override
-    public void onClick(View v) {
-        Bundle bundle = new Bundle();
-        bundle.putString("email", tutorList.get(this.getN()).getEmail());
-        book = new BookFragment();
-        book.setArguments(bundle);
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
-        transaction.replace(R.id.fragment_container , book);
-        transaction.commit();
-    };
-
 
 
 }

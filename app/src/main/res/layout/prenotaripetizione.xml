@@ -74,10 +74,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerOra" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerData"
         android:layout_width="261dp"
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/indirizzo_residenza_prenotazione" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerOra"
         android:layout_width="264dp"
         android:layout_height="26dp"
         android:layout_marginStart="8dp"
@@ -100,6 +100,6 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerData" />
 
 </android.support.constraint.ConstraintLayout>

@@ -31,20 +31,29 @@ public class UserTutorFactory {
        // FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
 
         /*Disponibilità orarie dei tutor*/
-        ArrayList<Calendar> disponibilitaT1 = new ArrayList<>();
-        ArrayList<Calendar> disponibilitaT2 = new ArrayList<>();
-        ArrayList<Calendar> disponibilitaT3 = new ArrayList<>();
+        String data;
 
-        Calendar data1 = new GregorianCalendar();
+        ArrayList<String> disponibilitaDataT1 = new ArrayList<>();
+        data = "10/03/2019 11:00-12:00";
+        disponibilitaDataT1.add(data);
+        data = "10/03/2019 09:00-10:00";
+        disponibilitaDataT1.add(data);
+        data = "01/03/2019 13:00-14:00";
+        disponibilitaDataT1.add(data);
+        ArrayList<String> disponibilitaDataT2 = new ArrayList<>();
+        data = "02/03/2019 8:30-9:30";
+        disponibilitaDataT2.add(data);
+        data = "30/02/2019 10:00-11:00";
+        disponibilitaDataT2.add(data);
+        data = "02/03/2019 13:00-14:00";
+        disponibilitaDataT2.add(data);
+        ArrayList<String> disponibilitaDataT3 = new ArrayList<>();
+        data = "01/03/2019 15:00-16:00";
+        disponibilitaDataT3.add(data);
+        data = "31/02/2019 17:00-18:00";
+        disponibilitaDataT3.add(data);
 
-        data1.set(2019, 02, 30, 12, 00);
-        disponibilitaT1.add(data1);
 
-        data1.set(2019, 02, 30, 15, 00);
-        disponibilitaT1.add(data1);
-
-        data1.set(2019, 03, 01, 9, 00);
-        disponibilitaT1.add(data1);
 
         user1.setEmail("enricoCarlo@gmail.com");
         user1.setName("Enrico");
@@ -59,23 +68,11 @@ public class UserTutorFactory {
         user1.setIndirizzo("Via roma 37");
         user1.setFeedbacks(new ArrayList<Feedback>());
         user1.setVotoTotaleMedio(0);
-        user1.setDisponibilita(disponibilitaT1);
+        user1.setDisponibilitaData(disponibilitaDataT1);
         //user1.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user1.getEmail()));
         //user1.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user1.getEmail())));
 
         getUserList().add(user1);
-
-        data1.set(2019, 02, 27, 8, 00);
-        disponibilitaT2.add(data1);
-
-        data1.set(2019, 02, 27, 16, 00);
-        disponibilitaT2.add(data1);
-
-        data1.set(2019, 03, 05, 8, 30);
-        disponibilitaT2.add(data1);
-
-        data1.set(2019, 03, 02, 13, 00);
-        disponibilitaT2.add(data1);
 
         UserTutor user2 = new UserTutor();
         user2.setEmail("antonino@gmail.com");
@@ -90,19 +87,12 @@ public class UserTutorFactory {
         user2.setIndirizzo("Via Marengo 45");
         user2.setFeedbacks(new ArrayList<Feedback>());
         user2.setVotoTotaleMedio(0);
-        user2.setDisponibilita(disponibilitaT2);
+        user2.setDisponibilitaData(disponibilitaDataT2);
         //user2.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user2.getEmail()));
         //user2.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user2.getEmail())));
 
 
         getUserList().add(user2);
-
-
-        data1.set(2019, 03, 01, 15, 30);
-        disponibilitaT3.add(data1);
-
-        data1.set(2019, 03, 05, 15, 00);
-        disponibilitaT3.add(data1);
 
         UserTutor user3 = new UserTutor();
         user3.setEmail("gigifinizzi@gmail.com");
@@ -117,7 +107,7 @@ public class UserTutorFactory {
         user3.setIndirizzo("Via Marengo 45");
         user3.setFeedbacks(new ArrayList<Feedback>());
         user3.setVotoTotaleMedio(0);
-        user3.setDisponibilita(disponibilitaT3);
+        user3.setDisponibilitaData(disponibilitaDataT3);
         //user3.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user3.getEmail()));
         //user3.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user3.getEmail())));
 
@@ -171,6 +161,7 @@ public class UserTutorFactory {
         }
         return listToReturn;
     }
+
 
     /*public ArrayList<UserTutor> sortedByFeedback (ArrayList<UserTutor> userList){
         ArrayList<UserTutor> sortedList = new ArrayList<>();

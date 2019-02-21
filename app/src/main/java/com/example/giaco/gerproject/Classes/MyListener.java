@@ -13,7 +13,7 @@ public class MyListener implements View.OnClickListener {
         @Override
         public void onClick(View v)
         {
-            super.
+            //read your lovely variable
         }
 
 
