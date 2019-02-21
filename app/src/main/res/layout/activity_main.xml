@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
-    android:background="@android:color/holo_blue_bright"
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
@@ -21,8 +20,10 @@
             android:background="@color/colorPrimary"
             android:id="@+id/toolbar"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:elevation="4dp"/>
+            app:popupTheme="@style/ThemeOverlay.AppCompat"
+            android:elevation="4dp"
+            app:titleTextColor="@color/blackGrey"
+            />
 
         <FrameLayout
             android:id="@+id/fragment_container"

@@ -16,7 +16,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="13"
-        android:textColor="@color/blackGrey"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +31,6 @@
         android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
         android:text="Ore di ripetizione rimanenti"
-        android:textColor="@color/blackGrey"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/n_ore_rimanenti"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +45,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Pacchetti disponibili:"
-        android:textColor="@color/blackGrey"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.282"

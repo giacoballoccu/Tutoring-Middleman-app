@@ -16,7 +16,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Qui trovi le prenotazioni effettuate o ricevute:"
-        android:textColor="@color/blackGrey"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

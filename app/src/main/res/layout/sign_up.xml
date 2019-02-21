@@ -16,7 +16,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="22dp"
-        android:text="STUPIDAAPP"
+        android:text="NomeApp"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/titoloActivity"
         app:layout_constraintEnd_toStartOf="@+id/logo"
