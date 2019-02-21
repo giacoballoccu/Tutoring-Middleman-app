@@ -11,8 +11,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.FeedbackFactory;
@@ -24,7 +27,14 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class BookFragment extends Fragment {
     UserTutorFactory factory = UserTutorFactory.getInstance();
@@ -33,6 +43,7 @@ public class BookFragment extends Fragment {
     ImageView avatarTutor;
     TextView nomeCognome, materia, indirizzo, data_prenotazione;
     UserTutor chosenTutor;
+    Spinner spinnerData, spinnerOra;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,6 +65,20 @@ public class BookFragment extends Fragment {
         nomeCognome = (TextView) view.findViewById(R.id.nome_cognome_prenotazione);
         materia = (TextView) view.findViewById(R.id.materia_prenotazione);
         indirizzo = (TextView) view.findViewById(R.id.indirizzo_residenza_prenotazione);
+        spinnerData = (Spinner) view.findViewById(R.id.spinnerData);
+
+        ArrayList<String> arrayDate = new ArrayList<String>();
+        Context context = ApplicationContextProvider.getContext();
+
+
+        arrayDate = chosenTutor.getDisponibilitaData();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item, arrayDate);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerData.setAdapter(adapter);
+
+        String selected = spinnerData.getSelectedItem().toString();
 
         nomeCognome.setText("" + chosenTutor.getName() + " " + chosenTutor.getSurname() + "");
         materia.setText("" + chosenTutor.getMateria() + "");
@@ -70,4 +95,14 @@ public class BookFragment extends Fragment {
         return new BitmapDrawable(context.getResources(), bitmapResized);
     }
 
+    public ArrayList<Integer> sortByDate(ArrayList<String> date, String dateToSearch){
+       ArrayList<Integer> arrayToReturn = new ArrayList<>();
+
+        for(int i = 0; i < date.size(); i++){
+            if(date.equals(dateToSearch)){
+                arrayToReturn.add((Integer) i);
+            }
+        }
+        return arrayToReturn;
+    }
 }
