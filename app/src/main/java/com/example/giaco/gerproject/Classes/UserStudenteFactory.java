@@ -21,12 +21,12 @@ public class UserStudenteFactory {
     }
 
     UserStudenteFactory() {
+        Context context = ApplicationContextProvider.getContext();
 
         UserStudente user1 = new UserStudente();
         user1.setEmail("giannithunder@gmail.com");
         user1.setName("Gianni");
         user1.setSurname("Thunder");
-        Context context = ApplicationContextProvider.getContext();
         Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
         user1.setImage(img1);
         user1.setHours("0");
@@ -40,8 +40,8 @@ public class UserStudenteFactory {
         user2.setEmail("pietropranu@gmail.com");
         user2.setName("Pietro");
         user2.setSurname("Pranu");
-        Drawable img2 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
-        user2.setImage(img2);
+        //Drawable img2 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
+        user2.setImage(img1);
         user2.setHours("3");
         user2.setPassword("12345");
         user2.setPhone("0123456789");
@@ -52,8 +52,8 @@ public class UserStudenteFactory {
         user3.setEmail("nomail");
         user3.setName("gino");
         user3.setSurname("mandaresu");
-        Drawable img3 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.unlibro, null);
-        user1.setImage(img3);
+        //Drawable img3 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
+        user3.setImage(img1);
         user3.setHours("10");
         user3.setPassword("12345");
         user3.setPhone("0123456789");
@@ -62,8 +62,8 @@ public class UserStudenteFactory {
     }
 
 
-    public void addUserToFactory(String email, String name, String surname, String password, String phonenumber, Drawable image) {
-        UserStudente user = new UserStudente(email, name, surname, password, phonenumber, image);
+    public void addUserToFactory(String email, String name, String surname, String password, String phonenumber) {
+        UserStudente user = new UserStudente(email, name, surname, password, phonenumber);
         getUserList().add(user);
     }
 

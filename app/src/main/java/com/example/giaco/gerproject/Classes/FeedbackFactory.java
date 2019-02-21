@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class FeedbackFactory {
     private static FeedbackFactory singleton;
-    private static UserStudenteFactory factory = UserStudenteFactory.getInstance();
 
     private ArrayList<Feedback> feedbacks = new ArrayList<>();
 
@@ -17,6 +16,8 @@ public class FeedbackFactory {
 
 
     FeedbackFactory(){
+        UserStudenteFactory factory = UserStudenteFactory.getInstance();
+
         Feedback feedback1 = new Feedback();
         feedback1.setTitolo("Professionalità");
         feedback1.setDescrizione("Talmente professionale che a volte risulta arrogante");
@@ -45,7 +46,6 @@ public class FeedbackFactory {
     public ArrayList<Feedback> getFeedbacks() {
         return feedbacks;
     }
-
     public void setFeedbacks(ArrayList<Feedback> feedbacks) {
         this.feedbacks = feedbacks;
     }
@@ -58,5 +58,13 @@ public class FeedbackFactory {
             }
         }
         return feedbackList;
+    }
+
+    public int getVotoTotaleMedio (ArrayList<Feedback> feedbacks){
+        int votoMedio = 0;
+        for(int i = 1; i <= feedbacks.size(); i++){
+            votoMedio = votoMedio + feedbacks.get(i).getVotoMedio();
+        }
+        return votoMedio/(feedbacks.size()+1);
     }
 }

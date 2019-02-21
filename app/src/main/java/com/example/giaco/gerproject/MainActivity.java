@@ -1,6 +1,10 @@
 package com.example.giaco.gerproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,8 +14,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
+import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -20,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ContactUsFragment contactUs;
     MyReservationsFragment myReservations;
     PersonalPageFragment personalPage;
+    ImageView avatarMenu;
+    TextView nomeCognome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        View hView =  navigationView.getHeaderView(0);
+        avatarMenu = (ImageView) hView.findViewById(R.id.avatarMenu);
+        nomeCognome = (TextView) hView.findViewById(R.id.nomeMenu);
+
         navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -39,12 +54,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /*Recupero utente*/
         Intent intent = getIntent();
-        UserStudente loggedUser = intent.getParcelableExtra("actualUser");
+        String loggedUserMail = intent.getStringExtra("actualUserMail");
         /*Possiamo recuperare tutti i dati che vogliamo, ora bisogna passare l'utente ai fragment*/
-        String nome = loggedUser.getName();
+
 
         Bundle bundle = new Bundle();
-        bundle.putParcelable("actualUser", loggedUser);
+        bundle.putString("actualUserMail", loggedUserMail);
         // Moving bundle to every fragment present in our application after the loggin
         dashboard = new DashBoardFragment();
         dashboard.setArguments(bundle);
@@ -60,6 +75,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         personalPage = new PersonalPageFragment();
         personalPage.setArguments(bundle);
+
+
+
+        UserStudenteFactory factory = UserStudenteFactory.getInstance();
+        UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
+
+        avatarMenu.setImageDrawable(resize(loggedUser.getImage()));
+
+        nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
 
         /*Device rotation handler*/
         if(savedInstanceState == null){
@@ -93,5 +117,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
+    private Drawable resize(Drawable image) {
+        Bitmap b = ((BitmapDrawable)image).getBitmap();
+        Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 50, 50, false);
+        Context context = ApplicationContextProvider.getContext();
+        return new BitmapDrawable(context.getResources(), bitmapResized);
+    }
 }

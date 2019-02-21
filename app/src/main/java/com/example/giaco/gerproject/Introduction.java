@@ -25,6 +25,7 @@ public class Introduction extends AppCompatActivity {
                 Intent LoginPage = new Intent(Introduction.this,
                         LoginPage.class);
                 startActivity(LoginPage);
+                finish();
             }
         });
     }

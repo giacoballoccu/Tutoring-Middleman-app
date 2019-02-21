@@ -1,5 +1,7 @@
 package com.example.giaco.gerproject;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,8 +9,23 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.example.giaco.gerproject.Classes.Package;
+import com.example.giaco.gerproject.Classes.PackageFactory;
+
+import java.util.ArrayList;
 
 public class BuyPackagesFragment extends Fragment {
+
+    TextView aux;
+    LinearLayout mparent;
+    LayoutInflater layoutInflater;
+    View myView;
+    PackageFactory factory = PackageFactory.getInstance();
+    ArrayList<Package> packList = factory.getPackages();
 
     @Nullable
     @Override
@@ -16,9 +33,43 @@ public class BuyPackagesFragment extends Fragment {
         return inflater.inflate(R.layout.buy_packages, container, false);
     }
 
+
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("Compra Pacchetti");
+        getActivity().setTitle("Acquista pacchetti");
+        mparent = view.findViewById(R.id.parentview);
+        layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        myView = layoutInflater.inflate(R.layout.ore_rimanenti_static, null, false);
+        mparent.addView(myView);
+
+        for (int i = 0; i < packList.size(); i++) {
+            myView = layoutInflater.inflate(R.layout.single_pack, null, false);
+            mparent.addView(myView);
+            updatePackage(packList.get(i), myView);
+        }
+    }
+
+    public void updatePackage (Package packet, View myView){
+        ImageView img;
+        TextView prezzo, ore;
+        float prezzoF;
+        int oreF;
+
+        prezzo = myView.findViewById(R.id.prezzo);
+        prezzoF = packet.getPrezzo();
+        prezzo.setText(String.valueOf(prezzoF) + " €");
+
+        ore = myView.findViewById(R.id.n_ore);
+        oreF = packet.getnOre();
+        ore.setText(String.valueOf(oreF) + " Ore di ripetizione");
+
+        if(packet.getPrezzo()> 4.99f){
+            Drawable myDrawable = packet.getImage();
+            img = myView.findViewById(R.id.imgpack);
+            img.setImageDrawable(myDrawable);
+        }
+
     }
 }

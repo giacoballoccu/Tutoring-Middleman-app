@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#88fca3</color>
+    <color name="colorPrimaryDark">#53c874</color>
+    <color name="colorAccent">#bcffd5</color>
     <color name="Ivory">#fffff2</color>
-    <color name="EletricBlue">#0000ff	</color>
+    <color name="EletricBlue">#0000ff</color>
     <color name="Yellow">#ffff00</color>
     <color name="GreenOff">#48cc92</color>
     <color name="HeavyPurple">#410c37</color>
@@ -12,7 +12,9 @@
     <color name="White">#ffffff</color>
     <color name="black">#000000</color>
     <color name="blackGrey">#151515</color>
-    <color name="rossoinformatica">#CC0000</color>
-    <color name="greenfisica">#009A6C</color>
-    <color name="bluematematica">#3848DC</color>
+    <color name="rossoinformatica">#f44336</color>
+    <color name="greenfisica">#64dd17</color>
+    <color name="bluematematica">#2196F3</color>
+    <color name="packgreen">#88FCA3</color>
+    <color name="yellow">#ffe082</color>
 </resources>

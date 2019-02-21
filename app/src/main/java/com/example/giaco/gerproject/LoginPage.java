@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
@@ -14,6 +15,7 @@ import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 public class LoginPage extends AppCompatActivity implements View.OnClickListener {
 
     Button login;
+
 
     EditText email, password;
     Button infoLink;
@@ -74,7 +76,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                         UserStudente actualUser = factory.getUserByEmail(emailStr);
 
                         Intent successfullyLogged = new Intent(LoginPage.this,MainActivity.class);
-                        successfullyLogged.putExtra("actualUser", actualUser);
+                        successfullyLogged.putExtra("actualUserMail", actualUser.getEmail());
                         startActivity(successfullyLogged);
                         finish();
                     }
@@ -90,6 +92,11 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                 break;
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 }
 

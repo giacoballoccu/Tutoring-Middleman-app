@@ -5,13 +5,16 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.GregorianCalendar;
 
 import com.example.giaco.gerproject.ApplicationContextProvider;
 import com.example.giaco.gerproject.R;
 
 public class UserTutorFactory {
     private static UserTutorFactory singleton;
-    private static FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
     private ArrayList<UserTutor> userList = new ArrayList<>();
 
     public static UserTutorFactory getInstance() {
@@ -25,6 +28,24 @@ public class UserTutorFactory {
     UserTutorFactory() {
 
         UserTutor user1 = new UserTutor();
+       // FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
+
+        /*Disponibilità orarie dei tutor*/
+        ArrayList<Calendar> disponibilitaT1 = new ArrayList<>();
+        ArrayList<Calendar> disponibilitaT2 = new ArrayList<>();
+        ArrayList<Calendar> disponibilitaT3 = new ArrayList<>();
+
+        Calendar data1 = new GregorianCalendar();
+
+        data1.set(2019, 02, 30, 12, 00);
+        disponibilitaT1.add(data1);
+
+        data1.set(2019, 02, 30, 15, 00);
+        disponibilitaT1.add(data1);
+
+        data1.set(2019, 03, 01, 9, 00);
+        disponibilitaT1.add(data1);
+
         user1.setEmail("enricoCarlo@gmail.com");
         user1.setName("Enrico");
         user1.setSurname("Carlo");
@@ -34,8 +55,27 @@ public class UserTutorFactory {
         user1.setPassword("12345");
         user1.setPhone("1234567890");
         user1.setMateria("Informatica");
+        user1.setCitta("Cagliari");
+        user1.setIndirizzo("Via roma 37");
+        user1.setFeedbacks(new ArrayList<Feedback>());
+        user1.setVotoTotaleMedio(0);
+        user1.setDisponibilita(disponibilitaT1);
+        //user1.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user1.getEmail()));
+        //user1.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user1.getEmail())));
 
         getUserList().add(user1);
+
+        data1.set(2019, 02, 27, 8, 00);
+        disponibilitaT2.add(data1);
+
+        data1.set(2019, 02, 27, 16, 00);
+        disponibilitaT2.add(data1);
+
+        data1.set(2019, 03, 05, 8, 30);
+        disponibilitaT2.add(data1);
+
+        data1.set(2019, 03, 02, 13, 00);
+        disponibilitaT2.add(data1);
 
         UserTutor user2 = new UserTutor();
         user2.setEmail("antonino@gmail.com");
@@ -46,8 +86,23 @@ public class UserTutorFactory {
         user2.setPassword("12345");
         user2.setPhone("0987654321");
         user2.setMateria("Matematica");
+        user2.setCitta("Cagliari");
+        user2.setIndirizzo("Via Marengo 45");
+        user2.setFeedbacks(new ArrayList<Feedback>());
+        user2.setVotoTotaleMedio(0);
+        user2.setDisponibilita(disponibilitaT2);
+        //user2.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user2.getEmail()));
+        //user2.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user2.getEmail())));
+
 
         getUserList().add(user2);
+
+
+        data1.set(2019, 03, 01, 15, 30);
+        disponibilitaT3.add(data1);
+
+        data1.set(2019, 03, 05, 15, 00);
+        disponibilitaT3.add(data1);
 
         UserTutor user3 = new UserTutor();
         user3.setEmail("gigifinizzi@gmail.com");
@@ -58,6 +113,13 @@ public class UserTutorFactory {
         user3.setPassword("12345");
         user3.setPhone("1234567821");
         user3.setMateria("Fisica");
+        user3.setCitta("Cagliari");
+        user3.setIndirizzo("Via Marengo 45");
+        user3.setFeedbacks(new ArrayList<Feedback>());
+        user3.setVotoTotaleMedio(0);
+        user3.setDisponibilita(disponibilitaT3);
+        //user3.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user3.getEmail()));
+        //user3.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user3.getEmail())));
 
         getUserList().add(user3);
     }
@@ -81,10 +143,52 @@ public class UserTutorFactory {
 
     public UserTutor getUserByMateria(String materia) {
         for (int i = 0; i < userList.size(); i++) {
-            if (userList.get(i).getMateria().equals(materia)) {
+            if (userList.get(i).getMateria().equalsIgnoreCase(materia)) {
                 return userList.get(i);
             }
         }
         return null;
     }
+
+    public ArrayList<UserTutor> getUsersByMateria(String materia) {
+        ArrayList<UserTutor> listToReturn = new ArrayList<>();
+
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getMateria().equalsIgnoreCase(materia)) {
+                listToReturn.add(userList.get(i));
+            }
+        }
+        return listToReturn;
+    }
+
+    public ArrayList<UserTutor> getUsersByCitta(String citta) {
+        ArrayList<UserTutor> listToReturn = new ArrayList<>();
+
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getMateria().equalsIgnoreCase(citta)) {
+               listToReturn.add(userList.get(i));
+            }
+        }
+        return listToReturn;
+    }
+
+    /*public ArrayList<UserTutor> sortedByFeedback (ArrayList<UserTutor> userList){
+        ArrayList<UserTutor> sortedList = new ArrayList<>();
+        sortedList = userList;
+        Collections.sort(sortedList, new Comparator<UserTutor>() {
+            @Override
+            public int compare(UserTutor u1, UserTutor u2) {
+                if (u1.getVotoTotaleMedio() < u2.getVotoTotaleMedio()) {
+                    return -1;
+                } else if (u1.getVotoTotaleMedio() < u2.getVotoTotaleMedio()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+        return sortedList;
+    }
+*/
+
 }

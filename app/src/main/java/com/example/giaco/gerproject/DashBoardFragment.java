@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +24,9 @@ public class DashBoardFragment extends Fragment {
     LinearLayout mparent;
     LayoutInflater layoutInflater;
     View myView;
+    BookFragment book;
+    String email;
+    ImageButton b;
 
     UserTutorFactory factory = UserTutorFactory.getInstance();
     ArrayList<UserTutor> tutorList = factory.getUserList();
@@ -45,16 +51,19 @@ public class DashBoardFragment extends Fragment {
                 case "Fisica":
                     myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
                     mparent.addView(myView);
+                    b = myView.findViewById(R.id.postitverde);
                     updatePostit(tutorList.get(i), myView);
                     break;
                 case "Informatica":
                     myView = layoutInflater.inflate(R.layout.postitred, null, false);
                     mparent.addView(myView);
+                    b = myView.findViewById(R.id.postitrosso);
                     updatePostit(tutorList.get(i), myView);
                     break;
                 case "Matematica":
                     myView = layoutInflater.inflate(R.layout.postitblue, null, false);
                     mparent.addView(myView);
+                    b = myView.findViewById(R.id.postitblu);
                     updatePostit(tutorList.get(i), myView);
                     break;
             }
@@ -64,8 +73,10 @@ public class DashBoardFragment extends Fragment {
     }
 
     public void updatePostit (UserTutor tutor, View myView){
-        ImageView avatar, recensioni;
+
+        ImageView avatar;
         TextView nomeCognome, materia;
+        email = tutor.getEmail();
 
         nomeCognome = myView.findViewById(R.id.nomeCognome);
         nomeCognome.setText("" + tutor.getName() + " " + tutor.getSurname() + "");
@@ -73,6 +84,19 @@ public class DashBoardFragment extends Fragment {
         avatar.setImageDrawable(tutor.getImage());
         materia = myView.findViewById(R.id.materia);
         materia.setText("" + tutor.getMateria() + "");
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("email", email);
+                book = new BookFragment();
+                book.setArguments(bundle);
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.fragment_container , book);
+                transaction.commit();
+            }});
     }
 
 
