@@ -56,7 +56,7 @@ public class MyReservationsFragment extends Fragment {
 
     public void updatePackage (Reservation res, View myView){
         ImageView img;
-        TextView nome, materia, orario, data;
+        TextView nome, materia, orario;
 
         Drawable myDrawable =  res.getProfessore().getImage();
         img = myView.findViewById(R.id.avatar_prenotazione);
