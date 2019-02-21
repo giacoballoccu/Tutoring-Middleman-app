@@ -1,5 +1,9 @@
 package com.example.giaco.gerproject;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
+import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 
 public class PersonalPageFragment extends Fragment implements View.OnClickListener {
     private UserStudente loggedUser;
@@ -47,7 +52,9 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("I Miei Dati");
         if (getArguments() != null) {
-            this.loggedUser =  getArguments().getParcelable("actualUser");
+           String loggedUserMail =  getArguments().getString("actualUserMail");
+           loggedUser = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
+
         }
 
         userName = (TextView) view.findViewById(R.id.username);
@@ -59,10 +66,9 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         /*Dynamic data*/
         userName.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         hours.setText("" + loggedUser.getHours() + "");
-        /*userImg.setImageDrawable(loggedUser.getImage());
-        userImg.setMaxWidth(100);
-        userImg.setMaxHeight(100);
-*/
+        userImg.setImageDrawable(resize(loggedUser.getImage()));
+
+
         recharge.setOnClickListener(this);
         editProfile.setOnClickListener(this);
     }
@@ -89,5 +95,11 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         }
     }
 
+    private Drawable resize(Drawable image) {
+        Bitmap b = ((BitmapDrawable)image).getBitmap();
+        Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 150, 150, false);
+        Context context = ApplicationContextProvider.getContext();
+        return new BitmapDrawable(context.getResources(), bitmapResized);
+    }
 }
 
