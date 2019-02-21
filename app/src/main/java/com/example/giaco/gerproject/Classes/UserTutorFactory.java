@@ -162,6 +162,14 @@ public class UserTutorFactory {
         return listToReturn;
     }
 
+    public Boolean isEmailInUserList(String email) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /*public ArrayList<UserTutor> sortedByFeedback (ArrayList<UserTutor> userList){
         ArrayList<UserTutor> sortedList = new ArrayList<>();

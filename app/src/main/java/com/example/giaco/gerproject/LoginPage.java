@@ -11,6 +11,7 @@ import android.widget.Toolbar;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
+import com.example.giaco.gerproject.Classes.UserTutor;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 public class LoginPage extends AppCompatActivity implements View.OnClickListener {
@@ -73,16 +74,27 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                 emailStr = email.getText().toString();
                 passwordStr = password.getText().toString();
 
-                if (factory.isEmailInUserList(emailStr)) {
-                    if (factory.getUserByEmail(emailStr).getPassword().equals(passwordStr)) {
-                        UserStudente actualUser = factory.getUserByEmail(emailStr);
+
+                if (factoryStudente.isEmailInUserList(emailStr)) {
+                    if (factoryStudente.getUserByEmail(emailStr).getPassword().equals(passwordStr)) {
+                        UserStudente actualUser = factoryStudente.getUserByEmail(emailStr);
 
                         Intent successfullyLogged = new Intent(LoginPage.this,MainActivity.class);
                         successfullyLogged.putExtra("actualUserMail", actualUser.getEmail());
+                        successfullyLogged.putExtra("flag", 0);
                         startActivity(successfullyLogged);
                         finish();
                     }
-                } else {
+                } else if(factoryTutor.isEmailInUserList(emailStr)){
+                    UserTutor actualUser = factoryTutor.getUserByEmail(emailStr);
+                    Intent successfullyLogged = new Intent(LoginPage.this,MainActivity.class);
+                    successfullyLogged.putExtra("actualUserMail", actualUser.getEmail());
+                    successfullyLogged.putExtra("flag", 1);
+                    startActivity(successfullyLogged);
+                    finish();
+                }
+
+                else{
                     if(emailStr.length() == 0 || passwordStr.length() == 0){
                         loginError.setText("Completare tutti i campi");
                         loginError.setVisibility(View.VISIBLE);

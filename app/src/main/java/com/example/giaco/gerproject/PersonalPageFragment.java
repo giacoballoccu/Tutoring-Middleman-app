@@ -20,34 +20,38 @@ import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
+import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 public class PersonalPageFragment extends Fragment implements View.OnClickListener {
-    private UserStudente loggedUser;
+    private UserStudente loggedStudente;
+    private UserStudente loggedTutor;
     ImageView userImg;
-    String userImgStr;
+    String loggedUserMail;
     TextView userName, hours;
     Button recharge;
     Button editProfile;
-
-    public boolean isTutor() {
-        if (loggedUser.getClass().getSimpleName().equals("UserTutor"))
-            return true;
-        else
-            return false;
-    }
-
-
+    boolean flagTutor = false;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         if (getArguments() != null) {
-            this.loggedUser = getArguments().getParcelable("actualUser");
+            if(getArguments().getInt("flag") == 0){ //Studente
+                loggedUserMail = getArguments().getString("actualUserMail");
+                loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
+                flagTutor = false;
+            }
+            else{   //Tutor
+                loggedUserMail = getArguments().getString("actualUserMail");
+                loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
+                flagTutor = true;
+            }
         }
-        if (this.isTutor() == false)
+        if (flagTutor == true)
+            return inflater.inflate(R.layout.fragment_tutor_personal_page, container, false);
+        else
             return inflater.inflate(R.layout.fragment_personal_page, container, false);
-        else return inflater.inflate(R.layout.fragment_tutor_personal_page, container, false);
     }
 
 
@@ -84,8 +88,16 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("I Miei Dati");
         if (getArguments() != null) {
-           String loggedUserMail =  getArguments().getString("actualUserMail");
-           loggedUser = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
+            if(getArguments().getInt("flag") == 0) { //Studente
+                loggedUserMail = getArguments().getString("actualUserMail");
+                loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
+            }
+            else{   //Tutor
+                loggedUserMail = getArguments().getString("actualUserMail");
+                loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
+        }
+           //else
+             //  loggedUser = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
 
         }
 
