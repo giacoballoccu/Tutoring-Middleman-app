@@ -1,6 +1,7 @@
 package com.example.giaco.gerproject;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,12 +9,25 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.example.giaco.gerproject.Classes.Package;
+import com.example.giaco.gerproject.Classes.PackageFactory;
+
+import java.util.ArrayList;
 
 public class BuyPackagesFragment extends Fragment {
+
+    TextView aux;
+    ImageView img;
     LinearLayout mparent;
     LayoutInflater layoutInflater;
     View myView;
+    PackageFactory factory = PackageFactory.getInstance();
+    ArrayList<Package> packList = factory.getPackages();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,11 +45,18 @@ public class BuyPackagesFragment extends Fragment {
         myView = layoutInflater.inflate(R.layout.ore_rimanenti_static, null, false);
         mparent.addView(myView);
 
-        myView = layoutInflater.inflate(R.layout.single_pack, null, false);
-        mparent.addView(myView);
-
-        myView = layoutInflater.inflate(R.layout.single_pack, null, false);
-        mparent.addView(myView);
-
+        for (int i = 0; i < packList.size(); i++) {
+            myView = layoutInflater.inflate(R.layout.single_pack, null, false);
+            mparent.addView(myView);
+            aux = myView.findViewById(R.id.n_ore);
+            aux.setText(packList.get(i).getnOre());
+            aux = myView.findViewById(R.id.prezzo);
+            aux.setText(packList.get(i).getPrezzo()+" €");
+            img = myView.findViewById(R.id.imgpack);
+            if(packList.get(i).getPrezzo()> 4.99f){
+                Drawable myDrawable = getResources().getDrawable(R.drawable.trelibri);
+                img.setImageDrawable(myDrawable);
+            }
+        }
     }
 }

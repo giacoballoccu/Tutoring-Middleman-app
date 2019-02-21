@@ -26,14 +26,18 @@ public class PackageFactory {
 
         Package pack1 = new Package();
         Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.unlibro , null);
+        pack1.setPrezzo(4.99f);
         pack1.setImage(img1);
+        pack1.setnOre(5);
 
         getPackages().add(pack1);
 
         Package pack2 = new Package();
 
         Drawable img2 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.trelibri, null);
-        pack1.setImage(img2);
+        pack2.setImage(img2);
+        pack2.setPrezzo(9.99f);
+        pack2.setnOre(10);
 
         getPackages().add(pack2);
     }
