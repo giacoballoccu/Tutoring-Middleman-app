@@ -21,13 +21,13 @@ public class UserStudenteFactory {
     }
 
     UserStudenteFactory() {
-
+        Context context = ApplicationContextProvider.getContext();
 
         UserStudente user1 = new UserStudente();
         user1.setEmail("giannithunder@gmail.com");
         user1.setName("Gianni");
         user1.setSurname("Thunder");
-        Drawable img1 = Drawable.createFromPath("R.drawable.userprova");
+        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
         user1.setImage(img1);
         user1.setHours("0");
         user1.setPassword("12345");
@@ -40,7 +40,7 @@ public class UserStudenteFactory {
         user2.setEmail("pietropranu@gmail.com");
         user2.setName("Pietro");
         user2.setSurname("Pranu");
-        Drawable img2 = Drawable.createFromPath("R.drawable.userprova");
+        Drawable img2 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
         user2.setImage(img2);
         user2.setHours("3");
         user2.setPassword("12345");
@@ -52,7 +52,7 @@ public class UserStudenteFactory {
         user3.setEmail("nomail");
         user3.setName("gino");
         user3.setSurname("mandaresu");
-        Drawable img3 = Drawable.createFromPath("R.drawable.userprova");
+        Drawable img3 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.enricocarlo, null);
         user3.setImage(img3);
         user3.setHours("10");
         user3.setPassword("12345");
