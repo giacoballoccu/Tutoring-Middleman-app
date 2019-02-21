@@ -73,7 +73,7 @@ public class BookFragment extends Fragment {
 
         arrayDate = chosenTutor.getDisponibilitaData();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.id.spinnerData, arrayDate);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item, arrayDate);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerData.setAdapter(adapter);
