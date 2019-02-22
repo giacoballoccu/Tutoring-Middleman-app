@@ -94,7 +94,7 @@
         android:layout_marginTop="34dp"
         android:layout_marginEnd="26dp"
         android:layout_marginRight="26dp"
-        android:text="fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.»"
+        android:text="L'applicazione nasce come supporto digitale al progetto ‘Ripetizioni Studenti Cagliari’. Lo scopo è quello di creare una squadra di Studenti Selezionati, detti Tutor, per le loro competenze e offrire ripetizioni ad altri studenti a prezzi moderati. L’associazione funziona da intermediario tra il Tutor che vorrebbe dare ripetizioni, ma non ha l'esposizione necessaria o il tempo per trovare clientela, e lo studente che ha necessità di ripetizioni a prezzi ridotti somministrate da un altro studente. Se sei interessato ad ottenere delle ripetizioni, iscriviti, se invece vuoi diventare tutor contattaci."
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
