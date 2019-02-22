@@ -131,9 +131,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             editProfile.setOnClickListener(this);
         }
         else{
-            FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
-            loggedTutor.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(loggedTutor.getEmail()));
-            loggedTutor.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(loggedTutor.getEmail())));
 
             userName = (TextView) view.findViewById(R.id.usernameT);
             userImg = (ImageView) view.findViewById(R.id.profileImgT);
@@ -145,8 +142,12 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             orariAgenda = (TextView) view.findViewById(R.id.orari);
 
 
-                loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
-                /*Dynamic data*/
+            loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
+            FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
+            loggedTutor.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(loggedTutor.getEmail()));
+            loggedTutor.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(loggedTutor.getEmail())));
+
+            /*Dynamic data*/
                 userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
                 orariAgenda.setText("LUNEDI");
                 userImg.setImageDrawable(resize(loggedTutor.getImage()));
