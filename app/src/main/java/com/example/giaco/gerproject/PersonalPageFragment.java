@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.giaco.gerproject.Classes.FeedbackFactory;
 import com.example.giaco.gerproject.Classes.User;
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
@@ -27,11 +28,12 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 public class PersonalPageFragment extends Fragment implements View.OnClickListener {
     private UserStudente loggedStudente;
     private UserTutor loggedTutor;
+    Bundle bundle;
     ImageView userImg, stelline;
     String loggedUserMail;
     TextView userName, hours, materia, orari, orario, orariAgenda;
     Button recharge, editAgenda, recensioni;
-    Button editProfile, editProfileT;
+    Button editProfile;
     private boolean flagTutor = false;
 
     @Nullable
@@ -48,6 +50,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
                 setTutorFlag(loggedTutor);
+                bundle = savedInstanceState;
             }
         }
         if (getTutorFlag() == true)
@@ -98,8 +101,9 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 break;
             }
             case R.id.feedbackButton: {
-                EditProfileFragment clickedFragment = new EditProfileFragment();
+                ReviewsFragment clickedFragment = new ReviewsFragment();
                 FragmentManager fragmentManager = getFragmentManager();
+                clickedFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.content, clickedFragment);
                 fragmentTransaction.commit();
@@ -130,6 +134,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             editProfile.setOnClickListener(this);
         }
         else{
+
             userName = (TextView) view.findViewById(R.id.usernameT);
             userImg = (ImageView) view.findViewById(R.id.profileImgT);
             stelline = (ImageView) view.findViewById(R.id.stelline);
@@ -139,13 +144,37 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             recensioni = (Button) view.findViewById(R.id.feedbackButton);
             orariAgenda = (TextView) view.findViewById(R.id.orari);
 
-            //if (getArguments() != null) {
-                loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
-                /*Dynamic data*/
+
+            loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
+            FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
+            loggedTutor.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(loggedTutor.getEmail()));
+            loggedTutor.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(loggedTutor.getEmail())));
+
+            /*Dynamic data*/
                 userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
                 orariAgenda.setText("LUNEDI");
                 userImg.setImageDrawable(resize(loggedTutor.getImage()));
-            //}
+
+                switch (loggedTutor.getVotoTotaleMedio()){
+                    case 0:
+                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.zerostelle));
+                        break;
+                    case 1:
+                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.unastella));
+                        break;
+                    case 2:
+                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.duestelle));
+                        break;
+                    case 3:
+                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.trestelle));
+                        break;
+                    case 4:
+                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.quattrostelle));
+                        break;
+                    case 5:
+                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.cinquestelle));
+                        break;
+                }
             recensioni.setOnClickListener(this);
             editAgenda.setOnClickListener(this);
             editProfile.setOnClickListener(this);
