@@ -72,7 +72,7 @@ public class ReviewsFragment extends Fragment {
             stelline = (ImageView) myView.findViewById(R.id.stellineSingolaReview);
             avatarReview = (ImageView) myView.findViewById(R.id.avatarAutore);
 
-            autoreNome.setText(autore.getEmail());
+            autoreNome.setText("" + autore.getName() + " " + autore.getSurname() + "");
             descrizione.setText(f.getDescrizione());
             avatarReview.setImageDrawable(autore.getImage());
         }
