@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.giaco.gerproject.Classes.User;
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 import com.example.giaco.gerproject.Classes.UserTutor;
@@ -30,8 +31,8 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     String loggedUserMail;
     TextView userName, hours, materia, orari, orariAgenda;
     Button recharge, editAgenda, recensioni;
-    Button editProfile;
-    boolean flagTutor = false;
+    Button editProfile, editProfileT;
+    private boolean flagTutor = false;
 
     @Nullable
     @Override
@@ -41,15 +42,15 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             if(getArguments().getInt("flag") == 0){ //Studente
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
-                flagTutor = false;
+                setTutorFlag(loggedStudente);
             }
             else{   //Tutor
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
-                flagTutor = true;
+                setTutorFlag(loggedTutor);
             }
         }
-        if (flagTutor == true)
+        if (getTutorFlag() == true)
             return inflater.inflate(R.layout.fragment_tutor_personal_page, container, false);
         else
             return inflater.inflate(R.layout.fragment_personal_page, container, false);
@@ -80,6 +81,30 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 fragmentTransaction.commit();
                 break;
             }
+            case R.id.editAgendaButton: {
+                EditProfileFragment clickedFragment = new EditProfileFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content, clickedFragment);
+                fragmentTransaction.commit();
+                break;
+            }
+            case R.id.editButtonT: {
+                EditProfileFragment clickedFragment = new EditProfileFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content, clickedFragment);
+                fragmentTransaction.commit();
+                break;
+            }
+            case R.id.feedbackButton: {
+                EditProfileFragment clickedFragment = new EditProfileFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content, clickedFragment);
+                fragmentTransaction.commit();
+                break;
+            }
         }
     }
 
@@ -88,7 +113,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("I Miei Dati");
-        if (flagTutor == false) {
+        if (getTutorFlag() == false) {
             userName = (TextView) view.findViewById(R.id.username);
             hours = (TextView) view.findViewById(R.id.hours);
             userImg = (ImageView) view.findViewById(R.id.profileImg);
@@ -114,16 +139,17 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             recensioni = (Button) view.findViewById(R.id.feedbackButton);
             orari = (TextView) view.findViewById(R.id.orarioTitolo);
 
-            if (getArguments() != null) {
+            //if (getArguments() != null) {
                 loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
                 /*Dynamic data*/
-                userName.setText("" + loggedStudente.getName() + " " + loggedStudente.getSurname() + "");
+                userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
+                orari.setText("Orario:");
                 orariAgenda.setText("LUNEDI");
                 userImg.setImageDrawable(resize(loggedTutor.getImage()));
-            }
+            //}
             recensioni.setOnClickListener(this);
             editAgenda.setOnClickListener(this);
-            editProfile.setOnClickListener(this);
+            editProfileT.setOnClickListener(this);
         }
     }
 
@@ -132,6 +158,16 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 150, 150, false);
         Context context = ApplicationContextProvider.getContext();
         return new BitmapDrawable(context.getResources(), bitmapResized);
+    }
+
+    protected void setTutorFlag(User usr){
+        if (usr instanceof UserStudente)
+            this.flagTutor = false;
+        else this.flagTutor = true;
+    }
+
+    protected boolean getTutorFlag(){
+        return this.flagTutor;
     }
 }
 

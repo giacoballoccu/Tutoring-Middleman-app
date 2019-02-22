@@ -32,12 +32,11 @@ public class DashBoardFragment extends Fragment {
     BookFragment book;
     ImageButton b;
     ArrayList<Feedback> feedbackList;
-    UserStudente loggedStudente;
-    UserTutor loggedTutor;
+    String emailLoggedUser;
     FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
     UserTutorFactory userTutorFactory = UserTutorFactory.getInstance();
     ArrayList<UserTutor> tutorList = userTutorFactory.getUserList();
-    boolean flagTutor = false;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,18 +47,8 @@ public class DashBoardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Bacheca");
-
         if (getArguments() != null) {
-            if(getArguments().getInt("flag") == 0) {
-                flagTutor = false;
-                String emailLoggedUser = getArguments().getString("email");
-                loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(emailLoggedUser);
-            }
-            else{
-                flagTutor = true;
-                String emailLoggedUser = getArguments().getString("email");
-                loggedTutor = UserTutorFactory.getInstance().getUserByEmail(emailLoggedUser);
-            }
+            emailLoggedUser = getArguments().getString("email");
         }
         mparent = view.findViewById(R.id.mparent);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -137,11 +126,8 @@ public class DashBoardFragment extends Fragment {
                     break;
          }
         }
-        //if(flagTutor == false)
-        //    setOnClick(b,tutor.getEmail(), loggedStudente.getEmail());
-        //else
-         //   setOnClick(b,tutor.getEmail(), loggedTutor.getEmail());
-
+        
+        setOnClick(b,tutor.getEmail(), emailLoggedUser);
     }
 
     private void setOnClick(final ImageButton btn, final String emailTutor, final String emailUser ){
