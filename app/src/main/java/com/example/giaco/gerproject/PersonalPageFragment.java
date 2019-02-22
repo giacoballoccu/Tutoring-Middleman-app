@@ -1,6 +1,7 @@
 package com.example.giaco.gerproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -109,10 +110,12 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 FragmentManager fragmentManager = getFragmentManager();
                 clickedFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, clickedFragment);
+                fragmentTransaction.replace(R.id.fragment_container, clickedFragment);
                 fragmentTransaction.commit();
                 break;
             }
+
+
         }
     }
 
@@ -213,5 +216,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     protected boolean getTutorFlag(){
         return this.flagTutor;
     }
+
 }
 
