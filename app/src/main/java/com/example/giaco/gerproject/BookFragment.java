@@ -124,13 +124,6 @@ public class BookFragment extends Fragment {
                         prenota.setVisibility(View.VISIBLE);
                     }
                 });
-                ReservationFactory factoryR = ReservationFactory.getInstance();
-                Reservation r = new Reservation(loggedUser, chosenTutor, selected, chosenTutor.getMateria()); //Nuova reservation
-                factoryR.addReservation(r);
-                chosenTutor.removeData(selected); //Il tutor perde quella disponibilità
-                /*Scala ore*/
-                /*PAGINA DI CONFERMA DEI DAIT*/
-                Toast.makeText(getContext(),"Prenotazione Avvenuta con Successo!", Toast.LENGTH_LONG).show();
             }
         });
     }
