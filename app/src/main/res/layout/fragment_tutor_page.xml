@@ -14,11 +14,14 @@
         android:layout_gravity="right"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Edit"
+        app:layout_constraintBottom_toBottomOf="@+id/usernameT"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toEndOf="@+id/profileImgT"
-        tools:layout_editor_absoluteY="36dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126" />
 
     <ImageView
         android:id="@+id/profileImgT"
@@ -49,13 +52,17 @@
         android:layout_alignLeft="@+id/imageButton"
         android:layout_alignEnd="@+id/imageButton"
         android:layout_alignRight="@+id/imageButton"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="344dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameT"
-        app:layout_constraintVertical_bias="0.017"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/quattrostelle" />
 
     <TextView
@@ -67,12 +74,12 @@
         android:layout_marginBottom="8dp"
         android:text="NOME COGNOME"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/stelline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImgT"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.223" />
 
     <TextView
         android:id="@+id/materia"
@@ -81,14 +88,18 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="52dp"
         android:text="Materia"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/orari"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="504dp" />
+        app:layout_constraintTop_toBottomOf="@+id/feedbackButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/orari"
@@ -97,27 +108,42 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="76dp"
         android:text="Lunedì 11-12"
         android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="566dp" />
+        app:layout_constraintTop_toBottomOf="@+id/profileImgT"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/feedbackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="196dp"
         android:text="Feedback"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.339"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stelline"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintTop_toBottomOf="@+id/profileImgT" />
+
+    <Button
+        android:id="@+id/lasciaFeedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        android:text="Lascia Feedback"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/feedbackButton"
+        app:layout_constraintTop_toBottomOf="@+id/profileImgT" />
 
     <Button
         android:id="@+id/editAgendaButton"
@@ -126,9 +152,10 @@
 
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
         android:text="Edit Agenda"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editButtonT"
+        app:layout_constraintVertical_bias="0.972" />
 
 </android.support.constraint.ConstraintLayout>
