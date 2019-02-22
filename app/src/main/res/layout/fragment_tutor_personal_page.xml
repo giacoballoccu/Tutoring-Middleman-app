@@ -6,129 +6,144 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.constraint.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/editButtonT"
-        android:layout_width="89dp"
-        android:layout_height="68dp"
-        android:layout_gravity="right"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="Edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.431"
-        app:layout_constraintStart_toEndOf="@+id/profileImgT"
-        tools:layout_editor_absoluteY="36dp" />
+            <Button
+                android:id="@+id/editButtonT"
+                android:layout_width="89dp"
+                android:layout_height="68dp"
+                android:layout_gravity="right"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.431"
+                app:layout_constraintStart_toEndOf="@+id/profileImgT"
+                tools:layout_editor_absoluteY="36dp" />
 
-    <ImageView
-        android:id="@+id/profileImgT"
-        android:layout_width="112dp"
-        android:layout_height="114dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:adjustViewBounds="false"
-        android:maxWidth="100dp"
-        android:maxHeight="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+            <ImageView
+                android:gravity="center"
+                android:id="@+id/profileImgT"
+                android:layout_width="112dp"
+                android:layout_height="114dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="88dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:adjustViewBounds="false"
+                android:maxWidth="100dp"
+                android:maxHeight="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
 
-    <ImageView
-        android:id="@+id/stelline"
-        android:layout_width="229dp"
-        android:layout_height="41dp"
-        android:layout_below="@+id/nomeCognome"
-        android:layout_alignStart="@+id/imageButton"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignEnd="@+id/imageButton"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameT"
-        app:layout_constraintVertical_bias="0.017"
-        app:srcCompat="@drawable/quattrostelle" />
+            <ImageView
+                android:id="@+id/stelline"
+                android:gravity="center"
+                android:layout_width="229dp"
+                android:layout_height="41dp"
+                android:layout_below="@+id/nomeCognome"
+                android:layout_alignStart="@+id/imageButton"
+                android:layout_alignLeft="@+id/imageButton"
+                android:layout_alignEnd="@+id/imageButton"
+                android:layout_alignRight="@+id/imageButton"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/usernameT"
+                app:srcCompat="@drawable/quattrostelle" />
 
-    <TextView
-        android:id="@+id/usernameT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/usernameT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="NOME COGNOME"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileImgT"
-        app:layout_constraintVertical_bias="0.036" />
+                android:layout_marginTop="36dp"
+                android:text="NOME COGNOME"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profileImgT" />
 
-    <TextView
-        android:id="@+id/materia"
-        android:layout_width="wrap_content"
-        android:layout_height="54dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Materia"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="504dp" />
+            <TextView
+                android:id="@+id/materia"
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Materia"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/feedbackButton" />
 
-    <TextView
-        android:id="@+id/orari"
-        android:layout_width="175dp"
-        android:layout_height="89dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Lunedì 11-12"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="566dp" />
+            <TextView
+                android:id="@+id/orari"
+                android:layout_width="175dp"
+                android:layout_height="89dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:text="Lunedì 11-12"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materia" />
 
-    <Button
-        android:id="@+id/feedbackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Feedback"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stelline"
-        app:layout_constraintVertical_bias="0.058" />
+            <Button
+                android:id="@+id/feedbackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Feedback"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.474"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stelline" />
 
-    <Button
-        android:id="@+id/editAgendaButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            <Button
+                android:id="@+id/editAgendaButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="Edit Agenda"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Edit Agenda"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.952"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orari" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+
 
 </android.support.constraint.ConstraintLayout>
