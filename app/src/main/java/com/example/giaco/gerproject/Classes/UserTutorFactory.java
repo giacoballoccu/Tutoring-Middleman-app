@@ -91,7 +91,7 @@ public class UserTutorFactory {
         getUserList().add(user2);
 
         UserTutor user3 = new UserTutor();
-        user3.setEmail("gigifinizzi@gmail.com");
+        user3.setEmail("mail");
         user3.setName("Gigi");
         user3.setSurname("Finizio");
         Drawable img3 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.tutor2, null);

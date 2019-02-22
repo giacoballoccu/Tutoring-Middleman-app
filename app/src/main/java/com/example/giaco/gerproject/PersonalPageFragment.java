@@ -29,7 +29,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     private UserTutor loggedTutor;
     ImageView userImg, stelline;
     String loggedUserMail;
-    TextView userName, hours, materia, orari, orariAgenda;
+    TextView userName, hours, materia, orari, orario, orariAgenda;
     Button recharge, editAgenda, recensioni;
     Button editProfile, editProfileT;
     private boolean flagTutor = false;
@@ -137,19 +137,18 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             materia = (TextView) view.findViewById(R.id.materia);
             editAgenda = (Button) view.findViewById(R.id.editAgendaButton);
             recensioni = (Button) view.findViewById(R.id.feedbackButton);
-            orari = (TextView) view.findViewById(R.id.orarioTitolo);
+            orariAgenda = (TextView) view.findViewById(R.id.orari);
 
             //if (getArguments() != null) {
                 loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
                 /*Dynamic data*/
                 userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
-                orari.setText("Orario:");
                 orariAgenda.setText("LUNEDI");
                 userImg.setImageDrawable(resize(loggedTutor.getImage()));
             //}
             recensioni.setOnClickListener(this);
             editAgenda.setOnClickListener(this);
-            editProfileT.setOnClickListener(this);
+            editProfile.setOnClickListener(this);
         }
     }
 
