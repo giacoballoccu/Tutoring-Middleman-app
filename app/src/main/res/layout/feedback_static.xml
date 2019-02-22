@@ -9,9 +9,15 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="376dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/competenza"
@@ -110,44 +116,41 @@
             app:fontFamily="sans-serif-light"
             app:layout_constraintStart_toEndOf="@+id/stella1"
             app:layout_constraintTop_toBottomOf="@+id/recensionifeedbackstatic" />
+
+        <TextView
+            android:id="@+id/disponiblita"
+            android:layout_width="136dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="20dp"
+            android:text="Disponibilità"
+            android:textSize="24sp"
+            app:fontFamily="sans-serif-light"
+            app:layout_constraintStart_toEndOf="@+id/stella3"
+            app:layout_constraintTop_toBottomOf="@+id/competenza" />
+
+        <ImageView
+            android:id="@+id/stella3"
+            android:layout_width="32dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@+id/votodisponibilita"
+            app:layout_constraintTop_toBottomOf="@+id/stella2"
+            app:srcCompat="@drawable/stellasingolaparentesi" />
+
+        <TextView
+            android:id="@+id/votodisponibilita"
+            android:layout_width="24dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="20dp"
+            android:text="3"
+            android:textSize="30sp"
+            app:fontFamily="serif-monospace"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/votocompetenza" />
     </android.support.constraint.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/votodisponibilita"
-        android:layout_width="24dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginLeft="92dp"
-        android:layout_marginTop="312dp"
-        android:text="3"
-        android:textSize="30sp"
-        app:fontFamily="serif-monospace"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
-
-    <ImageView
-        android:id="@+id/stella3"
-        android:layout_width="32dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="312dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        app:layout_constraintEnd_toStartOf="@+id/Disponibilita"
-        app:layout_constraintStart_toEndOf="@+id/votodisponibilita"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:srcCompat="@drawable/stellasingolaparentesi" />
-
-    <TextView
-        android:id="@+id/Disponibilita"
-        android:layout_width="140dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="312dp"
-        android:text="Disponibilità"
-        android:textSize="24sp"
-        app:fontFamily="sans-serif-light"
-        app:layout_constraintStart_toEndOf="@+id/stella3"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
 
 </android.support.constraint.ConstraintLayout>
