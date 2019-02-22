@@ -18,8 +18,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.giaco.gerproject.Classes.User;
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
+import com.example.giaco.gerproject.Classes.UserTutor;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     PersonalPageFragment personalPage, tutorPersonalPage;
     ImageView avatarMenu;
     TextView nomeCognome;
+    protected boolean flagTutor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,23 +80,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         personalPage = new PersonalPageFragment();
         personalPage.setArguments(bundle);
 
+
         UserStudenteFactory factory = UserStudenteFactory.getInstance();
+        UserTutorFactory factoryT = UserTutorFactory.getInstance();
+        if(factory.isEmailInUserList(loggedUserMail))
+            setTutorFlag(false);
+        else setTutorFlag(true);
        // UserStudenteFactory factoryS = UserStudenteFactory.getInstance();
-        UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
+
 
         //UserTutorFactory factoryT = UserTutorFactory.getInstance();
         //UserTutor loggedTutor = factoryT.getUserByEmail(loggedUserMail);
-
-
+    if(getTutorFlag() == false){
+        UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
         avatarMenu.setImageDrawable(loggedUser.getImage());
-
         nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
-
         /*Device rotation handler*/
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashBoardFragment()).addToBackStack(null).commit();
             navigationView.setCheckedItem(R.id.nav_dashboard);
         }
+    }
+    else{
+        UserTutor loggedUser = factoryT.getUserByEmail(loggedUserMail);
+        avatarMenu.setImageDrawable(loggedUser.getImage());
+        nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
+        /*Device rotation handler*/
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashBoardFragment()).addToBackStack(null).commit();
+            navigationView.setCheckedItem(R.id.nav_dashboard);
+        }
+    }
+
+
     }
 
     /*Menu handler*/
@@ -121,4 +140,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    protected void setTutorFlag(boolean bool){
+        if (bool == true)
+            this.flagTutor = true;
+        else this.flagTutor = false;
+    }
+
+    protected boolean getTutorFlag(){
+        return this.flagTutor;
+    }
 }
