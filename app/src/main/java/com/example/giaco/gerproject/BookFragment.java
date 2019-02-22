@@ -16,6 +16,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +42,12 @@ public class BookFragment extends Fragment {
     Button prenota;
     UserTutor chosenTutor;
     UserStudente loggedUser;
-    Spinner spinnerData, spinnerOra;
+    Spinner spinnerData;
+    LayoutInflater layoutInflater;
+    RelativeLayout mparent;
+    View myView;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,8 +63,7 @@ public class BookFragment extends Fragment {
             String emailUtente = getArguments().getString("emailStudente");
             loggedUser = UserStudenteFactory.getInstance().getUserByEmail(emailUtente);
             chosenTutor = UserTutorFactory.getInstance().getUserByEmail(emailTutor);
-            //chosenTutor.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(email));
-            //chosenTutor.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(email)));
+            mparent = view.findViewById(R.id.prenotaripetizione_view);
         }
 
         avatarTutor = (ImageView) view.findViewById(R.id.avatarTutor);
@@ -83,27 +89,45 @@ public class BookFragment extends Fragment {
         nomeCognome.setText("" + chosenTutor.getName() + " " + chosenTutor.getSurname() + "");
         materia.setText("" + chosenTutor.getMateria() + "");
         indirizzo.setText("" + chosenTutor.getIndirizzo() + " " + chosenTutor.getCitta() + "");
-        avatarTutor.setImageDrawable(resize(chosenTutor.getImage()));
+        avatarTutor.setImageDrawable(chosenTutor.getImage());
 
         prenota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReservationFactory factoryR = ReservationFactory.getInstance();
-                Reservation r = new Reservation(loggedUser, chosenTutor, selected, chosenTutor.getMateria()); //Nuova reservation
-                factoryR.addReservation(r);
-                chosenTutor.removeData(selected); //Il tutor perde quella disponibilità
-                /*Scala ore*/
-                /*PAGINA DI CONFERMA DEI DAIT*/
-                Toast.makeText(getContext(),"Prenotazione Avvenuta con Successo!", Toast.LENGTH_LONG).show();
+                layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
+                myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
+                mparent.addView(myView);
+                prenota.setVisibility(View.GONE);
+                Button conferma, cancella;
+                conferma = myView.findViewById(R.id.prenotazione_yes);
+                cancella = myView.findViewById(R.id.prenotazione_no);
+
+                conferma.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ReservationFactory factoryR = ReservationFactory.getInstance();
+                        Reservation r = new Reservation(loggedUser, chosenTutor, selected, chosenTutor.getMateria()); //Nuova reservation
+                        factoryR.addReservation(r);
+                        chosenTutor.removeData(selected); //Il tutor perde quella disponibilità
+                        /*PAGINA DI CONFERMA DEI DAIT*/
+                        Toast.makeText(getContext(),"Prenotazione Avvenuta con Successo!", Toast.LENGTH_LONG).show();
+                        mparent.removeView(myView);
+                        prenota.setVisibility(View.VISIBLE);
+                    }
+                });
+
+                cancella.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mparent.removeView(myView);
+                        prenota.setVisibility(View.VISIBLE);
+                    }
+                });
             }
         });
     }
-    private Drawable resize(Drawable image) {
-        Bitmap b = ((BitmapDrawable)image).getBitmap();
-        Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 100, 100, false);
-        Context context = ApplicationContextProvider.getContext();
-        return new BitmapDrawable(context.getResources(), bitmapResized);
-    }
+
 
     public ArrayList<Integer> sortByDate(ArrayList<String> date, String dateToSearch){
        ArrayList<Integer> arrayToReturn = new ArrayList<>();
