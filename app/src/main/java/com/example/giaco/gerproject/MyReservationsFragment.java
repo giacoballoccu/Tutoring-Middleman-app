@@ -81,7 +81,7 @@ public class MyReservationsFragment extends Fragment {
         }
 
         orario = myView.findViewById(R.id.ora_prenotazione);
-        orario.setText(res.getData().getTime().toString());
+        orario.setText(res.getData());
 
 
     }

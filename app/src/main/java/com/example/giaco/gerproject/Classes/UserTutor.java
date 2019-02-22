@@ -138,4 +138,12 @@ public class UserTutor{
         this.disponibilitaData = disponibilitaData;
     }
 
+    public int removeData(String data){
+        for(int i=0; i<this.getDisponibilitaData().size(); i++){
+            if(this.getDisponibilitaData().get(i).equals(data)){
+               getDisponibilitaData().remove(getDisponibilitaData().get(i));
+            }
+        }
+        return -1;
+    }
 }

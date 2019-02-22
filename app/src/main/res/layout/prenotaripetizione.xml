@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/avatarTutor" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/prenota"
         android:layout_width="199dp"
         android:layout_height="84dp"
         android:layout_marginStart="104dp"

@@ -8,14 +8,14 @@ import java.util.Calendar;
 public class Reservation {
     private UserStudente studente;
     private UserTutor professore;
-    private Calendar data;
+    private String data;
     private String materia;
 
             public Reservation(){
 
             }
 
-            public Reservation(UserStudente studente, UserTutor professore, Calendar data, String materia){
+            public Reservation(UserStudente studente, UserTutor professore, String data, String materia){
                 this.setStudente(studente);
                 this.setProfessore(professore);
                 this.setData(data);
@@ -38,13 +38,7 @@ public class Reservation {
         this.professore = professore;
     }
 
-    public Calendar getData() {
-        return data;
-    }
 
-    public void setData(Calendar data) {
-        this.data = data;
-    }
 
     public String getMateria() {
         return materia;
@@ -52,5 +46,13 @@ public class Reservation {
 
     public void setMateria(String materia) {
         this.materia = materia;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }

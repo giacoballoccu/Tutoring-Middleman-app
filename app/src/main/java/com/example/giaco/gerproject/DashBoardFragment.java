@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.Feedback;
 import com.example.giaco.gerproject.Classes.FeedbackFactory;
+import com.example.giaco.gerproject.Classes.UserStudente;
+import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 import com.example.giaco.gerproject.Classes.UserTutor;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
@@ -30,6 +32,7 @@ public class DashBoardFragment extends Fragment {
     BookFragment book;
     ImageButton b;
     ArrayList<Feedback> feedbackList;
+    UserStudente loggedUser;
     FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
     UserTutorFactory userTutorFactory = UserTutorFactory.getInstance();
     ArrayList<UserTutor> tutorList = userTutorFactory.getUserList();
@@ -44,7 +47,10 @@ public class DashBoardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Bacheca");
-
+        if (getArguments() != null) {
+            String emailLoggedUser = getArguments().getString("email");
+            loggedUser = UserStudenteFactory.getInstance().getUserByEmail(emailLoggedUser);
+        }
         mparent = view.findViewById(R.id.mparent);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -122,15 +128,16 @@ public class DashBoardFragment extends Fragment {
          }
         }
 
-        setOnClick(b,tutor.getEmail());
+        setOnClick(b,tutor.getEmail(), loggedUser.getEmail());
     }
 
-    private void setOnClick(final ImageButton btn, final String email){
+    private void setOnClick(final ImageButton btn, final String emailTutor, final String emailUser ){
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("email", email);
+                bundle.putString("emailTutor", emailTutor);
+                bundle.putString("emailStudente", emailUser);
                 book = new BookFragment();
                 book.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
