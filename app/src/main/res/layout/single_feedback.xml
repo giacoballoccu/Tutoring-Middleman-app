@@ -16,12 +16,12 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="77dp"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/avatarAutore"
+        android:layout_toRightOf="@+id/avatarAutore"
         app:srcCompat="@drawable/chatbubble" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/avatarAutore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -33,7 +33,7 @@
         app:srcCompat="@mipmap/ernioavatar1_round" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/autoreReview"
         android:layout_width="176dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/chatbubble"
@@ -47,22 +47,22 @@
         app:fontFamily="sans-serif-thin" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/stellineSingolaReview"
         android:layout_width="73dp"
         android:layout_height="23dp"
         android:layout_alignTop="@+id/chatbubble"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="24dp"
-        android:layout_toEndOf="@+id/textView3"
-        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/autoreReview"
+        android:layout_toRightOf="@+id/autoreReview"
         app:srcCompat="@drawable/trestelle" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/descrizioneReview"
         android:layout_width="298dp"
         android:layout_height="41dp"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/autoreReview"
         android:layout_alignStart="@+id/chatbubble"
         android:layout_alignLeft="@+id/chatbubble"
         android:layout_marginStart="9dp"
@@ -76,7 +76,7 @@
         android:id="@+id/divider3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/textView8"
+        android:layout_below="@+id/descrizioneReview"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"

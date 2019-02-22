@@ -28,7 +28,7 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 public class PersonalPageFragment extends Fragment implements View.OnClickListener {
     private UserStudente loggedStudente;
     private UserTutor loggedTutor;
-    Bundle bundle;
+    Bundle bundle = new Bundle();
     ImageView userImg, stelline;
     String loggedUserMail;
     TextView userName, hours, materia, orari, orario, orariAgenda;
@@ -50,12 +50,13 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
                 setTutorFlag(loggedTutor);
-                bundle = savedInstanceState;
             }
+
         }
-        if (getTutorFlag() == true)
+        if (getTutorFlag() == true) {
+            bundle.putString("chosenTutor", loggedUserMail);
             return inflater.inflate(R.layout.fragment_tutor_personal_page, container, false);
-        else
+        }else
             return inflater.inflate(R.layout.fragment_personal_page, container, false);
     }
 
@@ -105,7 +106,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 FragmentManager fragmentManager = getFragmentManager();
                 clickedFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, clickedFragment);
+                fragmentTransaction.replace(R.id.fragment_container, clickedFragment);
                 fragmentTransaction.commit();
                 break;
             }
