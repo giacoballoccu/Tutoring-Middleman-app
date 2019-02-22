@@ -82,4 +82,29 @@ public class FeedbackFactory {
         }
         return votoMedio/(feedbacks.size());
     }
+
+    public int getVotoDisponibiltaMedio (ArrayList<Feedback> feedbacks){
+        int votoMedio = 0;
+        for(int i = 0; i < feedbacks.size(); i++){
+            votoMedio = votoMedio + feedbacks.get(i).getVotoDisponibilità();
+        }
+        return votoMedio/(feedbacks.size());
+    }
+
+    public int getVotoChiarezzaMedio (ArrayList<Feedback> feedbacks){
+        int votoMedio = 0;
+        for(int i = 0; i < feedbacks.size(); i++){
+            votoMedio = votoMedio + feedbacks.get(i).getVotoChiarezza();
+        }
+        return votoMedio/(feedbacks.size());
+    }
+
+    public int getVotoCompetanzaMedio (ArrayList<Feedback> feedbacks){
+        int votoMedio = 0;
+        for(int i = 0; i < feedbacks.size(); i++){
+            votoMedio = votoMedio + feedbacks.get(i).getVotoCompetenza();
+        }
+        return votoMedio/(feedbacks.size());
+    }
+
 }
