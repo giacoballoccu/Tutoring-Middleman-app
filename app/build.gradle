@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.giaco.gerproject"
-        minSdkVersion 15
+        minSdkVersion 25
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -17,6 +17,8 @@ android {
         }
     }
     buildToolsVersion '28.0.3'
+    productFlavors {
+    }
 }
 
 dependencies {

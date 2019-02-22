@@ -52,12 +52,12 @@ public class BuyPackagesFragment extends Fragment {
         if (getArguments() != null) {
             emailLoggedUser = getArguments().getString("actualUserMail");
         }
-        mparent = view.findViewById(R.id.parentview);
+        mparent = (LinearLayout) view.findViewById(R.id.parentview);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         staticView = layoutInflater.inflate(R.layout.ore_rimanenti_static, null, false);
         mparent.addView(staticView);
-        aux = staticView.findViewById(R.id.n_ore_rimanenti);
+        aux = (TextView) staticView.findViewById(R.id.n_ore_rimanenti);
         ore_rimaste = Integer.parseInt(aux.getText().toString());
 
         for (int i = 0; i < packList.size(); i++) {
@@ -74,7 +74,7 @@ public class BuyPackagesFragment extends Fragment {
         float prezzoF;
         int oreF;
 
-        prezzo = myView.findViewById(R.id.prezzo);
+        prezzo = (TextView) myView.findViewById(R.id.prezzo);
         prezzoF = packet.getPrezzo();
         prezzo.setText(String.valueOf(prezzoF) + " €");
 
@@ -84,7 +84,7 @@ public class BuyPackagesFragment extends Fragment {
 
         if(packet.getPrezzo()> 4.99f){
             Drawable myDrawable = packet.getImage();
-            img = myView.findViewById(R.id.imgpack);
+            img = (ImageView) myView.findViewById(R.id.imgpack);
             img.setImageDrawable(myDrawable);
         }
 

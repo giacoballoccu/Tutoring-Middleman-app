@@ -9,7 +9,6 @@
         <item name="drawerArrowStyle">@style/DrawerIconStyle</item>
         <item name="toolbarStyle">@style/custom_toolbar</item>
         <!--<item name="android:textColor">@color/blackGrey</item>-->
-        <item name= "android:buttonCornerRadius">10dp</item>
         <item name="colorButtonNormal">@color/colorAccent</item>
 
     </style>
