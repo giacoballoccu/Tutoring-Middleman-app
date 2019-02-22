@@ -85,7 +85,7 @@ public class ReviewsFragment extends Fragment {
             votoChiarezza = (TextView) statsReview.findViewById(R.id.votochiarezza);
             votoCompetenza = (TextView) statsReview.findViewById(R.id.votocompetenza);
             votoDisponibilita = (TextView) statsReview.findViewById(R.id.votodisponibilita);
-            stellineMedie = (ImageView) statsReview.findViewById(R.id.stellineSingolaReview);
+            stellineMedie = (ImageView) statsReview.findViewById(R.id.recensionifeedbackstatic);
 
             /*Dati dinamici*/
             nomeTutor.setText("" + chosenTutor.getName() + " " + chosenTutor.getSurname() + "");
