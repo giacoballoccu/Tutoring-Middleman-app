@@ -78,9 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.getMenu().setGroupVisible(R.id.tutor, true);
         }
 
-        // Moving bundle to every fragment present in our application after the loggin
-        dashboard = new DashBoardFragment();
-        dashboard.setArguments(bundle);
+        // Moving bundle to every fragment present in our application after the login
 
         buyPackages = new BuyPackagesFragment();
         buyPackages.setArguments(bundle);
@@ -93,6 +91,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         personalPage = new PersonalPageFragment();
         personalPage.setArguments(bundle);
+
+        dashboard = new DashBoardFragment();
+        dashboard.setArguments(bundle);
 
         Bundle bundle1 = new Bundle();
         bundle1.putString("chosenTutor", loggedUserMail);
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         /*Device rotation handler*/
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashBoardFragment()).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, dashboard).addToBackStack(null).commit();
             navigationView.setCheckedItem(R.id.nav_dashboardS);
         }
     }
