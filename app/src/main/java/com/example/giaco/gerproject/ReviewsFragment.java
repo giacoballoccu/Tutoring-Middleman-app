@@ -89,9 +89,9 @@ public class ReviewsFragment extends Fragment {
 
             /*Dati dinamici*/
             nomeTutor.setText("" + chosenTutor.getName() + " " + chosenTutor.getSurname() + "");
-            votoChiarezza.setText(String.valueOf(f.getVotoChiarezzaMedio(feedbacks)).toString());
-            votoCompetenza.setText(String.valueOf(f.getVotoCompetanzaMedio(feedbacks)).toString());
-            votoDisponibilita.setText(String.valueOf(f.getVotoDisponibiltaMedio(feedbacks)).toString());
+            votoChiarezza.setText(String.valueOf(f.getVotoChiarezzaMedio(feedbacks)));
+            votoCompetenza.setText(String.valueOf(f.getVotoCompetanzaMedio(feedbacks)));
+            votoDisponibilita.setText(String.valueOf(f.getVotoDisponibiltaMedio(feedbacks)));
             int votoTotaleMedio = f.getVotoTotaleMedio(feedbacks);
 
                 switch (votoTotaleMedio){
