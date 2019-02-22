@@ -30,7 +30,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DashBoardFragment dashboard;
     ContactUsFragment contactUs;
     MyReservationsFragment myReservations;
-    PersonalPageFragment personalPage, tutorPersonalPage;
+    PersonalPageFragment personalPage;
+    ReviewsFragment reviewFragment;
+    AgendaTutorFragment agendaFragment;
     ImageView avatarMenu;
     TextView nomeCognome;
     protected boolean flagTutor;
@@ -59,11 +61,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         /*Recupero utente*/
         Intent intent = getIntent();
         String loggedUserMail = intent.getStringExtra("actualUserMail");
+
+        UserStudenteFactory factory = UserStudenteFactory.getInstance();
+        UserTutorFactory factoryT = UserTutorFactory.getInstance();
+        if(factory.isEmailInUserList(loggedUserMail))
+            setTutorFlag(false);
+        else setTutorFlag(true);
+
         /*Possiamo recuperare tutti i dati che vogliamo, ora bisogna passare l'utente ai fragment*/
-
-
         Bundle bundle = new Bundle();
         bundle.putString("actualUserMail", loggedUserMail);
+
+        if(!flagTutor){
+            navigationView.getMenu().setGroupVisible(R.id.studente, true);
+        }else{
+            navigationView.getMenu().setGroupVisible(R.id.tutor, true);
+        }
+
         // Moving bundle to every fragment present in our application after the loggin
         dashboard = new DashBoardFragment();
         dashboard.setArguments(bundle);
@@ -80,17 +94,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         personalPage = new PersonalPageFragment();
         personalPage.setArguments(bundle);
 
+        Bundle bundle1 = new Bundle();
+        bundle1.putString("chosenTutor", loggedUserMail);
+        reviewFragment = new ReviewsFragment();
+        reviewFragment.setArguments(bundle1);
 
-        UserStudenteFactory factory = UserStudenteFactory.getInstance();
-        UserTutorFactory factoryT = UserTutorFactory.getInstance();
-        if(factory.isEmailInUserList(loggedUserMail))
-            setTutorFlag(false);
-        else setTutorFlag(true);
-       // UserStudenteFactory factoryS = UserStudenteFactory.getInstance();
+        agendaFragment = new AgendaTutorFragment();
+        agendaFragment.setArguments(bundle);
 
 
-        //UserTutorFactory factoryT = UserTutorFactory.getInstance();
-        //UserTutor loggedTutor = factoryT.getUserByEmail(loggedUserMail);
     if(getTutorFlag() == false){
         UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
         avatarMenu.setImageDrawable(loggedUser.getImage());
@@ -98,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         /*Device rotation handler*/
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashBoardFragment()).addToBackStack(null).commit();
-            navigationView.setCheckedItem(R.id.nav_dashboard);
+            navigationView.setCheckedItem(R.id.nav_dashboardS);
         }
     }
     else{
@@ -107,8 +119,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         /*Device rotation handler*/
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashBoardFragment()).addToBackStack(null).commit();
-            navigationView.setCheckedItem(R.id.nav_dashboard);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PersonalPageFragment()).addToBackStack(null).commit();
+            navigationView.setCheckedItem(R.id.nav_personalpageT);
         }
     }
 
@@ -119,20 +131,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch(menuItem.getItemId()){
-            case R.id.nav_personalpage:
+            /*Handler menustudente*/
+            case R.id.nav_personalpageS:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage, "Personal Page").commit();
                 break;
-            case R.id.nav_dashboard:
+            case R.id.nav_dashboardS:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, dashboard, "DashBoard").commit();
                 break;
-            case R.id.nav_buyPackages:
+            case R.id.nav_buyPackagesS:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, buyPackages, "Buy Packages").commit();
                 break;
-            case R.id.nav_myReservations:
+            case R.id.nav_myReservationsS:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, myReservations, "My Reservations").commit();
                 break;
-            case R.id.nav_contactUs:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, contactUs, "Contact Us").commit();
+            case R.id.nav_logoutS:
+                Intent loggoutS = new Intent(MainActivity.this,
+                        LoginPage.class);
+                startActivity(loggoutS);
+                break;
+            /*Handler menu tutor*/
+            case R.id.nav_personalpageT:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage, "Personal Page").commit();
+                break;
+            case R.id.nav_myReservationsT:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, agendaFragment, "My Agenda").commit();
+                break;
+            case R.id.nav_feedbacksT:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, reviewFragment, "My Reviews").commit();
+                break;
+            case R.id.nav_logoutT:
+                Intent loggoutT = new Intent(MainActivity.this,
+                        LoginPage.class);
+                startActivity(loggoutT);
                 break;
         }
 

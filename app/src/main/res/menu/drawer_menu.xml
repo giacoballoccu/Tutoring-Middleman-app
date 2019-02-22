@@ -2,32 +2,59 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
         tools:showIn="navigation_view>
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:visible="false"
+        android:id="@+id/studente">
         <item
             android:actionLayout="@layout/fragment_personal_page"
             android:icon="@drawable/ic_mieidati"
             android:title="I miei Dati"
-            android:id="@+id/nav_personalpage"/>
+            android:id="@+id/nav_personalpageS"/>
         <item
             android:actionLayout="@layout/fragment_dashboard"
             android:icon="@drawable/ic_bacheca"
             android:title="Bacheca"
-            android:id="@+id/nav_dashboard"/>
+            android:id="@+id/nav_dashboardS"/>
         <item
             android:actionLayout="@layout/buy_packages"
             android:icon="@drawable/ic_comprapachetti"
             android:title="Compra Pacchetti"
-            android:id="@+id/nav_buyPackages"/>
+            android:id="@+id/nav_buyPackagesS"/>
         <item
             android:actionLayout="@layout/fragment_my_reservations"
             android:icon="@drawable/ic_prenotazioni"
             android:title="Prenotazioni"
-            android:id="@+id/nav_myReservations"/>
+            android:id="@+id/nav_myReservationsS"/>
         <item
-            android:actionLayout="@layout/fragment_contact_us"
-            android:icon="@drawable/ic_contattaci"
-            android:title="Contattaci"
-            android:id="@+id/nav_contactUs"/>
+            android:actionLayout="@layout/login_page"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout"
+            android:id="@+id/nav_logoutS"/>
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/tutor"
+        android:visible="false">
+        <item
+            android:actionLayout="@layout/fragment_personal_page"
+            android:icon="@drawable/ic_mieidati"
+            android:title="Il mio profilo"
+            android:id="@+id/nav_personalpageT"/>
+        <item
+            android:actionLayout="@layout/feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="Feedback ricevuti"
+            android:id="@+id/nav_feedbacksT"/>
+        <item
+            android:actionLayout="@layout/fragment_agendatutor"
+            android:icon="@drawable/ic_prenotazioni"
+            android:title="La mia Agenda"
+            android:id="@+id/nav_myReservationsT"/>
+        <item
+            android:actionLayout="@layout/login_page"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout"
+            android:id="@+id/nav_logoutT"/>
     </group>
 
 </menu>
