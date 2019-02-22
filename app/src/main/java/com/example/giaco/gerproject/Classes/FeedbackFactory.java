@@ -22,7 +22,7 @@ public class FeedbackFactory {
         Feedback feedback1 = new Feedback();
         feedback1.setTitolo("Professionalità");
         feedback1.setDescrizione("Talmente professionale che a volte risulta arrogante");
-        feedback1.setAutore("" + factory.getUserList().get(0).getName() + " " + factory.getUserList().get(0).getSurname() + "" );
+        feedback1.setAutore(factory.getUserList().get(2).getEmail());
         feedback1.setProfessore(factoryTutor.getUserList().get(2));
         feedback1.setVotoChiarezza(4);
         feedback1.setVotoCompetenza(3);
@@ -35,7 +35,7 @@ public class FeedbackFactory {
         Feedback feedback2 = new Feedback();
         feedback2.setTitolo("La simpatia non basta");
         feedback2.setDescrizione("Molto scarso ma simpatico");
-        feedback2.setAutore("" + factory.getUserList().get(0).getName() + " " + factory.getUserList().get(0).getSurname() + "" );
+        feedback2.setAutore(factory.getUserList().get(1).getEmail());
         feedback2.setProfessore(factoryTutor.getUserList().get(2));
         feedback2.setVotoChiarezza(1);
         feedback2.setVotoCompetenza(2);
@@ -48,7 +48,7 @@ public class FeedbackFactory {
         Feedback feedback3 = new Feedback();
         feedback3.setTitolo("Fortissimo");
         feedback3.setDescrizione("Mi ha aiutato a passare l'esame");
-        feedback3.setAutore("" + factory.getUserList().get(1).getName() + " " + factory.getUserList().get(1).getSurname() + "" );
+        feedback3.setAutore(factory.getUserList().get(2).getEmail());
         feedback3.setProfessore(factoryTutor.getUserList().get(1));
         feedback3.setVotoChiarezza(5);
         feedback3.setVotoCompetenza(5);
@@ -82,4 +82,29 @@ public class FeedbackFactory {
         }
         return votoMedio/(feedbacks.size());
     }
+
+    public int getVotoDisponibiltaMedio (ArrayList<Feedback> feedbacks){
+        int votoMedio = 0;
+        for(int i = 0; i < feedbacks.size(); i++){
+            votoMedio = votoMedio + feedbacks.get(i).getVotoDisponibilità();
+        }
+        return votoMedio/(feedbacks.size());
+    }
+
+    public int getVotoChiarezzaMedio (ArrayList<Feedback> feedbacks){
+        int votoMedio = 0;
+        for(int i = 0; i < feedbacks.size(); i++){
+            votoMedio = votoMedio + feedbacks.get(i).getVotoChiarezza();
+        }
+        return votoMedio/(feedbacks.size());
+    }
+
+    public int getVotoCompetanzaMedio (ArrayList<Feedback> feedbacks){
+        int votoMedio = 0;
+        for(int i = 0; i < feedbacks.size(); i++){
+            votoMedio = votoMedio + feedbacks.get(i).getVotoCompetenza();
+        }
+        return votoMedio/(feedbacks.size());
+    }
+
 }
