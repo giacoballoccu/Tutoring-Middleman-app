@@ -28,6 +28,7 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 public class PersonalPageFragment extends Fragment implements View.OnClickListener {
     private UserStudente loggedStudente;
     private UserTutor loggedTutor;
+    Bundle bundle;
     ImageView userImg, stelline;
     String loggedUserMail;
     TextView userName, hours, materia, orari, orario, orariAgenda;
@@ -49,6 +50,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
                 setTutorFlag(loggedTutor);
+                bundle = savedInstanceState;
             }
         }
         if (getTutorFlag() == true)
@@ -99,8 +101,9 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 break;
             }
             case R.id.feedbackButton: {
-                EditProfileFragment clickedFragment = new EditProfileFragment();
+                ReviewsFragment clickedFragment = new ReviewsFragment();
                 FragmentManager fragmentManager = getFragmentManager();
+                clickedFragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.content, clickedFragment);
                 fragmentTransaction.commit();
