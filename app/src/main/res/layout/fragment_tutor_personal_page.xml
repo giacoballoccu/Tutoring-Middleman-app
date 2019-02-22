@@ -10,9 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.constraint.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -23,11 +20,13 @@
                 android:layout_gravity="right"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:text="Edit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.431"
                 app:layout_constraintStart_toEndOf="@+id/profileImgT"
-                tools:layout_editor_absoluteY="36dp" />
+                app:layout_constraintTop_toBottomOf="@+id/editAgendaButton" />
 
             <ImageView
                 android:gravity="center"
@@ -96,21 +95,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/feedbackButton" />
 
-            <TextView
-                android:id="@+id/orari"
-                android:layout_width="383dp"
-                android:layout_height="353dp"
-                android:layout_gravity="center_horizontal"
+
+            <LinearLayout
+                android:id="@+id/dparent"
+                android:layout_width="388dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:gravity="center"
-                android:text="Lunedì 11-12"
-                android:textSize="30sp"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materia" />
+                app:layout_constraintTop_toBottomOf="@+id/materia"></LinearLayout>
+
 
             <Button
                 android:id="@+id/feedbackButton"

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.FeedbackFactory;
@@ -29,11 +30,14 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     private UserStudente loggedStudente;
     private UserTutor loggedTutor;
     Bundle bundle;
+    LinearLayout dparent;
     ImageView userImg, stelline;
     String loggedUserMail;
     TextView userName, hours, materia, orari, orario, orariAgenda;
     Button recharge, editAgenda, recensioni;
     Button editProfile;
+    View myView;
+    LayoutInflater layoutInflater;
     private boolean flagTutor = false;
 
     @Nullable
@@ -150,8 +154,15 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             loggedTutor.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(loggedTutor.getEmail())));
 
             /*Dynamic data*/
+            layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
-                orariAgenda.setText("" + loggedTutor.getDisponibilitaData() + "");
+                dparent = view.findViewById(R.id.dparent);
+
+                for(String str : loggedTutor.getDisponibilitaData()){
+                    myView = layoutInflater.inflate(R.layout.disponibilita_tutor, null, false);
+                    dparent.addView(myView);
+                    updateDisponibilita(str, myView);
+                }
                 userImg.setImageDrawable(resize(loggedTutor.getImage()));
 
                 switch (loggedTutor.getVotoTotaleMedio()){
@@ -191,6 +202,12 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         if (usr instanceof UserStudente)
             this.flagTutor = false;
         else this.flagTutor = true;
+    }
+
+    public void updateDisponibilita (String str, View myView){
+        TextView text_disponibilita;
+        text_disponibilita = myView.findViewById(R.id.disponibilita);
+        text_disponibilita.setText("" + str + "");
     }
 
     protected boolean getTutorFlag(){

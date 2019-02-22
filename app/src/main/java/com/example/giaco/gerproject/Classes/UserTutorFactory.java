@@ -48,6 +48,18 @@ public class UserTutorFactory {
         disponibilitaDataT3.add(data);
         data = "31/02/2019 17:00-18:00";
         disponibilitaDataT3.add(data);
+        data = "1/03/2019 18:00-18:00";
+        disponibilitaDataT3.add(data);
+        data = "10/03/2019 17:00-18:00";
+        disponibilitaDataT3.add(data);
+        data = "31/03/2019 17:00-18:00";
+        disponibilitaDataT3.add(data);
+        data = "15/06/2019 17:00-18:00";
+        disponibilitaDataT3.add(data);
+        data = "16/06/2019 17:00-18:00";
+        disponibilitaDataT3.add(data);
+        data = "15/08/2019 00:00-23:59";
+        disponibilitaDataT3.add(data);
 
 
 
