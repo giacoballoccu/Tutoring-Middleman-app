@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.Package;
 import com.example.giaco.gerproject.Classes.PackageFactory;
-import com.example.giaco.gerproject.Classes.UserTutorFactory;
+import com.example.giaco.gerproject.Classes.UserStudente;
 
 import org.w3c.dom.Text;
 
@@ -29,6 +29,8 @@ public class BuyPackagesFragment extends Fragment {
 
     TextView aux;
     LinearLayout mparent;
+    String emailLoggedUser;
+    UserStudente loggedUser;
     LayoutInflater layoutInflater;
     View myView, staticView;
     PackageFactory factory = PackageFactory.getInstance();
@@ -47,6 +49,9 @@ public class BuyPackagesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Acquista pacchetti");
+        if (getArguments() != null) {
+            emailLoggedUser = getArguments().getString("actualUserMail");
+        }
         mparent = view.findViewById(R.id.parentview);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 

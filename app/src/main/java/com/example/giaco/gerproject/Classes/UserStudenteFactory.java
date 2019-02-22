@@ -50,8 +50,8 @@ public class UserStudenteFactory {
 
         UserStudente user3 = new UserStudente();
         user3.setEmail("nomail");
-        user3.setName("gino");
-        user3.setSurname("mandaresu");
+        user3.setName("Gennaro");
+        user3.setSurname("Mandaresu");
         Drawable img3 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.studente3, null);
         user3.setImage(img3);
         user3.setHours("10");
