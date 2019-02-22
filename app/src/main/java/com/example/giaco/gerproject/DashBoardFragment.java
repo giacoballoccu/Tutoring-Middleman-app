@@ -32,7 +32,7 @@ public class DashBoardFragment extends Fragment {
     BookFragment book;
     ImageButton b;
     ArrayList<Feedback> feedbackList;
-    UserStudente loggedUser;
+    String emailLoggedUser;
     FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
     UserTutorFactory userTutorFactory = UserTutorFactory.getInstance();
     ArrayList<UserTutor> tutorList = userTutorFactory.getUserList();
@@ -48,8 +48,7 @@ public class DashBoardFragment extends Fragment {
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Bacheca");
         if (getArguments() != null) {
-            String emailLoggedUser = getArguments().getString("email");
-            loggedUser = UserStudenteFactory.getInstance().getUserByEmail(emailLoggedUser);
+            emailLoggedUser = getArguments().getString("email");
         }
         mparent = view.findViewById(R.id.mparent);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -127,8 +126,8 @@ public class DashBoardFragment extends Fragment {
                     break;
          }
         }
-
-        setOnClick(b,tutor.getEmail(), loggedUser.getEmail());
+        
+        setOnClick(b,tutor.getEmail(), emailLoggedUser);
     }
 
     private void setOnClick(final ImageButton btn, final String emailTutor, final String emailUser ){
