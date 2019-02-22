@@ -21,7 +21,7 @@ public class ReservationFactory {
 
     ReservationFactory(){
         Reservation reservation1 = new Reservation();
-        reservation1.setProfessore(factoryT.getUserList().get(1));
+        reservation1.setProfessore(factoryT.getUserList().get(2));
         reservation1.setStudente(factoryS.getUserList().get(2));
         reservation1.setData("10/03/2019 12:00-13:00");
         reservation1.setMateria(factoryT.getUserList().get(1).getMateria());
