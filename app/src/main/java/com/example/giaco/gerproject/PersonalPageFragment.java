@@ -26,10 +26,10 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 public class PersonalPageFragment extends Fragment implements View.OnClickListener {
     private UserStudente loggedStudente;
     private UserTutor loggedTutor;
-    ImageView userImg;
+    ImageView userImg, stelline;
     String loggedUserMail;
-    TextView userName, hours;
-    Button recharge;
+    TextView userName, hours, materia, orari, orariAgenda;
+    Button recharge, editAgenda, recensioni;
     Button editProfile;
     boolean flagTutor = false;
 
@@ -88,38 +88,43 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("I Miei Dati");
-
-
-        userName = (TextView) view.findViewById(R.id.username);
-        hours = (TextView) view.findViewById(R.id.hours);
-        userImg = (ImageView) view.findViewById(R.id.profileImg);
-        recharge = (Button) view.findViewById(R.id.rechargeButton);
-        editProfile = (Button) view.findViewById(R.id.editButton);
-
-        if (getArguments() != null) {
-            if(getArguments().getInt("flag") == 0) { //Studente
-                loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
-                /*Dynamic data*/
-                userName.setText("" + loggedStudente.getName() + " " + loggedStudente.getSurname() + "");
-                hours.setText("" + loggedStudente.getHours() + "");
-                userImg.setImageDrawable(resize(loggedStudente.getImage()));
+        if (flagTutor == false) {
+            userName = (TextView) view.findViewById(R.id.username);
+            hours = (TextView) view.findViewById(R.id.hours);
+            userImg = (ImageView) view.findViewById(R.id.profileImg);
+            recharge = (Button) view.findViewById(R.id.rechargeButton);
+            editProfile = (Button) view.findViewById(R.id.editButton);
+            if (getArguments() != null) {
+                    loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
+                    /*Dynamic data*/
+                    userName.setText("" + loggedStudente.getName() + " " + loggedStudente.getSurname() + "");
+                    hours.setText("" + loggedStudente.getHours() + "");
+                    userImg.setImageDrawable(resize(loggedStudente.getImage()));
             }
-            else{   //Tutor
+            recharge.setOnClickListener(this);
+            editProfile.setOnClickListener(this);
+        }
+        else{
+            userName = (TextView) view.findViewById(R.id.usernameT);
+            userImg = (ImageView) view.findViewById(R.id.profileImgT);
+            stelline = (ImageView) view.findViewById(R.id.stelline);
+            editProfile = (Button) view.findViewById(R.id.editButtonT);
+            materia = (TextView) view.findViewById(R.id.materia);
+            editAgenda = (Button) view.findViewById(R.id.editAgendaButton);
+            recensioni = (Button) view.findViewById(R.id.feedbackButton);
+            orari = (TextView) view.findViewById(R.id.orarioTitolo);
+
+            if (getArguments() != null) {
                 loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
                 /*Dynamic data*/
-                userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
+                userName.setText("" + loggedStudente.getName() + " " + loggedStudente.getSurname() + "");
+                orariAgenda.setText("LUNEDI");
                 userImg.setImageDrawable(resize(loggedTutor.getImage()));
+            }
+            recensioni.setOnClickListener(this);
+            editAgenda.setOnClickListener(this);
+            editProfile.setOnClickListener(this);
         }
-           //else
-             //  loggedUser = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
-
-        }
-
-
-
-
-        recharge.setOnClickListener(this);
-        editProfile.setOnClickListener(this);
     }
 
     private Drawable resize(Drawable image) {
