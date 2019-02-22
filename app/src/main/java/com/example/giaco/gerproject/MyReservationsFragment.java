@@ -22,6 +22,7 @@ public class MyReservationsFragment extends Fragment {
     LinearLayout mparent;
     LayoutInflater layoutInflater;
     View myView;
+    String emailLoggedUser;
 
     ReservationFactory factory = ReservationFactory.getInstance();
     ArrayList<Reservation> resList = factory.getReservations();
@@ -33,6 +34,9 @@ public class MyReservationsFragment extends Fragment {
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        if (getArguments() != null) {
+            emailLoggedUser = getArguments().getString("actualUserMail");
+        }
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Prenotazioni");
@@ -45,9 +49,12 @@ public class MyReservationsFragment extends Fragment {
 
 
         for(int i = 0 ; i < resList.size() ; i++){
-            myView = layoutInflater.inflate(R.layout.single_reservation, null, false);
-            mparent.addView(myView);
 
+            myView = layoutInflater.inflate(R.layout.single_reservation, null, false);
+
+            if(emailLoggedUser.equals(resList.get(i).getStudente().getEmail()) || emailLoggedUser.equals(resList.get(i).getProfessore().getEmail())) {
+                mparent.addView(myView);    //ERRORE
+            }
             updatePackage(resList.get(i), myView);
         }
 

@@ -13,8 +13,8 @@
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
         android:layout_marginTop="27dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:layout_marginBottom="77dp"
         android:layout_toEndOf="@+id/avatarAutore"
         android:layout_toRightOf="@+id/avatarAutore"
@@ -23,13 +23,13 @@
     <ImageView
         android:id="@+id/avatarAutore"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="83dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="44dp"
         app:srcCompat="@mipmap/ernioavatar1_round" />
 
     <TextView
