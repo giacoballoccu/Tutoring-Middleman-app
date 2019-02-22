@@ -30,7 +30,7 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 public class PersonalPageFragment extends Fragment implements View.OnClickListener {
     private UserStudente loggedStudente;
     private UserTutor loggedTutor;
-    Bundle bundle;
+    Bundle bundle = new Bundle();
     LinearLayout dparent;
     ImageView userImg, stelline;
     String loggedUserMail;
@@ -55,11 +55,13 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
                 setTutorFlag(loggedTutor);
-                bundle = savedInstanceState;
+                //bundle = savedInstanceState;
             }
         }
-        if (getTutorFlag() == true)
+        if (getTutorFlag() == true) {
+            bundle.putString("chosenTutor", loggedUserMail);
             return inflater.inflate(R.layout.fragment_tutor_personal_page, container, false);
+        }
         else
             return inflater.inflate(R.layout.fragment_personal_page, container, false);
     }
