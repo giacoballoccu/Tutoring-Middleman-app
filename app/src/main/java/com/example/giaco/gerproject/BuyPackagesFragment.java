@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.Package;
 import com.example.giaco.gerproject.Classes.PackageFactory;
+import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 import org.w3c.dom.Text;
 
