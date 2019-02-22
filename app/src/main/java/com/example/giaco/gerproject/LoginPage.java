@@ -88,6 +88,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                 } else if(factoryTutor.isEmailInUserList(emailStr)){
                     if (factoryTutor.getUserByEmail(emailStr).getPassword().equals(passwordStr)) {
                         UserTutor actualUser = factoryTutor.getUserByEmail(emailStr);
+
                         Intent successfullyLogged = new Intent(LoginPage.this, MainActivity.class);
                         successfullyLogged.putExtra("actualUserMail", actualUser.getEmail());
                         successfullyLogged.putExtra("flag", 1);

@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
+import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DashBoardFragment dashboard;
     ContactUsFragment contactUs;
     MyReservationsFragment myReservations;
-    PersonalPageFragment personalPage;
+    PersonalPageFragment personalPage, tutorPersonalPage;
     ImageView avatarMenu;
     TextView nomeCognome;
 
@@ -76,10 +77,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         personalPage = new PersonalPageFragment();
         personalPage.setArguments(bundle);
 
-
-
         UserStudenteFactory factory = UserStudenteFactory.getInstance();
+       // UserStudenteFactory factoryS = UserStudenteFactory.getInstance();
         UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
+
+        //UserTutorFactory factoryT = UserTutorFactory.getInstance();
+        //UserTutor loggedTutor = factoryT.getUserByEmail(loggedUserMail);
+
 
         avatarMenu.setImageDrawable(loggedUser.getImage());
 
