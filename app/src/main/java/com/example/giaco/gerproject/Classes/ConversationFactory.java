@@ -66,46 +66,49 @@ public class ConversationFactory extends Conversation {
 
     public String checkDestinatario (String mail){  //Metodo usato per vedere se esiste una conversazione con una persona. Se esiste viene restituita l'email del destinatario
         String nome = null;
-        for(Conversation c : conversazioni) {
+        for(Conversation c : conversazioni)
             if (c.getMittente().equals(mail))
                 nome = c.getDestinatario();
-        }
         return nome;
     }
 
     public ArrayList<Message> getMessaggiByMittente(String mittente){
         ArrayList<Message> lista = new ArrayList<>();
-        for(Conversation c : conversazioni){
+        for(Conversation c : conversazioni)
                 if(c.getMittente().equals(mittente))
                     lista = c.getMessaggiMit();
-        }
         return lista;
     }
 
     public ArrayList<Message> getMessaggiByDestinatario(String destinatario){
         ArrayList<Message> lista = new ArrayList<>();
-        for(Conversation c : conversazioni){
+        for(Conversation c : conversazioni)
             if(c.getMittente().equals(destinatario))
                 lista = c.getMessaggiDes();
-        }
         return lista;
     }
 
     public Conversation getConversazioneByMittente (String mittente){
         Conversation conversazione = new Conversation();
-        for(Conversation c : conversazioni){
+        for(Conversation c : conversazioni)
             if(c.getMittente().equals(mittente))
                 conversazione = c;
-        }
         return conversazione;
     }
 
     public Conversation getConversazioneByDestinatario (String destinatario){
         Conversation conversazione = new Conversation();
-        for(Conversation c : conversazioni){
+        for(Conversation c : conversazioni)
             if(c.getDestinatario().equals(destinatario))
                 conversazione = c;
-        }
         return conversazione;
+    }
+
+    public ArrayList<Conversation> getConversazioniByMittente(String mittente){
+        ArrayList<Conversation> lista = new ArrayList<>();
+        for(Conversation c : conversazioni)
+            if(c.getMittente().equals(mittente))
+                lista.add(c);
+        return lista;
     }
 }

@@ -4,7 +4,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/contatto"
+        android:id="@+id/contatto_conversazione"
         android:layout_width="wrap_content"
         android:layout_height="115dp"
         android:layout_alignParentStart="true"
@@ -18,7 +18,7 @@
         android:textSize="15dp" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/avatar_contatto_conversazione"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:layout_alignParentStart="true"

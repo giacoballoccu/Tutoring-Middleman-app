@@ -8,10 +8,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.example.giaco.gerproject.Classes.Conversation;
 import com.example.giaco.gerproject.Classes.ConversationFactory;
 import com.example.giaco.gerproject.Classes.MessageFactory;
+import com.example.giaco.gerproject.Classes.User;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
@@ -20,9 +24,12 @@ public class ConversazioniFragment extends Fragment {
     private boolean tutorFlag;
     LinearLayout coparent;
     LayoutInflater layoutInflater;
-    String loggedUser;
+    User loggedUser;
     ConversationFactory factoryConversazione;
-
+    TextView nomeCognome;
+    ImageView avatarDestinatario;
+    //String nomeContatto, cognomeContatto, nomeCognomeContatto;
+    View myView;
 
 
     @Nullable
@@ -54,47 +61,59 @@ public class ConversazioniFragment extends Fragment {
         factoryConversazione = ConversationFactory.getInstance();
 
         getActivity().setTitle("Le mie conversazioni");
-        nomeCognome = view.findViewById(R.id.contatto);
-        avatarDestinatario = view.findViewById(R.id.avatar_destinatario);
 
-        if (factoryConversazione.checkDestinatario(loggedUserMail) != null) {    //Se esiste una conversazione con qualcuno
-            if (getTutorFlag() != true) {
-                avatarDestinatario.setImageDrawable(UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
-                tutorNome = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
-                tutorCognome = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
-            } else {
-                avatarDestinatario.setImageDrawable(UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
-                tutorNome = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
-                tutorCognome = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
-            }
-            tutorNomeCognome = tutorNome + " " + tutorCognome; //Nome e cognome  del destinatario
-            nomeCognome.setText(tutorNomeCognome);    //Nome e cognome del destinatario
-
-            for (int i = 0; i < 3; i++) {
+        if (factoryConversazione.checkDestinatario(loggedUserMail) != null) //Se esiste una conversazione con qualcuno
+            for (Conversation c : ConversationFactory.getInstance().getConversazioniByMittente(loggedUserMail)) {   //Ciclo tutte le conversazioni
                 myView = layoutInflater.inflate(R.layout.messaggio_fragment, null, false);
-                if (i % 2 == 0) {
-                    cparentL.addView(myView);
-                    updateL(factoryConversazione.getConversazioneByMittente(loggedUserMail).getMessaggiMit(), myView, i);
-                } else {
-                    cparentR.addView(myView);
-                    updateR(factoryConversazione.getConversazioneByMittente(loggedUserMail).getMessaggiDes(), myView, i);
-                }
+                coparent.addView(myView);
+                update(c, myView);
             }
-        } else {
-            avatarDestinatario.setVisibility(View.GONE);
+        else
             nomeCognome.setText("Nessuna conversazione");    //Nome e cognome del destinatario
-        }
     }
 
-        public void setTutorFlag(boolean bool){
-            if(bool == true)
-                this.tutorFlag = true;
-            else this.tutorFlag = false;
-        }
+    public void update(Conversation conv, View view){
+        TextView nomeCognome;
+        ImageView avatarContatto;
+        String nomeContatto, cognomeContatto, nomeCognomeContatto;
 
-        public boolean getTutorFlag(){
-            return this.tutorFlag;
+
+
+
+        nomeCognome = myView.findViewById(R.id.contatto_conversazione);
+        nomeCognome.setText(nomeCognomeContatto);    //Nome e cognome del destinatario
+
+        avatarContatto = myView.findViewById(R.id.avatar_contatto_conversazione);
+
+        if(getTutorFlag() != false){
+            avatarContatto.setImageDrawable(UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
+            nomeContatto = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
+            cognomeContatto = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
         }
+        else{
+            avatarContatto.setImageDrawable(UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
+            nomeContatto = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
+            cognomeContatto = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
+        }
+        nomeCognomeContatto = nomeContatto + " " + cognomeContatto; //Nome e cognome  del destinatario
+
+
+
+        nomeCognome = myView.findViewById(R.id.contatto_conversazione);
+        nomeCognome.setText(nomeCognomeContatto);
+
+
+    }
+
+    public void setTutorFlag(boolean bool){
+        if(bool == true)
+            this.tutorFlag = true;
+        else this.tutorFlag = false;
+    }
+
+    public boolean getTutorFlag(){
+        return this.tutorFlag;
+    }
 
 }
 
