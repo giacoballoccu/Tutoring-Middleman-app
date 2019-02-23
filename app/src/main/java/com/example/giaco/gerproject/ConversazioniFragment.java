@@ -1,6 +1,7 @@
 package com.example.giaco.gerproject;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import com.example.giaco.gerproject.Classes.ConversationFactory;
 import com.example.giaco.gerproject.Classes.MessageFactory;
 import com.example.giaco.gerproject.Classes.User;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
+import com.example.giaco.gerproject.Classes.UserTutor;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
 public class ConversazioniFragment extends Fragment {
@@ -50,7 +52,6 @@ public class ConversazioniFragment extends Fragment {
         }
 
         coparent = view.findViewById(R.id.coparent);
-
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (getTutorFlag() != true)
@@ -59,48 +60,35 @@ public class ConversazioniFragment extends Fragment {
             loggedUser = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);  //Tutor
 
         factoryConversazione = ConversationFactory.getInstance();
-
         getActivity().setTitle("Le mie conversazioni");
+
+        avatarDestinatario = view.findViewById(R.id.avatar_contatto_conversazione);
+        nomeCognome = view.findViewById(R.id.contatto_conversazione);
 
         if (factoryConversazione.checkDestinatario(loggedUserMail) != null) //Se esiste una conversazione con qualcuno
             for (Conversation c : ConversationFactory.getInstance().getConversazioniByMittente(loggedUserMail)) {   //Ciclo tutte le conversazioni
                 myView = layoutInflater.inflate(R.layout.messaggio_fragment, null, false);
                 coparent.addView(myView);
-                update(c, myView);
+                update(c, myView, avatarDestinatario, nomeCognome);
             }
         else
             nomeCognome.setText("Nessuna conversazione");    //Nome e cognome del destinatario
     }
 
-    public void update(Conversation conv, View view){
-        TextView nomeCognome;
-        ImageView avatarContatto;
-        String nomeContatto, cognomeContatto, nomeCognomeContatto;
+    public void update(Conversation conv, View view, ImageView avatarSK, TextView nomeSK){
+        String n, c, nc;
 
-
-
-
-        nomeCognome = myView.findViewById(R.id.contatto_conversazione);
-        nomeCognome.setText(nomeCognomeContatto);    //Nome e cognome del destinatario
-
-        avatarContatto = myView.findViewById(R.id.avatar_contatto_conversazione);
-
-        if(getTutorFlag() != false){
-            avatarContatto.setImageDrawable(UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
-            nomeContatto = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
-            cognomeContatto = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
+        if(getTutorFlag() != true){
+            n = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
+            c = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
         }
         else{
-            avatarContatto.setImageDrawable(UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
-            nomeContatto = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
-            cognomeContatto = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
+            n = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
+            c = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
         }
-        nomeCognomeContatto = nomeContatto + " " + cognomeContatto; //Nome e cognome  del destinatario
+        nc = n + " " + c;
 
-
-
-        nomeCognome = myView.findViewById(R.id.contatto_conversazione);
-        nomeCognome.setText(nomeCognomeContatto);
+        nomeSK.setText(nc);
 
 
     }
