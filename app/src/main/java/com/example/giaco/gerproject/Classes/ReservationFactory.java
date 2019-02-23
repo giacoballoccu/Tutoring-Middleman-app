@@ -21,14 +21,14 @@ public class ReservationFactory {
 
     ReservationFactory(){
         Reservation reservation1 = new Reservation();
-        reservation1.setProfessore(factoryT.getUserList().get(2));
+        reservation1.setProfessore(factoryT.getUserList().get(3));
         reservation1.setStudente(factoryS.getUserList().get(2));
         reservation1.setData("10/03/2019 12:00-13:00");
         reservation1.setMateria(factoryT.getUserList().get(1).getMateria());
         getReservations().add(reservation1);
 
         Reservation reservation2 = new Reservation();
-        reservation2.setProfessore(factoryT.getUserList().get(0));
+        reservation2.setProfessore(factoryT.getUserList().get(1));
         reservation2.setStudente(factoryS.getUserList().get(2));
         reservation2.setData("02/03/2019 09:00-10:00");
         reservation2.setMateria(factoryT.getUserList().get(0).getMateria());

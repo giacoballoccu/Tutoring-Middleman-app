@@ -23,7 +23,7 @@ public class FeedbackFactory {
         feedback1.setTitolo("Professionalità");
         feedback1.setDescrizione("Talmente professionale che a volte risulta arrogante");
         feedback1.setAutore(factory.getUserList().get(2).getEmail());
-        feedback1.setProfessore(factoryTutor.getUserList().get(2));
+        feedback1.setProfessore(factoryTutor.getUserList().get(3));
         feedback1.setVotoChiarezza(4);
         feedback1.setVotoCompetenza(3);
         feedback1.setVotoDisponibilità(2);
@@ -36,7 +36,7 @@ public class FeedbackFactory {
         feedback2.setTitolo("La simpatia non basta");
         feedback2.setDescrizione("Molto scarso ma simpatico");
         feedback2.setAutore(factory.getUserList().get(1).getEmail());
-        feedback2.setProfessore(factoryTutor.getUserList().get(2));
+        feedback2.setProfessore(factoryTutor.getUserList().get(3));
         feedback2.setVotoChiarezza(1);
         feedback2.setVotoCompetenza(2);
         feedback2.setVotoDisponibilità(5);
@@ -49,13 +49,29 @@ public class FeedbackFactory {
         feedback3.setTitolo("Fortissimo");
         feedback3.setDescrizione("Mi ha aiutato a passare l'esame");
         feedback3.setAutore(factory.getUserList().get(2).getEmail());
-        feedback3.setProfessore(factoryTutor.getUserList().get(1));
+        feedback3.setProfessore(factoryTutor.getUserList().get(2));
         feedback3.setVotoChiarezza(5);
         feedback3.setVotoCompetenza(5);
         feedback3.setVotoDisponibilità(4);
         feedback3.setVotoMedio((feedback3.getVotoChiarezza() + feedback3.getVotoCompetenza() + feedback3.getVotoDisponibilità())/3);
 
         feedbacks.add(feedback3);
+
+        Feedback feedback4 = new Feedback();
+        feedback4.setTitolo("Non è il massimo");
+        feedback4.setDescrizione("Maledetto tu sia Enrico Carlo, non sai nulla.");
+        feedback4.setAutore(factory.getUserList().get(2).getEmail());
+        feedback4.setProfessore(factoryTutor.getUserList().get(1));
+        feedback4.setVotoChiarezza(0);
+        feedback4.setVotoCompetenza(0);
+        feedback4.setVotoDisponibilità(0);
+        feedback4.setVotoMedio((feedback4.getVotoChiarezza() + feedback4.getVotoCompetenza() + feedback4.getVotoDisponibilità())/3);
+
+        feedbacks.add(feedback4);
+
+        //ArrayList<Feedback> feedbackVuoto = new ArrayList<>();
+
+
     }
 
     public ArrayList<Feedback> getFeedbacks() {
@@ -66,7 +82,7 @@ public class FeedbackFactory {
     }
 
     public ArrayList<Feedback> getFeedbackByTutorMail (String tutorMail){
-        ArrayList<Feedback> feedbackList = new ArrayList<Feedback>();
+        ArrayList<Feedback> feedbackList = new ArrayList<>();
         for (int i = 0; i < feedbacks.size(); i++) {
             if (feedbacks.get(i).getProfessore().getEmail().equals(tutorMail)) {
                 feedbackList.add(feedbacks.get(i));

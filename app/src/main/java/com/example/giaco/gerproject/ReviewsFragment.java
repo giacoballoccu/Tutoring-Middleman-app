@@ -47,23 +47,26 @@ public class ReviewsFragment extends Fragment {
             chosenTutor = UserTutorFactory.getInstance().getUserByEmail(emailTutor);
             feedbackFactory = FeedbackFactory.getInstance();
             feedbacks = feedbackFactory.getFeedbackByTutorMail(chosenTutor.getEmail());
-
-            /*Parte singola*/
+                /*Parte singola*/
             mparent = view.findViewById(R.id.parentview_feedback);
             layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
             statsReview = layoutInflater.inflate(R.layout.feedback_static, null, false);
             mparent.addView(statsReview);
             updateStatsReview(feedbackFactory, statsReview);
-            for(Feedback f : feedbacks) {
-               singleReview = layoutInflater.inflate(R.layout.single_feedback, null, false);
+            if (!feedbacks.isEmpty()) {
+                for (Feedback f : feedbacks) {
+                    singleReview = layoutInflater.inflate(R.layout.single_feedback, null, false);
+                    mparent.addView(singleReview);
+                    updateSingleReview(f, singleReview);
+                }
+            }
+            else{
+                singleReview = layoutInflater.inflate(R.layout.single_feedback, null, false);
                 mparent.addView(singleReview);
-                updateSingleReview(f, singleReview);
+                updateDiGhisa(singleReview);
+            }
         }
-
-
-        }
-        }
+    }
 
         public void updateStatsReview(FeedbackFactory f, View statsReview){
             TextView nomeTutor, votoChiarezza, votoDisponibilita, votoCompetenza;
@@ -128,5 +131,21 @@ public class ReviewsFragment extends Fragment {
             autoreNome.setText("" + autore.getName() + " " + autore.getSurname() + "");
             descrizione.setText(f.getDescrizione());
             avatarReview.setImageDrawable(autore.getImage());
+        }
+
+        public void updateDiGhisa(View myView){
+            TextView autoreNome, descrizione;
+            //ImageView stelline, avatarReview;
+
+            //UserStudenteFactory factory = UserStudenteFactory.getInstance();
+            //UserStudente autore = factory.getUserByEmail(f.getAutore());
+
+            autoreNome = (TextView) myView.findViewById(R.id.autoreReview);
+            descrizione = (TextView) myView.findViewById(R.id.descrizioneReview);
+            //stelline = (ImageView) myView.findViewById(R.id.stellineSingolaReview);
+            //avatarReview = (ImageView) myView.findViewById(R.id.avatarAutore);
+
+            autoreNome.setText("Non hai recensioni");
+            descrizione.setText("Merdone");
         }
     }

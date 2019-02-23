@@ -105,11 +105,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dashboard = new DashBoardFragment();
         dashboard.setArguments(bundle);
 
-        Bundle bundle1 = new Bundle();
-        bundle1.putString("chosenTutor", loggedUserMail);
-        reviewFragment = new ReviewsFragment();
-        reviewFragment.setArguments(bundle1);
-
+        if(getTutorFlag() == true){
+            Bundle bundle1 = new Bundle();
+            bundle1.putString("chosenTutor", loggedUserMail);
+            reviewFragment = new ReviewsFragment();
+            reviewFragment.setArguments(bundle1);
+        }
         agendaFragment = new AgendaTutorFragment();
         agendaFragment.setArguments(bundle);
 
