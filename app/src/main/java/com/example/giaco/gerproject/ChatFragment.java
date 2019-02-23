@@ -64,13 +64,12 @@ public class ChatFragment extends Fragment {
         for(int i=0; i<6; i++) {
             myView = layoutInflater.inflate(R.layout.messaggio_fragment, null, false);
             if(i % 2 == 0){
-                cparentL.addView(myView);
-                updateL(factory.getMessaggi().get(0), myView, i);
-            }
-            else{
                 cparentR.addView(myView);
                 updateR(factory.getMessaggi().get(0), myView, i);
-
+            }
+            else{
+                cparentL.addView(myView);
+                updateL(factory.getMessaggi().get(0), myView, i);
             }
 
 
@@ -82,26 +81,26 @@ public class ChatFragment extends Fragment {
     }
 
     public void updateR(Message msg, View myView, int id){
-        TextView contenuto, fakeContenuto;
+        TextView contenuto, fakeTOP;
         contenuto = myView.findViewById(R.id.messaggio);
-        fakeContenuto = (TextView) myView.findViewById(R.id.fakeMessaggio);
-        if(id % 2 == 0)
-            fakeContenuto.setVisibility(View.GONE);
-
+        fakeTOP = (TextView) myView.findViewById(R.id.fakeMessaggioTOP);
+        if(id == 0){
+            fakeTOP.setVisibility(View.GONE);
+        }
         //contenuto.setText(msg.getContenuto());
-        contenuto.setText("MI SCUSI????");
-        fakeContenuto.setText("SONO NASCOSTO");
+        contenuto.setText("Bella zio!");
+        fakeTOP.setText("SONO NASCOSTO IN ALTO");
     }
     public void updateL(Message msg, View myView,  int id){
-        TextView contenuto, fakeContenuto;
+        TextView contenuto, fakeTOP;
         contenuto = (TextView) myView.findViewById(R.id.messaggio);
-        fakeContenuto = (TextView) myView.findViewById(R.id.fakeMessaggio);
-        if(id % 2 == 0)
-            fakeContenuto.setVisibility(View.GONE);
+        fakeTOP = (TextView) myView.findViewById(R.id.fakeMessaggioTOP);
+        if(id == 0){
+            fakeTOP.setVisibility(View.GONE);
+        }
         //contenuto.setText(msg.getContenuto());
-        contenuto.setText("Bella zio");
-        fakeContenuto.setText("SONO NASCOSTO");
-
+        contenuto.setText("MI SCUSI?");
+        fakeTOP.setText("SONO NASCOSTO IN ALTO");
     }
 
     public void setTutorFlag(User usr){
