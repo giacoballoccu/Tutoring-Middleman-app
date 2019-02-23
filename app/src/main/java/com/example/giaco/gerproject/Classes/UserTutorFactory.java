@@ -23,11 +23,11 @@ public class UserTutorFactory {
 
     UserTutorFactory() {
 
-        UserTutor user1 = new UserTutor();
        // FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
 
         /*Disponibilità orarie dei tutor*/
         String data;
+        Context context = ApplicationContextProvider.getContext();
 
         ArrayList<String> disponibilitaDataT1 = new ArrayList<>();
         data = "10/03/2019 11:00-12:00";
@@ -36,6 +36,7 @@ public class UserTutorFactory {
         disponibilitaDataT1.add(data);
         data = "01/03/2019 13:00-14:00";
         disponibilitaDataT1.add(data);
+
         ArrayList<String> disponibilitaDataT2 = new ArrayList<>();
         data = "02/03/2019 8:30-9:30";
         disponibilitaDataT2.add(data);
@@ -43,6 +44,7 @@ public class UserTutorFactory {
         disponibilitaDataT2.add(data);
         data = "02/03/2019 13:00-14:00";
         disponibilitaDataT2.add(data);
+
         ArrayList<String> disponibilitaDataT3 = new ArrayList<>();
         data = "01/03/2019 15:00-16:00";
         disponibilitaDataT3.add(data);
@@ -62,11 +64,10 @@ public class UserTutorFactory {
         disponibilitaDataT3.add(data);
 
 
-
+        UserTutor user1 = new UserTutor();
         user1.setEmail("enricoCarlo@gmail.com");
         user1.setName("Enrico");
         user1.setSurname("Carlo");
-        Context context = ApplicationContextProvider.getContext();
         Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.tutor3, null);
         user1.setImage(img1);
         user1.setPassword("12345");
@@ -98,7 +99,6 @@ public class UserTutorFactory {
         user2.setDisponibilitaData(disponibilitaDataT2);
         //user2.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user2.getEmail()));
         //user2.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user2.getEmail())));
-
 
         getUserList().add(user2);
 
