@@ -7,15 +7,13 @@ public class Message {
         this.contenuto = "Messaggio";
     }
 
-    public Message(String contenuto, User mittente, User destinatario){
-        this.contenuto = contenuto;
-    }
+    public Message(String contenuto){ this.contenuto = contenuto; }
 
     public void setContenuto(String contenuto){
         this.contenuto = contenuto;
     }
+
     public String getContenuto(){
         return this.contenuto;
     }
-
 }

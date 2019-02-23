@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import java.util.Random;
 
 import com.example.giaco.gerproject.Classes.ConversationFactory;
 import com.example.giaco.gerproject.Classes.Message;
@@ -42,6 +41,7 @@ public class ChatFragment extends Fragment {
     LinearLayout cparentR, cparentL;
     boolean tutorFlag;
     View myView;
+    private boolean isTutorFlag;
     UserTutorFactory tutorFactory = UserTutorFactory.getInstance();
     UserStudenteFactory studenteFactory = UserStudenteFactory.getInstance();
 
@@ -58,41 +58,49 @@ public class ChatFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
             loggedUserMail = getArguments().getString("actualUserMail");
+            if(getArguments().getInt("tFlag") == 0)
+                setTutorFlag(false);
+            else
+                setTutorFlag(true);
         }
         cparentR = view.findViewById(R.id.cparentR);
         cparentL = view.findViewById(R.id.cparentL);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+        if(getTutorFlag() != true)
+            loggedUser = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);  //Studente p
+        else
+            loggedUser = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);  //Tutor
 
-        loggedUser = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);  //Funziona solo con studente per ora
         factory = MessageFactory.getInstance();
         factoryConversazione = ConversationFactory.getInstance();
         getActivity().setTitle("Chat");
-
         nomeCognome = view.findViewById(R.id.contatto);
         avatarDestinatario = view.findViewById(R.id.avatar_destinatario);
+
         if(factoryConversazione.checkDestinatario(loggedUserMail) != null) {    //Se esiste una conversazione con qualcuno
-            avatarDestinatario.setImageDrawable(UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
-            tutorNome = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
-            tutorCognome = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
+            if(getTutorFlag() != true) {
+                avatarDestinatario.setImageDrawable(UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
+                tutorNome = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
+                tutorCognome = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
+            }
+            else{
+                avatarDestinatario.setImageDrawable(UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
+                tutorNome = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
+                tutorCognome = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
+            }
             tutorNomeCognome = tutorNome + " " + tutorCognome; //Nome e cognome  del destinatario
             nomeCognome.setText(tutorNomeCognome);    //Nome e cognome del destinatario
 
             for (int i = 0; i < 3; i++) {
                 myView = layoutInflater.inflate(R.layout.messaggio_fragment, null, false);
                 if (i % 2 == 0) {
-                    cparentR.addView(myView);
-                    updateR(factoryConversazione.getConversazioneByMittente(loggedUserMail).getMessaggiMit(), myView, i);
-                } else {
                     cparentL.addView(myView);
-                    updateL(factoryConversazione.getConversazioneByMittente(loggedUserMail).getMessaggiDes(), myView, i);
+                    updateL(factoryConversazione.getConversazioneByMittente(loggedUserMail).getMessaggiMit(), myView, i);
+                } else {
+                    cparentR.addView(myView);
+                    updateR(factoryConversazione.getConversazioneByMittente(loggedUserMail).getMessaggiDes(), myView, i);
                 }
-
-
-                //cparentR.addView(myView);
-
-                //updateR(factory.getMessaggi().get(0), myView);
-
             }
         }
         else{
@@ -103,31 +111,27 @@ public class ChatFragment extends Fragment {
 
     public void updateR(ArrayList<Message> msg, View myView, int id){
         TextView contenuto, fakeTOP;
-        Random rand = new Random();
         int n = (int)(Math.random() * (msg.size() - 1) + 0);
         contenuto = myView.findViewById(R.id.messaggio);
         fakeTOP = (TextView) myView.findViewById(R.id.fakeMessaggioTOP);
         if(id == 0)
             fakeTOP.setVisibility(View.GONE);
-        //contenuto.setText(msg.getContenuto());
         contenuto.setText(msg.get(n).getContenuto());
         fakeTOP.setText("SONO NASCOSTO IN ALTO");
     }
     public void updateL(ArrayList<Message> msg, View myView,  int id){
         TextView contenuto, fakeTOP;
-        Random rand = new Random();
         int n = (int)(Math.random() * (msg.size() - 1) + 0);
         contenuto = (TextView) myView.findViewById(R.id.messaggio);
         fakeTOP = (TextView) myView.findViewById(R.id.fakeMessaggioTOP);
         if(id == 0)
             fakeTOP.setVisibility(View.GONE);
-        //contenuto.setText(msg.getContenuto());
         contenuto.setText(msg.get(n).getContenuto());
         fakeTOP.setText("SONO NASCOSTO IN ALTO");
     }
 
-    public void setTutorFlag(User usr){
-        if(usr instanceof UserTutor)
+    public void setTutorFlag(boolean bool){
+        if(bool == true)
             this.tutorFlag = true;
         else this.tutorFlag = false;
     }

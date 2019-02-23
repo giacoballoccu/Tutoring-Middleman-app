@@ -15,6 +15,7 @@ public class ConversationFactory extends Conversation {
     }
 
     public ConversationFactory(){
+        /*----------Mittente studente / Destinatario tutor----------*/
         Conversation conv1 = new Conversation();
         conv1.setMessaggiDes(MessageFactory.getInstance().getDomande());
         conv1.setMessaggiMit(MessageFactory.getInstance().getRisposte());
@@ -25,16 +26,38 @@ public class ConversationFactory extends Conversation {
         Conversation conv2 = new Conversation();
         conv2.setMessaggiDes(MessageFactory.getInstance().getDomande());
         conv2.setMessaggiMit(MessageFactory.getInstance().getRisposte());
-        conv2.setMittente(UserStudenteFactory.getInstance().getUserList().get(0).getEmail());
-        conv2.setDestinatario(UserTutorFactory.getInstance().getUserList().get(0).getEmail());
+        conv2.setMittente(UserStudenteFactory.getInstance().getUserList().get(1).getEmail());
+        conv2.setDestinatario(UserTutorFactory.getInstance().getUserList().get(1).getEmail());
         conversazioni.add(conv2);
 
         Conversation conv3 = new Conversation();
         conv3.setMessaggiDes(MessageFactory.getInstance().getDomande());
         conv3.setMessaggiMit(MessageFactory.getInstance().getRisposte());
-        conv3.setMittente(UserStudenteFactory.getInstance().getUserList().get(0).getEmail());
-        conv3.setDestinatario(UserTutorFactory.getInstance().getUserList().get(0).getEmail());
+        conv3.setMittente(UserStudenteFactory.getInstance().getUserList().get(2).getEmail());
+        conv3.setDestinatario(UserTutorFactory.getInstance().getUserList().get(2).getEmail());
         conversazioni.add(conv3);
+
+        /*----------Mittente tutor / Destinatario studente----------*/
+        Conversation conv4 = new Conversation();
+        conv4.setMessaggiDes(MessageFactory.getInstance().getRisposte());
+        conv4.setMessaggiMit(MessageFactory.getInstance().getDomande());
+        conv4.setMittente(UserTutorFactory.getInstance().getUserList().get(0).getEmail());
+        conv4.setDestinatario(UserStudenteFactory.getInstance().getUserList().get(0).getEmail());
+        conversazioni.add(conv4);
+
+        Conversation conv5 = new Conversation();
+        conv5.setMessaggiDes(MessageFactory.getInstance().getDomande());
+        conv5.setMessaggiMit(MessageFactory.getInstance().getRisposte());
+        conv5.setMittente(UserTutorFactory.getInstance().getUserList().get(1).getEmail());
+        conv5.setDestinatario(UserStudenteFactory.getInstance().getUserList().get(1).getEmail());
+        conversazioni.add(conv5);
+
+        Conversation conv6 = new Conversation();
+        conv6.setMessaggiDes(MessageFactory.getInstance().getDomande());
+        conv6.setMessaggiMit(MessageFactory.getInstance().getRisposte());
+        conv6.setMittente(UserTutorFactory.getInstance().getUserList().get(2).getEmail());
+        conv6.setDestinatario(UserStudenteFactory.getInstance().getUserList().get(2).getEmail());
+        conversazioni.add(conv6);
     }
 
     public ArrayList<Conversation> getConversazioni(){

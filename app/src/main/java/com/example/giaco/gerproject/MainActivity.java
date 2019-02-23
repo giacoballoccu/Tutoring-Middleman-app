@@ -73,6 +73,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         /*Possiamo recuperare tutti i dati che vogliamo, ora bisogna passare l'utente ai fragment*/
         Bundle bundle = new Bundle();
         bundle.putString("actualUserMail", loggedUserMail);
+        if(getTutorFlag() != true)
+            bundle.putInt("tFlag", 0);
+        else
+            bundle.putInt("tFlag", 1);
 
         if(!flagTutor){
             navigationView.getMenu().setGroupVisible(R.id.studente, true);
