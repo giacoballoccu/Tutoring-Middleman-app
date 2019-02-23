@@ -27,6 +27,7 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     BuyPackagesFragment buyPackages;
+
     DashBoardFragment dashboard;
     ContactUsFragment contactUs;
     MyReservationsFragment myReservations;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     AgendaTutorFragment agendaFragment;
     ImageView avatarMenu;
     TextView nomeCognome;
+    ChatFragment chatFragment;
     protected boolean flagTutor;
 
     @Override
@@ -71,6 +73,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         /*Possiamo recuperare tutti i dati che vogliamo, ora bisogna passare l'utente ai fragment*/
         Bundle bundle = new Bundle();
         bundle.putString("actualUserMail", loggedUserMail);
+        if(getTutorFlag() != true)
+            bundle.putInt("tFlag", 0);
+        else
+            bundle.putInt("tFlag", 1);
 
         if(!flagTutor){
             navigationView.getMenu().setGroupVisible(R.id.studente, true);
@@ -78,9 +84,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.getMenu().setGroupVisible(R.id.tutor, true);
         }
 
-        // Moving bundle to every fragment present in our application after the loggin
-        dashboard = new DashBoardFragment();
-        dashboard.setArguments(bundle);
+        // Moving bundle to every fragment present in our application after the login
+
+        buyPackages = new BuyPackagesFragment();
+        buyPackages.setArguments(bundle);
 
         buyPackages = new BuyPackagesFragment();
         buyPackages.setArguments(bundle);
@@ -94,6 +101,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         personalPage = new PersonalPageFragment();
         personalPage.setArguments(bundle);
 
+        dashboard = new DashBoardFragment();
+        dashboard.setArguments(bundle);
+
         Bundle bundle1 = new Bundle();
         bundle1.putString("chosenTutor", loggedUserMail);
         reviewFragment = new ReviewsFragment();
@@ -102,6 +112,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         agendaFragment = new AgendaTutorFragment();
         agendaFragment.setArguments(bundle);
 
+        chatFragment = new ChatFragment();
+        chatFragment.setArguments(bundle);
+
+
+
 
     if(getTutorFlag() == false){
         UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
@@ -109,19 +124,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         /*Device rotation handler*/
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DashBoardFragment()).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, dashboard).addToBackStack(null).commit();
             navigationView.setCheckedItem(R.id.nav_dashboardS);
         }
     }
     else{
         UserTutor loggedUser = factoryT.getUserByEmail(loggedUserMail);
-        PersonalPageFragment fragment = new PersonalPageFragment();
-        fragment.setArguments(bundle);
         avatarMenu.setImageDrawable(loggedUser.getImage());
         nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         /*Device rotation handler*/
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage).addToBackStack(null).commit();
             navigationView.setCheckedItem(R.id.nav_personalpageT);
         }
     }
@@ -151,6 +164,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         LoginPage.class);
                 startActivity(loggoutS);
                 break;
+            case R.id.nav_chatS:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, chatFragment, "My conversations").commit();
+                break;
             /*Handler menu tutor*/
             case R.id.nav_personalpageT:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage, "Personal Page").commit();
@@ -166,6 +182,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         LoginPage.class);
                 startActivity(loggoutT);
                 break;
+            case R.id.nav_chatT:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, chatFragment, "My conversations").commit();
+                break;
+
         }
 
         drawer.closeDrawer(GravityCompat.START);

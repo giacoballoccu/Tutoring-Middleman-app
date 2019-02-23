@@ -42,7 +42,7 @@ public class AgendaTutorFragment extends Fragment {
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Agenda");
 
-        mparent = view.findViewById(R.id.parentview_reservation);
+        mparent = (LinearLayout) view.findViewById(R.id.parentview_reservation);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         myView = layoutInflater.inflate(R.layout.reservation_static, null, false);
@@ -67,13 +67,13 @@ public class AgendaTutorFragment extends Fragment {
         TextView nome, materia, orario;
 
         Drawable myDrawable =  res.getStudente().getImage();
-        img = myView.findViewById(R.id.avatar_prenotazione);
+        img = (ImageView) myView.findViewById(R.id.avatar_prenotazione);
         img.setImageDrawable(myDrawable);
 
-        nome = myView.findViewById(R.id.nome_reservation);
+        nome = (TextView) myView.findViewById(R.id.nome_reservation);
         nome.setText(res.getStudente().getName() + " " + res.getStudente().getSurname());
 
-        materia = myView.findViewById(R.id.materia_reservation);
+        materia = (TextView) myView.findViewById(R.id.materia_reservation);
         materia.setText(res.getMateria());
 
         switch (res.getMateria()){
@@ -88,7 +88,7 @@ public class AgendaTutorFragment extends Fragment {
 
         }
 
-        orario = myView.findViewById(R.id.ora_prenotazione);
+        orario = (TextView) myView.findViewById(R.id.ora_prenotazione);
         orario.setText(res.getData());
 
 

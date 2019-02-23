@@ -63,7 +63,7 @@ public class BookFragment extends Fragment {
             String emailUtente = getArguments().getString("emailStudente");
             loggedUser = UserStudenteFactory.getInstance().getUserByEmail(emailUtente);
             chosenTutor = UserTutorFactory.getInstance().getUserByEmail(emailTutor);
-            mparent = view.findViewById(R.id.prenotaripetizione_view);
+            mparent = (RelativeLayout) view.findViewById(R.id.prenotaripetizione_view);
         }
 
         avatarTutor = (ImageView) view.findViewById(R.id.avatarTutor);
@@ -100,8 +100,8 @@ public class BookFragment extends Fragment {
                 mparent.addView(myView);
                 prenota.setVisibility(View.GONE);
                 Button conferma, cancella;
-                conferma = myView.findViewById(R.id.prenotazione_yes);
-                cancella = myView.findViewById(R.id.prenotazione_no);
+                conferma = (Button) myView.findViewById(R.id.prenotazione_yes);
+                cancella = (Button) myView.findViewById(R.id.prenotazione_no);
 
                 conferma.setOnClickListener(new View.OnClickListener() {
                     @Override

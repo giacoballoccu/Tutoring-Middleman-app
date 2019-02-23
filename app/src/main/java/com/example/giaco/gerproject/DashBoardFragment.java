@@ -46,9 +46,9 @@ public class DashBoardFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("Bacheca");
+
         if (getArguments() != null) {
-            emailLoggedUser = getArguments().getString("email");
+            emailLoggedUser = getArguments().getString("actualUserMail");
         }
         mparent = view.findViewById(R.id.mparent);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
