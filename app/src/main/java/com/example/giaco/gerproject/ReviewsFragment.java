@@ -2,6 +2,7 @@ package com.example.giaco.gerproject;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -119,18 +120,45 @@ public class ReviewsFragment extends Fragment {
 
         public void updateSingleReview(Feedback f, View myView){
             TextView autoreNome, descrizione;
-            ImageView stelline, avatarReview;
+            ImageView stelline, avatarReview, piccoleStelle;
             UserStudenteFactory factory = UserStudenteFactory.getInstance();
             UserStudente autore = factory.getUserByEmail(f.getAutore());
+            Drawable zerostelle, unastella, duestelle, trestelle,quattrostelle, cinquestelle;
+            zerostelle = getResources().getDrawable(R.drawable.zerostelle);
+            unastella = getResources().getDrawable(R.drawable.unastella);
+            duestelle = getResources().getDrawable(R.drawable.duestelle);
+            trestelle = getResources().getDrawable(R.drawable.trestelle);
+            quattrostelle = getResources().getDrawable(R.drawable.quattrostelle);
+            cinquestelle = getResources().getDrawable(R.drawable.cinquestelle);
 
             autoreNome = (TextView) myView.findViewById(R.id.autoreReview);
             descrizione = (TextView) myView.findViewById(R.id.descrizioneReview);
-            stelline = (ImageView) myView.findViewById(R.id.stellineSingolaReview);
             avatarReview = (ImageView) myView.findViewById(R.id.avatarAutore);
+            piccoleStelle = (ImageView) myView.findViewById(R.id.stellineSingolaReview);
 
             autoreNome.setText("" + autore.getName() + " " + autore.getSurname() + "");
             descrizione.setText(f.getDescrizione());
             avatarReview.setImageDrawable(autore.getImage());
+            switch(f.getVotoMedio()){
+                case 0 :
+                    piccoleStelle.setImageDrawable(zerostelle);
+                    break;
+                case 1 :
+                    piccoleStelle.setImageDrawable(unastella);
+                    break;
+                case 2 :
+                    piccoleStelle.setImageDrawable(duestelle);
+                    break;
+                case 3 :
+                    piccoleStelle.setImageDrawable(trestelle);
+                    break;
+                case 4 :
+                    piccoleStelle.setImageDrawable(quattrostelle);
+                    break;
+                case 5 :
+                    piccoleStelle.setImageDrawable(cinquestelle);
+                    break;
+            }
         }
 
         public void updateDiGhisa(View myView){
