@@ -95,7 +95,7 @@ public class ChatFragment extends Fragment {
             }
         }
         else{
-            avatarDestinatario.setVisibility(View.INVISIBLE);
+            avatarDestinatario.setVisibility(View.GONE);
             nomeCognome.setText("Nessuna conversazione");    //Nome e cognome del destinatario
         }
     }
