@@ -41,7 +41,7 @@ public class ConversationFactory extends Conversation {
         return conversazioni;
     }
 
-    public String checkDestinatario (String mail){
+    public String checkDestinatario (String mail){  //Metodo usato per vedere se esiste una conversazione con una persona. Se esiste viene restituita l'email del destinatario
         String nome = null;
         for(Conversation c : conversazioni) {
             if (c.getMittente().equals(mail))
@@ -71,7 +71,7 @@ public class ConversationFactory extends Conversation {
     public Conversation getConversazioneByMittente (String mittente){
         Conversation conversazione = new Conversation();
         for(Conversation c : conversazioni){
-            if(conversazione.getMittente().equals(mittente))
+            if(c.getMittente().equals(mittente))
                 conversazione = c;
         }
         return conversazione;
@@ -80,7 +80,7 @@ public class ConversationFactory extends Conversation {
     public Conversation getConversazioneByDestinatario (String destinatario){
         Conversation conversazione = new Conversation();
         for(Conversation c : conversazioni){
-            if(conversazione.getDestinatario().equals(destinatario))
+            if(c.getDestinatario().equals(destinatario))
                 conversazione = c;
         }
         return conversazione;

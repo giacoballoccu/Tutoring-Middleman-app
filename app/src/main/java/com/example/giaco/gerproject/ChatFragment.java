@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import java.util.Random;
 
 import com.example.giaco.gerproject.Classes.ConversationFactory;
 import com.example.giaco.gerproject.Classes.Message;
@@ -77,7 +78,7 @@ public class ChatFragment extends Fragment {
             tutorNomeCognome = tutorNome + " " + tutorCognome; //Nome e cognome  del destinatario
             nomeCognome.setText(tutorNomeCognome);    //Nome e cognome del destinatario
 
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 3; i++) {
                 myView = layoutInflater.inflate(R.layout.messaggio_fragment, null, false);
                 if (i % 2 == 0) {
                     cparentR.addView(myView);
@@ -102,24 +103,26 @@ public class ChatFragment extends Fragment {
 
     public void updateR(ArrayList<Message> msg, View myView, int id){
         TextView contenuto, fakeTOP;
+        Random rand = new Random();
+        int n = (int)(Math.random() * (msg.size() - 1) + 0);
         contenuto = myView.findViewById(R.id.messaggio);
         fakeTOP = (TextView) myView.findViewById(R.id.fakeMessaggioTOP);
-        if(id == 0){
+        if(id == 0)
             fakeTOP.setVisibility(View.GONE);
-        }
         //contenuto.setText(msg.getContenuto());
-        contenuto.setText("Bella zio!");
+        contenuto.setText(msg.get(n).getContenuto());
         fakeTOP.setText("SONO NASCOSTO IN ALTO");
     }
     public void updateL(ArrayList<Message> msg, View myView,  int id){
         TextView contenuto, fakeTOP;
+        Random rand = new Random();
+        int n = (int)(Math.random() * (msg.size() - 1) + 0);
         contenuto = (TextView) myView.findViewById(R.id.messaggio);
         fakeTOP = (TextView) myView.findViewById(R.id.fakeMessaggioTOP);
-        if(id == 0){
+        if(id == 0)
             fakeTOP.setVisibility(View.GONE);
-        }
         //contenuto.setText(msg.getContenuto());
-        contenuto.setText("MI SCUSI?");
+        contenuto.setText(msg.get(n).getContenuto());
         fakeTOP.setText("SONO NASCOSTO IN ALTO");
     }
 
