@@ -53,23 +53,23 @@ public class ChatFragment extends Fragment {
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 
-        loggedUser = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
+        loggedUser = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);  //Funziona solo con studente per ora
         factory = MessageFactory.getInstance();
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Chat");
 
         nomeCognome = view.findViewById(R.id.contatto);
-        nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
+        nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");    //Nome e cognome del destinatario
 
         for(int i=0; i<6; i++) {
             myView = layoutInflater.inflate(R.layout.messaggio_fragment, null, false);
             if(i % 2 == 0){
                 cparentR.addView(myView);
-                updateR(factory.getMessaggi().get(0), myView, i);
+                updateR(factory.getDomande().get(0), myView, i);
             }
             else{
                 cparentL.addView(myView);
-                updateL(factory.getMessaggi().get(0), myView, i);
+                updateL(factory.getRisposte().get(0), myView, i);
             }
 
 
