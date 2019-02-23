@@ -18,8 +18,9 @@
 
     <TextView
         android:id="@+id/contatto"
-        android:layout_width="265dp"
-        android:layout_height="52dp"
+        android:gravity="center"
+        android:layout_width="275dp"
+        android:layout_height="71dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
