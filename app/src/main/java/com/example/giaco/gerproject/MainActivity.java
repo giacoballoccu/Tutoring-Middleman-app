@@ -115,11 +115,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     else{
         UserTutor loggedUser = factoryT.getUserByEmail(loggedUserMail);
+        PersonalPageFragment fragment = new PersonalPageFragment();
+        fragment.setArguments(bundle);
         avatarMenu.setImageDrawable(loggedUser.getImage());
         nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
         /*Device rotation handler*/
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PersonalPageFragment()).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
             navigationView.setCheckedItem(R.id.nav_personalpageT);
         }
     }
