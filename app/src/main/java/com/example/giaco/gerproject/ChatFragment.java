@@ -81,10 +81,10 @@ public class ChatFragment extends Fragment {
                 myView = layoutInflater.inflate(R.layout.messaggio_fragment, null, false);
                 if (i % 2 == 0) {
                     cparentR.addView(myView);
-                    updateR(factoryConversazione.getConversazioni().get(0).getMessaggiMit(), myView, i);
+                    updateR(factoryConversazione.getConversazioneByMittente(loggedUserMail).getMessaggiMit(), myView, i);
                 } else {
                     cparentL.addView(myView);
-                    updateL(factoryConversazione.getConversazioni().get(0).getMessaggiDes(), myView, i);
+                    updateL(factoryConversazione.getConversazioneByMittente(loggedUserMail).getMessaggiDes(), myView, i);
                 }
 
 
