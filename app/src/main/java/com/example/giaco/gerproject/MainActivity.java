@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ImageView avatarMenu;
     TextView nomeCognome;
     ChatFragment chatFragment;
+    ConversazioniFragment conversazioniFragment;
     protected boolean flagTutor;
 
     @Override
@@ -115,6 +116,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         chatFragment = new ChatFragment();
         chatFragment.setArguments(bundle);
 
+        conversazioniFragment = new ConversazioniFragment();
+        conversazioniFragment.setArguments(bundle);
+
 
 
 
@@ -167,6 +171,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_chatS:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, chatFragment, "My conversations").commit();
                 break;
+            case R.id.nav_convS:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, conversazioniFragment, "My conversations").commit();
+                break;
             /*Handler menu tutor*/
             case R.id.nav_personalpageT:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage, "Personal Page").commit();
@@ -183,7 +190,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(loggoutT);
                 break;
             case R.id.nav_chatT:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, chatFragment, "My conversations").commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, chatFragment, "My chat").commit();
+                break;
+            case R.id.nav_convT:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, conversazioniFragment, "My conversations").commit();
                 break;
 
         }
