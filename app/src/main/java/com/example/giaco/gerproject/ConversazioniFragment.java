@@ -7,9 +7,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,6 +37,8 @@ public class ConversazioniFragment extends Fragment {
     ImageView avatarDestinatario;
     //String nomeContatto, cognomeContatto, nomeCognomeContatto;
     View myView;
+    ChatFragment chat;
+    Button butt;
 
 
     @Nullable
@@ -96,7 +102,34 @@ public class ConversazioniFragment extends Fragment {
         nc = n + " " + c;
         utente.setText(nc);
         immagine.setImageDrawable(avatar);
+        butt = myView.findViewById(R.id.CULO);
+        setOnClick(butt, loggedUserMail);
     }
+
+
+
+}
+
+    private void setOnClick(final Button butt, final String mail){
+        butt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("actualUserMail", mail);
+
+                chat = new ChatFragment();
+                chat.setArguments(bundle);
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.fragment_container , chat);
+                transaction.commit();
+            }
+        });
+    }
+
+
+
+
 
     public void setTutorFlag(boolean bool){
         if(bool == true)
