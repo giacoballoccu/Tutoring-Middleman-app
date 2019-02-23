@@ -26,10 +26,10 @@
             android:title="Prenotazioni"
             android:id="@+id/nav_myReservationsS"/>
         <item
-            android:actionLayout="@layout/chat_fragment"
+            android:actionLayout="@layout/conversazioni_fragment"
             android:icon="@drawable/ic_comprapachetti"
             android:title="Le mie conversazioni"
-            android:id="@+id/nav_chatS"/>
+            android:id="@+id/nav_convS"/>
         <item
             android:actionLayout="@layout/login_page"
             android:icon="@drawable/ic_logout"
@@ -56,10 +56,10 @@
             android:title="La mia Agenda"
             android:id="@+id/nav_myReservationsT"/>
         <item
-            android:actionLayout="@layout/chat_fragment"
+            android:actionLayout="@layout/conversazioni_fragment"
             android:icon="@drawable/ic_comprapachetti"
             android:title="Le mie conversazioni"
-            android:id="@+id/nav_chatT"/>
+            android:id="@+id/nav_convT"/>
         <item
             android:actionLayout="@layout/login_page"
             android:icon="@drawable/ic_logout"

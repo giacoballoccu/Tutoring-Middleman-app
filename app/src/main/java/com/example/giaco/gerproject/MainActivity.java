@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ImageView avatarMenu;
     TextView nomeCognome;
     ChatFragment chatFragment;
+    ConversazioniFragment conversazioniFragment;
     protected boolean flagTutor;
 
     @Override
@@ -112,8 +113,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         agendaFragment = new AgendaTutorFragment();
         agendaFragment.setArguments(bundle);
 
-        chatFragment = new ChatFragment();
-        chatFragment.setArguments(bundle);
+        conversazioniFragment = new ConversazioniFragment();
+        conversazioniFragment.setArguments(bundle);
 
 
 
@@ -164,8 +165,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         LoginPage.class);
                 startActivity(loggoutS);
                 break;
-            case R.id.nav_chatS:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, chatFragment, "My conversations").commit();
+            case R.id.nav_convS:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, conversazioniFragment, "My conversations").commit();
                 break;
             /*Handler menu tutor*/
             case R.id.nav_personalpageT:
@@ -182,8 +183,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         LoginPage.class);
                 startActivity(loggoutT);
                 break;
-            case R.id.nav_chatT:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, chatFragment, "My conversations").commit();
+            case R.id.nav_convT:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, conversazioniFragment, "My conversations").commit();
                 break;
 
         }
