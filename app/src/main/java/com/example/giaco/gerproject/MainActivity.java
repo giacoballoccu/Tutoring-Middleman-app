@@ -27,6 +27,7 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     BuyPackagesFragment buyPackages;
+
     DashBoardFragment dashboard;
     ContactUsFragment contactUs;
     MyReservationsFragment myReservations;
@@ -79,6 +80,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         // Moving bundle to every fragment present in our application after the login
+
+        buyPackages = new BuyPackagesFragment();
+        buyPackages.setArguments(bundle);
 
         buyPackages = new BuyPackagesFragment();
         buyPackages.setArguments(bundle);
