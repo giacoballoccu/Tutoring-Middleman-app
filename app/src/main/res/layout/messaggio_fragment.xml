@@ -3,27 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_below="@+id/fakeMessaggioTOP"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="11dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/chatbubble" />
+
     <TextView
         android:id="@+id/fakeMessaggioTOP"
-        android:layout_width="401dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="8dp"
         android:text="BUONASERA METROPOLE, DOLCE VITA GRANDE KOHLE"
+        android:textColor="@color/blackGrey"
         android:visibility="invisible" />
 
     <TextView
         android:id="@+id/messaggio"
-        android:gravity="center"
-        android:layout_width="390dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fakeMessaggioTOP"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="12dp"
+        android:layout_width="366dp"
+        android:layout_height="78dp"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="1dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center_vertical"
         android:text="BUONASERA METROPOLE, DOLCE VITA GRANDE KOHLE"
-        android:textSize="15dp" />
+        android:textColor="@color/blackGrey"
+        android:textSize="14sp" />
 
 </RelativeLayout>
