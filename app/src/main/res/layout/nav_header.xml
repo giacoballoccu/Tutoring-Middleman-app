@@ -12,8 +12,8 @@
 
     <TextView
         android:id="@+id/nomeMenu"
-        android:layout_width="201dp"
-        android:layout_height="33dp"
+        android:layout_width="326dp"
+        android:layout_height="31dp"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/avatarMenu"
         android:layout_toRightOf="@+id/avatarMenu"
