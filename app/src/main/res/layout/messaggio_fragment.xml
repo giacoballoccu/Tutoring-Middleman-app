@@ -5,14 +5,28 @@
 
     <TextView
         android:id="@+id/messaggio"
-        android:layout_width="321dp"
-        android:layout_height="201dp"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="27dp"
-        android:layout_marginEnd="51dp"
+        android:layout_marginEnd="0dp"
         android:text="TextView"
         android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/fakeMessaggio"
+        android:layout_width="401dp"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="198dp"
+        android:layout_marginEnd="7dp"
+        android:text="TextView"
+        android:visibility="invisible" />
+
 </RelativeLayout>

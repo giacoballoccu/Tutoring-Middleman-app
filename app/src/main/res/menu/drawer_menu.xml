@@ -26,6 +26,11 @@
             android:title="Prenotazioni"
             android:id="@+id/nav_myReservationsS"/>
         <item
+            android:actionLayout="@layout/chat_fragment"
+            android:icon="@drawable/ic_comprapachetti"
+            android:title="Le mie conversazioni"
+            android:id="@+id/nav_chatS"/>
+        <item
             android:actionLayout="@layout/login_page"
             android:icon="@drawable/ic_logout"
             android:title="Logout"
@@ -50,6 +55,11 @@
             android:icon="@drawable/ic_prenotazioni"
             android:title="La mia Agenda"
             android:id="@+id/nav_myReservationsT"/>
+        <item
+            android:actionLayout="@layout/chat_fragment"
+            android:icon="@drawable/ic_comprapachetti"
+            android:title="Le mie conversazioni"
+            android:id="@+id/nav_chatT"/>
         <item
             android:actionLayout="@layout/login_page"
             android:icon="@drawable/ic_logout"

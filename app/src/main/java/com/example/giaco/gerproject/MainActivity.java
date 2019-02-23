@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     AgendaTutorFragment agendaFragment;
     ImageView avatarMenu;
     TextView nomeCognome;
+    ChatFragment chatFragment;
     protected boolean flagTutor;
 
     @Override
@@ -107,6 +108,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         agendaFragment = new AgendaTutorFragment();
         agendaFragment.setArguments(bundle);
 
+        chatFragment = new ChatFragment();
+        chatFragment.setArguments(bundle);
+
+
+
 
     if(getTutorFlag() == false){
         UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
@@ -154,6 +160,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         LoginPage.class);
                 startActivity(loggoutS);
                 break;
+            case R.id.nav_chatS:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, chatFragment, "My conversations").commit();
+                break;
             /*Handler menu tutor*/
             case R.id.nav_personalpageT:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage, "Personal Page").commit();
@@ -169,6 +178,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         LoginPage.class);
                 startActivity(loggoutT);
                 break;
+            case R.id.nav_chatT:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, chatFragment, "My conversations").commit();
+                break;
+
         }
 
         drawer.closeDrawer(GravityCompat.START);
