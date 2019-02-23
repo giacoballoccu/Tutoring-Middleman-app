@@ -39,6 +39,7 @@
         android:layout_marginTop="17dp"
         android:text="Nome recensore"
         android:textColor="@color/blackGrey"
+        android:textStyle="bold"
         app:fontFamily="sans-serif-thin" />
 
     <ImageView
@@ -65,6 +66,7 @@
         android:layout_marginTop="45dp"
         android:text="Veramente un tutor mediocre, 3 stelle."
         android:textColor="@color/blackGrey"
+        android:textStyle="bold"
         app:fontFamily="sans-serif-thin" />
 
     <View
