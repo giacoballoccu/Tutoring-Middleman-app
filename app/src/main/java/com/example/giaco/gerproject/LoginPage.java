@@ -81,7 +81,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
                         Intent successfullyLogged = new Intent(LoginPage.this,MainActivity.class);
                         successfullyLogged.putExtra("actualUserMail", actualUser.getEmail());
-                        successfullyLogged.putExtra("flag", 0);
+                        successfullyLogged.putExtra("tFlag", 0);
                         startActivity(successfullyLogged);
                         finish();
                     }
@@ -91,7 +91,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
                         Intent successfullyLogged = new Intent(LoginPage.this, MainActivity.class);
                         successfullyLogged.putExtra("actualUserMail", actualUser.getEmail());
-                        successfullyLogged.putExtra("flag", 1);
+                        successfullyLogged.putExtra("tFlag", 1);
                         startActivity(successfullyLogged);
                         finish();
                     }

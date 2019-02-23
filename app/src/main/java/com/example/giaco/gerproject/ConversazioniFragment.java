@@ -96,7 +96,7 @@ public class ConversazioniFragment extends Fragment {
         }
         else{
             n = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
-            c = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
+            c = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
             avatar = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage();
         }
         nc = n + " " + c;
@@ -112,6 +112,10 @@ public class ConversazioniFragment extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("actualUserMail", mail);
+                if(tutorFlag == false)
+                    bundle.putInt("tFlag", 0);
+                else
+                    bundle.putInt("tFlag", 1);
 
                 chat = new ChatFragment();
                 chat.setArguments(bundle);
