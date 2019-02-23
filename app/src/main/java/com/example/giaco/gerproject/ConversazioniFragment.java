@@ -38,7 +38,7 @@ public class ConversazioniFragment extends Fragment {
     //String nomeContatto, cognomeContatto, nomeCognomeContatto;
     View myView;
     ChatFragment chat;
-    Button butt;
+    ImageButton butt;
 
 
     @Nullable
@@ -102,15 +102,11 @@ public class ConversazioniFragment extends Fragment {
         nc = n + " " + c;
         utente.setText(nc);
         immagine.setImageDrawable(avatar);
-        butt = myView.findViewById(R.id.CULO);
+        butt = myView.findViewById(R.id.contatto_tasto);
         setOnClick(butt, loggedUserMail);
     }
 
-
-
-}
-
-    private void setOnClick(final Button butt, final String mail){
+    private void setOnClick(final ImageButton butt, final String mail) {
         butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,11 +117,12 @@ public class ConversazioniFragment extends Fragment {
                 chat.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container , chat);
+                transaction.replace(R.id.fragment_container, chat);
                 transaction.commit();
             }
         });
     }
+
 
 
 
