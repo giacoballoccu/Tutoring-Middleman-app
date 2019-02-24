@@ -238,7 +238,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             case R.id.editAgendaButton:
                 Bundle bundle5 = new Bundle();
                 bundle5.putString("actualUserMail", loggedUserMail);
-                bundle5.putInt("tFlag", 0);
+                bundle5.putInt("tFlag", 1);
                 agenda = new EditAgenda();
                 agenda.setArguments(bundle5);
                 FragmentManager fm5 = getActivity().getSupportFragmentManager();

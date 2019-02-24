@@ -53,10 +53,7 @@
                 android:layout_width="229dp"
                 android:layout_height="41dp"
                 android:layout_below="@+id/nomeCognome"
-                android:layout_alignStart="@+id/editAgendaButton"
-                android:layout_alignLeft="@+id/editAgendaButton"
-                android:layout_alignEnd="@+id/editAgendaButton"
-                android:layout_alignRight="@+id/editAgendaButton"
+
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
@@ -145,11 +142,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/plus"/>
+        app:srcCompat="@drawable/plus" />
 
 
 </android.support.constraint.ConstraintLayout>

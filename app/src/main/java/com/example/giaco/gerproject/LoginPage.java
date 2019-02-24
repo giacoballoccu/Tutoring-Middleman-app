@@ -47,12 +47,9 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
         login = (Button) findViewById(R.id.login_button);
 
-
         infoLink.setOnClickListener(this);
         signUp.setOnClickListener(this);
         login.setOnClickListener(this);
-
-
     }
 
     @Override

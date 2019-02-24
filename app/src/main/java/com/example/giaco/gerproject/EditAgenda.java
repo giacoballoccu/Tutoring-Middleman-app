@@ -16,7 +16,6 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     private int anno = 100;
     private int mese = 100;
     private int giorno = 100;
-
     CalendarView calendario;
     Button conferma;
     PersonalPageFragment profilo;
@@ -27,8 +26,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        return inflater.inflate(R.layout.fragment_editagenda, container, false);;
+        return inflater.inflate(R.layout.fragment_editagenda, container, false);
     }
 
     @Override
@@ -36,10 +34,8 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Aggiungi una data");
-        conferma = view.findViewById(R.id.editAgendaButton);
-
+        conferma = view.findViewById(R.id.salvaAggiunta);
         calendario = view.findViewById(R.id.calendario_agenda);
-
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView viewC, int year, int month, int dayOfMonth) {

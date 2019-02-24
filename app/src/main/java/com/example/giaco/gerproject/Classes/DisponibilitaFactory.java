@@ -67,7 +67,6 @@ public class DisponibilitaFactory extends Disponibilita {
         data4.setMinutoFine(30);
         data4.setSettimana(0);
         date.add(data4);
-
         Disponibilita dateRipetute = new Disponibilita();
     }
 
