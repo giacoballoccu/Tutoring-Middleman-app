@@ -17,14 +17,15 @@ import com.example.giaco.gerproject.Classes.DisponibilitaFactory;
 
 
 public class EditAgenda extends Fragment {
-    private int anno;
-    private int mese;
-    private int giorno;
+    private int anno = 100;
+    private int mese = 100;
+    private int giorno = 100;
     CalendarView calendario;
     String emailLoggedUser;
     PersonalPageFragment p;
     LayoutInflater layoutInflater;
     View myView;
+    Button butt;
 
     @Nullable
     @Override
@@ -56,15 +57,18 @@ public class EditAgenda extends Fragment {
                 setAnno(anno);
                 setMese(mese);
                 setGiorno(giorno);
+
+
+
+
             }
         });
-
-        update(view);
+        if(getAnno() != 100 && getMese() != 100 && getGiorno() != 100)
+        update(myView);
         //setOnClick
     }
 
     public void update(View myView){
-        Button butt;
         butt = myView.findViewById(R.id.salvaAggiunta);
         setOnClick(butt, myView);
     }
