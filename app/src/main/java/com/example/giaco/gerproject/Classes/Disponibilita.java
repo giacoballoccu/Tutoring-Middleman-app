@@ -1,5 +1,8 @@
 package com.example.giaco.gerproject.Classes;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Disponibilita {
     private int giorno;
     private int mese;
@@ -8,8 +11,9 @@ public class Disponibilita {
     private int oraFine;
     private int minutoInizio;
     private int minutoFine;
+    private ArrayList<Integer> settimana;
 
-    public Disponibilita(int gg, int mm, int aa, int oi, int of, int mi, int mf){
+    public Disponibilita(int gg, int mm, int aa, int oi, int of, int mi, int mf, ArrayList<Integer> set){
         this.giorno = gg;
         this.mese = mm;
         this.anno = aa;
@@ -17,6 +21,7 @@ public class Disponibilita {
         this.oraFine = of;
         this.minutoInizio = mi;
         this.minutoFine = mf;
+        this.settimana = set;
     }
 
     public Disponibilita(){
@@ -27,6 +32,9 @@ public class Disponibilita {
         this.oraFine = 11;
         this.minutoInizio = 30;
         this.minutoFine = 30;
+        ArrayList<Integer> set = new ArrayList<>();
+        set.add(1);
+        this.settimana = set;
     }
 
     public int getGiorno() {
@@ -85,8 +93,21 @@ public class Disponibilita {
         this.minutoFine = minutoFine;
     }
 
+    public ArrayList<Integer> getSettimana(){
+        return this.settimana;
+    }
+
+    public void setSettimana(ArrayList<Integer> set){
+        for(int i : set)
+            this.settimana.add(i);
+    }
+
+    public void setSettimana(int i){
+        this.settimana = null;
+    }
+
     public String toString(){
-        String gg ="", mm="", aa="", oi="", of="", mi="", mf="";
+        String gg ="", mm="", aa="", oi="", of="", mi="", mf="", set="";
         if(this.giorno < 10)
             gg = "0" + Integer.toString(this.giorno);
         else
@@ -142,6 +163,37 @@ public class Disponibilita {
                 mm = "Gennaio";
                 break;
         }
-        return (gg + " " + mm + " " + aa + " | " + oi + ":" + mi + " - " + of + ":" + mf);
+
+        if(this.settimana != null){
+            for(int i : this.settimana)
+                switch(i){
+                    case 1:
+                        set += "Lunedì ";
+                        break;
+                    case 2:
+                        set += "Martedì ";
+                        break;
+                    case 3:
+                        set += "Mercoledì ";
+                        break;
+                    case 4:
+                        set += "Giovedì ";
+                        break;
+                    case 5:
+                        set += "Venerdì ";
+                        break;
+                    case 6:
+                        set += "Sabato ";
+                        break;
+                    case 7:
+                        set += "Domenica ";
+                        break;
+                }
+
+        }
+        if(this.settimana == null)
+            return (gg + " " + mm + " " + aa + " | " + oi + ":" + mi + " - " + of + ":" + mf);
+        else
+            return ("Ogni " + set + "di " + mm + " " + aa + " | " + oi + ":" + mi + " - " + of + ":" + mf);
     }
 }

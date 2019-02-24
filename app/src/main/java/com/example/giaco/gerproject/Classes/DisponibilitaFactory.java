@@ -1,5 +1,6 @@
 package com.example.giaco.gerproject.Classes;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DisponibilitaFactory extends Disponibilita {
@@ -15,6 +16,15 @@ public class DisponibilitaFactory extends Disponibilita {
     }
 
     DisponibilitaFactory(){
+        ArrayList<Integer> set1 = new ArrayList<>();
+        set1.add(1);
+        set1.add(5);
+        ArrayList<Integer> set2 = new ArrayList<>();
+        set2.add(2);
+        ArrayList<Integer> set3 = new ArrayList<>();
+        set3.add(4);
+        set3.add(6);
+
         Disponibilita data1 = new Disponibilita();
         data1.setGiorno(1);
         data1.setMese(2);
@@ -23,6 +33,7 @@ public class DisponibilitaFactory extends Disponibilita {
         data1.setOraFine(12);
         data1.setMinutoInizio(30);
         data1.setMinutoFine(30);
+        data1.setSettimana(0);
         date.add(data1);
 
         Disponibilita data2 = new Disponibilita();
@@ -32,7 +43,7 @@ public class DisponibilitaFactory extends Disponibilita {
         data2.setOraInizio(15);
         data2.setOraFine(19);
         data2.setMinutoInizio(30);
-        data2.setMinutoFine(30);
+        data2.setSettimana(set1);
         date.add(data2);
 
         Disponibilita data3 = new Disponibilita();
@@ -43,6 +54,7 @@ public class DisponibilitaFactory extends Disponibilita {
         data3.setOraFine(22);
         data3.setMinutoInizio(30);
         data3.setMinutoFine(30);
+        data3.setSettimana(set2);
         date.add(data3);
 
         Disponibilita data4 = new Disponibilita();
@@ -53,7 +65,10 @@ public class DisponibilitaFactory extends Disponibilita {
         data4.setOraFine(16);
         data4.setMinutoInizio(30);
         data4.setMinutoFine(30);
+        data4.setSettimana(0);
         date.add(data4);
+
+        Disponibilita dateRipetute = new Disponibilita();
     }
 
     public ArrayList<String> getDate(){
