@@ -33,7 +33,7 @@ public class Disponibilita {
         this.minutoInizio = 30;
         this.minutoFine = 30;
         ArrayList<Integer> set = new ArrayList<>();
-        set.add(1);
+        set.add(0);
         this.settimana = set;
     }
 
@@ -107,7 +107,7 @@ public class Disponibilita {
     }
 
     public String toString(){
-        String gg ="", mm="", aa="", oi="", of="", mi="", mf="", set="";
+        String gg ="", mm="", aa="", oi="", of="", mi="", mf="", set=" ";
         if(this.giorno < 10)
             gg = "0" + Integer.toString(this.giorno);
         else
@@ -187,6 +187,8 @@ public class Disponibilita {
                         break;
                     case 7:
                         set += "Domenica ";
+                        break;
+                    default:
                         break;
                 }
 

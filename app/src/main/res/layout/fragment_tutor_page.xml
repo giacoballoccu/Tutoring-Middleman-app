@@ -64,15 +64,15 @@
 
     <TextView
         android:id="@+id/orari"
-        android:layout_width="303dp"
-        android:layout_height="62dp"
+        android:layout_width="298dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:gravity="center"
         android:text="Lunedì 11-12"
         android:textSize="20dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
