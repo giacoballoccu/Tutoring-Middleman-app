@@ -71,7 +71,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:text="Lunedì 11-12"
-        android:textSize="30sp"
+        android:textSize="20dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

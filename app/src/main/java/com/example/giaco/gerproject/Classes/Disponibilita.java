@@ -28,10 +28,9 @@ public class Disponibilita {
         this.minutoInizio = 30;
         this.minutoFine = 30;
     }
-    }
 
     public int getGiorno() {
-        return giorno;
+        return this.giorno;
     }
 
     public void setGiorno(int giorno) {
@@ -39,7 +38,7 @@ public class Disponibilita {
     }
 
     public int getMese() {
-        return mese;
+        return this.mese;
     }
 
     public void setMese(int mese) {
@@ -47,7 +46,7 @@ public class Disponibilita {
     }
 
     public int getAnno() {
-        return anno;
+        return this.anno;
     }
 
     public void setAnno(int anno) {
@@ -55,7 +54,7 @@ public class Disponibilita {
     }
 
     public int getOraInizio() {
-        return oraInizio;
+        return this.oraInizio;
     }
 
     public void setOraInizio(int oraInizio) {
@@ -63,7 +62,7 @@ public class Disponibilita {
     }
 
     public int getOraFine() {
-        return oraFine;
+        return this.oraFine;
     }
 
     public void setOraFine(int oraFine) {
@@ -71,7 +70,7 @@ public class Disponibilita {
     }
 
     public int getMinutoInizio() {
-        return minutoInizio;
+        return this.minutoInizio;
     }
 
     public void setMinutoInizio(int minutoInizio) {
@@ -79,7 +78,7 @@ public class Disponibilita {
     }
 
     public int getMinutoFine() {
-        return minutoFine;
+        return this.minutoFine;
     }
 
     public void setMinutoFine(int minutoFine) {
@@ -87,18 +86,21 @@ public class Disponibilita {
     }
 
     public String toString(){
-        String gg, mm, aa, oi, of, mi, mf;
+        String gg ="", mm="", aa="", oi="", of="", mi="", mf="";
         if(this.giorno < 10)
             gg = "0" + Integer.toString(this.giorno);
+        else
+            gg = Integer.toString(this.giorno);
         if(this.giorno > 30 && this.mese == 4 || this.mese ==6 || this.mese ==9 || this.mese ==11)
             this.mese = 30;
-        if(this.giorno > 30 and this.mese == 2)
+        if(this.giorno > 30 && this.mese == 2)
             this.giorno = 28;
         aa = Integer.toString(this.anno);
         oi = Integer.toString(this.oraInizio);
         of = Integer.toString(this.oraFine);
         mi = Integer.toString(this.minutoInizio);
         mf = Integer.toString(this.minutoFine);
+
         switch (this.mese){
             case 1:
                 mm = "Gennaio";
@@ -140,6 +142,6 @@ public class Disponibilita {
                 mm = "Gennaio";
                 break;
         }
-        return (gg + "/" + mm + "/" + aa + " - dalle " + oi + ":" + mi + " alle " + of + ":" + mf);
+        return (gg + " " + mm + " " + aa + " | " + oi + ":" + mi + " - " + of + ":" + mf);
     }
 }

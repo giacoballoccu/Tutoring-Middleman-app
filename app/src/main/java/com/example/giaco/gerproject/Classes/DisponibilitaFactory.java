@@ -16,7 +16,7 @@ public class DisponibilitaFactory extends Disponibilita {
 
     DisponibilitaFactory(){
         Disponibilita data1 = new Disponibilita();
-        data1.setGiorno(26);
+        data1.setGiorno(1);
         data1.setMese(2);
         data1.setAnno(2019);
         data1.setOraInizio(10);
@@ -58,8 +58,9 @@ public class DisponibilitaFactory extends Disponibilita {
 
     public ArrayList<String> getDate(){
         ArrayList<String> lista = new ArrayList<>();
-        for(Disponibilita d : date){
-            if()
-        }
+        for(Disponibilita d : date)
+            lista.add(d.toString());
+        return lista;
     }
+
 }

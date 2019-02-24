@@ -165,6 +165,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             /*Dynamic data*/
             layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
+                materia.setText(""+ loggedTutor.getMateria() +"");
                 dparent = view.findViewById(R.id.dparent);
 
                 for(String str : loggedTutor.getDisponibilitaData()){

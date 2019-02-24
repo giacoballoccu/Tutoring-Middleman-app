@@ -30,6 +30,8 @@ public class UserTutorFactory {
         Context context = ApplicationContextProvider.getContext();
 
         ArrayList<String> disponibilitaDataT1 = DisponibilitaFactory.getInstance().getDate();
+        ArrayList<String> disponibilitaDataT2 = DisponibilitaFactory.getInstance().getDate();
+        ArrayList<String> disponibilitaDataT3 = DisponibilitaFactory.getInstance().getDate();
 
         /*data = "10/03/2019 11:00-12:00";
         disponibilitaDataT1.add(data);
