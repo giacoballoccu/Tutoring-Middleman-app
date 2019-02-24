@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     View myView;
     LayoutInflater layoutInflater;
     private boolean flagTutor = false;
+    EditAgenda agenda;
 
     @Nullable
     @Override
@@ -64,6 +66,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         }
         else
             return inflater.inflate(R.layout.fragment_personal_page, container, false);
+
     }
 
 
@@ -90,7 +93,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 fragmentTransaction.replace(R.id.content, clickedFragment);
                 fragmentTransaction.commit();
                 break;
-            }
+            }/*
             case R.id.editAgendaButton: {
                 EditProfileFragment clickedFragment = new EditProfileFragment();
                 FragmentManager fragmentManager = getFragmentManager();
@@ -98,7 +101,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 fragmentTransaction.replace(R.id.content, clickedFragment);
                 fragmentTransaction.commit();
                 break;
-            }
+            }*/
             case R.id.editButtonT: {
                 EditProfileFragment clickedFragment = new EditProfileFragment();
                 FragmentManager fragmentManager = getFragmentManager();
@@ -149,6 +152,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             editProfile = (Button) view.findViewById(R.id.editButtonT);
             materia = (TextView) view.findViewById(R.id.materia);
             editAgenda = (Button) view.findViewById(R.id.editAgendaButton);
+            //setOnClick(editAgenda, loggedUserMail);
             recensioni = (Button) view.findViewById(R.id.feedbackButton);
             orariAgenda = (TextView) view.findViewById(R.id.orari);
 
@@ -161,6 +165,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             /*Dynamic data*/
             layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
+                materia.setText(""+ loggedTutor.getMateria() +"");
                 dparent = view.findViewById(R.id.dparent);
 
                 for(String str : loggedTutor.getDisponibilitaData()){
@@ -191,7 +196,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                         break;
                 }
             recensioni.setOnClickListener(this);
-            editAgenda.setOnClickListener(this);
+            //editAgenda.setOnClickListener(this);
             editProfile.setOnClickListener(this);
         }
     }
@@ -218,6 +223,22 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     protected boolean getTutorFlag(){
         return this.flagTutor;
     }
-
+/*
+    private void setOnClick(final Button butt, final String mail) {
+        butt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("actualUserMail", mail);
+                bundle.putInt("tFlag", 1);
+                agenda = new EditAgenda();
+                agenda.setArguments(bundle);
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.fragment_container, agenda);
+                transaction.commit();
+            }
+        });
+    }*/
 }
 

@@ -29,8 +29,11 @@ public class UserTutorFactory {
         String data;
         Context context = ApplicationContextProvider.getContext();
 
-        ArrayList<String> disponibilitaDataT1 = new ArrayList<>();
-        data = "10/03/2019 11:00-12:00";
+        ArrayList<String> disponibilitaDataT1 = DisponibilitaFactory.getInstance().getDate();
+        ArrayList<String> disponibilitaDataT2 = DisponibilitaFactory.getInstance().getDate();
+        ArrayList<String> disponibilitaDataT3 = DisponibilitaFactory.getInstance().getDate();
+
+        /*data = "10/03/2019 11:00-12:00";
         disponibilitaDataT1.add(data);
         data = "10/03/2019 09:00-10:00";
         disponibilitaDataT1.add(data);
@@ -63,6 +66,25 @@ public class UserTutorFactory {
         data = "15/08/2019 00:00-23:59";
         disponibilitaDataT3.add(data);
 
+*/
+        UserTutor user0 = new UserTutor();
+        user0.setEmail("herobrine");
+        user0.setName("herobrine");
+        user0.setSurname("herobrine");
+        Drawable img0 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.tutor_default, null);
+        user0.setImage(img0);
+        user0.setPassword("666");
+        user0.setPhone("666");
+        user0.setMateria("Morte");
+        user0.setCitta("Inferi");
+        user0.setIndirizzo("Via Lucifero 666");
+        user0.setFeedbacks(new ArrayList<Feedback>());
+        user0.setVotoTotaleMedio(0);
+        user0.setDisponibilitaData(disponibilitaDataT1);
+        //user1.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user1.getEmail()));
+        //user1.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user1.getEmail())));
+
+        userList.add(user0);
 
         UserTutor user1 = new UserTutor();
         user1.setEmail("enricoCarlo@gmail.com");
@@ -81,7 +103,7 @@ public class UserTutorFactory {
         //user1.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user1.getEmail()));
         //user1.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user1.getEmail())));
 
-        getUserList().add(user1);
+        userList.add(user1);
 
         UserTutor user2 = new UserTutor();
         user2.setEmail("antonino@gmail.com");
@@ -100,7 +122,7 @@ public class UserTutorFactory {
         //user2.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user2.getEmail()));
         //user2.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user2.getEmail())));
 
-        getUserList().add(user2);
+        userList.add(user2);
 
         UserTutor user3 = new UserTutor();
         user3.setEmail("mail");
@@ -119,7 +141,7 @@ public class UserTutorFactory {
         //user3.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user3.getEmail()));
         //user3.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user3.getEmail())));
 
-        getUserList().add(user3);
+        userList.add(user3);
     }
 
     public ArrayList<UserTutor> getUserList() {

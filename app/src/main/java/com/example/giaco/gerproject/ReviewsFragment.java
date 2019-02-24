@@ -2,6 +2,7 @@ package com.example.giaco.gerproject;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -47,23 +48,26 @@ public class ReviewsFragment extends Fragment {
             chosenTutor = UserTutorFactory.getInstance().getUserByEmail(emailTutor);
             feedbackFactory = FeedbackFactory.getInstance();
             feedbacks = feedbackFactory.getFeedbackByTutorMail(chosenTutor.getEmail());
-
-            /*Parte singola*/
+                /*Parte singola*/
             mparent = view.findViewById(R.id.parentview_feedback);
             layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
             statsReview = layoutInflater.inflate(R.layout.feedback_static, null, false);
             mparent.addView(statsReview);
             updateStatsReview(feedbackFactory, statsReview);
-            for(Feedback f : feedbacks) {
-               singleReview = layoutInflater.inflate(R.layout.single_feedback, null, false);
+            if (!feedbacks.isEmpty()) {
+                for (Feedback f : feedbacks) {
+                    singleReview = layoutInflater.inflate(R.layout.single_feedback, null, false);
+                    mparent.addView(singleReview);
+                    updateSingleReview(f, singleReview);
+                }
+            }
+            else{
+                singleReview = layoutInflater.inflate(R.layout.single_feedback, null, false);
                 mparent.addView(singleReview);
-                updateSingleReview(f, singleReview);
+                updateDiGhisa(singleReview);
+            }
         }
-
-
-        }
-        }
+    }
 
         public void updateStatsReview(FeedbackFactory f, View statsReview){
             TextView nomeTutor, votoChiarezza, votoDisponibilita, votoCompetenza;
@@ -116,17 +120,60 @@ public class ReviewsFragment extends Fragment {
 
         public void updateSingleReview(Feedback f, View myView){
             TextView autoreNome, descrizione;
-            ImageView stelline, avatarReview;
+            ImageView stelline, avatarReview, piccoleStelle;
             UserStudenteFactory factory = UserStudenteFactory.getInstance();
             UserStudente autore = factory.getUserByEmail(f.getAutore());
+            Drawable zerostelle, unastella, duestelle, trestelle,quattrostelle, cinquestelle;
+            zerostelle = getResources().getDrawable(R.drawable.zerostelle);
+            unastella = getResources().getDrawable(R.drawable.unastella);
+            duestelle = getResources().getDrawable(R.drawable.duestelle);
+            trestelle = getResources().getDrawable(R.drawable.trestelle);
+            quattrostelle = getResources().getDrawable(R.drawable.quattrostelle);
+            cinquestelle = getResources().getDrawable(R.drawable.cinquestelle);
 
             autoreNome = (TextView) myView.findViewById(R.id.autoreReview);
             descrizione = (TextView) myView.findViewById(R.id.descrizioneReview);
-            stelline = (ImageView) myView.findViewById(R.id.stellineSingolaReview);
             avatarReview = (ImageView) myView.findViewById(R.id.avatarAutore);
+            piccoleStelle = (ImageView) myView.findViewById(R.id.stellineSingolaReview);
 
             autoreNome.setText("" + autore.getName() + " " + autore.getSurname() + "");
             descrizione.setText(f.getDescrizione());
             avatarReview.setImageDrawable(autore.getImage());
+            switch(f.getVotoMedio()){
+                case 0 :
+                    piccoleStelle.setImageDrawable(zerostelle);
+                    break;
+                case 1 :
+                    piccoleStelle.setImageDrawable(unastella);
+                    break;
+                case 2 :
+                    piccoleStelle.setImageDrawable(duestelle);
+                    break;
+                case 3 :
+                    piccoleStelle.setImageDrawable(trestelle);
+                    break;
+                case 4 :
+                    piccoleStelle.setImageDrawable(quattrostelle);
+                    break;
+                case 5 :
+                    piccoleStelle.setImageDrawable(cinquestelle);
+                    break;
+            }
+        }
+
+        public void updateDiGhisa(View myView){
+            TextView autoreNome, descrizione;
+            //ImageView stelline, avatarReview;
+
+            //UserStudenteFactory factory = UserStudenteFactory.getInstance();
+            //UserStudente autore = factory.getUserByEmail(f.getAutore());
+
+            autoreNome = (TextView) myView.findViewById(R.id.autoreReview);
+            descrizione = (TextView) myView.findViewById(R.id.descrizioneReview);
+            //stelline = (ImageView) myView.findViewById(R.id.stellineSingolaReview);
+            //avatarReview = (ImageView) myView.findViewById(R.id.avatarAutore);
+
+            autoreNome.setText("Non hai recensioni");
+            descrizione.setText("Merdone");
         }
     }
