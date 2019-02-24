@@ -11,10 +11,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.giaco.gerproject.Classes.Feedback;
 import com.example.giaco.gerproject.Classes.FeedbackFactory;
@@ -23,9 +27,10 @@ import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 import com.example.giaco.gerproject.Classes.UserTutor;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class DashBoardFragment extends Fragment {
+public class DashBoardFragment extends Fragment{
     LinearLayout mparent;
     LayoutInflater layoutInflater;
     View myView;
@@ -36,6 +41,11 @@ public class DashBoardFragment extends Fragment {
     FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
     UserTutorFactory userTutorFactory = UserTutorFactory.getInstance();
     ArrayList<UserTutor> tutorList = userTutorFactory.getUserList();
+    Spinner spinner;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
@@ -52,7 +62,6 @@ public class DashBoardFragment extends Fragment {
         }
         mparent = view.findViewById(R.id.mparent);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
 
         for(int i = 0; i < tutorList.size() ; i++) {
             switch (tutorList.get(i).getMateria()){
@@ -146,6 +155,5 @@ public class DashBoardFragment extends Fragment {
             }
         });
     }
-
 
 }

@@ -3,4 +3,12 @@
 
     <string name="navigation_drawer_open">Close navigation drawer</string>
     <string name="navigation_drawer_close">Open navigation drawer</string>
+
+    <string name="spinner_opne">Spinner</string>
+    <string-array name="listaFiltro">
+        <item>Uno</item>
+        <item>Due</item>
+        <item>Tre</item>
+        <item>Quattro</item>
+    </string-array>
 </resources>
