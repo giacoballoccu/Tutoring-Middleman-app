@@ -33,40 +33,6 @@ public class UserTutorFactory {
         ArrayList<String> disponibilitaDataT2 = DisponibilitaFactory.getInstance().getDate();
         ArrayList<String> disponibilitaDataT3 = DisponibilitaFactory.getInstance().getDate();
 
-        /*data = "10/03/2019 11:00-12:00";
-        disponibilitaDataT1.add(data);
-        data = "10/03/2019 09:00-10:00";
-        disponibilitaDataT1.add(data);
-        data = "01/03/2019 13:00-14:00";
-        disponibilitaDataT1.add(data);
-
-        ArrayList<String> disponibilitaDataT2 = new ArrayList<>();
-        data = "02/03/2019 8:30-9:30";
-        disponibilitaDataT2.add(data);
-        data = "30/02/2019 10:00-11:00";
-        disponibilitaDataT2.add(data);
-        data = "02/03/2019 13:00-14:00";
-        disponibilitaDataT2.add(data);
-
-        ArrayList<String> disponibilitaDataT3 = new ArrayList<>();
-        data = "01/03/2019 15:00-16:00";
-        disponibilitaDataT3.add(data);
-        data = "31/02/2019 17:00-18:00";
-        disponibilitaDataT3.add(data);
-        data = "1/03/2019 18:00-18:00";
-        disponibilitaDataT3.add(data);
-        data = "10/03/2019 17:00-18:00";
-        disponibilitaDataT3.add(data);
-        data = "31/03/2019 17:00-18:00";
-        disponibilitaDataT3.add(data);
-        data = "15/06/2019 17:00-18:00";
-        disponibilitaDataT3.add(data);
-        data = "16/06/2019 17:00-18:00";
-        disponibilitaDataT3.add(data);
-        data = "15/08/2019 00:00-23:59";
-        disponibilitaDataT3.add(data);
-
-*/
         UserTutor user0 = new UserTutor();
         user0.setEmail("herobrine");
         user0.setName("herobrine");

@@ -152,7 +152,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             editProfile = (Button) view.findViewById(R.id.editButtonT);
             materia = (TextView) view.findViewById(R.id.materia);
             editAgenda = (Button) view.findViewById(R.id.editAgendaButton);
-            //setOnClick(editAgenda, loggedUserMail);
+            setOnClick(editAgenda, loggedUserMail);
             recensioni = (Button) view.findViewById(R.id.feedbackButton);
             orariAgenda = (TextView) view.findViewById(R.id.orari);
 
@@ -223,7 +223,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     protected boolean getTutorFlag(){
         return this.flagTutor;
     }
-/*
+
     private void setOnClick(final Button butt, final String mail) {
         butt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,6 +239,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 transaction.commit();
             }
         });
-    }*/
+    }
 }
 
