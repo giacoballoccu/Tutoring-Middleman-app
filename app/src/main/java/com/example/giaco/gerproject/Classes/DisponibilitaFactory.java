@@ -78,4 +78,16 @@ public class DisponibilitaFactory extends Disponibilita {
         return lista;
     }
 
+    public void addDisponibilita(int gg, int mm, int aaaa){
+        Disponibilita nuovaData = new Disponibilita();
+        nuovaData.setGiorno(gg);
+        nuovaData.setGiorno(mm);
+        nuovaData.setGiorno(aaaa);
+        nuovaData.setOraInizio(10);
+        nuovaData.setOraFine(12);
+        nuovaData.setMinutoInizio(30);
+        nuovaData.setMinutoFine(30);
+        date.add(nuovaData);
+    }
+
 }

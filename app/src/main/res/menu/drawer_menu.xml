@@ -66,5 +66,4 @@
             android:title="Logout"
             android:id="@+id/nav_logoutT"/>
     </group>
-
 </menu>

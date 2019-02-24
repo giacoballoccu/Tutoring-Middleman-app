@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.giaco.gerproject.Classes.DisponibilitaFactory;
 import com.example.giaco.gerproject.Classes.FeedbackFactory;
 import com.example.giaco.gerproject.Classes.User;
 import com.example.giaco.gerproject.Classes.UserStudente;
@@ -32,12 +33,13 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     private UserStudente loggedStudente;
     private UserTutor loggedTutor;
     Bundle bundle = new Bundle();
+    Bundle datiCalendario = new Bundle();
     LinearLayout dparent;
     ImageView userImg, stelline;
     String loggedUserMail;
     TextView userName, hours, materia, orari, orario, orariAgenda;
-    Button recharge, editAgenda, recensioni;
-    Button editProfile;
+    Button recharge, editProfile, recensioni;
+    ImageButton editAgenda;
     View myView;
     LayoutInflater layoutInflater;
     private boolean flagTutor = false;
@@ -48,6 +50,9 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         if (getArguments() != null) {
+            if(getArguments().getString("flagAggiunta") != "ok")
+                DisponibilitaFactory.getInstance().addDisponibilita(getArguments().getInt("giornoN"), getArguments().getInt("meseN"), getArguments().getInt("annoN"));
+
             if(getArguments().getInt("flag") == 0){ //Studente
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
@@ -151,7 +156,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             stelline = (ImageView) view.findViewById(R.id.stelline);
             editProfile = (Button) view.findViewById(R.id.editButtonT);
             materia = (TextView) view.findViewById(R.id.materia);
-            editAgenda = (Button) view.findViewById(R.id.editAgendaButton);
+            editAgenda = (ImageButton) view.findViewById(R.id.editAgendaButton);
             setOnClick(editAgenda, loggedUserMail);
             recensioni = (Button) view.findViewById(R.id.feedbackButton);
             orariAgenda = (TextView) view.findViewById(R.id.orari);
@@ -224,7 +229,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         return this.flagTutor;
     }
 
-    private void setOnClick(final Button butt, final String mail) {
+    private void setOnClick(final ImageButton butt, final String mail) {
         butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
