@@ -155,9 +155,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                         break;
                 }
 
-            //editProfile.setOnClickListener(this);
-            //recharge.setOnClickListener(this);
-
             recensioni.setOnClickListener(this);
             editAgenda.setOnClickListener(this);
         }
@@ -252,9 +249,5 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
 
         }
     }
-
-
-
-
 }
 
