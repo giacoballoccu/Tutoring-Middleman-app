@@ -29,8 +29,9 @@ public class UserTutorFactory {
         String data;
         Context context = ApplicationContextProvider.getContext();
 
-        ArrayList<String> disponibilitaDataT1 = new ArrayList<>();
-        data = "10/03/2019 11:00-12:00";
+        ArrayList<String> disponibilitaDataT1 = DisponibilitaFactory.getInstance().getDate();
+
+        /*data = "10/03/2019 11:00-12:00";
         disponibilitaDataT1.add(data);
         data = "10/03/2019 09:00-10:00";
         disponibilitaDataT1.add(data);
@@ -63,7 +64,7 @@ public class UserTutorFactory {
         data = "15/08/2019 00:00-23:59";
         disponibilitaDataT3.add(data);
 
-
+*/
         UserTutor user0 = new UserTutor();
         user0.setEmail("herobrine");
         user0.setName("herobrine");
