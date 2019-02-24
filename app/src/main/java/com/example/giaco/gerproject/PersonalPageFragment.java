@@ -39,9 +39,12 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     String loggedUserMail;
     TextView userName, hours, materia, orari, orario, orariAgenda;
     Button recharge, editProfile, recensioni;
+    EditProfileFragment editProfileFS, editProfileFT;
     ImageButton editAgenda;
     View myView;
     LayoutInflater layoutInflater;
+    BuyPackagesFragment buyPackages;
+    ReviewsFragment review;
     private boolean flagTutor = false;
     EditAgenda agenda;
 
@@ -81,55 +84,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rechargeButton: {
-                BuyPackagesFragment clickedFragment = new BuyPackagesFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, clickedFragment);
-                fragmentTransaction.commit();
-                break;
-            }
-            case R.id.editButton: {
-                EditProfileFragment clickedFragment = new EditProfileFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, clickedFragment);
-                fragmentTransaction.commit();
-                break;
-            }/*
-            case R.id.editAgendaButton: {
-                EditProfileFragment clickedFragment = new EditProfileFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, clickedFragment);
-                fragmentTransaction.commit();
-                break;
-            }*/
-            case R.id.editButtonT: {
-                EditProfileFragment clickedFragment = new EditProfileFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.content, clickedFragment);
-                fragmentTransaction.commit();
-                break;
-            }
-            case R.id.feedbackButton: {
-                ReviewsFragment clickedFragment = new ReviewsFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                clickedFragment.setArguments(bundle);
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, clickedFragment);
-                fragmentTransaction.commit();
-                break;
-            }
-
-
-        }
-    }
-
-    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
@@ -148,19 +102,19 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                     userImg.setImageDrawable(resize(loggedStudente.getImage()));
             }
             recharge.setOnClickListener(this);
-            editProfile.setOnClickListener(this);
+
         }
         else{   //Dati del tutor
             userName = (TextView) view.findViewById(R.id.usernameT);
             userImg = (ImageView) view.findViewById(R.id.profileImgT);
             stelline = (ImageView) view.findViewById(R.id.stelline);
-            editProfile = (Button) view.findViewById(R.id.editButtonT);
+
             materia = (TextView) view.findViewById(R.id.materia);
             editAgenda = (ImageButton) view.findViewById(R.id.editAgendaButton);
-            setOnClick(editAgenda, loggedUserMail);
-            recensioni = (Button) view.findViewById(R.id.feedbackButton);
             orariAgenda = (TextView) view.findViewById(R.id.orari);
 
+            recensioni = (Button) view.findViewById(R.id.feedbackButton);
+            editProfile = (Button) view.findViewById(R.id.editButtonT);
 
             loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
             FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
@@ -200,10 +154,14 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                         stelline.setImageDrawable(getResources().getDrawable(R.drawable.cinquestelle));
                         break;
                 }
+
+            //editProfile.setOnClickListener(this);
+            //recharge.setOnClickListener(this);
+
             recensioni.setOnClickListener(this);
-            //editAgenda.setOnClickListener(this);
-            editProfile.setOnClickListener(this);
+            editAgenda.setOnClickListener(this);
         }
+        editProfile.setOnClickListener(this);
     }
 
     private Drawable resize(Drawable image) {
@@ -229,21 +187,74 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         return this.flagTutor;
     }
 
-    private void setOnClick(final ImageButton butt, final String mail) {
-        butt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.editButtonT:
                 Bundle bundle = new Bundle();
-                bundle.putString("actualUserMail", mail);
+                bundle.putString("actualUserMail", loggedUserMail);
                 bundle.putInt("tFlag", 1);
-                agenda = new EditAgenda();
-                agenda.setArguments(bundle);
+                editProfileFT = new EditProfileFragment();
+                editProfileFT.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container, agenda);
+                transaction.replace(R.id.fragment_container, editProfileFT);
                 transaction.commit();
-            }
-        });
+                break;
+
+            case R.id.editButton:
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("actualUserMail", loggedUserMail);
+                bundle2.putInt("tFlag", 0);
+                editProfileFS = new EditProfileFragment();
+                editProfileFS.setArguments(bundle2);
+                FragmentManager fm2 = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction2 = fm2.beginTransaction();
+                transaction2.replace(R.id.fragment_container, editProfileFS);
+                transaction2.commit();
+                break;
+
+            case R.id.rechargeButton:
+                Bundle bundle3 = new Bundle();
+                bundle3.putString("actualUserMail", loggedUserMail);
+                bundle3.putInt("tFlag", 0);
+                buyPackages = new BuyPackagesFragment();
+                buyPackages.setArguments(bundle3);
+                FragmentManager fm3 = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction3 = fm3.beginTransaction();
+                transaction3.replace(R.id.fragment_container, buyPackages);
+                transaction3.commit();
+                break;
+
+            case R.id.feedbackButton:
+                Bundle bundle4 = new Bundle();
+                bundle4.putString("actualUserMail", loggedUserMail);
+                bundle4.putString("chosenTutor", loggedUserMail);
+                bundle4.putInt("tFlag", 1);
+                review = new ReviewsFragment();
+                review.setArguments(bundle4);
+                FragmentManager fm4 = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction4 = fm4.beginTransaction();
+                transaction4.replace(R.id.fragment_container, review);
+                transaction4.commit();
+                break;
+
+            case R.id.editAgendaButton:
+                Bundle bundle5 = new Bundle();
+                bundle5.putString("actualUserMail", loggedUserMail);
+                bundle5.putInt("tFlag", 0);
+                agenda = new EditAgenda();
+                agenda.setArguments(bundle5);
+                FragmentManager fm5 = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction5 = fm5.beginTransaction();
+                transaction5.replace(R.id.fragment_container, agenda);
+                transaction5.commit();
+                break;
+
+        }
     }
+
+
+
+
 }
 
