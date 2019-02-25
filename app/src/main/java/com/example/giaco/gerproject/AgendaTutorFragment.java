@@ -5,10 +5,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 
 public class AgendaTutorFragment extends Fragment {
     LinearLayout mparent;
+    ConstraintLayout mparent_ext;
     LayoutInflater layoutInflater;
     View myView;
     String emailLoggedUser;
@@ -45,6 +48,7 @@ public class AgendaTutorFragment extends Fragment {
         getActivity().setTitle("Agenda");
 
         mparent = (LinearLayout) view.findViewById(R.id.parentview_reservation);
+        mparent_ext = view.findViewById(R.id.parent_view_reservation_ext);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         myView = layoutInflater.inflate(R.layout.reservation_static, null, false);
@@ -102,7 +106,26 @@ public class AgendaTutorFragment extends Fragment {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mparent.removeView(myView);
+                final View myView_alt = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
+                mparent_ext.addView(myView_alt);
+                Button conferma, cancella;
+                conferma = (Button) myView_alt.findViewById(R.id.prenotazione_yes);
+                cancella = (Button) myView_alt.findViewById(R.id.prenotazione_no);
+
+                conferma.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mparent_ext.removeView(myView_alt);
+                        mparent.removeView(myView);
+                    }
+                });
+
+                cancella.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mparent_ext.removeView(myView_alt);
+                    }
+                });
             }
         });
     }
