@@ -55,6 +55,7 @@ public class DashBoardFragment extends Fragment{
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        getActivity().setTitle("Bacheca");
         //you can set the title for your toolbar here for different fragments different titles
 
         if (getArguments() != null) {
