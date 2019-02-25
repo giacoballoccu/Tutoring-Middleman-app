@@ -14,13 +14,4 @@
         tools:layout_editor_absoluteX="348dp"
         tools:layout_editor_absoluteY="191dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Contact us"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="133dp"
-        tools:layout_editor_absoluteY="345dp" />
-
 </RelativeLayout>
