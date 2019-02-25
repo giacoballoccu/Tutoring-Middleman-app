@@ -24,7 +24,8 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     private int minutoInizio = 10;
     private int minutoFine = 10;
     CalendarView calendario;
-    SeekBar seekBarOrarioInizio;
+    SeekBar seekBarOrarioInizio, seekBarOrarioFine;
+
     Button conferma;
     PersonalPageFragment profilo;
     String loggedUserMail = "";
@@ -47,6 +48,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
         //getActivity().setTitle("Aggiungi una data");
         seekBarOrarioInizio = view.findViewById(R.id.seekBarOrari);
+        seekBarOrarioFine = view.findViewById(R.id.seekBarOrariF);
         conferma = view.findViewById(R.id.salvaAggiunta);
         calendario = view.findViewById(R.id.calendario_agenda);
 
@@ -60,22 +62,32 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
             }
         });
 
-        /*Sezione seekbar*/
+        /*Sezione Ora Inizio*/
         seekBarOrarioInizio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            setOraInizio(progress + 7);
+            setOraInizio(progress + 8);
+            seekBarOrarioFine.setProgress(getOraInizio() - 8, true);
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+        /*Sezione Ora Fine*/
+            seekBarOrarioFine.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(seekBarOrarioInizio.getProgress() > seekBarOrarioFine.getProgress())
+                    seekBarOrarioInizio.setProgress(seekBarOrarioFine.getProgress()-1);
+                else
+                    setOraFine(progress + 8);
+                //getSeekBarOrarioFine.setProgress(getOraInizio() - 8, true);
             }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         conferma.setOnClickListener(this);
