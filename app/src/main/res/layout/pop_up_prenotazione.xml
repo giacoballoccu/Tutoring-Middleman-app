@@ -37,7 +37,7 @@
         android:layout_marginLeft="79dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="28dp"
-        android:background="#BAF7C4"
+        android:background="@color/blueButtons"
         android:fontFamily="sans-serif-medium"
         android:text="CONFERMA"
         android:textColor="@color/blackGrey"
