@@ -66,6 +66,10 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
         seekBarOrarioInizio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            if(progress == 0)
+                seekBarOrarioFine.setProgress(1);
+            if(progress == seekBar.getMax())
+                seekBarOrarioInizio.setProgress(progress-1);
             setOraInizio(progress + 8);
             seekBarOrarioFine.setProgress(getOraInizio() - 7, true);
             }
@@ -78,6 +82,8 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
             seekBarOrarioFine.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(progress == 0)
+                    seekBarOrarioFine.setProgress(progress + 1);
                 if(seekBarOrarioInizio.getProgress() >= seekBarOrarioFine.getProgress())
                     seekBarOrarioInizio.setProgress(seekBarOrarioFine.getProgress()-1);
                 else
