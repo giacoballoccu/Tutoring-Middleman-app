@@ -34,7 +34,7 @@ public class ConversationFactory extends Conversation {
         conv3.setMessaggiDes(MessageFactory.getInstance().getDomande());
         conv3.setMessaggiMit(MessageFactory.getInstance().getRisposte());
         conv3.setMittente(UserStudenteFactory.getInstance().getUserList().get(2).getEmail());
-        conv3.setDestinatario(UserTutorFactory.getInstance().getUserList().get(3).getEmail());
+        conv3.setDestinatario(UserTutorFactory.getInstance().getUserList().get(2).getEmail());
         conversazioni.add(conv3);
 
         /*----------Mittente tutor / Destinatario studente----------*/
@@ -55,7 +55,7 @@ public class ConversationFactory extends Conversation {
         Conversation conv6 = new Conversation();
         conv6.setMessaggiDes(MessageFactory.getInstance().getDomande());
         conv6.setMessaggiMit(MessageFactory.getInstance().getRisposte());
-        conv6.setMittente(UserTutorFactory.getInstance().getUserList().get(3).getEmail());
+        conv6.setMittente(UserTutorFactory.getInstance().getUserList().get(0).getEmail());
         conv6.setDestinatario(UserStudenteFactory.getInstance().getUserList().get(2).getEmail());
         conversazioni.add(conv6);
     }
