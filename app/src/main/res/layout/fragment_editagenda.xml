@@ -9,16 +9,18 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <CalendarView
                     android:id="@+id/calendario_agenda"
@@ -39,47 +41,58 @@
                     android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="8:00"
                     app:layout_constraintBottom_toTopOf="@+id/seekBarOrari"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/oraSelezionata"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="28dp"
                     android:layout_marginBottom="8dp"
                     android:text="20:00"
                     app:layout_constraintBottom_toTopOf="@+id/seekBarOrari"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/oraSelezionata"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/oraSelezionata"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-black"
                     android:gravity="center"
                     android:text="TextView"
                     android:textSize="25dp"
-                    app:layout_constraintBottom_toTopOf="@+id/seekBarOrari"
-                    app:layout_constraintTop_toBottomOf="@+id/calendario_agenda"
-                    app:layout_constraintVertical_bias="1.0"
-                    tools:layout_editor_absoluteX="152dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/calendario_agenda" />
 
                 <SeekBar
                     android:id="@+id/seekBarOrari"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="388dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
                     android:max="12"
                     android:min="0"
                     android:progress="0"
-                    tools:layout_editor_absoluteX="15dp"
-                    tools:layout_editor_absoluteY="412dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.428"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/oraSelezionata" />
 
                 <SeekBar
                     android:id="@+id/seekBarOrariF"
@@ -88,41 +101,56 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="28dp"
+                    android:layout_marginEnd="8dp"
                     android:max="12"
                     android:progress="1"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/seekBarOrari" />
 
                 <TextView
                     android:id="@+id/ripetizioneSettimana"
                     android:layout_width="349dp"
-                    android:layout_height="117dp"
+                    android:layout_height="102dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif-black"
                     android:gravity="center"
                     android:text="Vuoi ripetere per..."
                     android:textSize="25dp"
-                    tools:layout_editor_absoluteX="8dp"
-                    tools:layout_editor_absoluteY="598dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/seekBarOrariF" />
 
                 <Switch
                     android:id="@+id/switch1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
                     android:text="Switch"
-                    tools:layout_editor_absoluteX="8dp"
-                    tools:layout_editor_absoluteY="715dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ripetizioneSettimana" />
 
                 <Button
                     android:id="@+id/salvaAggiunta"
                     android:layout_width="166dp"
-                    android:layout_height="50dp"
+                    android:layout_height="51dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@color/blueButtons"
                     android:text="Salva modifiche"
-                    tools:layout_editor_absoluteX="8dp"
-                    tools:layout_editor_absoluteY="742dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch1" />
             </android.support.constraint.ConstraintLayout>
 
         </LinearLayout>
