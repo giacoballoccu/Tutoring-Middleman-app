@@ -26,16 +26,18 @@
 
     <TextView
         android:id="@+id/messaggio"
-        android:layout_width="366dp"
-        android:layout_height="78dp"
+        android:layout_width="wrap_content"
+        android:layout_height="79dp"
         android:layout_alignStart="@+id/imageView3"
         android:layout_alignTop="@+id/imageView3"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="26dp"
         android:layout_marginTop="1dp"
+        android:layout_marginEnd="19dp"
         android:fontFamily="sans-serif-light"
         android:gravity="center_vertical"
         android:text="BUONASERA METROPOLE, DOLCE VITA GRANDE KOHLE"
         android:textColor="@color/blackGrey"
-        android:textSize="14sp" />
+        android:textSize="18sp" />
 
 </RelativeLayout>

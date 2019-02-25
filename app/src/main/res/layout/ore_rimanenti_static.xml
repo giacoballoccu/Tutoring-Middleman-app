@@ -15,6 +15,7 @@
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="13"
+        android:textColor="@color/blueButtons"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,8 +28,11 @@
         android:layout_width="168dp"
         android:layout_height="41dp"
         android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
         android:text="Ore disponibili"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toEndOf="@+id/n_ore_rimanenti"
         app:layout_constraintTop_toTopOf="parent" />
 

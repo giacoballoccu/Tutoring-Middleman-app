@@ -10,7 +10,7 @@
         <item name="toolbarStyle">@style/custom_toolbar</item>
         <!--<item name="android:textColor">@color/blackGrey</item>-->
         <item name="colorButtonNormal">@color/colorAccent</item>
-
+        <item name="android:buttonStyle">@style/ButtonColor</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -24,6 +24,10 @@
 
     <style name="custom_toolbar" parent="@style/Widget.AppCompat.Toolbar">
         <item name="titleTextColor">@color/blackGrey</item>
+    </style>
+
+    <style name="ButtonColor" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/blackGrey</item>
     </style>
 
 </resources>

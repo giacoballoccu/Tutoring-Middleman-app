@@ -24,11 +24,13 @@
             android:layout_width="140dp"
             android:layout_height="35dp"
             android:layout_marginStart="68dp"
-            android:layout_marginLeft="68dp"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
             android:text="Competenza"
             android:textSize="24sp"
             app:fontFamily="sans-serif-light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/stella2"
             app:layout_constraintTop_toBottomOf="@+id/chiarezza" />
 
@@ -59,12 +61,14 @@
             android:layout_width="287dp"
             android:layout_height="51dp"
             android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:gravity="center"
             android:text="Nome Cognome"
             android:textSize="24sp"
             app:fontFamily="sans-serif-condensed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -109,11 +113,13 @@
             android:layout_width="111dp"
             android:layout_height="36dp"
             android:layout_marginStart="68dp"
-            android:layout_marginLeft="68dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
             android:text="Chiarezza"
             android:textSize="24sp"
             app:fontFamily="sans-serif-light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/stella1"
             app:layout_constraintTop_toBottomOf="@+id/recensionifeedbackstatic" />
 
@@ -122,11 +128,13 @@
             android:layout_width="136dp"
             android:layout_height="35dp"
             android:layout_marginStart="68dp"
-            android:layout_marginLeft="68dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
             android:text="Disponibilità"
             android:textSize="24sp"
             app:fontFamily="sans-serif-light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.102"
             app:layout_constraintStart_toEndOf="@+id/stella3"
             app:layout_constraintTop_toBottomOf="@+id/competenza" />
 

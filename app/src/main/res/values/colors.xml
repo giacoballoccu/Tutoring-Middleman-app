@@ -15,6 +15,7 @@
     <color name="rossoinformatica">#f44336</color>
     <color name="greenfisica">#64dd17</color>
     <color name="bluematematica">#2196F3</color>
-    <color name="packgreen">#5af48d</color>
+    <color name="blueButtons">#9ccee5</color>
+    <color name="greenButtons">#5af48d</color>
     <color name="yellow">#ffe082</color>
 </resources>

@@ -27,7 +27,7 @@
         android:layout_height="114dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="52dp"
         android:adjustViewBounds="false"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
@@ -41,10 +41,13 @@
         android:layout_height="75dp"
 
         android:layout_marginStart="20dp"
-        android:layout_marginTop="56dp"
-        android:text="NOME COGNOME"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-black"
+        android:text="NOME COGNOME"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toEndOf="@+id/profileImg"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,9 +57,12 @@
         android:layout_height="54dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="8dp"
         android:text="Ore di ripetizioni rimaste:"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImg" />
 
@@ -66,11 +72,13 @@
         android:layout_height="wrap_content"
 
         android:layout_marginLeft="148dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="140dp"
         android:fontFamily="monospace"
         android:text="11"
         android:textSize="100sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -79,9 +87,14 @@
         android:layout_width="234dp"
         android:layout_height="88dp"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/blueButtons"
+        android:fontFamily="sans-serif-medium"
         android:text="RICARICA"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hours" />
 

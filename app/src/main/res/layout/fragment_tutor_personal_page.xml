@@ -37,7 +37,7 @@
                 android:layout_height="114dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginTop="84dp"
                 android:layout_marginEnd="8dp"
                 android:adjustViewBounds="false"
                 android:gravity="center"
@@ -54,12 +54,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="43dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="80dp"
                 android:fontFamily="sans-serif-black"
                 android:text="NOME COGNOME"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.416"
+                app:layout_constraintHorizontal_bias="0.458"
                 app:layout_constraintStart_toEndOf="@+id/profileImgT"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,9 +85,12 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif-light"
                 android:text="Materia"
                 android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/feedbackButton" />
 
@@ -112,10 +115,13 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="32dp"
-                android:fontFamily="sans-serif-light"
+                android:layout_marginEnd="8dp"
+                android:background="@color/blueButtons"
+                android:fontFamily="sans-serif-medium"
                 android:text="Feedback"
                 android:textSize="18sp"
-                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profileImgT" />
 
@@ -143,7 +149,8 @@
         android:layout_gravity="bottom"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:background="#00FFFFFF"
+        android:background="@null"
+        android:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/plus" />
