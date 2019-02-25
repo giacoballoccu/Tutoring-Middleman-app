@@ -53,7 +53,7 @@ public class MyReservationsFragment extends Fragment {
             myView = layoutInflater.inflate(R.layout.single_reservation, null, false);
 
             if(emailLoggedUser.equals(resList.get(i).getStudente().getEmail()) || emailLoggedUser.equals(resList.get(i).getProfessore().getEmail())) {
-                mparent.addView(myView);    //ERRORE
+                mparent.addView(myView);
             }
             updatePackage(resList.get(i), myView);
         }

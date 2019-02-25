@@ -33,25 +33,6 @@ public class UserTutorFactory {
         ArrayList<String> disponibilitaDataT2 = DisponibilitaFactory.getInstance().getDate();
         ArrayList<String> disponibilitaDataT3 = DisponibilitaFactory.getInstance().getDate();
 
-        UserTutor user0 = new UserTutor();
-        user0.setEmail("herobrine");
-        user0.setName("herobrine");
-        user0.setSurname("herobrine");
-        Drawable img0 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.tutor_default, null);
-        user0.setImage(img0);
-        user0.setPassword("666");
-        user0.setPhone("666");
-        user0.setMateria("Morte");
-        user0.setCitta("Inferi");
-        user0.setIndirizzo("Via Lucifero 666");
-        user0.setFeedbacks(new ArrayList<Feedback>());
-        user0.setVotoTotaleMedio(0);
-        user0.setDisponibilitaData(disponibilitaDataT1);
-        //user1.setFeedbacks(feedbackFactory.getFeedbackByTutorMail(user1.getEmail()));
-        //user1.setVotoTotaleMedio(feedbackFactory.getVotoTotaleMedio(feedbackFactory.getFeedbackByTutorMail(user1.getEmail())));
-
-        userList.add(user0);
-
         UserTutor user1 = new UserTutor();
         user1.setEmail("enricoCarlo@gmail.com");
         user1.setName("Enrico");
