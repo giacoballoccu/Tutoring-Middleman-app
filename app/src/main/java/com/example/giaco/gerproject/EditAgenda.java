@@ -21,6 +21,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     CalendarView calendario;
     Button conferma;
     PersonalPageFragment profilo;
+    String loggedUserMail = "";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        loggedUserMail = getArguments().getString("actualUserMail");
         return inflater.inflate(R.layout.fragment_editagenda, container, false);
     }
 
@@ -35,8 +37,10 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle("Aggiungi una data");
         super.onViewCreated(view, savedInstanceState);
+
+
         //getActivity().setTitle("Aggiungi una data");
-        conferma = view.findViewById(R.id.salvaAggiunta);/*
+        conferma = view.findViewById(R.id.salvaAggiunta);
         calendario = view.findViewById(R.id.calendario_agenda);
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -45,28 +49,28 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 setMese(month);
                 setAnno(year);
             }
-        });*/
+        });
         conferma.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.editAgendaButton:
-                //Toast.makeText(getContext(),"Vedi che anche tua moglie puzza di baroneesa!", Toast.LENGTH_LONG).show();
+
                 Bundle bundle = new Bundle();
                 bundle.putInt("annoN", getAnno());
                 bundle.putInt("meseN", getMese());
                 bundle.putInt("giornoN", getGiorno());
+                bundle.putString("flagAggiunta", "ok");
+                bundle.putString("actualUserMail", loggedUserMail);
+                bundle.putInt("tFlag", 1);
                 profilo = new PersonalPageFragment();
                 profilo.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
                 transaction.replace(R.id.fragment_container, profilo);
                 transaction.commit();
-                break;
-        }
+
 
     }
 
