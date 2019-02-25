@@ -110,6 +110,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             }
             recharge.setOnClickListener(this);
 
+
         }
         else{   //Dati del tutor
             userName = (TextView) view.findViewById(R.id.usernameT);

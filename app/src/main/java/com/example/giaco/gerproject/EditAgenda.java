@@ -12,8 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,11 +34,11 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     CalendarView calendario;
     SeekBar seekBarOrarioInizio, seekBarOrarioFine;
     TextView oraCorrente, giornoSettimana;
-    RadioButton radio;
     Button conferma;
     PersonalPageFragment profilo;
     String loggedUserMail = "";
     Calendar calendarioCorrente;
+    Switch interruttore;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,14 +55,15 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
         getActivity().setTitle("Aggiungi una data");
         super.onViewCreated(view, savedInstanceState);
 
-
         //getActivity().setTitle("Aggiungi una data");
         oraCorrente = view.findViewById(R.id.oraSelezionata);
         oraCorrente.setText("8:00 - 9:00");
         giornoSettimana = view.findViewById(R.id.ripetizioneSettimana);
         giornoSettimana.setVisibility(View.INVISIBLE);
-        radio = view.findViewById(R.id.radioButton);
-        radio.setVisibility(View.INVISIBLE);
+        interruttore = view.findViewById(R.id.switch1);
+        interruttore.setVisibility(View.INVISIBLE);
+
+
 
         seekBarOrarioInizio = view.findViewById(R.id.seekBarOrari);
         seekBarOrarioFine = view.findViewById(R.id.seekBarOrariF);
@@ -78,7 +82,24 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 setGiornoSettimana(calendarioCorrente.get(Calendar.DAY_OF_WEEK));
                 giornoSettimana.setVisibility(View.VISIBLE);
                 giornoSettimana.setText("Ripeti per tutti i " + getGiornoSettimanaStringa(getGiornoSettimana())+" di " + getMeseStringa(month + 1) + "");
-                radio.setVisibility(View.VISIBLE);
+
+                interruttore.setVisibility(View.VISIBLE);
+
+                //radio1.setVisibility(View.VISIBLE);
+                //radio2.setVisibility(View.VISIBLE);
+            }
+        });
+
+        interruttore.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                        setGiornoSettimana(1);
+                        interruttore.setText("Sì");
+                }
+                else {
+                    setGiornoSettimana(0);
+                    interruttore.setText("No");
+                }
             }
         });
 
@@ -144,10 +165,12 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 bundle.putInt("meseN", getMese());
                 bundle.putInt("giornoN", getGiorno());
                 bundle.putInt("oraiN", getOraInizio());
-                //bundle.putInt()
+                bundle.putInt("giornoSettimana", getGiornoSettimana());
                 bundle.putString("flagAggiunta", "ok");
                 bundle.putString("actualUserMail", loggedUserMail);
                 bundle.putInt("tFlag", 1);
+
+
                 profilo = new PersonalPageFragment();
                 profilo.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
@@ -157,6 +180,8 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
 
     }
+
+
 
 
     public void setAnno(int a){
@@ -279,6 +304,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
             }
             return giornoS;
         }
+
     }
 
 
