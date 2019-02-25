@@ -113,7 +113,7 @@ public class Disponibilita {
         else
             gg = Integer.toString(this.giorno);
         if(this.giorno > 30 && this.mese == 4 || this.mese ==6 || this.mese ==9 || this.mese ==11)
-            this.mese = 30;
+            this.giorno = 30;
         if(this.giorno > 30 && this.mese == 2)
             this.giorno = 28;
         aa = Integer.toString(this.anno);
@@ -158,9 +158,6 @@ public class Disponibilita {
                 break;
             case 12:
                 mm = "Dicemrbe";
-                break;
-            default:
-                mm = "Gennaio";
                 break;
         }
 
