@@ -6,11 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
 public class EditAgenda extends Fragment implements View.OnClickListener {
     private int anno = 100;
@@ -31,10 +33,10 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Aggiungi una data");
-        conferma = view.findViewById(R.id.salvaAggiunta);
+        super.onViewCreated(view, savedInstanceState);
+        //getActivity().setTitle("Aggiungi una data");
+        conferma = view.findViewById(R.id.salvaAggiunta);/*
         calendario = view.findViewById(R.id.calendario_agenda);
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -43,14 +45,16 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 setMese(month);
                 setAnno(year);
             }
-        });
+        });*/
         conferma.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.editAgendaButton:
+                //Toast.makeText(getContext(),"Vedi che anche tua moglie puzza di baroneesa!", Toast.LENGTH_LONG).show();
                 Bundle bundle = new Bundle();
                 bundle.putInt("annoN", getAnno());
                 bundle.putInt("meseN", getMese());
