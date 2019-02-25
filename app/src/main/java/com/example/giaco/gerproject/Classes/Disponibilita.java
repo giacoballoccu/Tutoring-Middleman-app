@@ -191,8 +191,8 @@ public class Disponibilita {
 
         }
         if(this.settimana == null)
-            return (gg + " " + mm + " " + aa + " | " + oi + ":" + mi + " - " + of + ":" + mf);
+            return (gg + " " + mm + " " + aa + " | " + oi + ":00 - " + of + ":00");
         else
-            return ("Ogni " + set + "di " + mm + " " + aa + " | " + oi + ":" + mi + " - " + of + ":" + mf);
+            return ("Ogni " + set + "di " + mm + " " + aa + " | " + oi + ":00 - " + of + ":00");
     }
 }

@@ -39,6 +39,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     String loggedUserMail = "";
     Calendar calendarioCorrente;
     Switch interruttore;
+    DashBoardFragment dashboard;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +82,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 calendarioCorrente.setTimeInMillis(viewC.getDate());
                 setGiornoSettimana(calendarioCorrente.get(Calendar.DAY_OF_WEEK));
                 giornoSettimana.setVisibility(View.VISIBLE);
+                setGiornoSettimana(5);
                 giornoSettimana.setText("Ripeti per tutti i " + getGiornoSettimanaStringa(getGiornoSettimana())+" di " + getMeseStringa(month + 1) + "");
 
                 interruttore.setVisibility(View.VISIBLE);
@@ -165,19 +167,28 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 bundle.putInt("meseN", getMese());
                 bundle.putInt("giornoN", getGiorno());
                 bundle.putInt("oraiN", getOraInizio());
-                bundle.putInt("giornoSettimana", getGiornoSettimana());
+                bundle.putInt("oraF", getOraFine());
+                bundle.putInt("giornoSettimana", 5);
                 bundle.putString("flagAggiunta", "ok");
                 bundle.putString("actualUserMail", loggedUserMail);
                 bundle.putInt("tFlag", 1);
 
-
-                profilo = new PersonalPageFragment();
-                profilo.setArguments(bundle);
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container, profilo);
-                transaction.commit();
-
+                if(getArguments().getInt("tFlag") == 1) {
+                    profilo = new PersonalPageFragment();
+                    profilo.setArguments(bundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container, profilo);
+                    transaction.commit();
+                }
+                else{
+                    dashboard = new DashBoardFragment();
+                    dashboard.setArguments(bundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container, dashboard);
+                    transaction.commit();
+                }
 
     }
 

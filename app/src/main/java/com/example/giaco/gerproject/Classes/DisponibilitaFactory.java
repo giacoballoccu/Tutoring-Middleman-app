@@ -31,8 +31,8 @@ public class DisponibilitaFactory extends Disponibilita {
         data1.setAnno(2019);
         data1.setOraInizio(10);
         data1.setOraFine(12);
-        data1.setMinutoInizio(30);
-        data1.setMinutoFine(30);
+        data1.setMinutoInizio(0);
+        data1.setMinutoFine(0);
         data1.setSettimana(0);
         date.add(data1);
 
@@ -42,7 +42,8 @@ public class DisponibilitaFactory extends Disponibilita {
         data2.setAnno(2019);
         data2.setOraInizio(15);
         data2.setOraFine(19);
-        data2.setMinutoInizio(30);
+        data2.setMinutoInizio(0);
+        data2.setMinutoFine(0);
         data2.setSettimana(set1);
         date.add(data2);
 
@@ -52,8 +53,8 @@ public class DisponibilitaFactory extends Disponibilita {
         data3.setAnno(2019);
         data3.setOraInizio(11);
         data3.setOraFine(22);
-        data3.setMinutoInizio(30);
-        data3.setMinutoFine(30);
+        data3.setMinutoInizio(0);
+        data3.setMinutoFine(0);
         data3.setSettimana(set2);
         date.add(data3);
 
@@ -63,8 +64,8 @@ public class DisponibilitaFactory extends Disponibilita {
         data4.setAnno(2019);
         data4.setOraInizio(10);
         data4.setOraFine(16);
-        data4.setMinutoInizio(30);
-        data4.setMinutoFine(30);
+        data4.setMinutoInizio(0);
+        data4.setMinutoFine(0);
         data4.setSettimana(0);
         date.add(data4);
         Disponibilita dateRipetute = new Disponibilita();
@@ -85,17 +86,18 @@ public class DisponibilitaFactory extends Disponibilita {
         return lista;
     }
 
-    public ArrayList<String> addDisponibilita(int gg, int mm, int aaaa, int oi){
+    public ArrayList<String> addDisponibilita(int gg, int mm, int aaaa, int oi, int of, int gs){
         ArrayList<String> lista = DisponibilitaFactory.getInstance().getDate();
         Disponibilita nuovaData = new Disponibilita();
         nuovaData.setGiorno(gg);
         nuovaData.setMese(mm);
         nuovaData.setAnno(aaaa);
         nuovaData.setOraInizio(oi);
+        nuovaData.setOraFine(of);
         nuovaData.setOraFine(12);
         nuovaData.setMinutoInizio(30);
         nuovaData.setMinutoFine(30);
-        nuovaData.setSettimana(0);
+        nuovaData.setSettimana(gs);
         date.add(nuovaData);
         lista.add(nuovaData.toString());
         return lista;
