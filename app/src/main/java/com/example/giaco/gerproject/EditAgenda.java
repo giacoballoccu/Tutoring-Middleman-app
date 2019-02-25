@@ -81,8 +81,8 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 }
                 else {
                     setOraInizio(progress + 8);
-
-                    seekBarOrarioFine.setProgress(progress + 1, true);
+                    if(seekBarOrarioFine.getProgress() <= progress)
+                        seekBarOrarioFine.setProgress(progress + 1, true);
                 }
             oraCorrente.setText(Integer.toString(getOraInizio()) + ":00 - " + Integer.toString(getOraFine()) + ":00");
         }
