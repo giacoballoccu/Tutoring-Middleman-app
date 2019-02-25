@@ -39,6 +39,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     String loggedUserMail = "";
     Calendar calendarioCorrente;
     Switch interruttore;
+    DashBoardFragment dashboard;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -172,14 +173,22 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 bundle.putString("actualUserMail", loggedUserMail);
                 bundle.putInt("tFlag", 1);
 
-
-                profilo = new PersonalPageFragment();
-                profilo.setArguments(bundle);
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container, profilo);
-                transaction.commit();
-
+                if(getArguments().getInt("tFlag") == 1) {
+                    profilo = new PersonalPageFragment();
+                    profilo.setArguments(bundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container, profilo);
+                    transaction.commit();
+                }
+                else{
+                    dashboard = new DashBoardFragment();
+                    dashboard.setArguments(bundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container, dashboard);
+                    transaction.commit();
+                }
 
     }
 

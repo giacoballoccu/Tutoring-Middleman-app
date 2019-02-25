@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,18 +41,21 @@ public class BookFragment extends Fragment {
 
     ImageView avatarTutor;
     TextView nomeCognome, materia, indirizzo;
-    Button prenota;
+    Button prenota, nuovaPrenotazione;
     UserTutor chosenTutor;
     UserStudente loggedUser;
     Spinner spinnerData;
     LayoutInflater layoutInflater;
     RelativeLayout mparent;
     View myView;
+    EditAgenda agenda;
+    String loggedUserMail;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        loggedUserMail = getArguments().getString("actualUserMail");
         return inflater.inflate(R.layout.prenotaripetizione, container, false);
     }
 
@@ -72,6 +77,7 @@ public class BookFragment extends Fragment {
         indirizzo = (TextView) view.findViewById(R.id.indirizzo_residenza_prenotazione);
         spinnerData = (Spinner) view.findViewById(R.id.spinnerData);
         prenota = (Button) view.findViewById(R.id.prenota);
+        nuovaPrenotazione = (Button) view.findViewById(R.id.nuovaRipetizione);
 
         ArrayList<String> arrayDate = new ArrayList<String>();
         Context context = ApplicationContextProvider.getContext();
@@ -123,6 +129,21 @@ public class BookFragment extends Fragment {
                         prenota.setVisibility(View.VISIBLE);
                     }
                 });
+            }
+        });
+
+        nuovaPrenotazione.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle5 = new Bundle();
+                bundle5.putString("actualUserMail", loggedUserMail);
+                bundle5.putInt("tFlag", 0);
+                agenda = new EditAgenda();
+                agenda.setArguments(bundle5);
+                FragmentManager fm5 = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction5 = fm5.beginTransaction();
+                transaction5.replace(R.id.fragment_container, agenda);
+                transaction5.commit();
             }
         });
     }
