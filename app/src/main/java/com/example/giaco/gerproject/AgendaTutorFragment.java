@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class AgendaTutorFragment extends Fragment {
     LayoutInflater layoutInflater;
     View myView;
     String emailLoggedUser;
+    ImageButton delete;
 
     /*DA FARE*/
     ReservationFactory factory = ReservationFactory.getInstance();
@@ -90,7 +92,18 @@ public class AgendaTutorFragment extends Fragment {
 
         orario = (TextView) myView.findViewById(R.id.ora_prenotazione);
         orario.setText(res.getData());
+        delete = myView.findViewById(R.id.delete_res);
+        setOnClick(myView, delete);
 
 
+    }
+    private void setOnClick(final View myView, final ImageButton delete){
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mparent.removeView(myView);
+            }
+        });
     }
 }
