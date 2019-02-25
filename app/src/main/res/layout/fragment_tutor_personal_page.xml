@@ -30,24 +30,38 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <ImageView
                 android:id="@+id/profileImgT"
                 android:layout_width="112dp"
                 android:layout_height="114dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="84dp"
+                android:layout_marginTop="52dp"
                 android:layout_marginEnd="8dp"
                 android:adjustViewBounds="false"
                 android:gravity="center"
                 android:maxWidth="100dp"
                 android:maxHeight="100dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.067"
+                app:layout_constraintHorizontal_bias="0.07"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
+            <TextView
+                android:id="@+id/usernameT"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="64dp"
+                android:fontFamily="sans-serif-black"
+                android:text="NOME COGNOME"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.416"
+                app:layout_constraintStart_toEndOf="@+id/profileImgT"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/stelline"
@@ -59,24 +73,10 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.314"
+                app:layout_constraintHorizontal_bias="0.323"
                 app:layout_constraintStart_toEndOf="@+id/profileImgT"
                 app:layout_constraintTop_toBottomOf="@+id/usernameT"
                 app:srcCompat="@drawable/quattrostelle" />
-
-            <TextView
-                android:id="@+id/usernameT"
-                android:layout_width="wrap_content"
-                android:layout_height="43dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="96dp"
-                android:fontFamily="sans-serif-black"
-                android:text="NOME COGNOME"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.407"
-                app:layout_constraintStart_toEndOf="@+id/profileImgT"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/materia"
