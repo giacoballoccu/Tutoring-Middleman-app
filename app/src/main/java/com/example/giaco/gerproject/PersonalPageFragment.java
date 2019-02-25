@@ -60,7 +60,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         if (getArguments() != null) {
             if(getArguments().getString("flagAggiunta") == "ok"){
                 //DisponibilitaFactory.getInstance().addDisponibilita(getArguments().getInt("giornoN"), getArguments().getInt("meseN"), getArguments().getInt("annoN"));
-                listaDiDate = DisponibilitaFactory.getInstance().addDisponibilita(getArguments().getInt("giornoN"), getArguments().getInt("meseN"), getArguments().getInt("annoN"), getArguments().getInt("oraiN"));
+                listaDiDate = DisponibilitaFactory.getInstance().addDisponibilita(getArguments().getInt("giornoN"), getArguments().getInt("meseN"), getArguments().getInt("annoN"), getArguments().getInt("oraiN"), getArguments().getInt("oraF"), getArguments().getInt("giornoSettimana"));
 
             }
             if(getArguments().getInt("tFlag") == 0){ //Studente

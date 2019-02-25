@@ -81,6 +81,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 calendarioCorrente.setTimeInMillis(viewC.getDate());
                 setGiornoSettimana(calendarioCorrente.get(Calendar.DAY_OF_WEEK));
                 giornoSettimana.setVisibility(View.VISIBLE);
+                setGiornoSettimana(5);
                 giornoSettimana.setText("Ripeti per tutti i " + getGiornoSettimanaStringa(getGiornoSettimana())+" di " + getMeseStringa(month + 1) + "");
 
                 interruttore.setVisibility(View.VISIBLE);
@@ -165,7 +166,8 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 bundle.putInt("meseN", getMese());
                 bundle.putInt("giornoN", getGiorno());
                 bundle.putInt("oraiN", getOraInizio());
-                bundle.putInt("giornoSettimana", getGiornoSettimana());
+                bundle.putInt("oraF", getOraFine());
+                bundle.putInt("giornoSettimana", 5);
                 bundle.putString("flagAggiunta", "ok");
                 bundle.putString("actualUserMail", loggedUserMail);
                 bundle.putInt("tFlag", 1);
