@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class EditAgenda extends Fragment implements View.OnClickListener {
     private int anno = 100;
@@ -26,11 +29,12 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     private int minutoFine = 10;
     CalendarView calendario;
     SeekBar seekBarOrarioInizio, seekBarOrarioFine;
-    TextView oraCorrente;
-
+    TextView oraCorrente, giornoSettimana;
+    RadioButton radio;
     Button conferma;
     PersonalPageFragment profilo;
     String loggedUserMail = "";
+    Calendar calendarioCorrente;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,11 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
         //getActivity().setTitle("Aggiungi una data");
         oraCorrente = view.findViewById(R.id.oraSelezionata);
         oraCorrente.setText("8:00 - 9:00");
+        giornoSettimana = view.findViewById(R.id.ripetizioneSettimana);
+        giornoSettimana.setVisibility(View.INVISIBLE);
+        radio = view.findViewById(R.id.radioButton);
+        radio.setVisibility(View.INVISIBLE);
+
         seekBarOrarioInizio = view.findViewById(R.id.seekBarOrari);
         seekBarOrarioFine = view.findViewById(R.id.seekBarOrariF);
         conferma = view.findViewById(R.id.salvaAggiunta);
@@ -63,6 +72,12 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 setGiorno(dayOfMonth);
                 setMese(month);
                 setAnno(year);
+                calendarioCorrente = Calendar.getInstance();
+                calendarioCorrente.setTimeInMillis(viewC.getDate());
+                int dayOfWeek = calendarioCorrente.get(Calendar.DAY_OF_WEEK);
+                giornoSettimana.setVisibility(View.VISIBLE);
+                giornoSettimana.setText("Ripeti per tutti i " + getGiornoSettimanaStringa(dayOfWeek)+" di " + getMeseStringa(month + 1) + "");
+                radio.setVisibility(View.VISIBLE);
             }
         });
 
@@ -185,4 +200,76 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     public int getMinutoFine(){
         return this.minutoFine;
     }
-}
+    public String getMeseStringa(int m){
+        String nomemese ="";
+        switch(m){
+            case 1:
+                nomemese = "gennaio";
+                break;
+            case 2:
+                nomemese = "febbraio";
+                break;
+            case 3:
+                nomemese = "marzo";
+                break;
+            case 4:
+                nomemese = "aprile";
+                break;
+            case 5:
+                nomemese = "maggio";
+                break;
+            case 6:
+                nomemese = "giugno";
+                break;
+            case 7:
+                nomemese = "luglio";
+                break;
+            case 8:
+                nomemese = "agosto";
+                break;
+            case 9:
+                nomemese = "settembre";
+                break;
+            case 10:
+                nomemese = "ottobre";
+                break;
+            case 11:
+                nomemese = "novembre";
+                break;
+            case 12:
+                nomemese = "dicembre";
+                break;
+        }
+        return nomemese;
+    }
+
+    public String getGiornoSettimanaStringa(int g){
+        String giornoS = "";
+        switch(g){
+            case 1:
+                giornoS = "lunedì";
+                break;
+            case 2:
+                giornoS = "martedì";
+                break;
+            case 3:
+                giornoS = "mercoledì";
+                break;
+            case 4:
+                giornoS = "giovedì";
+                break;
+            case 5:
+                giornoS = "venerdì";
+                break;
+            case 6:
+                giornoS = "sabato";
+                break;
+            case 0:
+                giornoS = "domenica";
+                break;
+            }
+            return giornoS;
+        }
+    }
+
+
