@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditAgenda extends Fragment implements View.OnClickListener {
@@ -25,6 +26,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     private int minutoFine = 10;
     CalendarView calendario;
     SeekBar seekBarOrarioInizio, seekBarOrarioFine;
+    TextView oraCorrente;
 
     Button conferma;
     PersonalPageFragment profilo;
@@ -47,6 +49,8 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
 
         //getActivity().setTitle("Aggiungi una data");
+        oraCorrente = view.findViewById(R.id.oraSelezionata);
+        oraCorrente.setText("8:00 - 9:00");
         seekBarOrarioInizio = view.findViewById(R.id.seekBarOrari);
         seekBarOrarioFine = view.findViewById(R.id.seekBarOrariF);
         conferma = view.findViewById(R.id.salvaAggiunta);
@@ -66,13 +70,21 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
         seekBarOrarioInizio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            if(progress == 0)
+            if(progress == 0) {
+                setOraInizio(progress + 8);
                 seekBarOrarioFine.setProgress(1);
-            if(progress == seekBar.getMax())
-                seekBarOrarioInizio.setProgress(progress-1);
-            setOraInizio(progress + 8);
-            seekBarOrarioFine.setProgress(getOraInizio() - 7, true);
             }
+            else
+                if(progress == seekBar.getMax()) {
+                    setOraInizio(progress - 1 + 8);
+                    seekBarOrarioInizio.setProgress(progress - 1);
+                }
+                else {
+                    setOraInizio(progress + 8);
+                    seekBarOrarioFine.setProgress(progress + 1, true);
+                }
+            oraCorrente.setText(Integer.toString(getOraInizio()) + ":00 - " + Integer.toString(getOraFine()) + ":00");
+        }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
@@ -82,13 +94,19 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
             seekBarOrarioFine.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if(progress == 0)
+                if(progress == 0) {
+                    setOraFine(progress + 1 + 8);
                     seekBarOrarioFine.setProgress(progress + 1);
-                if(seekBarOrarioInizio.getProgress() >= seekBarOrarioFine.getProgress())
-                    seekBarOrarioInizio.setProgress(seekBarOrarioFine.getProgress()-1);
+                }
                 else
-                    setOraFine(progress + 8);
+                    if(seekBarOrarioInizio.getProgress() >= progress) {
+                        seekBarOrarioInizio.setProgress(seekBarOrarioFine.getProgress() - 1);
+                        setOraFine(progress);
+                    }
+                    else
+                        setOraFine(progress + 8);
                 //getSeekBarOrarioFine.setProgress(getOraInizio() - 8, true);
+                oraCorrente.setText(Integer.toString(getOraInizio()) + ":00 - " + Integer.toString(getOraFine()) + ":00");
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {}
