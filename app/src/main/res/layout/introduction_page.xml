@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="41dp"
         android:layout_marginStart="67dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="67dp"
         android:fontFamily="sans-serif-light"
         android:text="COME FUNZIONA?"
@@ -22,22 +22,19 @@
 
     <Button
         android:id="@+id/hocapito"
-        android:layout_width="190dp"
-        android:layout_height="80dp"
+        android:layout_width="208dp"
+        android:layout_height="60dp"
         android:layout_marginStart="137dp"
-        android:layout_marginTop="299dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="150dp"
-        android:layout_marginBottom="44dp"
         android:background="@color/blueButtons"
         android:fontFamily="sans-serif-medium"
         android:text="Ho capito"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/contattaciLink" />
 
     <TextView
         android:id="@+id/textbeforelink"
@@ -46,7 +43,6 @@
         android:layout_marginStart="97dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="97dp"
-        android:layout_marginBottom="11dp"
         android:ellipsize="marquee"
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -57,36 +53,31 @@
         android:singleLine="true"
         android:text="Vuoi diventare un tutor?"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/contattaciLink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.933" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/contattaciLink"
-        android:layout_width="121dp"
-        android:layout_height="77dp"
+        android:layout_width="119dp"
+        android:layout_height="45dp"
         android:layout_marginStart="150dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="150dp"
-        android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="Contattaci"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/hocapito"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.526" />
+        app:layout_constraintTop_toBottomOf="@+id/textbeforelink" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="341dp"
         android:layout_height="334dp"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="26dp"
         android:fontFamily="sans-serif-thin"
         android:text="L'applicazione nasce come supporto digitale al progetto ‘Ripetizioni Studenti Cagliari’. Lo scopo è quello di creare una squadra di Studenti Selezionati, detti Tutor, per le loro competenze e offrire ripetizioni ad altri studenti a prezzi moderati. L’associazione funziona da intermediario tra il Tutor che vorrebbe dare ripetizioni, ma non ha l'esposizione necessaria o il tempo per trovare clientela, e lo studente che ha necessità di ripetizioni a prezzi ridotti somministrate da un altro studente. Se sei interessato ad ottenere delle ripetizioni, iscriviti, se invece vuoi diventare tutor contattaci."
