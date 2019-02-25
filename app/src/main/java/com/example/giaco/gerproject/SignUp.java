@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,6 @@ import java.util.regex.Pattern;
 public class SignUp extends AppCompatActivity {
 
     Button signUp;
-
     Boolean emailAlreadyExists;
 
     int errors = 0;
@@ -31,11 +31,21 @@ public class SignUp extends AppCompatActivity {
 
     UserStudenteFactory factory = UserStudenteFactory.getInstance();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
+
+        ImageButton back = findViewById(R.id.pulsante_indietro);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(getApplicationContext(), LoginPage.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
 
         /*Recupero parametri da Layout*/
 
