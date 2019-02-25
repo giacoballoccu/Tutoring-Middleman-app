@@ -23,7 +23,7 @@ public class FeedbackFactory {
         feedback1.setTitolo("Professionalità");
         feedback1.setDescrizione("Talmente professionale che a volte risulta arrogante");
         feedback1.setAutore(factory.getUserList().get(2).getEmail());
-        feedback1.setProfessore(factoryTutor.getUserList().get(3));
+        feedback1.setProfessore(factoryTutor.getUserList().get(2));
         feedback1.setVotoChiarezza(4);
         feedback1.setVotoCompetenza(3);
         feedback1.setVotoDisponibilità(2);
@@ -36,7 +36,7 @@ public class FeedbackFactory {
         feedback2.setTitolo("La simpatia non basta");
         feedback2.setDescrizione("Molto scarso ma simpatico");
         feedback2.setAutore(factory.getUserList().get(1).getEmail());
-        feedback2.setProfessore(factoryTutor.getUserList().get(3));
+        feedback2.setProfessore(factoryTutor.getUserList().get(2));
         feedback2.setVotoChiarezza(1);
         feedback2.setVotoCompetenza(2);
         feedback2.setVotoDisponibilità(5);
@@ -49,7 +49,7 @@ public class FeedbackFactory {
         feedback3.setTitolo("Fortissimo");
         feedback3.setDescrizione("Mi ha aiutato a passare l'esame");
         feedback3.setAutore(factory.getUserList().get(2).getEmail());
-        feedback3.setProfessore(factoryTutor.getUserList().get(2));
+        feedback3.setProfessore(factoryTutor.getUserList().get(1));
         feedback3.setVotoChiarezza(5);
         feedback3.setVotoCompetenza(5);
         feedback3.setVotoDisponibilità(4);
