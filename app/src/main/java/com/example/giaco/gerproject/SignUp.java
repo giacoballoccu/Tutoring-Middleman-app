@@ -35,6 +35,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
+        setTitle("Registrati");
 
         ImageButton back = findViewById(R.id.pulsante_indietro);
 

@@ -15,6 +15,7 @@ public class Introduction extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.introduction_page);
+        setTitle("Info");
 
 
         hocapito = (Button) findViewById(R.id.hocapito);
