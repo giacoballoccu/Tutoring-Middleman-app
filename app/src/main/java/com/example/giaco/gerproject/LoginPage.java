@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -20,7 +21,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
 
     EditText email, password;
-    Button infoLink;
+    ImageButton infoLink;
 
     TextView loginError;
     TextView forgottenPass, signUp;
@@ -34,7 +35,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
-        infoLink = (Button) findViewById(R.id.infoLink);
+        infoLink = (ImageButton) findViewById(R.id.infoLink);
 
         email = (EditText) findViewById(R.id.emailEditText);
         password = (EditText) findViewById(R.id.passwordEditText);
