@@ -7,8 +7,9 @@
     <ImageButton
         android:id="@+id/contatto_tasto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/chatbubble" />
+        android:layout_height="128dp"
+        android:background="@null"
+        android:src="@drawable/chatbubble" />
 
     <TextView
         android:id="@+id/contatto_conversazione"
@@ -23,7 +24,8 @@
         android:gravity="center"
         android:textColor="#000000"
         android:text="Nome Cognome"
-        android:textSize="15dp" />
+        android:fontFamily="sans-serif-light"
+        android:textSize="20dp" />
 
     <ImageView
         android:id="@+id/avatar_contatto_conversazione"

@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pop_up_win" />
 
     <Button
@@ -37,9 +37,10 @@
         android:layout_marginLeft="79dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="28dp"
-        android:background="@color/packgreen"
+        android:background="#BAF7C4"
         android:text="CONFERMA"
         android:textColor="@color/blackGrey"
+        android:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/imageView5" />
 
@@ -58,9 +59,10 @@
         android:layout_marginBottom="28dp"
         android:layout_toEndOf="@+id/prenotazione_yes"
         android:layout_toRightOf="@+id/prenotazione_yes"
-        android:background="@color/rossoinformatica"
+        android:fontFamily="sans-serif-black"
+        android:background="#CA615B"
         android:text="CANCELLA"
-        android:textColor="@color/blackGrey"
+        android:textColor="@color/White"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintStart_toEndOf="@+id/prenotazione_yes" />
 
