@@ -27,6 +27,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     private int oraFine = 10;
     private int minutoInizio = 10;
     private int minutoFine = 10;
+    private int giornoSettimanaN = 0;
     CalendarView calendario;
     SeekBar seekBarOrarioInizio, seekBarOrarioFine;
     TextView oraCorrente, giornoSettimana;
@@ -74,9 +75,9 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 setAnno(year);
                 calendarioCorrente = Calendar.getInstance();
                 calendarioCorrente.setTimeInMillis(viewC.getDate());
-                int dayOfWeek = calendarioCorrente.get(Calendar.DAY_OF_WEEK);
+                setGiornoSettimana(calendarioCorrente.get(Calendar.DAY_OF_WEEK));
                 giornoSettimana.setVisibility(View.VISIBLE);
-                giornoSettimana.setText("Ripeti per tutti i " + getGiornoSettimanaStringa(dayOfWeek)+" di " + getMeseStringa(month + 1) + "");
+                giornoSettimana.setText("Ripeti per tutti i " + getGiornoSettimanaStringa(getGiornoSettimana())+" di " + getMeseStringa(month + 1) + "");
                 radio.setVisibility(View.VISIBLE);
             }
         });
@@ -143,6 +144,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 bundle.putInt("meseN", getMese());
                 bundle.putInt("giornoN", getGiorno());
                 bundle.putInt("oraiN", getOraInizio());
+                //bundle.putInt()
                 bundle.putString("flagAggiunta", "ok");
                 bundle.putString("actualUserMail", loggedUserMail);
                 bundle.putInt("tFlag", 1);
@@ -200,6 +202,13 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     public int getMinutoFine(){
         return this.minutoFine;
     }
+    public void setGiornoSettimana(int gs){
+        this.giornoSettimanaN = gs;
+    }
+    public int getGiornoSettimana(){
+        return this.giornoSettimanaN;
+    }
+
     public String getMeseStringa(int m){
         String nomemese ="";
         switch(m){
