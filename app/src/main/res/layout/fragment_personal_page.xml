@@ -7,15 +7,17 @@
     android:layout_height="match_parent">
 
 
-    <Button
+    <ImageButton
         android:id="@+id/editButton"
-        android:layout_width="143dp"
-        android:layout_height="77dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="Modifica profilo"
+        android:background="@null"
         android:textSize="24sp"
+        android:src="@drawable/pencil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -41,6 +43,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="56dp"
         android:text="NOME COGNOME"
+        android:fontFamily="sans-serif-black"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/profileImg"
         app:layout_constraintTop_toTopOf="parent" />

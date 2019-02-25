@@ -19,7 +19,7 @@
         android:layout_toRightOf="@+id/avatarMenu"
         android:text="gino mandaresu"
         android:textSize="24sp"
-        app:fontFamily="sans-serif-light"
+        app:fontFamily="sans-serif-black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatarMenu" />
 

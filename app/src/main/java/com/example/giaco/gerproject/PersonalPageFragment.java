@@ -38,7 +38,8 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     ImageView userImg, stelline;
     String loggedUserMail;
     TextView userName, hours, materia, orari, orario, orariAgenda;
-    Button recharge, editProfile, recensioni;
+    Button recharge, recensioni;
+    ImageButton editProfile;
     EditProfileFragment editProfileFS, editProfileFT;
     ImageButton editAgenda;
     View myView;
@@ -93,7 +94,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             hours = (TextView) view.findViewById(R.id.hours);
             userImg = (ImageView) view.findViewById(R.id.profileImg);
             recharge = (Button) view.findViewById(R.id.rechargeButton);
-            editProfile = (Button) view.findViewById(R.id.editButton);
+            editProfile = (ImageButton) view.findViewById(R.id.editButton);
             if (getArguments() != null) {
                     loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
                     /*Dynamic data*/
@@ -114,7 +115,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             orariAgenda = (TextView) view.findViewById(R.id.orari);
 
             recensioni = (Button) view.findViewById(R.id.feedbackButton);
-            editProfile = (Button) view.findViewById(R.id.editButtonT);
+            editProfile = (ImageButton) view.findViewById(R.id.editButtonT);
 
             loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
             FeedbackFactory feedbackFactory = FeedbackFactory.getInstance();
