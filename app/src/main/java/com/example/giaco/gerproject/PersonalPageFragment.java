@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.giaco.gerproject.Classes.Disponibilita;
 import com.example.giaco.gerproject.Classes.DisponibilitaFactory;
 import com.example.giaco.gerproject.Classes.FeedbackFactory;
 import com.example.giaco.gerproject.Classes.User;
@@ -28,6 +29,8 @@ import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 import com.example.giaco.gerproject.Classes.UserTutor;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
+
+import java.util.ArrayList;
 
 public class PersonalPageFragment extends Fragment implements View.OnClickListener {
     private UserStudente loggedStudente;
@@ -48,16 +51,19 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     ReviewsFragment review;
     private boolean flagTutor = false;
     EditAgenda agenda;
+    ArrayList<String> listaDiDate;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         if (getArguments() != null) {
-            if(getArguments().getString("flagAggiunta") != "ok")
-                DisponibilitaFactory.getInstance().addDisponibilita(getArguments().getInt("giornoN"), getArguments().getInt("meseN"), getArguments().getInt("annoN"));
+            if(getArguments().getString("flagAggiunta") == "ok"){
+                //DisponibilitaFactory.getInstance().addDisponibilita(getArguments().getInt("giornoN"), getArguments().getInt("meseN"), getArguments().getInt("annoN"));
+                listaDiDate = DisponibilitaFactory.getInstance().addDisponibilita(getArguments().getInt("giornoN"), getArguments().getInt("meseN"), getArguments().getInt("annoN"));
 
-            if(getArguments().getInt("flag") == 0){ //Studente
+            }
+            if(getArguments().getInt("tFlag") == 0){ //Studente
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
                 setTutorFlag(loggedStudente);
@@ -109,7 +115,12 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             userName = (TextView) view.findViewById(R.id.usernameT);
             userImg = (ImageView) view.findViewById(R.id.profileImgT);
             stelline = (ImageView) view.findViewById(R.id.stelline);
-
+            if(getArguments()!=null && getArguments().getString("flagAggiunta") != "ok") {
+                listaDiDate = DisponibilitaFactory.getInstance().getDate();
+                loggedTutor.setDisponibilitaData(listaDiDate);
+            }
+            else
+                loggedTutor.setDisponibilitaData(listaDiDate);
             materia = (TextView) view.findViewById(R.id.materia);
             editAgenda = (ImageButton) view.findViewById(R.id.editAgendaButton);
             orariAgenda = (TextView) view.findViewById(R.id.orari);
@@ -250,5 +261,13 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
 
         }
     }
+
+/*
+    public void setDate(DisponibilitaFactory df){
+        this.listaDiDate = df.getDateDisponibilita();
+
+    }
+*/
+
 }
 

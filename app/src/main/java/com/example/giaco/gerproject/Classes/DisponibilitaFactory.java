@@ -77,16 +77,28 @@ public class DisponibilitaFactory extends Disponibilita {
         return lista;
     }
 
-    public void addDisponibilita(int gg, int mm, int aaaa){
+    public ArrayList<Disponibilita> getDateDisponibilita(){
+        ArrayList<Disponibilita> lista = new ArrayList<>();
+        for(Disponibilita d : date)
+            lista.add(d);
+
+        return lista;
+    }
+
+    public ArrayList<String> addDisponibilita(int gg, int mm, int aaaa){
+        ArrayList<String> lista = DisponibilitaFactory.getInstance().getDate();
         Disponibilita nuovaData = new Disponibilita();
         nuovaData.setGiorno(gg);
-        nuovaData.setGiorno(mm);
-        nuovaData.setGiorno(aaaa);
+        nuovaData.setMese(mm);
+        nuovaData.setAnno(aaaa);
         nuovaData.setOraInizio(10);
         nuovaData.setOraFine(12);
         nuovaData.setMinutoInizio(30);
         nuovaData.setMinutoFine(30);
+        nuovaData.setSettimana(0);
         date.add(nuovaData);
+        lista.add(nuovaData.toString());
+        return lista;
     }
 
 }

@@ -79,7 +79,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
         this.anno = a;
     }
     public void setMese(int m){
-        this.mese = m;
+        this.mese = m + 1;
     }
     public void setGiorno(int g){
         this.giorno = g;
