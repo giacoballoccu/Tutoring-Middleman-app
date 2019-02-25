@@ -6,6 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="83dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarOrari"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendario_agenda"
+        app:layout_constraintVertical_bias="1.0" />
+
     <CalendarView
         android:id="@+id/calendario_agenda"
         android:layout_width="347dp"
@@ -28,27 +42,42 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
         android:text="Salva modifiche"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar6" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBarOrariF" />
 
     <SeekBar
-        android:id="@+id/seekBar6"
+        android:id="@+id/seekBarOrari"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="248dp"
-        android:layout_height="158dp"
+        android:layout_width="388dp"
+        android:layout_height="78dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="8dp"
-        android:max="10"
-        android:progress="3"
+        android:max="12"
+        android:progress="0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendario_agenda" />
+
+    <SeekBar
+        android:id="@+id/seekBarOrariF"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="388dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:max="12"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarOrari" />
 
 </android.support.constraint.ConstraintLayout>

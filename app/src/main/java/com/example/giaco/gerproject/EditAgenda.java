@@ -12,13 +12,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 public class EditAgenda extends Fragment implements View.OnClickListener {
     private int anno = 100;
     private int mese = 100;
     private int giorno = 100;
+    private int oraInizio = 10;
+    private int oraFine = 10;
+    private int minutoInizio = 10;
+    private int minutoFine = 10;
     CalendarView calendario;
+    SeekBar seekBarOrarioInizio;
     Button conferma;
     PersonalPageFragment profilo;
     String loggedUserMail = "";
@@ -40,8 +46,11 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
 
         //getActivity().setTitle("Aggiungi una data");
+        seekBarOrarioInizio = view.findViewById(R.id.seekBarOrari);
         conferma = view.findViewById(R.id.salvaAggiunta);
         calendario = view.findViewById(R.id.calendario_agenda);
+
+        /*Sezione calendario*/
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView viewC, int year, int month, int dayOfMonth) {
@@ -50,7 +59,27 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 setAnno(year);
             }
         });
+
+        /*Sezione seekbar*/
+        seekBarOrarioInizio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            setOraInizio(progress + 7);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
         conferma.setOnClickListener(this);
+
 
     }
 
@@ -61,6 +90,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 bundle.putInt("annoN", getAnno());
                 bundle.putInt("meseN", getMese());
                 bundle.putInt("giornoN", getGiorno());
+                bundle.putInt("oraiN", getOraInizio());
                 bundle.putString("flagAggiunta", "ok");
                 bundle.putString("actualUserMail", loggedUserMail);
                 bundle.putInt("tFlag", 1);
@@ -84,6 +114,18 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     public void setGiorno(int g){
         this.giorno = g;
     }
+    public void setOraInizio(int oi){
+        this.oraInizio = oi;
+    }
+    public void setOraFine(int of){
+        this.oraFine = of;
+    }
+    public void setMinutoInizio(int mi){
+        this.minutoInizio = mi;
+    }
+    public void setMinutoFine(int mf){
+        this.minutoFine = mf;
+    }
 
     public int getAnno(){
         return this.anno;
@@ -93,5 +135,17 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     }
     public int getGiorno(){
         return this.giorno;
+    }
+    public int getOraInizio(){
+        return this.oraInizio;
+    }
+    public int getOraFine(){
+        return this.oraFine;
+    }
+    public int getMinutoInizio(){
+        return this.minutoInizio;
+    }
+    public int getMinutoFine(){
+        return this.minutoFine;
     }
 }

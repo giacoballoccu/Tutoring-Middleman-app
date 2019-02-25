@@ -85,13 +85,13 @@ public class DisponibilitaFactory extends Disponibilita {
         return lista;
     }
 
-    public ArrayList<String> addDisponibilita(int gg, int mm, int aaaa){
+    public ArrayList<String> addDisponibilita(int gg, int mm, int aaaa, int oi){
         ArrayList<String> lista = DisponibilitaFactory.getInstance().getDate();
         Disponibilita nuovaData = new Disponibilita();
         nuovaData.setGiorno(gg);
         nuovaData.setMese(mm);
         nuovaData.setAnno(aaaa);
-        nuovaData.setOraInizio(10);
+        nuovaData.setOraInizio(oi);
         nuovaData.setOraFine(12);
         nuovaData.setMinutoInizio(30);
         nuovaData.setMinutoFine(30);
