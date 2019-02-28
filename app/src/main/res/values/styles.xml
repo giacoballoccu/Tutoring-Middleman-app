@@ -11,7 +11,7 @@
         <!--<item name="android:textColor">@color/blackGrey</item>-->
         <item name="colorButtonNormal">@color/colorAccent</item>
         <item name="android:buttonStyle">@style/ButtonColor</item>
-        <item name= "android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name= "android:statusBarColor">@color/colorPrimary</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -25,7 +25,7 @@
 
     <style name="custom_toolbar" parent="@style/Widget.AppCompat.Toolbar">
         <item name="titleTextColor">@color/blackGrey</item>
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <style name="ButtonColor" parent="@android:style/Widget.Button">

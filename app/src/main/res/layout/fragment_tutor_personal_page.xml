@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/scrollView3"
@@ -13,104 +14,124 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="16dp">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageButton
+                android:id="@+id/editButtonT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:fontFamily="sans-serif-light"
+                android:src="@drawable/pencil"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+
+ />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:paddingTop="10dp">
+                <ImageView
+                    android:id="@+id/profileImgT"
+                    android:layout_width="112dp"
+                    android:layout_height="114dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="15dp"
+                    android:adjustViewBounds="false"
+                    android:gravity="center"
+                    android:maxWidth="100dp"
+                    android:maxHeight="100dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/usernameT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="43dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="NOME COGNOME"
+                        android:textSize="30sp"
+                        android:layout_marginStart="10dp"
+                        />
+
+                    <ImageView
+                        android:id="@+id/stelline"
+                        android:layout_width="229dp"
+                        android:layout_height="41dp"
+                        app:srcCompat="@drawable/quattrostelle"
+                        android:layout_marginStart="10dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="124dp"
+                    android:layout_height="54dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Materia:"
+                    android:textSize="30sp"
+                    />
+
+                <TextView
+                    android:id="@+id/materia"
+                    android:layout_width="124dp"
+                    android:layout_height="54dp"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Materia"
+                    android:textSize="30sp"
+                    />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/feedbackButton"
+                android:layout_width="364dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@color/blueButtons"
+                android:fontFamily="sans-serif-medium"
+                android:text="Feedback"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                 />
+
+
+
 
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="332dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-light"
                 android:text="Le mie date di disponibilità:"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.492"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materia" />
-
-            <ImageButton
-                android:id="@+id/editButtonT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@null"
-                android:fontFamily="sans-serif-light"
-                android:src="@drawable/pencil"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/profileImgT"
-                android:layout_width="112dp"
-                android:layout_height="114dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="84dp"
-                android:layout_marginEnd="8dp"
-                android:adjustViewBounds="false"
-                android:gravity="center"
-                android:maxWidth="100dp"
-                android:maxHeight="100dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.07"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <TextView
-                android:id="@+id/usernameT"
-                android:layout_width="wrap_content"
-                android:layout_height="43dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="80dp"
-                android:fontFamily="sans-serif-black"
-                android:text="NOME COGNOME"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.458"
-                app:layout_constraintStart_toEndOf="@+id/profileImgT"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/stelline"
-                android:layout_width="229dp"
-                android:layout_height="41dp"
-                android:layout_below="@+id/nomeCognome"
-
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.323"
-                app:layout_constraintStart_toEndOf="@+id/profileImgT"
-                app:layout_constraintTop_toBottomOf="@+id/usernameT"
-                app:srcCompat="@drawable/quattrostelle" />
-
-            <TextView
-                android:id="@+id/materia"
-                android:layout_width="124dp"
-                android:layout_height="54dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-light"
-                android:text="Materia"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/textView12"
-                app:layout_constraintTop_toBottomOf="@+id/feedbackButton" />
-
+                />
 
             <LinearLayout
                 android:id="@+id/dparent"
@@ -121,41 +142,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materia"></LinearLayout>
+                />
 
 
-            <Button
-                android:id="@+id/feedbackButton"
-                android:layout_width="364dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:background="@color/blueButtons"
-                android:fontFamily="sans-serif-medium"
-                android:text="Feedback"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profileImgT" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="124dp"
-                android:layout_height="54dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="sans-serif-light"
-                android:text="Materia:"
-                android:textSize="30sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/feedbackButton" />
-
-
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
 
     </ScrollView>
 
@@ -173,4 +163,4 @@
         app:srcCompat="@drawable/plus" />
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
