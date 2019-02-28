@@ -11,6 +11,7 @@
         <!--<item name="android:textColor">@color/blackGrey</item>-->
         <item name="colorButtonNormal">@color/colorAccent</item>
         <item name="android:buttonStyle">@style/ButtonColor</item>
+        <item name= "android:statusBarColor">@color/colorPrimary</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
