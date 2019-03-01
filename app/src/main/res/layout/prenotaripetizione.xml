@@ -29,6 +29,22 @@
             app:srcCompat="@mipmap/ernioavatar1_round" />
 
         <TextView
+            android:id="@+id/textView8"
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="190dp"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="84dp"
+            android:text="Tutor:"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif-light" />
+
+        <TextView
             android:id="@+id/nome_cognome_prenotazione"
             android:layout_width="209dp"
             android:layout_height="wrap_content"
@@ -47,6 +63,22 @@
             app:fontFamily="sans-serif-condensed-medium"
             app:layout_constraintStart_toEndOf="@+id/avatarTutor"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="138dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nome_cognome_prenotazione"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="81dp"
+            android:layout_toEndOf="@+id/avatarTutor"
+            android:layout_toRightOf="@+id/avatarTutor"
+            android:text="Materia:"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif-light" />
 
         <TextView
             android:id="@+id/materia_prenotazione"
@@ -68,6 +100,22 @@
             app:layout_constraintTop_toBottomOf="@+id/nome_cognome_prenotazione" />
 
         <TextView
+            android:id="@+id/textView11"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/materia_prenotazione"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="57dp"
+            android:layout_marginLeft="57dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="176dp"
+            android:text="Indirizzo di residenza:"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif-light" />
+
+        <TextView
             android:id="@+id/indirizzo_residenza_prenotazione"
             android:layout_width="307dp"
             android:layout_height="wrap_content"
@@ -85,6 +133,47 @@
             app:fontFamily="sans-serif-condensed-medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/avatarTutor" />
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/indirizzo_residenza_prenotazione"
+            android:layout_marginTop="18dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="237dp"
+            android:layout_height="44dp"
+            android:layout_below="@+id/divider6"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="79dp"
+            android:layout_marginLeft="79dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="95dp"
+            android:text="Scegli il giorno in cui desideri prenotarti:"
+            android:textSize="18sp"
+            app:fontFamily="sans-serif-light" />
+
+        <Spinner
+            android:id="@+id/spinnerData"
+            android:layout_width="261dp"
+            android:layout_height="28dp"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="73dp"
+            android:layout_marginLeft="73dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="77dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/indirizzo_residenza_prenotazione" />
 
         <Button
             android:id="@+id/prenota"
@@ -111,95 +200,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/spinnerData"
             app:layout_constraintVertical_bias="0.038" />
-
-        <Spinner
-            android:id="@+id/spinnerData"
-            android:layout_width="261dp"
-            android:layout_height="28dp"
-            android:layout_below="@+id/textView3"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="73dp"
-            android:layout_marginLeft="73dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="77dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/indirizzo_residenza_prenotazione" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="237dp"
-            android:layout_height="44dp"
-            android:layout_below="@+id/divider6"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="79dp"
-            android:layout_marginLeft="79dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="95dp"
-            android:text="Scegli il giorno in cui desideri prenotarti:"
-            android:textSize="18sp"
-            app:fontFamily="sans-serif-light" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="137dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="190dp"
-            android:layout_marginLeft="190dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="84dp"
-            android:text="Tutor:"
-            android:textSize="18sp"
-            app:fontFamily="sans-serif-light" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="138dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nome_cognome_prenotazione"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="81dp"
-            android:layout_toEndOf="@+id/avatarTutor"
-            android:layout_toRightOf="@+id/avatarTutor"
-            android:text="Materia:"
-            android:textSize="18sp"
-            app:fontFamily="sans-serif-light" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="178dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/materia_prenotazione"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="57dp"
-            android:layout_marginLeft="57dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="176dp"
-            android:text="Indirizzo di residenza:"
-            android:textSize="18sp"
-            app:fontFamily="sans-serif-light" />
-
-        <View
-            android:id="@+id/divider6"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/indirizzo_residenza_prenotazione"
-            android:layout_marginTop="18dp"
-            android:background="?android:attr/listDivider" />
 
         <Button
             android:id="@+id/nuovaRipetizione"
