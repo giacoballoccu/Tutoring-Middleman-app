@@ -7,61 +7,73 @@
     android:layout_height="match_parent"
     tools:context=".Introduction">
 
-    <TextView
-        android:id="@+id/title"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_height="41dp"
-        android:fontFamily="sans-serif-light"
-        android:text="COME FUNZIONA?"
-        android:gravity="center"
-        android:textSize="30sp"
-        />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="41dp"
+                android:fontFamily="sans-serif-light"
+                android:text="COME FUNZIONA?"
+                android:gravity="center"
+                android:textSize="30sp"
+                />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="400dp"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:fontFamily="sans-serif-thin"
-        android:text="L'applicazione nasce come supporto digitale al progetto ‘Ripetizioni Studenti Cagliari’. Lo scopo è quello di creare una squadra di Studenti Selezionati, detti Tutor, per le loro competenze e offrire ripetizioni ad altri studenti a prezzi moderati. L’associazione funziona da intermediario tra il Tutor che vorrebbe dare ripetizioni, ma non ha l'esposizione necessaria o il tempo per trovare clientela, e lo studente che ha necessità di ripetizioni a prezzi ridotti somministrate da un altro studente. Se sei interessato ad ottenere delle ripetizioni, iscriviti, se invece vuoi diventare tutor contattaci."
-        android:textSize="18sp"
-        />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:fontFamily="sans-serif-thin"
+                android:gravity="center_horizontal"
+                android:text="L'applicazione nasce come supporto digitale al progetto ‘Ripetizioni Studenti Cagliari’. Lo scopo è quello di creare una squadra di Studenti Selezionati, detti Tutor, per le loro competenze e offrire ripetizioni ad altri studenti a prezzi moderati. L’associazione funziona da intermediario tra il Tutor che vorrebbe dare ripetizioni, ma non ha l'esposizione necessaria o il tempo per trovare clientela, e lo studente che ha necessità di ripetizioni a prezzi ridotti somministrate da un altro studente. Se sei interessato ad ottenere delle ripetizioni, iscriviti, se invece vuoi diventare tutor contattaci."
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textbeforelink"
-        android:layout_width="wrap_content"
-        android:gravity="center"
-        android:layout_height="25dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Vuoi diventare un tutor?"
-        android:textSize="18sp" />
+            <TextView
+                android:id="@+id/textbeforelink"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Vuoi diventare un tutor?"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/contattaciLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="Contattaci"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textbeforelink" />
+            <TextView
+                android:id="@+id/contattaciLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Contattaci"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textbeforelink" />
 
-    <Button
-        android:id="@+id/hocapito"
-        android:layout_width="208dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:background="@color/blueButtons"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginTop="50dp"
-        android:text="Ho capito"
-        android:textSize="24sp" />
+            <Button
+                android:id="@+id/hocapito"
+                android:layout_width="208dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@color/blueButtons"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="50dp"
+                android:text="Ho capito"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </ScrollView>
+
+
 </LinearLayout>

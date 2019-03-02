@@ -84,6 +84,10 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                         startActivity(successfullyLogged);
                         finish();
                     }
+                    else{
+                        loginError.setText("Dati errati");
+                        loginError.setVisibility(View.VISIBLE);
+                    }
                 } else if(factoryTutor.isEmailInUserList(emailStr)){
                     if (factoryTutor.getUserByEmail(emailStr).getPassword().equals(passwordStr)) {
                         UserTutor actualUser = factoryTutor.getUserByEmail(emailStr);
@@ -93,6 +97,9 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                         successfullyLogged.putExtra("tFlag", 1);
                         startActivity(successfullyLogged);
                         finish();
+                    }else{
+                        loginError.setText("Dati errati");
+                        loginError.setVisibility(View.VISIBLE);
                     }
                 }
 
