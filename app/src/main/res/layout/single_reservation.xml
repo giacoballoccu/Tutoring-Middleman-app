@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ernioavatar1_round" />
 
+
     <TextView
         android:id="@+id/nome_reservation"
         android:layout_width="131dp"
@@ -71,16 +72,16 @@
 
     <TextView
         android:id="@+id/ora_prenotazione"
-        android:layout_width="120dp"
+        android:layout_width="107dp"
         android:layout_height="128dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
         android:layout_toEndOf="@+id/materia_reservation"
         android:layout_toRightOf="@+id/materia_reservation"
         android:ems="10"
@@ -95,8 +96,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="7dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="1dp"
         android:background="@null"
         app:srcCompat="@android:drawable/ic_delete" />
 
