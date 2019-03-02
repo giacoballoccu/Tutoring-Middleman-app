@@ -1,72 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/avatar_destinatario"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/tutor_default" />
-
-    <TextView
-        android:id="@+id/contatto"
-        android:layout_width="275dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:text="Nome Cognome"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/avatar_destinatario"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/cparentR"
-        android:layout_width="297dp"
-        android:layout_height="510dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider9"
-        app:layout_constraintVertical_bias="0.068">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/avatar_destinatario"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="10dp"
+            app:srcCompat="@drawable/tutor_default" />
 
-
+        <TextView
+            android:id="@+id/contatto"
+            android:layout_width="275dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Nome Cognome"
+            android:textSize="25dp"
+             />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/cparentL"
-        android:layout_width="297dp"
-        android:layout_height="510dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider9"
-        app:layout_constraintVertical_bias="0.082">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/cparentR"
+            android:layout_width="297dp"
+            android:layout_height="510dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="52dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/cparentL"
+            android:layout_width="297dp"
+            android:layout_height="510dp"
+            android:layout_marginTop="52dp"
+
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
 
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <View
         android:id="@+id/divider9"
@@ -81,4 +71,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contatto" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
