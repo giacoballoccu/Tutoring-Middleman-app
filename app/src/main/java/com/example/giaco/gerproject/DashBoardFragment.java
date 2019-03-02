@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +43,7 @@ public class DashBoardFragment extends Fragment{
     UserTutorFactory userTutorFactory = UserTutorFactory.getInstance();
     ArrayList<UserTutor> tutorList = userTutorFactory.getUserList();
     Spinner spinner;
+    SearchView ricerca;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,13 +60,18 @@ public class DashBoardFragment extends Fragment{
         getActivity().setTitle("Bacheca");
         //you can set the title for your toolbar here for different fragments different titles
 
+
         if (getArguments() != null) {
             emailLoggedUser = getArguments().getString("actualUserMail");
         }
         mparent = view.findViewById(R.id.mparent);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        myView = layoutInflater.inflate(R.layout.searchview_static, null, false);
+        mparent.addView(myView);
 
-        for(int i = 0; i < tutorList.size() ; i++) {
+        ricerca = view.findViewById(R.id.ricercaFiltro);
+
+         for(int i = 0; i < tutorList.size() ; i++) {
             switch (tutorList.get(i).getMateria()){
                 case "Fisica":
                     myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
@@ -156,5 +163,4 @@ public class DashBoardFragment extends Fragment{
             }
         });
     }
-
 }
