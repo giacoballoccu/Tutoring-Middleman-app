@@ -1,164 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="330dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/competenza"
-            android:layout_width="140dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="8dp"
-            android:text="Competenza"
-            android:textSize="24sp"
-            app:fontFamily="sans-serif-light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/stella2"
-            app:layout_constraintTop_toBottomOf="@+id/chiarezza" />
-
-        <ImageView
-            android:id="@+id/stella2"
-            android:layout_width="32dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toEndOf="@+id/votocompetenza"
-            app:layout_constraintTop_toBottomOf="@+id/stella1"
-            app:srcCompat="@drawable/stellasingolaparentesi" />
-
-        <TextView
-            android:id="@+id/votocompetenza"
-            android:layout_width="24dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="88dp"
-            android:layout_marginLeft="88dp"
-            android:layout_marginTop="16dp"
-            android:text="1"
-            android:textSize="30sp"
-            app:fontFamily="serif-monospace"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/votochiarezza" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        >
 
         <TextView
             android:id="@+id/nomecognomefeedbackstatic"
             android:layout_width="287dp"
             android:layout_height="51dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
             android:text="Nome Cognome"
             android:textSize="24sp"
             app:fontFamily="sans-serif-condensed"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            />
 
         <ImageView
             android:id="@+id/recensionifeedbackstatic"
             android:layout_width="182dp"
             android:layout_height="52dp"
-            android:layout_marginStart="114dp"
-            android:layout_marginLeft="114dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="115dp"
-            android:layout_marginRight="115dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nomecognomefeedbackstatic"
-            app:srcCompat="@drawable/quattrostelle" />
+            app:srcCompat="@drawable/quattrostelle"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"/>
 
-        <TextView
-            android:id="@+id/votochiarezza"
-            android:layout_width="24dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="88dp"
-            android:layout_marginLeft="88dp"
-            android:layout_marginTop="32dp"
-            android:text="4"
-            android:textSize="30sp"
-            app:fontFamily="serif-monospace"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recensionifeedbackstatic" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp">
 
-        <ImageView
-            android:id="@+id/stella1"
-            android:layout_width="32dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toEndOf="@+id/votochiarezza"
-            app:layout_constraintTop_toBottomOf="@+id/recensionifeedbackstatic"
-            app:srcCompat="@drawable/stellasingolaparentesi" />
+            <TextView
+                android:id="@+id/votochiarezza"
+                android:layout_width="24dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:text="4"
+                android:textSize="30sp"
+                app:fontFamily="serif-monospace" />
 
-        <TextView
-            android:id="@+id/chiarezza"
-            android:layout_width="111dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:text="Chiarezza"
-            android:textSize="24sp"
-            app:fontFamily="sans-serif-light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/stella1"
-            app:layout_constraintTop_toBottomOf="@+id/recensionifeedbackstatic" />
+            <ImageView
+                android:id="@+id/stella1"
+                android:layout_width="32dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/votochiarezza"
+                app:srcCompat="@drawable/stellasingolaparentesi" />
 
-        <TextView
-            android:id="@+id/disponiblita"
-            android:layout_width="136dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
-            android:text="Disponibilità"
-            android:textSize="24sp"
-            app:fontFamily="sans-serif-light"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.102"
-            app:layout_constraintStart_toEndOf="@+id/stella3"
-            app:layout_constraintTop_toBottomOf="@+id/competenza" />
+            <TextView
+                android:id="@+id/chiarezza"
+                android:layout_width="111dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="49dp"
+                android:layout_toEndOf="@+id/stella1"
+                android:text="Chiarezza"
+                android:textSize="24sp"
+                app:fontFamily="sans-serif-light" />
 
-        <ImageView
-            android:id="@+id/stella3"
-            android:layout_width="32dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toEndOf="@+id/votodisponibilita"
-            app:layout_constraintTop_toBottomOf="@+id/stella2"
-            app:srcCompat="@drawable/stellasingolaparentesi" />
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/votocompetenza"
+                android:layout_width="24dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:text="4"
+                android:textSize="30sp"
+                app:fontFamily="serif-monospace" />
+
+            <ImageView
+                android:id="@+id/stella2"
+                android:layout_width="32dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/votocompetenza"
+                app:srcCompat="@drawable/stellasingolaparentesi" />
+
+            <TextView
+                android:id="@+id/competenza"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="24dp"
+                android:layout_toEndOf="@+id/stella2"
+                android:text="Competenza"
+                android:textSize="24sp"
+                app:fontFamily="sans-serif-light" />
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/votodisponibilita"
             android:layout_width="24dp"
             android:layout_height="35dp"
-            android:layout_marginStart="88dp"
-            android:layout_marginLeft="88dp"
-            android:layout_marginTop="20dp"
-            android:text="3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:text="4"
             android:textSize="30sp"
             app:fontFamily="serif-monospace"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/votocompetenza" />
-    </android.support.constraint.ConstraintLayout>
+            />
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/stella3"
+            android:layout_width="32dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="0dp"
+            android:layout_toEndOf="@+id/votodisponibilita"
+            app:srcCompat="@drawable/stellasingolaparentesi" />
+
+            <TextView
+                android:id="@+id/disponiblita"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="35dp"
+                android:layout_toEndOf="@+id/stella3"
+                android:text="Disponiblità"
+                android:textSize="24sp"
+                app:fontFamily="sans-serif-light" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
