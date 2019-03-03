@@ -13,7 +13,7 @@ public class ContactUsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_agendatutor, container, false);
+        return inflater.inflate(R.layout.contact_fragment, container, false);
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {

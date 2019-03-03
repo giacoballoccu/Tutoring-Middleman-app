@@ -51,7 +51,7 @@
             android:title="Feedback ricevuti"
             android:id="@+id/nav_feedbacksT"/>
         <item
-            android:actionLayout="@layout/fragment_agendatutor"
+            android:actionLayout="@layout/contact_fragment"
             android:icon="@drawable/ic_prenotazioni"
             android:title="La mia Agenda"
             android:id="@+id/nav_myReservationsT"/>

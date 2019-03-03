@@ -68,6 +68,39 @@ public class DashBoardFragment extends Fragment{
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         myView = layoutInflater.inflate(R.layout.searchview_static, null, false);
         mparent.addView(myView);
+        spinner = myView.findViewById(R.id.spinnerFiltro);
+
+
+
+        /*********************************************************************************************/
+        /*********************************************************************************************/
+        /*********************************************************************************************/
+
+        ArrayList<String> arrayMaterie = new ArrayList<String>();
+        Context context = ApplicationContextProvider.getContext();
+
+
+        arrayMaterie.add("Matematica");
+        arrayMaterie.add("Informatica");
+        arrayMaterie.add("Fisica");
+        arrayMaterie.add("Chimica");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item, arrayMaterie);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        final String selected = spinner.getSelectedItem().toString();
+
+
+
+        /*********************************************************************************************/
+        /*********************************************************************************************/
+        /*********************************************************************************************/
+
+
+
+
 
         ricerca = view.findViewById(R.id.ricercaFiltro);
 
@@ -143,7 +176,6 @@ public class DashBoardFragment extends Fragment{
                     break;
          }
         }
-        
         setOnClick(b,tutor.getEmail(), emailLoggedUser);
     }
 

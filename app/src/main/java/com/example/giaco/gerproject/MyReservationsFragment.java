@@ -25,8 +25,9 @@ import com.example.giaco.gerproject.Classes.ReservationFactory;
 import java.util.ArrayList;
 
 public class MyReservationsFragment extends Fragment {
+
     LinearLayout mparent;
-    ConstraintLayout mparent_ext;
+    LinearLayout mparent_ext;
     LayoutInflater layoutInflater;
     View myView;
     String emailLoggedUser;
