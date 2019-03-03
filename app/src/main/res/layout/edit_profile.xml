@@ -1,12 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Profile"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
 
-</RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="50dp"
+            >
+
+            <ImageButton
+                android:id="@+id/pulsante_indietro_edit_prof"
+                android:layout_width="61dp"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:background="@null"
+                app:srcCompat="@drawable/back"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"/>
+
+            <TextView
+                android:id="@+id/modificaProfilo"
+                android:layout_width="wrap_content"
+                android:layout_height="49dp"
+                android:layout_gravity="center"
+                android:text="Modifica profilo"
+                android:textSize="30sp"
+                />
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:id="@+id/imgselector"
+                android:scaleType="fitXY"
+                android:src="@drawable/studente_default"
+                android:background="@null"
+                android:layout_marginTop="5dp"
+                />
+
+            <EditText
+                android:id="@+id/emailField_edit"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="emailField_edit"
+                android:layout_marginTop="20dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:id="@+id/passwordField_edit"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:hint="Password"
+                android:inputType="textPassword"
+                />
+
+            <EditText
+                android:id="@+id/confirmPasswordField_edit"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Conferma Password"
+                android:inputType="textPassword"
+                android:layout_gravity="center" />
+
+            <EditText
+                android:id="@+id/nameField_edit"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:hint="Nome"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/surnameField_edit"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:hint="Cognome"
+                android:inputType="textPersonName"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:id="@+id/errorSignup_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="90dp"
+                android:text="TextView"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/signUp_edit"
+                android:layout_width="265dp"
+                android:layout_height="82dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@color/blueButtons"
+                android:fontFamily="sans-serif-medium"
+                android:text="Modifica"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+</LinearLayout>
