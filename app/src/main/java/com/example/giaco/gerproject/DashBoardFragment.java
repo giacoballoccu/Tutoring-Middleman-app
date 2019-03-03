@@ -79,7 +79,7 @@ public class DashBoardFragment extends Fragment{
         ArrayList<String> arrayMaterie = new ArrayList<String>();
         Context context = ApplicationContextProvider.getContext();
 
-
+        arrayMaterie.add("DEFAULT");
         arrayMaterie.add("Matematica");
         arrayMaterie.add("Informatica");
         arrayMaterie.add("Fisica");
@@ -104,29 +104,55 @@ public class DashBoardFragment extends Fragment{
 
         ricerca = view.findViewById(R.id.ricercaFiltro);
 
-         for(int i = 0; i < tutorList.size() ; i++) {
-            switch (tutorList.get(i).getMateria()){
-                case "Fisica":
-                    myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
-                    mparent.addView(myView);
-                    b = myView.findViewById(R.id.postitverde);
-                    updatePostit(tutorList.get(i), myView);
-                    break;
-                case "Informatica":
-                    myView = layoutInflater.inflate(R.layout.postitred, null, false);
-                    mparent.addView(myView);
-                    b = myView.findViewById(R.id.postitrosso);
-                    updatePostit(tutorList.get(i), myView);
-                    break;
-                case "Matematica":
-                    myView = layoutInflater.inflate(R.layout.postitblue, null, false);
-                    mparent.addView(myView);
-                    b = myView.findViewById(R.id.postitblu);
-                    updatePostit(tutorList.get(i), myView);
-                    break;
-            }
 
+        if(selected.equals("DEFAULT"))
+            for(UserTutor t : tutorList) {
+                switch (t.getMateria()) {
+                    case "Fisica":
+                        myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitverde);
+                        updatePostit(t, myView);
+                        break;
+                    case "Informatica":
+                        myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitrosso);
+                        updatePostit(t, myView);
+                        break;
+                    case "Matematica":
+                        myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitblu);
+                        updatePostit(t, myView);
+                        break;
+                }
+            }
+        else{
+            for(UserTutor t : tutorList) {
+                switch (selected) {
+                    case "Fisica":
+                        myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitverde);
+                        updatePostit(t, myView);
+                        break;
+                    case "Informatica":
+                        myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitrosso);
+                        updatePostit(t, myView);
+                        break;
+                    case "Matematica":
+                        myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitblu);
+                        updatePostit(t, myView);
+                        break;
+                }
+            }
         }
+
 
     }
 
@@ -195,4 +221,7 @@ public class DashBoardFragment extends Fragment{
             }
         });
     }
+
+
+
 }
