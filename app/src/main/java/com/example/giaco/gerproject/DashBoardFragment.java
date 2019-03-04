@@ -44,6 +44,8 @@ public class DashBoardFragment extends Fragment{
     ArrayList<UserTutor> tutorList = userTutorFactory.getUserList();
     Spinner spinner;
     SearchView ricerca;
+    private String prova;
+    private int MODIFICA = 0;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +79,7 @@ public class DashBoardFragment extends Fragment{
         /*********************************************************************************************/
 
         ArrayList<String> arrayMaterie = new ArrayList<String>();
-        Context context = ApplicationContextProvider.getContext();
+        final Context context = ApplicationContextProvider.getContext();
 
         arrayMaterie.add("DEFAULT");
         arrayMaterie.add("Matematica");
@@ -100,58 +102,74 @@ public class DashBoardFragment extends Fragment{
 
 
 
-
-
         ricerca = view.findViewById(R.id.ricercaFiltro);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)
+            {
+                Object item = parent.getItemAtPosition(pos);
+                Toast.makeText(context, item.toString(), Toast.LENGTH_SHORT).show();
+                prova = item.toString();
+                if(prova.equals("DEFAULT"))
+                    for(UserTutor t : tutorList) {
+                        switch (t.getMateria()) {
+                            case "Fisica":
+                                myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                                mparent.addView(myView);
+                                b = myView.findViewById(R.id.postitverde);
+                                updatePostit(t, myView);
+                                break;
+                            case "Informatica":
+                                myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                                mparent.addView(myView);
+                                b = myView.findViewById(R.id.postitrosso);
+                                updatePostit(t, myView);
+                                break;
+                            case "Matematica":
+                                myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                                mparent.addView(myView);
+                                b = myView.findViewById(R.id.postitblu);
+                                updatePostit(t, myView);
+                                break;
+                        }
+                    }
+                else{
+                    for(UserTutor t : tutorList) {
+                        if(t.getMateria().equals(prova))
+                        switch (prova) {
+                            case "Fisica":
+                                myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                                mparent.addView(myView);
+                                b = myView.findViewById(R.id.postitverde);
+                                updatePostit(t, myView);
+                                break;
+                            case "Informatica":
+                                myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                                mparent.addView(myView);
+                                b = myView.findViewById(R.id.postitrosso);
+                                updatePostit(t, myView);
+                                break;
+                            case "Matematica":
+                                myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                                mparent.addView(myView);
+                                b = myView.findViewById(R.id.postitblu);
+                                updatePostit(t, myView);
+                                break;
+                        }
+                    }
+                }
 
-        if(selected.equals("DEFAULT"))
-            for(UserTutor t : tutorList) {
-                switch (t.getMateria()) {
-                    case "Fisica":
-                        myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
-                        mparent.addView(myView);
-                        b = myView.findViewById(R.id.postitverde);
-                        updatePostit(t, myView);
-                        break;
-                    case "Informatica":
-                        myView = layoutInflater.inflate(R.layout.postitred, null, false);
-                        mparent.addView(myView);
-                        b = myView.findViewById(R.id.postitrosso);
-                        updatePostit(t, myView);
-                        break;
-                    case "Matematica":
-                        myView = layoutInflater.inflate(R.layout.postitblue, null, false);
-                        mparent.addView(myView);
-                        b = myView.findViewById(R.id.postitblu);
-                        updatePostit(t, myView);
-                        break;
-                }
             }
-        else{
-            for(UserTutor t : tutorList) {
-                switch (selected) {
-                    case "Fisica":
-                        myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
-                        mparent.addView(myView);
-                        b = myView.findViewById(R.id.postitverde);
-                        updatePostit(t, myView);
-                        break;
-                    case "Informatica":
-                        myView = layoutInflater.inflate(R.layout.postitred, null, false);
-                        mparent.addView(myView);
-                        b = myView.findViewById(R.id.postitrosso);
-                        updatePostit(t, myView);
-                        break;
-                    case "Matematica":
-                        myView = layoutInflater.inflate(R.layout.postitblue, null, false);
-                        mparent.addView(myView);
-                        b = myView.findViewById(R.id.postitblu);
-                        updatePostit(t, myView);
-                        break;
-                }
+
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
             }
-        }
+        });
+
+
+
 
 
     }
