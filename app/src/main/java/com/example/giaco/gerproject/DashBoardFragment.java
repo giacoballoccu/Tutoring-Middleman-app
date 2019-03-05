@@ -31,7 +31,7 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class DashBoardFragment extends Fragment{
+public class DashBoardFragment extends Fragment {
     LinearLayout mparent;
     LayoutInflater layoutInflater;
     View myView;
@@ -45,7 +45,12 @@ public class DashBoardFragment extends Fragment{
     Spinner spinner;
     SearchView ricerca;
     private String prova;
+    String selected;
     private int MODIFICA = 0;
+    private String materiaSelezionata;
+    DashBoardFragment dash;
+    private boolean flagSpinner = false;
+    private boolean fs = false;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,26 +62,31 @@ public class DashBoardFragment extends Fragment{
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Bacheca");
-        //you can set the title for your toolbar here for different fragments different titles
 
 
         if (getArguments() != null) {
             emailLoggedUser = getArguments().getString("actualUserMail");
+            fs = getArguments().getBoolean("flagSpinner");
+            if(getArguments().getString("materiaSelezionata") != null) {
+                materiaSelezionata = getArguments().getString("materiaSelezionata");
+                Toast.makeText(getContext(), "ZZZZZZZZZZZ    " + materiaSelezionata + "    ZZZZZZZZZZZ", Toast.LENGTH_LONG).show();
+            }
+            else {
+                materiaSelezionata = "DEFAULT";
+                Toast.makeText(getContext(), "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", Toast.LENGTH_LONG).show();
+            }
+            //Toast.makeText(getContext(), materiaSelezionata, Toast.LENGTH_SHORT).show();
         }
+        else Toast.makeText(getContext(), "MA CHE DAVVERO? WAWAWAWAWAWAWAWAWAWAWA", Toast.LENGTH_LONG).show();
+
         mparent = view.findViewById(R.id.mparent);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         myView = layoutInflater.inflate(R.layout.searchview_static, null, false);
         mparent.addView(myView);
         spinner = myView.findViewById(R.id.spinnerFiltro);
-
-
-
-        /*********************************************************************************************/
-        /*********************************************************************************************/
-        /*********************************************************************************************/
 
         ArrayList<String> arrayMaterie = new ArrayList<String>();
         final Context context = ApplicationContextProvider.getContext();
@@ -85,23 +95,205 @@ public class DashBoardFragment extends Fragment{
         arrayMaterie.add("Matematica");
         arrayMaterie.add("Informatica");
         arrayMaterie.add("Fisica");
-        arrayMaterie.add("Chimica");
+        //arrayMaterie.add("Chimica");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item, arrayMaterie);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        final String selected = spinner.getSelectedItem().toString();
+        selected = spinner.getSelectedItem().toString();
+
+        if(materiaSelezionata.equals("DEFAULT")) {
+            for (UserTutor t : UserTutorFactory.getInstance().getUserList()) {
+                //Toast.makeText(getContext(), selected, Toast.LENGTH_SHORT).show();
+                switch (t.getMateria()) {
+                    case "Fisica":
+                        myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitverde);
+                        updatePostit(t, myView);
+                        break;
+                    case "Informatica":
+                        myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitrosso);
+                        updatePostit(t, myView);
+                        break;
+                    case "Matematica":
+                        myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitblu);
+                        updatePostit(t, myView);
+                        break;
+                }
+            }
+        }
+        else{
+            Toast.makeText(getContext(), "NON SIAMO DEFAULT PUPUPUPUPU", Toast.LENGTH_LONG).show();
+            for (UserTutor t : UserTutorFactory.getInstance().getUserList()) {
+                //Toast.makeText(getContext(), selected, Toast.LENGTH_SHORT).show();
+                if(t.getMateria().equals(materiaSelezionata))
+                switch (t.getMateria()) {
+                    case "Fisica":
+                        myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitverde);
+                        updatePostit(t, myView);
+                        break;
+                    case "Informatica":
+                        myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitrosso);
+                        updatePostit(t, myView);
+                        break;
+                    case "Matematica":
+                        myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitblu);
+                        updatePostit(t, myView);
+                        break;
+                }
+            }
+        }
 
 
 
-        /*********************************************************************************************/
-        /*********************************************************************************************/
-        /*********************************************************************************************/
 
 
 
+
+
+
+
+
+
+
+
+
+
+/*
+        if(materiaSelezionata.equals("DEFAULT")){
+            Toast.makeText(getContext(), "--------- MAIN ACTIVITY ---------", Toast.LENGTH_LONG).show();
+            for(UserTutor t : UserTutorFactory.getInstance().getUserList()) {
+            //Toast.makeText(getContext(), selected, Toast.LENGTH_SHORT).show();
+                switch (t.getMateria()) {
+                    case "Fisica":
+                        myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitverde);
+                        updatePostit(t, myView);
+                        break;
+                    case "Informatica":
+                        myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitrosso);
+                        updatePostit(t, myView);
+                        break;
+                    case "Matematica":
+                        myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                        mparent.addView(myView);
+                        b = myView.findViewById(R.id.postitblu);
+                        updatePostit(t, myView);
+                    break;
+                }
+            }
+        }
+        else {
+            Toast.makeText(getContext(), "--------- NUOVA SELEZIONE---------", Toast.LENGTH_LONG).show();
+
+
+            for (UserTutor t : UserTutorFactory.getInstance().getUserList()) {
+                //Toast.makeText(getContext(), selected, Toast.LENGTH_SHORT).show();
+                if (t.getMateria().equals(selected))
+                    switch (selected) {
+                        case "Fisica":
+                            myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                            mparent.addView(myView);
+                            b = myView.findViewById(R.id.postitverde);
+                            updatePostit(t, myView);
+                            break;
+                        case "Informatica":
+                            myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                            mparent.addView(myView);
+                            b = myView.findViewById(R.id.postitrosso);
+                            updatePostit(t, myView);
+                            break;
+                        case "Matematica":
+                            myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                            mparent.addView(myView);
+                            b = myView.findViewById(R.id.postitblu);
+                            updatePostit(t, myView);
+                            break;
+                    }
+
+            }
+
+        }*/
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                String selectedNew = spinner.getSelectedItem().toString();
+
+                if(fs != false ) {
+                    //Toast.makeText(getContext(), "HAI FATTO UN CAMBIAMENTO - " + selectedNew, Toast.LENGTH_SHORT).show();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("actualUserMail", emailLoggedUser);
+                    bundle.putString("materiaSelezionata", selectedNew);
+                    bundle.putBoolean("flagSpinner", false);
+                    dash = new DashBoardFragment();
+                    dash.setArguments(bundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container, dash);
+                    transaction.commit();
+                }
+                else {
+                    //Toast.makeText(getContext(), "PRIMA SCELTA - " + selectedNew, Toast.LENGTH_SHORT).show();
+                    fs = true;
+
+                }
+
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+
+    }
+
+        //spinner.getSelectedItem().toString();
+
+
+        /*
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+                materiaSelezionata = spinner.getSelectedItem().toString();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("emailTutor", emailLoggedUser);
+                bundle.putString("materiaSelezionata", materiaSelezionata);
+                dash = new DashBoardFragment();
+                dash.setArguments(bundle);
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.fragment_container, dash);
+                transaction.commit();
+
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+/*
         ricerca = view.findViewById(R.id.ricercaFiltro);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
@@ -171,11 +363,77 @@ public class DashBoardFragment extends Fragment{
 
 
 
+*/
 
+    public void updatePostit(UserTutor tutor, View myView) {
+
+        ImageView avatar;
+        TextView nomeCognome, materia;
+        ImageView feedback;
+        int feedback_intero;
+        Drawable zerostelle, unastella, duestelle, trestelle, quattrostelle, cinquestelle;
+        zerostelle = getResources().getDrawable(R.drawable.zerostelle);
+        unastella = getResources().getDrawable(R.drawable.unastella);
+        duestelle = getResources().getDrawable(R.drawable.duestelle);
+        trestelle = getResources().getDrawable(R.drawable.trestelle);
+        quattrostelle = getResources().getDrawable(R.drawable.quattrostelle);
+        cinquestelle = getResources().getDrawable(R.drawable.cinquestelle);
+
+        nomeCognome = myView.findViewById(R.id.nomeCognome);
+        nomeCognome.setText("" + tutor.getName() + " " + tutor.getSurname() + "");
+        avatar = myView.findViewById(R.id.avatarTutor);
+        avatar.setImageDrawable(tutor.getImage());
+        feedback = myView.findViewById(R.id.feedback_stelle);
+        materia = myView.findViewById(R.id.materia);
+        materia.setText("" + tutor.getMateria() + "");
+        feedbackList = feedbackFactory.getFeedbackByTutorMail(tutor.getEmail());
+        if (feedbackList.size() > 0) {
+            feedback_intero = feedbackFactory.getVotoTotaleMedio(feedbackList);
+
+            switch (feedback_intero) {
+                case 0:
+                    feedback.setImageDrawable(zerostelle);
+                    break;
+                case 1:
+                    feedback.setImageDrawable(unastella);
+                    break;
+                case 2:
+                    feedback.setImageDrawable(duestelle);
+                    break;
+                case 3:
+                    feedback.setImageDrawable(trestelle);
+                    break;
+                case 4:
+                    feedback.setImageDrawable(quattrostelle);
+                    break;
+                case 5:
+                    feedback.setImageDrawable(cinquestelle);
+                    break;
+            }
+        }
+        setOnClick(b, tutor.getEmail(), emailLoggedUser);
     }
 
-    public void updatePostit (UserTutor tutor, View myView){
+    private void setOnClick(final ImageButton btn, final String emailTutor, final String emailUser) {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("emailTutor", emailTutor);
+                bundle.putString("emailStudente", emailUser);
+                book = new BookFragment();
+                book.setArguments(bundle);
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.fragment_container, book);
+                transaction.commit();
+            }
+        });
+    }
+}
 
+/*
+    public void update(String materiaS, View view){
         ImageView avatar;
         TextView nomeCognome, materia;
         ImageView feedback;
@@ -218,28 +476,12 @@ public class DashBoardFragment extends Fragment{
                 case 5 :
                     feedback.setImageDrawable(cinquestelle);
                     break;
-         }
+            }
         }
         setOnClick(b,tutor.getEmail(), emailLoggedUser);
     }
-
-    private void setOnClick(final ImageButton btn, final String emailTutor, final String emailUser ){
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("emailTutor", emailTutor);
-                bundle.putString("emailStudente", emailUser);
-                book = new BookFragment();
-                book.setArguments(bundle);
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container , book);
-                transaction.commit();
-            }
-        });
     }
 
 
-
 }
+*/
