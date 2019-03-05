@@ -4,12 +4,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,10 +29,12 @@ public class EditProfileFragment extends Fragment {
     User loggedStudente;
     User loggedTutor;
     UserTutorFactory factoryT = UserTutorFactory.getInstance();
+    PersonalPageFragment pageFragment;
     UserStudenteFactory factoryS = UserStudenteFactory.getInstance();
     private boolean flagTutor = false;
     EditText emailField, passwordField, confirmPasswordField, nameField, surnameField;
     Button signUp;
+    ImageButton backButton;
     String emailStr, nameStr, surnameStr, passwordStr, confirmPasswordStr;
     int errors = 0;
 
@@ -46,6 +51,10 @@ public class EditProfileFragment extends Fragment {
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Modifica Profilo");
 
+        backButton = view.findViewById(R.id.pulsante_indietro_edit_prof);
+
+
+
         if (getArguments() != null) {
             if(getArguments().getInt("tFlag") == 0){ //Studente
                 loggedUserMail = getArguments().getString("actualUserMail");
@@ -58,6 +67,21 @@ public class EditProfileFragment extends Fragment {
                 setTutorFlag(loggedTutor);
                 //bundle = savedInstanceState;
             }
+
+            backButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("actualUserMail", loggedUserMail);
+                    pageFragment = new PersonalPageFragment();
+                    pageFragment.setArguments(bundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container, pageFragment);
+                    transaction.commit();
+                }
+            });
+
         }
         if(flagTutor == false) {
 

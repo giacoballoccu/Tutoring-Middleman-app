@@ -119,9 +119,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         conversazioniFragment = new ConversazioniFragment();
         conversazioniFragment.setArguments(bundle);
 
-
-
-
     if(getTutorFlag() == false){
         UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
         avatarMenu.setImageDrawable(loggedUser.getImage());
