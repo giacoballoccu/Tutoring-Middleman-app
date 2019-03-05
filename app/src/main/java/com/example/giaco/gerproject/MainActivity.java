@@ -103,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         personalPage.setArguments(bundle);
 
         dashboard = new DashBoardFragment();
+        bundle.putString("materiaSelezionata", null);
+        bundle.putBoolean("spinnerFlag", false);
         dashboard.setArguments(bundle);
 
         if(getTutorFlag() == true){
