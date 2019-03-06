@@ -152,6 +152,7 @@ public class EditProfileFragment extends Fragment {
 
                         Toast.makeText(EditProfileFragment.this.getActivity() ,"Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
                         loggedStudente.setEmail(emailStr);
+                        loggedUserMail = emailStr;
                         loggedStudente.setName(nameStr);
                         loggedStudente.setPassword(passwordStr);
                         loggedStudente.setSurname(surnameStr);
@@ -231,6 +232,7 @@ public class EditProfileFragment extends Fragment {
 
                         Toast.makeText(EditProfileFragment.this.getActivity() ,"Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
                         loggedTutor.setEmail(emailStr);
+                        loggedUserMail = emailStr;
                         loggedTutor.setName(nameStr);
                         loggedTutor.setPassword(passwordStr);
                         loggedTutor.setSurname(surnameStr);
