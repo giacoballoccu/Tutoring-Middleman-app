@@ -159,7 +159,7 @@
                 android:layout_height="91dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:background="@color/blueButtons"
+                android:backgroundTint="@color/blueButtons"
                 android:fontFamily="sans-serif-thin"
                 android:text="LOGIN"
                 android:textSize="32sp"

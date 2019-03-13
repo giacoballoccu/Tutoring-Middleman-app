@@ -105,7 +105,7 @@
                 android:layout_height="69dp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="8dp"
-                android:background="@color/blueButtons"
+                android:backgroundTint="@color/blueButtons"
                 android:fontFamily="sans-serif-thin"
                 android:text="Ho capito"
                 android:textSize="32sp"
