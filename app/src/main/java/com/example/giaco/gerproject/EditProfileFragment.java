@@ -1,5 +1,6 @@
 package com.example.giaco.gerproject;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,9 +14,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.giaco.gerproject.Classes.Reservation;
+import com.example.giaco.gerproject.Classes.ReservationFactory;
 import com.example.giaco.gerproject.Classes.User;
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
@@ -31,9 +36,12 @@ public class EditProfileFragment extends Fragment {
     UserTutorFactory factoryT = UserTutorFactory.getInstance();
     PersonalPageFragment pageFragment;
     UserStudenteFactory factoryS = UserStudenteFactory.getInstance();
+    LayoutInflater layoutInflater;
     private boolean flagTutor = false;
     EditText emailField, passwordField, confirmPasswordField, nameField, surnameField;
     Button signUp;
+    View myView;
+    RelativeLayout mparent;
     ImageButton backButton;
     String emailStr, nameStr, surnameStr, passwordStr, confirmPasswordStr;
     int errors = 0;
@@ -50,7 +58,7 @@ public class EditProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Modifica Profilo");
-
+        mparent = view.findViewById(R.id.parent_linearlayout);
         backButton = view.findViewById(R.id.pulsante_indietro_edit_prof);
 
 
@@ -179,6 +187,7 @@ public class EditProfileFragment extends Fragment {
             signUp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     emailStr = emailField.getText().toString();
                     nameStr = nameField.getText().toString();
                     surnameStr = surnameField.getText().toString();
@@ -229,16 +238,37 @@ public class EditProfileFragment extends Fragment {
                     }
 
                     if(errors == 0){
+                        layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                        myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
+                        myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
+                        mparent.addView(myView);
+                        Button conferma, cancella;
+                        conferma = (Button) myView.findViewById(R.id.prenotazione_yes);
+                        cancella = (Button) myView.findViewById(R.id.prenotazione_no);
 
-                        Toast.makeText(EditProfileFragment.this.getActivity() ,"Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
-                        loggedTutor.setEmail(emailStr);
-                        loggedUserMail = emailStr;
-                        loggedTutor.setName(nameStr);
-                        loggedTutor.setPassword(passwordStr);
-                        loggedTutor.setSurname(surnameStr);
+                        conferma.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(EditProfileFragment.this.getActivity() ,"Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
+                                loggedTutor.setEmail(emailStr);
+                                loggedUserMail = emailStr;
+                                loggedTutor.setName(nameStr);
+                                loggedTutor.setPassword(passwordStr);
+                                loggedTutor.setSurname(surnameStr);
+                            }
+                        });
+
+                        cancella.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mparent.removeView(myView);
+                            }
+                        });
+
                     }else{
                         errors = 0;
                     }
+
                 }
             });
 
