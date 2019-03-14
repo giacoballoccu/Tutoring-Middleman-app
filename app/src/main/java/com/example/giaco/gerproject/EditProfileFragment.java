@@ -157,13 +157,34 @@ public class EditProfileFragment extends Fragment {
                     }
 
                     if(errors == 0){
+                        layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                        myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
+                        myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
+                        mparent.addView(myView);
+                        Button conferma, cancella;
+                        conferma = (Button) myView.findViewById(R.id.prenotazione_yes);
+                        cancella = (Button) myView.findViewById(R.id.prenotazione_no);
 
-                        Toast.makeText(EditProfileFragment.this.getActivity() ,"Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
-                        loggedStudente.setEmail(emailStr);
-                        loggedUserMail = emailStr;
-                        loggedStudente.setName(nameStr);
-                        loggedStudente.setPassword(passwordStr);
-                        loggedStudente.setSurname(surnameStr);
+                        conferma.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(EditProfileFragment.this.getActivity() ,"Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
+                                loggedStudente.setEmail(emailStr);
+                                loggedUserMail = emailStr;
+                                loggedStudente.setName(nameStr);
+                                loggedStudente.setPassword(passwordStr);
+                                loggedStudente.setSurname(surnameStr);
+                                mparent.removeView(myView);
+                            }
+                        });
+
+                        cancella.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mparent.removeView(myView);
+                            }
+                        });
+
                     }else{
                         errors = 0;
                     }
@@ -255,6 +276,7 @@ public class EditProfileFragment extends Fragment {
                                 loggedTutor.setName(nameStr);
                                 loggedTutor.setPassword(passwordStr);
                                 loggedTutor.setSurname(surnameStr);
+                                mparent.removeView(myView);
                             }
                         });
 
