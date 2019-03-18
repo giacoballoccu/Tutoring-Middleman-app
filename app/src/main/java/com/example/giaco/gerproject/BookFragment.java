@@ -105,20 +105,34 @@ public class BookFragment extends Fragment {
                 myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
                 mparent.addView(myView);
                 prenota.setVisibility(View.GONE);
-                Button conferma, cancella;
+                final Button conferma, cancella;
                 conferma = (Button) myView.findViewById(R.id.prenotazione_yes);
                 cancella = (Button) myView.findViewById(R.id.prenotazione_no);
 
                 conferma.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ReservationFactory factoryR = ReservationFactory.getInstance();
-                        Reservation r = new Reservation(loggedUser, chosenTutor, selected, chosenTutor.getMateria()); //Nuova reservation
-                        factoryR.addReservation(r);
-                        chosenTutor.removeData(selected); //Il tutor perde quella disponibilità
-                        Toast.makeText(getContext(),"Prenotazione Avvenuta con Successo!", Toast.LENGTH_LONG).show();
-                        mparent.removeView(myView);
-                        prenota.setVisibility(View.VISIBLE);
+                        if(Integer.parseInt(loggedUser.getHours()) > 0) {
+                            ReservationFactory factoryR = ReservationFactory.getInstance();
+                            Reservation r = new Reservation(loggedUser, chosenTutor, selected, chosenTutor.getMateria()); //Nuova reservation
+                            factoryR.addReservation(r);
+                            chosenTutor.removeData(selected); //Il tutor perde quella disponibilità
+                            Toast.makeText(getContext(), "Prenotazione Avvenuta con Successo!", Toast.LENGTH_LONG).show();
+                            mparent.removeView(myView);
+                            prenota.setVisibility(View.VISIBLE);
+                        }else{
+                            final Button accetta;
+                            mparent.removeView(myView);
+                            myView = layoutInflater.inflate(R.layout.prenotazione_fallita, null, false);
+                            mparent.addView(myView);
+                            accetta = (Button) myView.findViewById(R.id.accetta);
+                            accetta.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    mparent.removeView(myView);
+                                }
+                            });
+                        }
                     }
                 });
 

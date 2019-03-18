@@ -54,7 +54,7 @@ public class UserStudenteFactory {
         user3.setSurname("Mandaresu");
         Drawable img3 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.studente3, null);
         user3.setImage(img3);
-        user3.setHours("10");
+        user3.setHours("0");
         user3.setPassword("12345");
         user3.setPhone("0123456789");
 
