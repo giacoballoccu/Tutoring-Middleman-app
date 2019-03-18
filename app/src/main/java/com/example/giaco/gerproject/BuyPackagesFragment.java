@@ -58,6 +58,7 @@ public class BuyPackagesFragment extends Fragment {
         staticView = layoutInflater.inflate(R.layout.ore_rimanenti_static, null, false);
         mparent.addView(staticView);
         aux = (TextView) staticView.findViewById(R.id.n_ore_rimanenti);
+        aux.setText(loggedUser.getHours());
         ore_rimaste = Integer.parseInt(aux.getText().toString());
 
         for (int i = 0; i < packList.size(); i++) {
