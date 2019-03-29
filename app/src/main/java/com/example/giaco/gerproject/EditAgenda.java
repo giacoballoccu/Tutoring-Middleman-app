@@ -65,7 +65,6 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
         interruttore.setVisibility(View.INVISIBLE);
 
 
-
         seekBarOrarioInizio = view.findViewById(R.id.seekBarOrari);
         seekBarOrarioFine = view.findViewById(R.id.seekBarOrariF);
         conferma = view.findViewById(R.id.salvaAggiunta);
@@ -83,7 +82,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
                 setGiornoSettimana(calendarioCorrente.get(Calendar.DAY_OF_WEEK));
                 giornoSettimana.setVisibility(View.VISIBLE);
                 setGiornoSettimana(5);
-                giornoSettimana.setText("Ripeti per tutti i " + getGiornoSettimanaStringa(getGiornoSettimana())+" di " + getMeseStringa(month + 1) + "");
+                giornoSettimana.setText("Ripeti per tutti i " + getGiornoSettimanaStringa(getGiornoSettimana()) + " di " + getMeseStringa(month + 1) + "");
 
                 interruttore.setVisibility(View.VISIBLE);
 
@@ -94,11 +93,10 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
         interruttore.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                        setGiornoSettimana(1);
-                        interruttore.setText("Sì");
-                }
-                else {
+                if (isChecked) {
+                    setGiornoSettimana(1);
+                    interruttore.setText("Sì");
+                } else {
                     setGiornoSettimana(0);
                     interruttore.setText("No");
                 }
@@ -107,51 +105,53 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
         /*Sezione Ora Inizio*/
         seekBarOrarioInizio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            if(progress == 0 && seekBarOrarioFine.getProgress() >= 1) {
-                setOraInizio(progress + 8);
-                //seekBarOrarioFine.setProgress(progress+1);
-            }
-            else
-                if(progress == seekBar.getMax()) {
-                    setOraInizio(progress - 1 + 8);
-                    seekBarOrarioInizio.setProgress(progress - 1);
-                }
-                else {
-                    setOraInizio(progress + 8);
-                    if(seekBarOrarioFine.getProgress() <= progress)
-                        seekBarOrarioFine.setProgress(progress + 1, true);
-                }
-            oraCorrente.setText(Integer.toString(getOraInizio()) + ":00 - " + Integer.toString(getOraFine()) + ":00");
-        }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
-        /*Sezione Ora Fine*/
-            seekBarOrarioFine.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if(progress == 0) {
+                if (progress == 0 && seekBarOrarioFine.getProgress() >= 1) {
+                    setOraInizio(progress + 8);
+                    //seekBarOrarioFine.setProgress(progress+1);
+                } else if (progress == seekBar.getMax()) {
+                    setOraInizio(progress - 1 + 8);
+                    seekBarOrarioInizio.setProgress(progress - 1);
+                } else {
+                    setOraInizio(progress + 8);
+                    if (seekBarOrarioFine.getProgress() <= progress)
+                        seekBarOrarioFine.setProgress(progress + 1, true);
+                }
+                oraCorrente.setText(Integer.toString(getOraInizio()) + ":00 - " + Integer.toString(getOraFine()) + ":00");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+        /*Sezione Ora Fine*/
+        seekBarOrarioFine.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (progress == 0) {
                     setOraFine(progress + 1 + 8);
                     seekBarOrarioFine.setProgress(progress + 1);
-                }
-                else
-                    if(seekBarOrarioInizio.getProgress() >= progress) {
-                        seekBarOrarioInizio.setProgress(seekBarOrarioFine.getProgress() - 1);
-                        setOraFine(progress);
-                    }
-                    else
-                        setOraFine(progress + 8);
+                } else if (seekBarOrarioInizio.getProgress() >= progress) {
+                    seekBarOrarioInizio.setProgress(seekBarOrarioFine.getProgress() - 1);
+                    setOraFine(progress);
+                } else
+                    setOraFine(progress + 8);
                 //getSeekBarOrarioFine.setProgress(getOraInizio() - 8, true);
                 oraCorrente.setText(Integer.toString(getOraInizio()) + ":00 - " + Integer.toString(getOraFine()) + ":00");
             }
+
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
 
         conferma.setOnClickListener(this);
@@ -162,92 +162,103 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-                Bundle bundle = new Bundle();
-                bundle.putInt("annoN", getAnno());
-                bundle.putInt("meseN", getMese());
-                bundle.putInt("giornoN", getGiorno());
-                bundle.putInt("oraiN", getOraInizio());
-                bundle.putInt("oraF", getOraFine());
-                bundle.putInt("giornoSettimana", 5);
-                bundle.putString("flagAggiunta", "ok");
-                bundle.putString("actualUserMail", loggedUserMail);
-                bundle.putInt("tFlag", 1);
+        Bundle bundle = new Bundle();
+        bundle.putInt("annoN", getAnno());
+        bundle.putInt("meseN", getMese());
+        bundle.putInt("giornoN", getGiorno());
+        bundle.putInt("oraiN", getOraInizio());
+        bundle.putInt("oraF", getOraFine());
+        bundle.putInt("giornoSettimana", 5);
+        bundle.putString("flagAggiunta", "ok");
+        bundle.putString("actualUserMail", loggedUserMail);
+        bundle.putInt("tFlag", 1);
 
-                if(getArguments().getInt("tFlag") == 1) {
-                    profilo = new PersonalPageFragment();
-                    profilo.setArguments(bundle);
-                    FragmentManager fm = getActivity().getSupportFragmentManager();
-                    FragmentTransaction transaction = fm.beginTransaction();
-                    transaction.replace(R.id.fragment_container, profilo);
-                    transaction.commit();
-                }
-                else{
-                    dashboard = new DashBoardFragment();
-                    dashboard.setArguments(bundle);
-                    FragmentManager fm = getActivity().getSupportFragmentManager();
-                    FragmentTransaction transaction = fm.beginTransaction();
-                    transaction.replace(R.id.fragment_container, dashboard);
-                    transaction.commit();
-                }
+        if (getArguments().getInt("tFlag") == 1) {
+            profilo = new PersonalPageFragment();
+            profilo.setArguments(bundle);
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = fm.beginTransaction();
+            transaction.replace(R.id.fragment_container, profilo);
+            transaction.commit();
+        } else {
+            dashboard = new DashBoardFragment();
+            dashboard.setArguments(bundle);
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            FragmentTransaction transaction = fm.beginTransaction();
+            transaction.replace(R.id.fragment_container, dashboard);
+            transaction.commit();
+        }
 
     }
 
 
-
-
-    public void setAnno(int a){
+    public void setAnno(int a) {
         this.anno = a;
     }
-    public void setMese(int m){
+
+    public void setMese(int m) {
         this.mese = m + 1;
     }
-    public void setGiorno(int g){
+
+    public void setGiorno(int g) {
         this.giorno = g;
     }
-    public void setOraInizio(int oi){
+
+    public void setOraInizio(int oi) {
         this.oraInizio = oi;
     }
-    public void setOraFine(int of){
+
+    public void setOraFine(int of) {
         this.oraFine = of;
     }
-    public void setMinutoInizio(int mi){
+
+    public void setMinutoInizio(int mi) {
         this.minutoInizio = mi;
     }
-    public void setMinutoFine(int mf){
+
+    public void setMinutoFine(int mf) {
         this.minutoFine = mf;
     }
 
-    public int getAnno(){
+    public int getAnno() {
         return this.anno;
     }
-    public int getMese(){
+
+    public int getMese() {
         return this.mese;
     }
-    public int getGiorno(){
+
+    public int getGiorno() {
         return this.giorno;
     }
-    public int getOraInizio(){
+
+    public int getOraInizio() {
         return this.oraInizio;
     }
-    public int getOraFine(){
+
+    public int getOraFine() {
         return this.oraFine;
     }
-    public int getMinutoInizio(){
+
+    public int getMinutoInizio() {
         return this.minutoInizio;
     }
-    public int getMinutoFine(){
+
+    public int getMinutoFine() {
         return this.minutoFine;
     }
-    public void setGiornoSettimana(int gs){
+
+    public void setGiornoSettimana(int gs) {
         this.giornoSettimanaN = gs;
     }
-    public int getGiornoSettimana(){
+
+    public int getGiornoSettimana() {
         return this.giornoSettimanaN;
     }
 
-    public String getMeseStringa(int m){
-        String nomemese ="";
-        switch(m){
+    public String getMeseStringa(int m) {
+        String nomemese = "";
+        switch (m) {
             case 1:
                 nomemese = "gennaio";
                 break;
@@ -288,9 +299,9 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
         return nomemese;
     }
 
-    public String getGiornoSettimanaStringa(int g){
+    public String getGiornoSettimanaStringa(int g) {
         String giornoS = "";
-        switch(g){
+        switch (g) {
             case 1:
                 giornoS = "lunedì";
                 break;
@@ -312,10 +323,10 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
             case 0:
                 giornoS = "domenica";
                 break;
-            }
-            return giornoS;
         }
-
+        return giornoS;
     }
+
+}
 
 

@@ -70,10 +70,9 @@ public class DashBoardFragment extends Fragment {
         if (getArguments() != null) {
             emailLoggedUser = getArguments().getString("actualUserMail");
             fs = getArguments().getBoolean("flagSpinner");
-            if(getArguments().getString("materiaSelezionata") != null) {
+            if (getArguments().getString("materiaSelezionata") != null) {
                 materiaSelezionata = getArguments().getString("materiaSelezionata");
-            }
-            else {
+            } else {
                 materiaSelezionata = "DEFAULT";
             }
         }
@@ -101,7 +100,7 @@ public class DashBoardFragment extends Fragment {
 
         selected = spinner.getSelectedItem().toString();
 
-        if(materiaSelezionata.equals("DEFAULT")) {
+        if (materiaSelezionata.equals("DEFAULT")) {
             for (UserTutor t : UserTutorFactory.getInstance().getUserList()) {
                 switch (t.getMateria()) {
                     case "Fisica":
@@ -124,30 +123,29 @@ public class DashBoardFragment extends Fragment {
                         break;
                 }
             }
-        }
-        else{
+        } else {
             for (UserTutor t : UserTutorFactory.getInstance().getUserList()) {
-                if(t.getMateria().equals(materiaSelezionata))
-                switch (t.getMateria()) {
-                    case "Fisica":
-                        myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
-                        mparent.addView(myView);
-                        b = myView.findViewById(R.id.postitverde);
-                        updatePostit(t, myView);
-                        break;
-                    case "Informatica":
-                        myView = layoutInflater.inflate(R.layout.postitred, null, false);
-                        mparent.addView(myView);
-                        b = myView.findViewById(R.id.postitrosso);
-                        updatePostit(t, myView);
-                        break;
-                    case "Matematica":
-                        myView = layoutInflater.inflate(R.layout.postitblue, null, false);
-                        mparent.addView(myView);
-                        b = myView.findViewById(R.id.postitblu);
-                        updatePostit(t, myView);
-                        break;
-                }
+                if (t.getMateria().equals(materiaSelezionata))
+                    switch (t.getMateria()) {
+                        case "Fisica":
+                            myView = layoutInflater.inflate(R.layout.postitgreen, null, false);
+                            mparent.addView(myView);
+                            b = myView.findViewById(R.id.postitverde);
+                            updatePostit(t, myView);
+                            break;
+                        case "Informatica":
+                            myView = layoutInflater.inflate(R.layout.postitred, null, false);
+                            mparent.addView(myView);
+                            b = myView.findViewById(R.id.postitrosso);
+                            updatePostit(t, myView);
+                            break;
+                        case "Matematica":
+                            myView = layoutInflater.inflate(R.layout.postitblue, null, false);
+                            mparent.addView(myView);
+                            b = myView.findViewById(R.id.postitblu);
+                            updatePostit(t, myView);
+                            break;
+                    }
             }
         }
 
@@ -155,7 +153,7 @@ public class DashBoardFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 String selectedNew = spinner.getSelectedItem().toString();
 
-                if(fs != false ) {
+                if (fs != false) {
                     Bundle bundle = new Bundle();
                     bundle.putString("actualUserMail", emailLoggedUser);
                     bundle.putString("materiaSelezionata", selectedNew);
@@ -166,11 +164,12 @@ public class DashBoardFragment extends Fragment {
                     FragmentTransaction transaction = fm.beginTransaction();
                     transaction.replace(R.id.fragment_container, dash);
                     transaction.commit();
-                }
-                else
+                } else
                     fs = true;
             }
-            public void onNothingSelected(AdapterView<?> parent) {}
+
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
     }
 

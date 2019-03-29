@@ -47,7 +47,6 @@ public class EditProfileFragment extends Fragment {
     int errors = 0;
 
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,14 +61,12 @@ public class EditProfileFragment extends Fragment {
         backButton = view.findViewById(R.id.pulsante_indietro_edit_prof);
 
 
-
         if (getArguments() != null) {
-            if(getArguments().getInt("tFlag") == 0){ //Studente
+            if (getArguments().getInt("tFlag") == 0) { //Studente
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedStudente = factoryS.getUserByEmail(loggedUserMail);
                 setTutorFlag(loggedStudente);
-            }
-            else{   //Tutor
+            } else {   //Tutor
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedTutor = factoryT.getUserByEmail(loggedUserMail);
                 setTutorFlag(loggedTutor);
@@ -91,7 +88,7 @@ public class EditProfileFragment extends Fragment {
             });
 
         }
-        if(flagTutor == false) {
+        if (flagTutor == false) {
 
             emailField = view.findViewById(R.id.emailField_edit);
             passwordField = view.findViewById(R.id.passwordField_edit);
@@ -116,47 +113,47 @@ public class EditProfileFragment extends Fragment {
                     /*Check sugli input*/
 
                     /*EmptyInput*/
-                    if(TextUtils.isEmpty(emailStr)) {
+                    if (TextUtils.isEmpty(emailStr)) {
                         emailField.setError("Inserire una mail");
                         errors++;
-                    }else{
+                    } else {
                         passwordField.setError(null);
                     }
 
                     /*EmptyInput*/
-                    if(TextUtils.isEmpty(nameStr)) {
+                    if (TextUtils.isEmpty(nameStr)) {
                         nameField.setError("Questo campo non può essere vuoto");
                         errors++;
-                    }else{
+                    } else {
                         passwordField.setError(null);
                     }
 
-                    if(TextUtils.isEmpty(surnameStr)) {
+                    if (TextUtils.isEmpty(surnameStr)) {
                         surnameField.setError("Questo campo non può essere vuoto");
                         errors++;
-                    }else{
+                    } else {
                         passwordField.setError(null);
                     }
 
-                    if(TextUtils.isEmpty(passwordStr)) {
+                    if (TextUtils.isEmpty(passwordStr)) {
                         passwordField.setError("Questo campo non può essere vuoto");
                         errors++;
-                    }else{
+                    } else {
                         passwordField.setError(null);
                     }
 
-                    if(TextUtils.isEmpty(confirmPasswordStr)) {
+                    if (TextUtils.isEmpty(confirmPasswordStr)) {
                         confirmPasswordField.setError("Questo campo non può essere vuoto");
                         errors++;
                     }
 
                     /*ConfirmPassword doesn't match with the first password*/
-                    if(!confirmPasswordStr.equals(passwordStr)) {
+                    if (!confirmPasswordStr.equals(passwordStr)) {
                         confirmPasswordField.setError("Le password non corrispondono");
                         errors++;
                     }
 
-                    if(errors == 0){
+                    if (errors == 0) {
                         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
                         myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
@@ -168,7 +165,7 @@ public class EditProfileFragment extends Fragment {
                         conferma.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(EditProfileFragment.this.getActivity() ,"Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(EditProfileFragment.this.getActivity(), "Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
                                 loggedStudente.setEmail(emailStr);
                                 loggedUserMail = emailStr;
                                 loggedStudente.setName(nameStr);
@@ -185,14 +182,14 @@ public class EditProfileFragment extends Fragment {
                             }
                         });
 
-                    }else{
+                    } else {
                         errors = 0;
                     }
                 }
             });
 
 
-        }else{
+        } else {
             emailField = view.findViewById(R.id.emailField_edit);
             passwordField = view.findViewById(R.id.passwordField_edit);
             confirmPasswordField = view.findViewById(R.id.confirmPasswordField_edit);
@@ -218,47 +215,47 @@ public class EditProfileFragment extends Fragment {
                     /*Check sugli input*/
 
                     /*EmptyInput*/
-                    if(TextUtils.isEmpty(emailStr)) {
+                    if (TextUtils.isEmpty(emailStr)) {
                         emailField.setError("Inserire una mail");
                         errors++;
-                    }else{
+                    } else {
                         passwordField.setError(null);
                     }
 
                     /*EmptyInput*/
-                    if(TextUtils.isEmpty(nameStr)) {
+                    if (TextUtils.isEmpty(nameStr)) {
                         nameField.setError("Questo campo non può essere vuoto");
                         errors++;
-                    }else{
+                    } else {
                         passwordField.setError(null);
                     }
 
-                    if(TextUtils.isEmpty(surnameStr)) {
+                    if (TextUtils.isEmpty(surnameStr)) {
                         surnameField.setError("Questo campo non può essere vuoto");
                         errors++;
-                    }else{
+                    } else {
                         passwordField.setError(null);
                     }
 
-                    if(TextUtils.isEmpty(passwordStr)) {
+                    if (TextUtils.isEmpty(passwordStr)) {
                         passwordField.setError("Questo campo non può essere vuoto");
                         errors++;
-                    }else{
+                    } else {
                         passwordField.setError(null);
                     }
 
-                    if(TextUtils.isEmpty(confirmPasswordStr)) {
+                    if (TextUtils.isEmpty(confirmPasswordStr)) {
                         confirmPasswordField.setError("Questo campo non può essere vuoto");
                         errors++;
                     }
 
                     /*ConfirmPassword doesn't match with the first password*/
-                    if(!confirmPasswordStr.equals(passwordStr)) {
+                    if (!confirmPasswordStr.equals(passwordStr)) {
                         confirmPasswordField.setError("Le password non corrispondono");
                         errors++;
                     }
 
-                    if(errors == 0){
+                    if (errors == 0) {
                         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
                         myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
@@ -270,7 +267,7 @@ public class EditProfileFragment extends Fragment {
                         conferma.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(EditProfileFragment.this.getActivity() ,"Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(EditProfileFragment.this.getActivity(), "Modifica avvenuta con successo!", Toast.LENGTH_LONG).show();
                                 loggedTutor.setEmail(emailStr);
                                 loggedUserMail = emailStr;
                                 loggedTutor.setName(nameStr);
@@ -287,7 +284,7 @@ public class EditProfileFragment extends Fragment {
                             }
                         });
 
-                    }else{
+                    } else {
                         errors = 0;
                     }
 
@@ -297,13 +294,13 @@ public class EditProfileFragment extends Fragment {
         }
     }
 
-    protected void setTutorFlag(User usr){
+    protected void setTutorFlag(User usr) {
         if (usr instanceof UserStudente)
             this.flagTutor = false;
         else this.flagTutor = true;
     }
 
-    protected boolean getTutorFlag(){
+    protected boolean getTutorFlag() {
         return this.flagTutor;
     }
 

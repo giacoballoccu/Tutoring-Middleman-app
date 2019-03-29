@@ -79,7 +79,7 @@ public class ConversazioniFragment extends Fragment {
             nomeCognome.setText("Nessuna conversazione");    //Nome e cognome del destinatario
     }
 
-    public void update(Conversation conv, View view){
+    public void update(Conversation conv, View view) {
         String n, c, nc;
         TextView utente;
         ImageView immagine;
@@ -89,12 +89,11 @@ public class ConversazioniFragment extends Fragment {
         utente = view.findViewById(R.id.contatto_conversazione);
         immagine = view.findViewById(R.id.avatar_contatto_conversazione);
 
-        if(getTutorFlag() != true){
+        if (getTutorFlag() != true) {
             n = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
             c = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
             avatar = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage();
-        }
-        else{
+        } else {
             n = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
             c = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
             avatar = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage();
@@ -112,7 +111,7 @@ public class ConversazioniFragment extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("actualUserMail", mail);
-                if(tutorFlag == false)
+                if (tutorFlag == false)
                     bundle.putInt("tFlag", 0);
                 else
                     bundle.putInt("tFlag", 1);
@@ -128,17 +127,13 @@ public class ConversazioniFragment extends Fragment {
     }
 
 
-
-
-
-
-    public void setTutorFlag(boolean bool){
-        if(bool == true)
+    public void setTutorFlag(boolean bool) {
+        if (bool == true)
             this.tutorFlag = true;
         else this.tutorFlag = false;
     }
 
-    public boolean getTutorFlag(){
+    public boolean getTutorFlag() {
         return this.tutorFlag;
     }
 

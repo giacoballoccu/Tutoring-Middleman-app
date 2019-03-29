@@ -112,7 +112,7 @@ public class BookFragment extends Fragment {
                 conferma.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(Integer.parseInt(loggedUser.getHours()) > 0) {
+                        if (Integer.parseInt(loggedUser.getHours()) > 0) {
                             ReservationFactory factoryR = ReservationFactory.getInstance();
                             Reservation r = new Reservation(loggedUser, chosenTutor, selected, chosenTutor.getMateria()); //Nuova reservation
                             factoryR.addReservation(r);
@@ -120,7 +120,7 @@ public class BookFragment extends Fragment {
                             Toast.makeText(getContext(), "Prenotazione Avvenuta con Successo!", Toast.LENGTH_LONG).show();
                             mparent.removeView(myView);
                             prenota.setVisibility(View.VISIBLE);
-                        }else{
+                        } else {
                             final Button accetta;
                             mparent.removeView(myView);
                             myView = layoutInflater.inflate(R.layout.prenotazione_fallita, null, false);
@@ -163,11 +163,11 @@ public class BookFragment extends Fragment {
     }
 
 
-    public ArrayList<Integer> sortByDate(ArrayList<String> date, String dateToSearch){
-       ArrayList<Integer> arrayToReturn = new ArrayList<>();
+    public ArrayList<Integer> sortByDate(ArrayList<String> date, String dateToSearch) {
+        ArrayList<Integer> arrayToReturn = new ArrayList<>();
 
-        for(int i = 0; i < date.size(); i++){
-            if(date.equals(dateToSearch)){
+        for (int i = 0; i < date.size(); i++) {
+            if (date.equals(dateToSearch)) {
                 arrayToReturn.add((Integer) i);
             }
         }

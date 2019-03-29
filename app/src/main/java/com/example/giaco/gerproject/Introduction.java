@@ -17,7 +17,6 @@ public class Introduction extends AppCompatActivity {
         setContentView(R.layout.introduction_page);
         setTitle("Info");
 
-
         hocapito = (Button) findViewById(R.id.hocapito);
 
         hocapito.setOnClickListener(new View.OnClickListener() {

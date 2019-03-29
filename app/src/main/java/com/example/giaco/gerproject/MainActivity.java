@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
-        View hView =  navigationView.getHeaderView(0);
+        View hView = navigationView.getHeaderView(0);
         avatarMenu = (ImageView) hView.findViewById(R.id.avatarMenu);
         nomeCognome = (TextView) hView.findViewById(R.id.nomeMenu);
 
@@ -67,21 +67,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         UserStudenteFactory factory = UserStudenteFactory.getInstance();
         UserTutorFactory factoryT = UserTutorFactory.getInstance();
-        if(factory.isEmailInUserList(loggedUserMail))
+        if (factory.isEmailInUserList(loggedUserMail))
             setTutorFlag(false);
         else setTutorFlag(true);
 
         /*Possiamo recuperare tutti i dati che vogliamo, ora bisogna passare l'utente ai fragment*/
         Bundle bundle = new Bundle();
         bundle.putString("actualUserMail", loggedUserMail);
-        if(getTutorFlag() != true)
+        if (getTutorFlag() != true)
             bundle.putInt("tFlag", 0);
         else
             bundle.putInt("tFlag", 1);
 
-        if(!flagTutor){
+        if (!flagTutor) {
             navigationView.getMenu().setGroupVisible(R.id.studente, true);
-        }else{
+        } else {
             navigationView.getMenu().setGroupVisible(R.id.tutor, true);
         }
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bundle.putBoolean("spinnerFlag", false);
         dashboard.setArguments(bundle);
 
-        if(getTutorFlag() == true){
+        if (getTutorFlag() == true) {
             Bundle bundle1 = new Bundle();
             bundle1.putString("chosenTutor", loggedUserMail);
             reviewFragment = new ReviewsFragment();
@@ -119,26 +119,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         conversazioniFragment = new ConversazioniFragment();
         conversazioniFragment.setArguments(bundle);
 
-    if(getTutorFlag() == false){
-        UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
-        avatarMenu.setImageDrawable(loggedUser.getImage());
-        nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
-        /*Device rotation handler*/
-        if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, dashboard).addToBackStack(null).commit();
-            navigationView.setCheckedItem(R.id.nav_dashboardS);
+        if (getTutorFlag() == false) {
+            UserStudente loggedUser = factory.getUserByEmail(loggedUserMail);
+            avatarMenu.setImageDrawable(loggedUser.getImage());
+            nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
+            /*Device rotation handler*/
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, dashboard).addToBackStack(null).commit();
+                navigationView.setCheckedItem(R.id.nav_dashboardS);
+            }
+        } else {
+            UserTutor loggedUser = factoryT.getUserByEmail(loggedUserMail);
+            avatarMenu.setImageDrawable(loggedUser.getImage());
+            nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
+            /*Device rotation handler*/
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage).addToBackStack(null).commit();
+                navigationView.setCheckedItem(R.id.nav_personalpageT);
+            }
         }
-    }
-    else{
-        UserTutor loggedUser = factoryT.getUserByEmail(loggedUserMail);
-        avatarMenu.setImageDrawable(loggedUser.getImage());
-        nomeCognome.setText("" + loggedUser.getName() + " " + loggedUser.getSurname() + "");
-        /*Device rotation handler*/
-        if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage).addToBackStack(null).commit();
-            navigationView.setCheckedItem(R.id.nav_personalpageT);
-        }
-    }
 
 
     }
@@ -146,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     /*Menu handler*/
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch(menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             /*Handler menustudente*/
             case R.id.nav_personalpageS:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personalPage, "Personal Page").commit();
@@ -193,13 +192,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    protected void setTutorFlag(boolean bool){
+    protected void setTutorFlag(boolean bool) {
         if (bool == true)
             this.flagTutor = true;
         else this.flagTutor = false;
     }
 
-    protected boolean getTutorFlag(){
+    protected boolean getTutorFlag() {
         return this.flagTutor;
     }
 }

@@ -57,11 +57,11 @@ public class MyReservationsFragment extends Fragment {
         mparent.addView(myView);
 
 
-        for(int i = 0 ; i < resList.size() ; i++){
+        for (int i = 0; i < resList.size(); i++) {
 
             myView = layoutInflater.inflate(R.layout.single_reservation, null, false);
 
-            if(emailLoggedUser.equals(resList.get(i).getStudente().getEmail()) || emailLoggedUser.equals(resList.get(i).getProfessore().getEmail())) {
+            if (emailLoggedUser.equals(resList.get(i).getStudente().getEmail()) || emailLoggedUser.equals(resList.get(i).getProfessore().getEmail())) {
                 mparent.addView(myView);
             }
             updatePackage(resList.get(i), myView);
@@ -72,11 +72,11 @@ public class MyReservationsFragment extends Fragment {
     }
 
 
-    public void updatePackage (Reservation res, View myView){
+    public void updatePackage(Reservation res, View myView) {
         ImageView img;
         TextView nome, materia, orario;
 
-        Drawable myDrawable =  res.getProfessore().getImage();
+        Drawable myDrawable = res.getProfessore().getImage();
         img = myView.findViewById(R.id.avatar_prenotazione);
         img.setImageDrawable(myDrawable);
 
@@ -86,14 +86,14 @@ public class MyReservationsFragment extends Fragment {
         materia = myView.findViewById(R.id.materia_reservation);
         materia.setText(res.getMateria());
 
-        switch (res.getMateria()){
+        switch (res.getMateria()) {
             case "Fisica":
                 materia.setTextColor(getResources().getColor(R.color.greenfisica));
                 break;
             case "Matematica":
                 materia.setTextColor(getResources().getColor(R.color.bluematematica));
                 break;
-            case "Informatica" :
+            case "Informatica":
                 materia.setTextColor(getResources().getColor(R.color.rossoinformatica));
 
         }
@@ -106,7 +106,7 @@ public class MyReservationsFragment extends Fragment {
 
     }
 
-    private void setOnClick(final View myView, final ImageButton delete){
+    private void setOnClick(final View myView, final ImageButton delete) {
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override

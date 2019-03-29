@@ -78,17 +78,16 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                     if (factoryStudente.getUserByEmail(emailStr).getPassword().equals(passwordStr)) {
                         UserStudente actualUser = factoryStudente.getUserByEmail(emailStr);
 
-                        Intent successfullyLogged = new Intent(LoginPage.this,MainActivity.class);
+                        Intent successfullyLogged = new Intent(LoginPage.this, MainActivity.class);
                         successfullyLogged.putExtra("actualUserMail", actualUser.getEmail());
                         successfullyLogged.putExtra("tFlag", 0);
                         startActivity(successfullyLogged);
                         finish();
-                    }
-                    else{
+                    } else {
                         loginError.setText("Dati errati");
                         loginError.setVisibility(View.VISIBLE);
                     }
-                } else if(factoryTutor.isEmailInUserList(emailStr)){
+                } else if (factoryTutor.isEmailInUserList(emailStr)) {
                     if (factoryTutor.getUserByEmail(emailStr).getPassword().equals(passwordStr)) {
                         UserTutor actualUser = factoryTutor.getUserByEmail(emailStr);
 
@@ -97,17 +96,15 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                         successfullyLogged.putExtra("tFlag", 1);
                         startActivity(successfullyLogged);
                         finish();
-                    }else{
+                    } else {
                         loginError.setText("Dati errati");
                         loginError.setVisibility(View.VISIBLE);
                     }
-                }
-
-                else{
-                    if(emailStr.length() == 0 || passwordStr.length() == 0){
+                } else {
+                    if (emailStr.length() == 0 || passwordStr.length() == 0) {
                         loginError.setText("Completare tutti i campi");
                         loginError.setVisibility(View.VISIBLE);
-                    }else{
+                    } else {
                         loginError.setText("Dati errati");
                         loginError.setVisibility(View.VISIBLE);
                     }

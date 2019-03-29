@@ -58,17 +58,16 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         if (getArguments() != null) {
-            if(getArguments().getString("flagAggiunta") == "ok"){
+            if (getArguments().getString("flagAggiunta") == "ok") {
                 //DisponibilitaFactory.getInstance().addDisponibilita(getArguments().getInt("giornoN"), getArguments().getInt("meseN"), getArguments().getInt("annoN"));
                 listaDiDate = DisponibilitaFactory.getInstance().addDisponibilita(getArguments().getInt("giornoN"), getArguments().getInt("meseN"), getArguments().getInt("annoN"), getArguments().getInt("oraiN"), getArguments().getInt("oraF"), getArguments().getInt("giornoSettimana"));
 
             }
-            if(getArguments().getInt("tFlag") == 0){ //Studente
+            if (getArguments().getInt("tFlag") == 0) { //Studente
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
                 setTutorFlag(loggedStudente);
-            }
-            else{   //Tutor
+            } else {   //Tutor
                 loggedUserMail = getArguments().getString("actualUserMail");
                 loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
                 setTutorFlag(loggedTutor);
@@ -78,8 +77,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         if (getTutorFlag() == true) {
             bundle.putString("chosenTutor", loggedUserMail);
             return inflater.inflate(R.layout.fragment_tutor_personal_page, container, false);
-        }
-        else
+        } else
             return inflater.inflate(R.layout.fragment_personal_page, container, false);
 
     }
@@ -102,25 +100,23 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             recharge = (Button) view.findViewById(R.id.rechargeButton);
             editProfile = (ImageButton) view.findViewById(R.id.editButton);
             if (getArguments() != null) {
-                    loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
-                    /*Dynamic data*/
-                    userName.setText("" + loggedStudente.getName() + " " + loggedStudente.getSurname() + "");
-                    hours.setText("" + loggedStudente.getHours() + "");
-                    userImg.setImageDrawable(resize(loggedStudente.getImage()));
+                loggedStudente = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);
+                /*Dynamic data*/
+                userName.setText("" + loggedStudente.getName() + " " + loggedStudente.getSurname() + "");
+                hours.setText("" + loggedStudente.getHours() + "");
+                userImg.setImageDrawable(resize(loggedStudente.getImage()));
             }
             recharge.setOnClickListener(this);
 
 
-        }
-        else{   //Dati del tutor
+        } else {   //Dati del tutor
             userName = (TextView) view.findViewById(R.id.usernameT);
             userImg = (ImageView) view.findViewById(R.id.profileImgT);
             stelline = (ImageView) view.findViewById(R.id.stelline);
-            if(getArguments()!=null && getArguments().getString("flagAggiunta") != "ok") {
+            if (getArguments() != null && getArguments().getString("flagAggiunta") != "ok") {
                 listaDiDate = DisponibilitaFactory.getInstance().getDate();
                 loggedTutor.setDisponibilitaData(listaDiDate);
-            }
-            else
+            } else
                 loggedTutor.setDisponibilitaData(listaDiDate);
             materia = (TextView) view.findViewById(R.id.materia);
             editAgenda = (ImageButton) view.findViewById(R.id.editAgendaButton);
@@ -136,37 +132,37 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
 
             /*Dynamic data*/
             layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
-                materia.setText(""+ loggedTutor.getMateria() +"");
-                dparent = view.findViewById(R.id.dparent);
+            userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
+            materia.setText("" + loggedTutor.getMateria() + "");
+            dparent = view.findViewById(R.id.dparent);
 
-                for(String str : loggedTutor.getDisponibilitaData()){
-                    myView = layoutInflater.inflate(R.layout.disponibilita_tutor, null, false);
-                    dparent.addView(myView);
-                    updateDisponibilita(str, myView);
-                }
-                userImg.setImageDrawable(resize(loggedTutor.getImage()));
+            for (String str : loggedTutor.getDisponibilitaData()) {
+                myView = layoutInflater.inflate(R.layout.disponibilita_tutor, null, false);
+                dparent.addView(myView);
+                updateDisponibilita(str, myView);
+            }
+            userImg.setImageDrawable(resize(loggedTutor.getImage()));
 
-                switch (loggedTutor.getVotoTotaleMedio()){
-                    case 0:
-                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.zerostelle));
-                        break;
-                    case 1:
-                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.unastella));
-                        break;
-                    case 2:
-                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.duestelle));
-                        break;
-                    case 3:
-                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.trestelle));
-                        break;
-                    case 4:
-                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.quattrostelle));
-                        break;
-                    case 5:
-                        stelline.setImageDrawable(getResources().getDrawable(R.drawable.cinquestelle));
-                        break;
-                }
+            switch (loggedTutor.getVotoTotaleMedio()) {
+                case 0:
+                    stelline.setImageDrawable(getResources().getDrawable(R.drawable.zerostelle));
+                    break;
+                case 1:
+                    stelline.setImageDrawable(getResources().getDrawable(R.drawable.unastella));
+                    break;
+                case 2:
+                    stelline.setImageDrawable(getResources().getDrawable(R.drawable.duestelle));
+                    break;
+                case 3:
+                    stelline.setImageDrawable(getResources().getDrawable(R.drawable.trestelle));
+                    break;
+                case 4:
+                    stelline.setImageDrawable(getResources().getDrawable(R.drawable.quattrostelle));
+                    break;
+                case 5:
+                    stelline.setImageDrawable(getResources().getDrawable(R.drawable.cinquestelle));
+                    break;
+            }
 
             recensioni.setOnClickListener(this);
             editAgenda.setOnClickListener(this);
@@ -175,30 +171,30 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     }
 
     private Drawable resize(Drawable image) {
-        Bitmap b = ((BitmapDrawable)image).getBitmap();
+        Bitmap b = ((BitmapDrawable) image).getBitmap();
         Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 150, 150, false);
         Context context = ApplicationContextProvider.getContext();
         return new BitmapDrawable(context.getResources(), bitmapResized);
     }
 
-    protected void setTutorFlag(User usr){
+    protected void setTutorFlag(User usr) {
         if (usr instanceof UserStudente)
             this.flagTutor = false;
         else this.flagTutor = true;
     }
 
-    public void updateDisponibilita (String str, View myView){
+    public void updateDisponibilita(String str, View myView) {
         TextView text_disponibilita;
         text_disponibilita = myView.findViewById(R.id.disponibilita);
         text_disponibilita.setText("" + str + "");
     }
 
-    protected boolean getTutorFlag(){
+    protected boolean getTutorFlag() {
         return this.flagTutor;
     }
 
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.editButtonT:
                 Bundle bundle = new Bundle();
                 bundle.putString("actualUserMail", loggedUserMail);

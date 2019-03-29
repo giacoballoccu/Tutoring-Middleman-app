@@ -69,7 +69,7 @@ public class BuyPackagesFragment extends Fragment {
         }
     }
 
-    public void updatePackage (Package packet, View myView){
+    public void updatePackage(Package packet, View myView) {
         ImageView img;
         TextView prezzo, ore;
         float prezzoF;
@@ -83,7 +83,7 @@ public class BuyPackagesFragment extends Fragment {
         oreF = packet.getnOre();
         ore.setText(String.valueOf(oreF) + " Ore di ripetizione");
 
-        if(packet.getPrezzo()> 4.99f){
+        if (packet.getPrezzo() > 4.99f) {
             Drawable myDrawable = packet.getImage();
             img = (ImageView) myView.findViewById(R.id.imgpack);
             img.setImageDrawable(myDrawable);
@@ -93,7 +93,7 @@ public class BuyPackagesFragment extends Fragment {
 
     }
 
-    private void setOnClick(final Button btn, final int ore){
+    private void setOnClick(final Button btn, final int ore) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

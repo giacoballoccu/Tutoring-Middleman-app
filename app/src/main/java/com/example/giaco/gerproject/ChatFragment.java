@@ -46,19 +46,18 @@ public class ChatFragment extends Fragment {
     UserStudenteFactory studenteFactory = UserStudenteFactory.getInstance();
 
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //if (loggedUser.getEmail().equals(factory.getMittente()))
-            return inflater.inflate(R.layout.chat_fragment, container, false);
+        return inflater.inflate(R.layout.chat_fragment, container, false);
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
             loggedUserMail = getArguments().getString("actualUserMail");
-            if(getArguments().getInt("tFlag") == 0)
+            if (getArguments().getInt("tFlag") == 0)
                 setTutorFlag(false);
             else
                 setTutorFlag(true);
@@ -67,7 +66,7 @@ public class ChatFragment extends Fragment {
         cparentL = view.findViewById(R.id.cparentL);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if(getTutorFlag() != true)
+        if (getTutorFlag() != true)
             loggedUser = UserStudenteFactory.getInstance().getUserByEmail(loggedUserMail);  //Studente p
         else
             loggedUser = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);  //Tutor
@@ -78,13 +77,12 @@ public class ChatFragment extends Fragment {
         nomeCognome = view.findViewById(R.id.contatto);
         avatarDestinatario = view.findViewById(R.id.avatar_destinatario);
 
-        if(factoryConversazione.checkDestinatario(loggedUserMail) != null) {    //Se esiste una conversazione con qualcuno
-            if(getTutorFlag() != true) {
+        if (factoryConversazione.checkDestinatario(loggedUserMail) != null) {    //Se esiste una conversazione con qualcuno
+            if (getTutorFlag() != true) {
                 avatarDestinatario.setImageDrawable(UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
                 tutorNome = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
                 tutorCognome = UserTutorFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
-            }
-            else{
+            } else {
                 avatarDestinatario.setImageDrawable(UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getImage());
                 tutorNome = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getName();
                 tutorCognome = UserStudenteFactory.getInstance().getUserByEmail(factoryConversazione.checkDestinatario(loggedUserMail)).getSurname();
@@ -102,41 +100,41 @@ public class ChatFragment extends Fragment {
                     updateR(factoryConversazione.getConversazioneByMittente(loggedUserMail).getMessaggiDes(), myView, i);
                 }
             }
-        }
-        else{
+        } else {
             avatarDestinatario.setVisibility(View.GONE);
             nomeCognome.setText("Nessuna conversazione");    //Nome e cognome del destinatario
         }
     }
 
-    public void updateR(ArrayList<Message> msg, View myView, int id){
+    public void updateR(ArrayList<Message> msg, View myView, int id) {
         TextView contenuto, fakeTOP;
-        int n = (int)(Math.random() * (msg.size() - 1) + 0);
+        int n = (int) (Math.random() * (msg.size() - 1) + 0);
         contenuto = myView.findViewById(R.id.messaggio);
         fakeTOP = (TextView) myView.findViewById(R.id.fakeMessaggioTOP);
-        if(id == 0)
-            fakeTOP.setVisibility(View.GONE);
-        contenuto.setText(msg.get(n).getContenuto());
-        fakeTOP.setText("SONO NASCOSTO IN ALTO");
-    }
-    public void updateL(ArrayList<Message> msg, View myView,  int id){
-        TextView contenuto, fakeTOP;
-        int n = (int)(Math.random() * (msg.size() - 1) + 0);
-        contenuto = (TextView) myView.findViewById(R.id.messaggio);
-        fakeTOP = (TextView) myView.findViewById(R.id.fakeMessaggioTOP);
-        if(id == 0)
+        if (id == 0)
             fakeTOP.setVisibility(View.GONE);
         contenuto.setText(msg.get(n).getContenuto());
         fakeTOP.setText("SONO NASCOSTO IN ALTO");
     }
 
-    public void setTutorFlag(boolean bool){
-        if(bool == true)
+    public void updateL(ArrayList<Message> msg, View myView, int id) {
+        TextView contenuto, fakeTOP;
+        int n = (int) (Math.random() * (msg.size() - 1) + 0);
+        contenuto = (TextView) myView.findViewById(R.id.messaggio);
+        fakeTOP = (TextView) myView.findViewById(R.id.fakeMessaggioTOP);
+        if (id == 0)
+            fakeTOP.setVisibility(View.GONE);
+        contenuto.setText(msg.get(n).getContenuto());
+        fakeTOP.setText("SONO NASCOSTO IN ALTO");
+    }
+
+    public void setTutorFlag(boolean bool) {
+        if (bool == true)
             this.tutorFlag = true;
         else this.tutorFlag = false;
     }
 
-    public boolean getTutorFlag(){
+    public boolean getTutorFlag() {
         return this.tutorFlag;
     }
 

@@ -72,107 +72,107 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            emailStr = email.getText().toString();
-            nameStr = name.getText().toString();
-            surnameStr = surname.getText().toString();
-            passwordStr = password.getText().toString();
-            confirmPasswordStr = confirmPassword.getText().toString();
-            phoneStr = phone.getText().toString();
+                emailStr = email.getText().toString();
+                nameStr = name.getText().toString();
+                surnameStr = surname.getText().toString();
+                passwordStr = password.getText().toString();
+                confirmPasswordStr = confirmPassword.getText().toString();
+                phoneStr = phone.getText().toString();
 
-            /*Check sugli input*/
+                /*Check sugli input*/
 
-            /*EmptyInput*/
-            if(TextUtils.isEmpty(emailStr)) {
-                email.setError("Inserire una mail");
-                errors++;
-            }else{
-                password.setError(null);
-            }
+                /*EmptyInput*/
+                if (TextUtils.isEmpty(emailStr)) {
+                    email.setError("Inserire una mail");
+                    errors++;
+                } else {
+                    password.setError(null);
+                }
 
-            /*Check if the user has insert an email andress*/
-            Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[AZa-z0-9.-]+-\\.[A-Za-z]{2,4}");
-            Matcher mat = pattern.matcher(emailStr);
+                /*Check if the user has insert an email andress*/
+                Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[AZa-z0-9.-]+-\\.[A-Za-z]{2,4}");
+                Matcher mat = pattern.matcher(emailStr);
 
-            if(mat.matches()){
-                password.setError(null);
+                if (mat.matches()) {
+                    password.setError(null);
 
-            }else{
-                email.setError("Inserisci un email valida");
-                errors++;
-            }
+                } else {
+                    email.setError("Inserisci un email valida");
+                    errors++;
+                }
 
-            /*Check if user has already sign up to the app*/
-            if(factory.isEmailInUserList(emailStr)){
-                email.setError("L'email è già stata utilizzata");
-                errors++;
-            }else{
-                password.setError(null);
-            }
+                /*Check if user has already sign up to the app*/
+                if (factory.isEmailInUserList(emailStr)) {
+                    email.setError("L'email è già stata utilizzata");
+                    errors++;
+                } else {
+                    password.setError(null);
+                }
 
-            /*EmptyInput*/
-            if(TextUtils.isEmpty(nameStr)) {
-                name.setError("Questo campo non può essere vuoto");
-                errors++;
-            }else{
-                password.setError(null);
-            }
+                /*EmptyInput*/
+                if (TextUtils.isEmpty(nameStr)) {
+                    name.setError("Questo campo non può essere vuoto");
+                    errors++;
+                } else {
+                    password.setError(null);
+                }
 
-            if(TextUtils.isEmpty(surnameStr)) {
-                surname.setError("Questo campo non può essere vuoto");
-                errors++;
-            }else{
-                password.setError(null);
-            }
+                if (TextUtils.isEmpty(surnameStr)) {
+                    surname.setError("Questo campo non può essere vuoto");
+                    errors++;
+                } else {
+                    password.setError(null);
+                }
 
-            if(TextUtils.isEmpty(passwordStr)) {
-                password.setError("Questo campo non può essere vuoto");
-                errors++;
-            }else{
-                password.setError(null);
-            }
+                if (TextUtils.isEmpty(passwordStr)) {
+                    password.setError("Questo campo non può essere vuoto");
+                    errors++;
+                } else {
+                    password.setError(null);
+                }
 
-            //Da scommentare quando finiamo, per questioni di test non ci serve ora
+                //Da scommentare quando finiamo, per questioni di test non ci serve ora
             /*Check if password is long enough
             if(passwordStr.length() >= 8) {
                 password.setError("La password deve essere più lunga di 8 caratteri");
                 return;
             }*/
 
-            if(TextUtils.isEmpty(confirmPasswordStr)) {
-                confirmPassword.setError("Questo campo non può essere vuoto");
-                errors++;
-            }
+                if (TextUtils.isEmpty(confirmPasswordStr)) {
+                    confirmPassword.setError("Questo campo non può essere vuoto");
+                    errors++;
+                }
 
-            /*ConfirmPassword doesn't match with the first password*/
-            if(!confirmPasswordStr.equals(passwordStr)) {
-                confirmPassword.setError("Le password non corrispondono");
-                errors++;
-            }
+                /*ConfirmPassword doesn't match with the first password*/
+                if (!confirmPasswordStr.equals(passwordStr)) {
+                    confirmPassword.setError("Le password non corrispondono");
+                    errors++;
+                }
 
 
-            if(TextUtils.isEmpty(phoneStr)) {
-                phone.setError("Questo campo non può essere vuoto");
-            }
+                if (TextUtils.isEmpty(phoneStr)) {
+                    phone.setError("Questo campo non può essere vuoto");
+                }
 
-            /*Check if the input is a telephone number (10 digits) and only digits*/
-            if(TextUtils.isDigitsOnly(phoneStr) || phoneStr.length() == 10){
-                phone.setError("Inserire un numero di telefono valido");
-            }
+                /*Check if the input is a telephone number (10 digits) and only digits*/
+                if (TextUtils.isDigitsOnly(phoneStr) || phoneStr.length() == 10) {
+                    phone.setError("Inserire un numero di telefono valido");
+                }
 
-            if(errors == 0){
-                /*Inserimento utente*/
-                UserStudente newUser = new UserStudente(emailStr, nameStr, surnameStr, passwordStr, phoneStr);
-                factory.getUserList().add(newUser);
-                Toast.makeText(SignUp.this,"Registrazione avvenuta con successo!", Toast.LENGTH_LONG).show();
-                Intent registrationSuccess = new Intent(SignUp.this,
-                        LoginPage.class);
-                startActivity(registrationSuccess);
-            }else{
-                errors = 0;
-            }
+                if (errors == 0) {
+                    /*Inserimento utente*/
+                    UserStudente newUser = new UserStudente(emailStr, nameStr, surnameStr, passwordStr, phoneStr);
+                    factory.getUserList().add(newUser);
+                    Toast.makeText(SignUp.this, "Registrazione avvenuta con successo!", Toast.LENGTH_LONG).show();
+                    Intent registrationSuccess = new Intent(SignUp.this,
+                            LoginPage.class);
+                    startActivity(registrationSuccess);
+                } else {
+                    errors = 0;
+                }
 
             }
         });
-        }
-
     }
+
+}
