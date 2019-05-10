@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.giaco.gerproject.Classes.Package;
 import com.example.giaco.gerproject.Classes.PackageFactory;
 import com.example.giaco.gerproject.Classes.UserStudente;
+import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 
 import org.w3c.dom.Text;
 
@@ -34,6 +35,7 @@ public class BuyPackagesFragment extends Fragment {
     LayoutInflater layoutInflater;
     View myView, staticView;
     PackageFactory factory = PackageFactory.getInstance();
+    UserStudenteFactory studenteFactory = UserStudenteFactory.getInstance();
     ArrayList<Package> packList = factory.getPackages();
     int ore_rimaste;
     Button b;
@@ -49,12 +51,14 @@ public class BuyPackagesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Acquista pacchetti");
+
         if (getArguments() != null) {
             emailLoggedUser = getArguments().getString("actualUserMail");
         }
+
         mparent = (LinearLayout) view.findViewById(R.id.parentview);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+        loggedUser = studenteFactory.getUserByEmail(emailLoggedUser);
         staticView = layoutInflater.inflate(R.layout.ore_rimanenti_static, null, false);
         mparent.addView(staticView);
         aux = (TextView) staticView.findViewById(R.id.n_ore_rimanenti);
@@ -101,6 +105,7 @@ public class BuyPackagesFragment extends Fragment {
                 t = staticView.findViewById(R.id.n_ore_rimanenti);
                 ore_rimaste = ore_rimaste + ore;
                 t.setText(String.valueOf(ore_rimaste) + " Ore di ripetizione");
+                loggedUser.setHours(String.valueOf(ore_rimaste));
             }
         });
     }
