@@ -3,30 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
     android:orientation="vertical">
-
 
 
     <TextView
         android:id="@+id/fakeMessaggioTOP"
         android:layout_width="match_parent"
         android:layout_height="82dp"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="8dp"
         android:text="BUONASERA METROPOLE, DOLCE VITA GRANDE KOHLE"
         android:textColor="@color/blackGrey"
         android:visibility="invisible" />
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="389dp"
-            android:layout_height="83dp"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="12dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/chatbubble" />
 
@@ -36,8 +39,12 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/imageView3"
             android:layout_alignTop="@+id/imageView3"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="15dp"
+            android:layout_alignEnd="@+id/imageView3"
+            android:layout_alignBottom="@+id/imageView3"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="18dp"
             android:fontFamily="@font/quicksand"
             android:gravity="center"
             android:text="BUONASERA METROPOLE, DOLCE VITA GRANDE KOHLE"

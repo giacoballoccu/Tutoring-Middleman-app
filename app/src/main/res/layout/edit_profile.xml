@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".SignUp"
     android:orientation="vertical"
-    android:id="@+id/parent_linearlayout">
+    android:id="@+id/parent_linearlayout"
+    android:animateLayoutChanges="true">
 
 
     <ScrollView

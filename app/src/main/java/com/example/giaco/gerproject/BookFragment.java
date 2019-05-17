@@ -102,9 +102,8 @@ public class BookFragment extends Fragment {
             public void onClick(View v) {
                 layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
-                myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
+                //myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
                 mparent.addView(myView);
-                prenota.setVisibility(View.GONE);
                 final Button conferma, cancella;
                 conferma = (Button) myView.findViewById(R.id.prenotazione_yes);
                 cancella = (Button) myView.findViewById(R.id.prenotazione_no);

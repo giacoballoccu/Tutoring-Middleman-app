@@ -11,149 +11,130 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:animateLayoutChanges="true"
+        >
 
-        <ImageView
-            android:id="@+id/avatarTutor"
-            android:layout_width="151dp"
-            android:layout_height="128dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/ernioavatar1_round" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="137dp"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container_dati_tutor"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="190dp"
-            android:layout_marginLeft="190dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="84dp"
-            android:text="Tutor:"
-            android:textSize="18sp"
-            app:fontFamily="@font/quicksand" />
-
-        <TextView
-            android:id="@+id/nome_cognome_prenotazione"
-            android:layout_width="209dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView8"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="14dp"
-            android:layout_marginLeft="14dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="21dp"
-            android:layout_toEndOf="@+id/avatarTutor"
-            android:layout_toRightOf="@+id/avatarTutor"
-            android:gravity="center"
-            android:text="Nome Cognome"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/quicksand"
-            app:layout_constraintStart_toEndOf="@+id/avatarTutor"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="138dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nome_cognome_prenotazione"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="81dp"
-            android:layout_toEndOf="@+id/avatarTutor"
-            android:layout_toRightOf="@+id/avatarTutor"
-            android:text="Materia:"
-            android:textSize="18sp"
-            app:fontFamily="@font/quicksand" />
-
-        <TextView
-            android:id="@+id/materia_prenotazione"
-            android:layout_width="207dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView10"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="184dp"
-            android:layout_marginLeft="184dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="20dp"
-            android:gravity="center"
-            android:text="materia"
-            android:textSize="24sp"
-            app:fontFamily="@font/quicksand"
-            app:layout_constraintStart_toEndOf="@+id/avatarTutor"
-            app:layout_constraintTop_toBottomOf="@+id/nome_cognome_prenotazione" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="178dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/materia_prenotazione"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="57dp"
-            android:layout_marginLeft="57dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="176dp"
-            android:text="Indirizzo di residenza:"
-            android:textSize="18sp"
-            app:fontFamily="@font/quicksand" />
-
-        <TextView
-            android:id="@+id/indirizzo_residenza_prenotazione"
-            android:layout_width="307dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView11"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="51dp"
-            android:layout_marginLeft="51dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="53dp"
-            android:gravity="center"
-            android:text="Indirizzo di residenza "
-            android:textSize="24sp"
-            app:fontFamily="@font/quicksand"
+            android:background="@android:color/white"
+            android:elevation="10dp"
+            android:paddingBottom="6dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/avatarTutor" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <View
-            android:id="@+id/divider6"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/indirizzo_residenza_prenotazione"
-            android:layout_marginTop="18dp"
-            android:background="?android:attr/listDivider" />
+            <TextView
+                android:id="@+id/indirizzo_residenza_prenotazione"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Indirizzo di residenza "
+                android:textSize="24sp"
+                app:fontFamily="@font/quicksand"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="178dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/indirizzo_residenza_prenotazione"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="12dp"
+                android:text="Indirizzo di residenza:"
+                android:textSize="18sp"
+                app:fontFamily="@font/quicksand"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materia_prenotazione" />
+
+            <ImageView
+                android:id="@+id/avatarTutor"
+                android:layout_width="151dp"
+                android:layout_height="128dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/ernioavatar1_round" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:text="Tutor:"
+                android:textSize="18sp"
+                app:fontFamily="@font/quicksand"
+                app:layout_constraintStart_toEndOf="@+id/avatarTutor"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/nome_cognome_prenotazione"
+                android:layout_width="209dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:text="Nome Cognome"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/quicksand"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/avatarTutor"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="138dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Materia:"
+                android:textSize="18sp"
+                app:fontFamily="@font/quicksand"
+                app:layout_constraintStart_toEndOf="@+id/avatarTutor"
+                app:layout_constraintTop_toBottomOf="@+id/nome_cognome_prenotazione" />
+
+            <TextView
+                android:id="@+id/materia_prenotazione"
+                android:layout_width="207dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"
+                android:text="materia"
+                android:textSize="24sp"
+                app:fontFamily="@font/quicksand"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/avatarTutor"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        </android.support.constraint.ConstraintLayout>
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="237dp"
             android:layout_height="44dp"
-            android:layout_below="@+id/divider6"
+            android:layout_below="@+id/container_dati_tutor"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="79dp"
-            android:layout_marginLeft="79dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="95dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="101dp"
             android:text="Scegli il giorno in cui desideri prenotarti:"
             android:textSize="18sp"
             app:fontFamily="@font/quicksand" />
@@ -172,8 +153,7 @@
             android:layout_marginEnd="77dp"
             android:layout_marginRight="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/indirizzo_residenza_prenotazione" />
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <Button
             android:id="@+id/prenota"
@@ -183,17 +163,16 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="108dp"
-            android:layout_marginLeft="108dp"
-            android:layout_marginTop="69dp"
-            android:layout_marginEnd="104dp"
+            android:layout_marginStart="105dp"
+            android:layout_marginLeft="105dp"
+            android:layout_marginTop="57dp"
+            android:layout_marginEnd="107dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:background="@color/blueButtons"
             android:fontFamily="@font/quicksand"
             android:text="Prenota"
             android:textSize="24sp"
-            android:typeface="monospace"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.02"
@@ -211,6 +190,7 @@
             android:layout_marginStart="149dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="144dp"
+            android:background="@color/blueButtons"
             android:fontFamily="@font/quicksand"
             android:text="Richiedi nuova data" />
 
