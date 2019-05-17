@@ -53,10 +53,10 @@
         android:layout_marginLeft="188dp"
         android:layout_marginTop="73dp"
         android:text="TextView"
-        android:textColor="@color/blackGrey"
+        android:textColor="@color/blackGreyn2"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:fontFamily="sans-serif-thin" />
+        app:fontFamily="@font/quicksand" />
 
     <ImageView
         android:id="@+id/feedback_stelle"
@@ -69,30 +69,30 @@
         android:layout_alignRight="@+id/imageButton"
         android:layout_marginStart="73dp"
         android:layout_marginLeft="76dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="22dp"
         android:layout_marginEnd="75dp"
         android:layout_marginRight="74dp"
         app:srcCompat="@drawable/zerostelle" />
 
     <TextView
         android:id="@+id/materia"
-        android:layout_width="178dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nomeCognome"
         android:layout_alignStart="@+id/postitblu"
         android:layout_alignLeft="@+id/imageButton"
         android:layout_alignEnd="@+id/postitblu"
         android:layout_alignRight="@+id/imageButton"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="65dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginRight="100dp"
         android:gravity="center"
         android:text="materia"
         android:textColor="@color/bluematematica"
-        android:textSize="30sp"
-        app:fontFamily="sans-serif-condensed-light" />
+        android:textSize="36sp"
+        app:fontFamily="@font/quicksand" />
 
     <TextView
         android:id="@+id/emailTutor"

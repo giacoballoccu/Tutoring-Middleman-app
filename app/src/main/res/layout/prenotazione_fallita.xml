@@ -40,7 +40,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/blueButtons"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/quicksand"
             android:text="OK"
             android:textColor="@color/blackGrey"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
@@ -60,7 +60,7 @@
             android:gravity="center"
             android:text="Prenotazione fallita, non hai abbastanza ore"
             android:textSize="24sp"
-            app:fontFamily="sans-serif-light"
+            app:fontFamily="@font/quicksand"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="@+id/imageView5" />

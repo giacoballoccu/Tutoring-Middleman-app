@@ -47,7 +47,7 @@
                 android:layout_width="0dp"
                 android:layout_height="63dp"
                 android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-black"
+                android:fontFamily="@font/quicksand"
                 android:gravity="center"
                 android:text="LOGIN"
                 android:textSize="50dp"
@@ -64,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
+                android:fontFamily="@font/quicksand"
                 android:gravity="center"
                 android:text="Email"
                 android:textSize="24sp"
@@ -82,6 +83,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:ems="10"
+                android:fontFamily="@font/quicksand"
                 android:hint="Inserire l'email"
                 android:inputType="textEmailAddress"
                 android:selectAllOnFocus="false"
@@ -97,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/quicksand"
                 android:gravity="center"
                 android:text="Password"
                 android:textSize="24sp"
@@ -115,6 +118,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:ems="10"
+                android:fontFamily="@font/quicksand"
                 android:hint="Inserire la password"
                 android:inputType="textPassword"
                 app:layout_constraintBottom_toTopOf="@+id/forgottenPass"
@@ -145,11 +149,12 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="44dp"
                 android:clickable="true"
+                android:fontFamily="@font/quicksand"
                 android:text="Hai dimenticato la password?"
                 android:textColor="@android:color/holo_blue_dark"
                 app:layout_constraintBottom_toTopOf="@+id/login_button"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.494"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
@@ -160,7 +165,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/blueButtons"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/quicksand"
                 android:text="LOGIN"
                 android:textSize="32sp"
                 android:typeface="sans"
@@ -187,6 +192,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/quicksand"
                     android:text="Non sei ancora registrato?" />
 
                 <TextView
@@ -196,6 +202,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="20dp"
                     android:clickable="true"
+                    android:fontFamily="@font/quicksand"
                     android:text="Registrati"
                     android:textColor="@android:color/holo_blue_dark" />
             </LinearLayout>

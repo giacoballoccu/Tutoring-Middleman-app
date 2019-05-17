@@ -35,9 +35,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="49dp"
                 android:layout_gravity="center"
+                android:fontFamily="@font/quicksand"
                 android:text="Modifica profilo"
-                android:textSize="30sp"
-                />
+                android:textSize="30sp" />
 
             <ImageButton
                 android:layout_width="100dp"
@@ -54,38 +54,40 @@
                 android:id="@+id/emailField_edit"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:contentDescription="emailField_edit"
-                android:layout_marginTop="20dp"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
                 android:layout_gravity="center"
-                />
+                android:layout_marginTop="20dp"
+                android:contentDescription="emailField_edit"
+                android:fontFamily="@font/quicksand"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/passwordField_edit"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/quicksand"
                 android:hint="Password"
-                android:inputType="textPassword"
-                />
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/confirmPasswordField_edit"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/quicksand"
                 android:hint="Conferma Password"
-                android:inputType="textPassword"
-                android:layout_gravity="center" />
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/nameField_edit"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/quicksand"
                 android:hint="Nome"
                 android:inputType="textPersonName" />
 
@@ -93,11 +95,11 @@
                 android:id="@+id/surnameField_edit"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:hint="Cognome"
-                android:inputType="textPersonName"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                />
+                android:fontFamily="@font/quicksand"
+                android:hint="Cognome"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/errorSignup_edit"
@@ -117,7 +119,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:background="@color/blueButtons"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/quicksand"
                 android:text="Modifica"
                 android:textSize="24sp" />
 

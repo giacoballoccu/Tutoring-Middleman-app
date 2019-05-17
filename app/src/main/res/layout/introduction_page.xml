@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Introduction">
 
     <ScrollView
+        android:id="@+id/scrollView4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fillViewport="true">
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,11 +27,10 @@
                 android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="71dp"
-                android:fontFamily="sans-serif-light"
+                android:fontFamily="@font/quicksand"
                 android:gravity="center"
                 android:text="COME FUNZIONA?"
                 android:textSize="30sp"
-                app:layout_constraintBottom_toTopOf="@+id/descrizione"
                 app:layout_constraintEnd_toStartOf="@+id/right_guideline"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/left_guideline"
@@ -38,21 +38,18 @@
 
             <TextView
                 android:id="@+id/descrizione"
-                android:layout_width="0dp"
+                android:layout_width="385dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/quicksand"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="5sp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:text="L'applicazione nasce come supporto digitale al progetto ‘Ripetizioni Studenti Cagliari’. Lo scopo è quello di creare una squadra di Studenti Selezionati, detti Tutor, per le loro competenze e offrire ripetizioni ad altri studenti a prezzi moderati. L’associazione funziona da intermediario tra il Tutor che vorrebbe dare ripetizioni, ma non ha l'esposizione necessaria o il tempo per trovare clientela, e lo studente che ha necessità di ripetizioni a prezzi ridotti somministrate da un altro studente. Se sei interessato ad ottenere delle ripetizioni, iscriviti, se invece vuoi diventare tutor contattaci."
                 android:textSize="19dp"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/left_guideline"
-                app:layout_constraintTop_toBottomOf="@+id/title" />
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                tools:layout_editor_absoluteX="10dp" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -70,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="@font/quicksand"
                     android:gravity="center"
                     android:text="Vuoi diventare un tutor?"
                     android:textAlignment="center"
@@ -86,6 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="29dp"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/quicksand"
                     android:gravity="center"
                     android:text="Contattaci"
                     android:textAlignment="center"
@@ -105,14 +103,15 @@
                 android:layout_height="69dp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/blueButtons"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/quicksand"
                 android:text="Ho capito"
                 android:textSize="32sp"
                 android:typeface="sans"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.542"
                 app:layout_constraintStart_toEndOf="@+id/left_guideline"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -133,6 +132,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintGuide_end="24dp" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

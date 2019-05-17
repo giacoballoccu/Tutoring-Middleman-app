@@ -18,6 +18,7 @@
             android:id="@+id/n_ore_rimanenti"
             android:layout_width="107dp"
             android:layout_height="75dp"
+            android:fontFamily="@font/quicksand"
             android:gravity="center"
             android:text="13"
             android:textColor="@color/blueButtons"
@@ -31,6 +32,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="15dp"
             android:layout_toEndOf="@+id/n_ore_rimanenti"
+            android:fontFamily="@font/quicksand"
             android:gravity="center"
             android:text="Ore disponibili"
             android:textSize="24sp" />" />
@@ -44,9 +46,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/quicksand"
         android:text="Pacchetti disponibili:"
-        android:textSize="24sp"
-        />
+        android:textSize="24sp" />
 
     <View
         android:id="@+id/divider"

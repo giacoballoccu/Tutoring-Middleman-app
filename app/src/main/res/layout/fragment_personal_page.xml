@@ -41,9 +41,9 @@
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_gravity="center_vertical"
-            android:fontFamily="sans-serif-black"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/quicksand"
             android:text="NOME COGNOME"
             android:textSize="30sp"
 
@@ -57,34 +57,32 @@
         android:layout_height="54dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/quicksand"
         android:text="Ore di ripetizioni rimaste:"
-        android:textSize="30sp"
-         />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/hours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="monospace"
         android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/quicksand"
         android:text="11"
         android:textColor="@color/blueButtons"
         android:textSize="100sp"
         android:textStyle="bold"
-        android:typeface="monospace"
-        />
+        android:typeface="monospace" />
 
     <Button
         android:id="@+id/rechargeButton"
         android:layout_width="234dp"
-        android:layout_gravity="center"
         android:layout_height="88dp"
+        android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:background="@color/blueButtons"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="@font/quicksand"
         android:text="RICARICA"
-        android:textSize="30sp"
-        />
+        android:textSize="30sp" />
 
 </LinearLayout>

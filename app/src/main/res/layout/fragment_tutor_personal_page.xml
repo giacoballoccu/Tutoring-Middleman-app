@@ -70,7 +70,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="43dp"
                             android:layout_marginStart="10dp"
-                            android:fontFamily="sans-serif-black"
+                            android:fontFamily="@font/quicksand"
                             android:text="NOME COGNOME"
                             android:textSize="30sp" />
 
@@ -95,7 +95,7 @@
                         android:id="@+id/textView12"
                         android:layout_width="124dp"
                         android:layout_height="54dp"
-                        android:fontFamily="sans-serif-light"
+                        android:fontFamily="@font/quicksand"
                         android:text="Materia:"
                         android:textSize="30sp" />
 
@@ -104,7 +104,7 @@
                         android:layout_width="124dp"
                         android:layout_height="54dp"
                         android:layout_gravity="center_horizontal"
-                        android:fontFamily="sans-serif-light"
+                        android:fontFamily="@font/quicksand"
                         android:text="Materia"
                         android:textSize="30sp" />
 
@@ -118,7 +118,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:background="@color/blueButtons"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="@font/quicksand"
                     android:text="Feedback"
                     android:textSize="18sp" />
 
@@ -130,7 +130,7 @@
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="@font/quicksand"
                     android:text="Le mie date di disponibilità:"
                     android:textSize="24sp" />
 

@@ -42,7 +42,7 @@
         android:text="Nome recensore"
         android:textColor="@color/blackGrey"
         android:textStyle="bold"
-        app:fontFamily="sans-serif-thin" />
+        app:fontFamily="@font/quicksand" />
 
     <ImageView
         android:id="@+id/stellineSingolaReview"
@@ -71,7 +71,7 @@
         android:text="Veramente un tutor mediocre, 3 stelle."
         android:textColor="@color/blackGrey"
         android:textStyle="bold"
-        app:fontFamily="sans-serif-thin" />
+        app:fontFamily="@font/quicksand" />
 
     <View
         android:id="@+id/divider3"

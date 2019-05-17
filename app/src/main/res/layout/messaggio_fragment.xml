@@ -23,22 +23,22 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="81dp"
-            android:layout_below="@+id/fakeMessaggioTOP"
+            android:layout_width="389dp"
+            android:layout_height="83dp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginStart="12dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/chatbubble" />
 
         <TextView
             android:id="@+id/messaggio"
-            android:layout_width="wrap_content"
+            android:layout_width="385dp"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/imageView3"
             android:layout_alignTop="@+id/imageView3"
+            android:layout_marginStart="2dp"
             android:layout_marginTop="15dp"
-            android:fontFamily="sans-serif-light"
+            android:fontFamily="@font/quicksand"
             android:gravity="center"
             android:text="BUONASERA METROPOLE, DOLCE VITA GRANDE KOHLE"
             android:textColor="@color/blackGrey"

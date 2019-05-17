@@ -25,10 +25,10 @@
             android:layout_width="275dp"
             android:layout_height="71dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/quicksand"
             android:gravity="center"
             android:text="Nome Cognome"
-            android:textSize="25dp"
-             />
+            android:textSize="25dp" />
     </LinearLayout>
 
     <android.support.constraint.ConstraintLayout

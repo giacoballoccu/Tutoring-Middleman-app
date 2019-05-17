@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/quicksand"
         android:text="Per conttarci usa l'email..."
         android:textSize="50sp"
         tools:layout_editor_absoluteX="348dp"

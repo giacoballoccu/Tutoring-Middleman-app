@@ -53,11 +53,10 @@
             android:layout_marginLeft="190dp"
             android:layout_marginTop="73dp"
             android:text="TextView"
-            android:textColor="@color/blackGrey"
+            android:textColor="@color/blackGreyn2"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:fontFamily="sans-serif-thin"
-            />
+            app:fontFamily="@font/quicksand" />
 
         <ImageView
             android:id="@+id/feedback_stelle"
@@ -68,16 +67,16 @@
             android:layout_alignLeft="@+id/imageButton"
             android:layout_alignEnd="@+id/postitrosso"
             android:layout_alignRight="@+id/imageButton"
-            android:layout_marginStart="73dp"
+            android:layout_marginStart="71dp"
             android:layout_marginLeft="76dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginEnd="75dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="77dp"
             android:layout_marginRight="74dp"
             app:srcCompat="@drawable/zerostelle" />
 
         <TextView
             android:id="@+id/materia"
-            android:layout_width="351dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nomeCognome"
             android:layout_alignStart="@+id/postitrosso"
@@ -86,14 +85,14 @@
             android:layout_alignRight="@+id/imageButton"
             android:layout_marginStart="77dp"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="31dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="78dp"
             android:layout_marginRight="100dp"
             android:gravity="center"
             android:text="materia"
             android:textColor="@color/rossoinformatica"
-            android:textSize="30sp"
-            app:fontFamily="sans-serif-light"/>
+            android:textSize="36sp"
+            app:fontFamily="@font/quicksand" />
 
         <TextView
             android:id="@+id/emailTutor"
