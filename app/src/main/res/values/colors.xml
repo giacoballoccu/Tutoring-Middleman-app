@@ -18,4 +18,5 @@
     <color name="blueButtons">#9ccee5</color>
     <color name="greenButtons">#5af48d</color>
     <color name="yellow">#ffe082</color>
+    <color name="yellow_postit">#FFFF99</color>
 </resources>

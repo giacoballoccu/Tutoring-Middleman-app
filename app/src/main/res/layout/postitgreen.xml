@@ -2,12 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
     android:layout_marginTop="20dp"
     android:layout_marginBottom="20dp"
     >
+
+
+    <ImageView
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="377dp"
+        android:layout_height="345dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/rectangle_rounded_corners_shadow" />
 
     <ImageButton
         android:id="@+id/postitverde"
@@ -17,7 +27,9 @@
         android:layout_height="345dp"
         android:background="@null"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/greenpostit" />
+        app:srcCompat="@drawable/rectangle_rounded_corners"
+        android:outlineProvider="bounds"
+        />
 
     <ImageView
         android:id="@+id/avatarTutor"
@@ -29,7 +41,8 @@
         android:layout_marginStart="63dp"
         android:layout_marginLeft="63dp"
         android:layout_marginTop="71dp"
-        app:srcCompat="@mipmap/ernioavatar1_round" />
+        app:srcCompat="@mipmap/ernioavatar1_round"
+        />
 
     <TextView
         android:id="@+id/nomeCognome"
@@ -45,7 +58,8 @@
         android:textColor="@color/blackGrey"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:fontFamily="sans-serif-thin" />
+        app:fontFamily="sans-serif-thin"
+        />
 
     <ImageView
         android:id="@+id/feedback_stelle"
@@ -61,7 +75,7 @@
         android:layout_marginTop="23dp"
         android:layout_marginEnd="73dp"
         android:layout_marginRight="74dp"
-        app:srcCompat="@drawable/zerostelle" />
+        app:srcCompat="@drawable/zerostelle"/>
 
     <TextView
         android:id="@+id/materia"
@@ -81,7 +95,8 @@
         android:text="materia"
         android:textColor="@color/greenfisica"
         android:textSize="30sp"
-        app:fontFamily="sans-serif-light" />
+        app:fontFamily="sans-serif-light"
+        />
 
     <TextView
         android:id="@+id/emailTutor"

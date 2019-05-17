@@ -1,94 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
     android:layout_marginTop="20dp"
     android:layout_marginBottom="20dp"
     >
 
-    <ImageButton
-        android:id="@+id/postitrosso"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_width="377dp"
-        android:layout_height="345dp"
-        android:background="@null"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/redpostit" />
 
-    <ImageView
-        android:id="@+id/avatarTutor"
-        android:layout_width="97dp"
-        android:layout_height="97dp"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="63dp"
-        android:layout_marginLeft="63dp"
-        android:layout_marginTop="71dp"
-        app:srcCompat="@mipmap/ernioavatar1_round" />
+        <ImageView
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="377dp"
+            android:layout_height="345dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/rectangle_rounded_corners_shadow" />
 
-    <TextView
-        android:id="@+id/nomeCognome"
-        android:layout_width="157dp"
-        android:layout_height="109dp"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="190dp"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="73dp"
-        android:text="TextView"
-        android:textColor="@color/blackGrey"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:fontFamily="sans-serif-thin" />
+        <ImageButton
+            android:id="@+id/postitrosso"
+            android:layout_width="377dp"
+            android:layout_height="345dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/rectangle_rounded_corners" />
 
-    <ImageView
-        android:id="@+id/feedback_stelle"
-        android:layout_width="229dp"
-        android:layout_height="41dp"
-        android:layout_below="@+id/materia"
-        android:layout_alignStart="@+id/postitrosso"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignEnd="@+id/postitrosso"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_marginStart="73dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginRight="74dp"
-        app:srcCompat="@drawable/zerostelle" />
+        <ImageView
+            android:id="@+id/avatarTutor"
+            android:layout_width="97dp"
+            android:layout_height="97dp"
+            android:layout_alignTop="@+id/imageButton"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="63dp"
+            android:layout_marginLeft="63dp"
+            android:layout_marginTop="71dp"
+            app:srcCompat="@mipmap/ernioavatar1_round"
+            />
 
-    <TextView
-        android:id="@+id/materia"
-        android:layout_width="351dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nomeCognome"
-        android:layout_alignStart="@+id/postitrosso"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignEnd="@+id/postitrosso"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_marginStart="77dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="78dp"
-        android:layout_marginRight="100dp"
-        android:gravity="center"
-        android:text="materia"
-        android:textColor="@color/rossoinformatica"
-        android:textSize="30sp"
-        app:fontFamily="sans-serif-light" />
+        <TextView
+            android:id="@+id/nomeCognome"
+            android:layout_width="157dp"
+            android:layout_height="109dp"
+            android:layout_alignTop="@+id/imageButton"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="190dp"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="73dp"
+            android:text="TextView"
+            android:textColor="@color/blackGrey"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif-thin"
+            />
 
-    <TextView
-        android:id="@+id/emailTutor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:visibility="gone" />
+        <ImageView
+            android:id="@+id/feedback_stelle"
+            android:layout_width="229dp"
+            android:layout_height="41dp"
+            android:layout_below="@+id/materia"
+            android:layout_alignStart="@+id/postitrosso"
+            android:layout_alignLeft="@+id/imageButton"
+            android:layout_alignEnd="@+id/postitrosso"
+            android:layout_alignRight="@+id/imageButton"
+            android:layout_marginStart="73dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="75dp"
+            android:layout_marginRight="74dp"
+            app:srcCompat="@drawable/zerostelle" />
 
+        <TextView
+            android:id="@+id/materia"
+            android:layout_width="351dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nomeCognome"
+            android:layout_alignStart="@+id/postitrosso"
+            android:layout_alignLeft="@+id/imageButton"
+            android:layout_alignEnd="@+id/postitrosso"
+            android:layout_alignRight="@+id/imageButton"
+            android:layout_marginStart="77dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="78dp"
+            android:layout_marginRight="100dp"
+            android:gravity="center"
+            android:text="materia"
+            android:textColor="@color/rossoinformatica"
+            android:textSize="30sp"
+            app:fontFamily="sans-serif-light"/>
+
+        <TextView
+            android:id="@+id/emailTutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="gone"/>
 
 </RelativeLayout>

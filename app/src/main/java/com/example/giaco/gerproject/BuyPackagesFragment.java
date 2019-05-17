@@ -104,8 +104,8 @@ public class BuyPackagesFragment extends Fragment {
                 TextView t;
                 t = staticView.findViewById(R.id.n_ore_rimanenti);
                 ore_rimaste = ore_rimaste + ore;
-                t.setText(String.valueOf(ore_rimaste) + " Ore di ripetizione");
                 loggedUser.setHours(String.valueOf(ore_rimaste));
+                t.setText(String.valueOf(loggedUser.getHours()) + " Ore di ripetizione");
             }
         });
     }
