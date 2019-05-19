@@ -6,12 +6,14 @@
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:fontFamily">@font/quicksand</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:fontFamily">@font/quicksand</item>
     </style>
 
 </resources>

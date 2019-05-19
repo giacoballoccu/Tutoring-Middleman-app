@@ -12,14 +12,12 @@
         <item name="colorButtonNormal">@color/colorAccent</item>
         <item name="android:buttonStyle">@style/ButtonColor</item>
         <item name= "android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/quicksand</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
         <item name="android:fontFamily">@font/quicksand</item>
     </style>
 
