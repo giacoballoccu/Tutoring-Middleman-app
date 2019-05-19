@@ -59,6 +59,7 @@ public class DashBoardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 
@@ -233,7 +234,7 @@ public class DashBoardFragment extends Fragment {
                 book.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container, book);
+                transaction.replace(R.id.fragment_container, book).addToBackStack("fragment_dashboard");
                 transaction.commit();
             }
         });

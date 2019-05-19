@@ -35,7 +35,7 @@
         android:layout_marginTop="156dp"
         android:layout_marginEnd="113dp"
         android:layout_marginRight="113dp"
-        android:background="@color/blueButtons"
+        android:backgroundTint="@color/blueButtons"
         android:fontFamily="@font/quicksand"
         android:text="Acquista"
         android:textColor="@color/blackGrey"

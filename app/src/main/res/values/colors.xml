@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#79C256</color>
-    <color name="colorPrimaryDark">#54873c</color>
-    <color name="colorAccent">#93ce77</color>
+    <color name="colorPrimary">#e3fdfd</color>
+    <color name="colorPrimaryDark">#71c9ce</color>
+    <color name="colorAccent">#a6e3e9</color>
+
     <color name="Ivory">#fffff2</color>
     <color name="EletricBlue">#0000ff</color>
     <color name="Yellow">#ffff00</color>
@@ -11,13 +12,15 @@
     <color name="LightPurple">#b39daf</color>
     <color name="White">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="blackGrey">#212121</color>
+    <color name="blackGrey">#252525</color>
     <color name="rossoinformatica">#f44336</color>
     <color name="greenfisica">#64dd17</color>
     <color name="bluematematica">#2196F3</color>
-    <color name="blueButtons">#79C256</color>
+    <color name="blueButtons">@color/colorAccent</color>
     <color name="greenButtons">#5af48d</color>
     <color name="yellow">#ffe082</color>
     <color name="yellow_postit">#FFFF99</color>
     <color name="blackGreyn2">#404040</color>
+    <color name= "background">#FAFAFA</color>
+
 </resources>

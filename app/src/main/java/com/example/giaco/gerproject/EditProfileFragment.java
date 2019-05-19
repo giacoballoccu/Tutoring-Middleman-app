@@ -58,7 +58,6 @@ public class EditProfileFragment extends Fragment {
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Modifica Profilo");
         mparent = view.findViewById(R.id.parent_linearlayout);
-        backButton = view.findViewById(R.id.pulsante_indietro_edit_prof);
 
 
         if (getArguments() != null) {
@@ -72,20 +71,6 @@ public class EditProfileFragment extends Fragment {
                 setTutorFlag(loggedTutor);
                 //bundle = savedInstanceState;
             }
-
-            backButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("actualUserMail", loggedUserMail);
-                    pageFragment = new PersonalPageFragment();
-                    pageFragment.setArguments(bundle);
-                    FragmentManager fm = getActivity().getSupportFragmentManager();
-                    FragmentTransaction transaction = fm.beginTransaction();
-                    transaction.replace(R.id.fragment_container, pageFragment);
-                    transaction.commit();
-                }
-            });
 
         }
         if (flagTutor == false) {

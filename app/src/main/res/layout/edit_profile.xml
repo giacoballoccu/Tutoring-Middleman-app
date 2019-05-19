@@ -21,16 +21,6 @@
             android:paddingBottom="50dp"
             >
 
-            <ImageButton
-                android:id="@+id/pulsante_indietro_edit_prof"
-                android:layout_width="61dp"
-                android:layout_height="50dp"
-                android:layout_gravity="left"
-                android:background="@null"
-                app:srcCompat="@drawable/back"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="5dp"/>
-
             <TextView
                 android:id="@+id/modificaProfilo"
                 android:layout_width="wrap_content"
@@ -119,7 +109,7 @@
                 android:layout_height="82dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:background="@color/blueButtons"
+                android:backgroundTint="@color/blueButtons"
                 android:fontFamily="@font/quicksand"
                 android:text="Modifica"
                 android:textSize="24sp" />

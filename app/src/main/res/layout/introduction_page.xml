@@ -41,6 +41,8 @@
                 android:layout_width="385dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/quicksand"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="5sp"
@@ -48,8 +50,9 @@
                 android:paddingEnd="20dp"
                 android:text="L'applicazione nasce come supporto digitale al progetto ‘Ripetizioni Studenti Cagliari’. Lo scopo è quello di creare una squadra di Studenti Selezionati, detti Tutor, per le loro competenze e offrire ripetizioni ad altri studenti a prezzi moderati. L’associazione funziona da intermediario tra il Tutor che vorrebbe dare ripetizioni, ma non ha l'esposizione necessaria o il tempo per trovare clientela, e lo studente che ha necessità di ripetizioni a prezzi ridotti somministrate da un altro studente. Se sei interessato ad ottenere delle ripetizioni, iscriviti, se invece vuoi diventare tutor contattaci."
                 android:textSize="19dp"
-                app:layout_constraintTop_toBottomOf="@+id/title"
-                tools:layout_editor_absoluteX="10dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -102,6 +105,7 @@
                 android:layout_width="250dp"
                 android:layout_height="69dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/blueButtons"

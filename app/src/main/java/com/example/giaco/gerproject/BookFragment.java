@@ -155,7 +155,7 @@ public class BookFragment extends Fragment {
                 agenda.setArguments(bundle5);
                 FragmentManager fm5 = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction5 = fm5.beginTransaction();
-                transaction5.replace(R.id.fragment_container, agenda);
+                transaction5.replace(R.id.fragment_container, agenda).addToBackStack("prenotaripetizione");
                 transaction5.commit();
             }
         });

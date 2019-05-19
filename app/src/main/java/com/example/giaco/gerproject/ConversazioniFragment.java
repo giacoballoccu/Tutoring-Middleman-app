@@ -120,7 +120,7 @@ public class ConversazioniFragment extends Fragment {
                 chat.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container, chat);
+                transaction.replace(R.id.fragment_container, chat).addToBackStack("chat_fragment");
                 transaction.commit();
             }
         });

@@ -133,7 +133,7 @@
                 android:layout_height="82dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
-                android:background="@color/blueButtons"
+                android:backgroundTint="@color/blueButtons"
                 android:fontFamily="@font/quicksand"
                 android:text="Registrati"
                 android:textSize="24sp" />

@@ -117,7 +117,7 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:background="@color/blueButtons"
+                    android:backgroundTint="@color/blueButtons"
                     android:fontFamily="@font/quicksand"
                     android:text="Feedback"
                     android:textSize="18sp" />

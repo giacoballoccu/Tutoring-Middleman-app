@@ -77,15 +77,15 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         if (getTutorFlag() == true) {
             bundle.putString("chosenTutor", loggedUserMail);
             return inflater.inflate(R.layout.fragment_tutor_personal_page, container, false);
-        } else
-            return inflater.inflate(R.layout.fragment_personal_page, container, false);
+        } else {
 
+            return inflater.inflate(R.layout.fragment_personal_page, container, false);
+        }
     }
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // do your variables initialisations here except Views!!!
     }
 
     @Override
@@ -203,7 +203,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 editProfileFT.setArguments(bundle);
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container, editProfileFT);
+                transaction.replace(R.id.fragment_container, editProfileFT).addToBackStack("fragment_personal_page");
                 transaction.commit();
                 break;
 
@@ -215,7 +215,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 editProfileFS.setArguments(bundle2);
                 FragmentManager fm2 = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction2 = fm2.beginTransaction();
-                transaction2.replace(R.id.fragment_container, editProfileFS);
+                transaction2.replace(R.id.fragment_container, editProfileFS).addToBackStack("fragment_personal_page");
                 transaction2.commit();
                 break;
 
@@ -227,7 +227,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 buyPackages.setArguments(bundle3);
                 FragmentManager fm3 = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction3 = fm3.beginTransaction();
-                transaction3.replace(R.id.fragment_container, buyPackages);
+                transaction3.replace(R.id.fragment_container, buyPackages).addToBackStack("fragment_personal_page");
                 transaction3.commit();
                 break;
 
@@ -240,7 +240,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 review.setArguments(bundle4);
                 FragmentManager fm4 = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction4 = fm4.beginTransaction();
-                transaction4.replace(R.id.fragment_container, review);
+                transaction4.replace(R.id.fragment_container, review).addToBackStack("fragment_personal_page");
                 transaction4.commit();
                 break;
 
@@ -252,19 +252,13 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 agenda.setArguments(bundle5);
                 FragmentManager fm5 = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction5 = fm5.beginTransaction();
-                transaction5.replace(R.id.fragment_container, agenda);
+                transaction5.replace(R.id.fragment_container, agenda).addToBackStack("fragment_personal_page");
                 transaction5.commit();
                 break;
 
         }
     }
 
-/*
-    public void setDate(DisponibilitaFactory df){
-        this.listaDiDate = df.getDateDisponibilita();
-
-    }
-*/
 
 }
 

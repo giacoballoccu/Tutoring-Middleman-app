@@ -20,5 +20,7 @@
             android:orientation="vertical"
             >
         </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>

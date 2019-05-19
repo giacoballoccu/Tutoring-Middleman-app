@@ -17,12 +17,11 @@
         <android.support.v7.widget.Toolbar
            android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="@color/background"
             android:id="@+id/toolbar"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat"
-            android:elevation="4dp"
-            app:titleTextColor="@color/blackGrey"
+            android:fontFamily="@font/quicksand"
             />
 
         <FrameLayout
