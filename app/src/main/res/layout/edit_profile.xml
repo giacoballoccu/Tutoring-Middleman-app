@@ -12,14 +12,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="50dp"
-            >
+            android:paddingBottom="50dp">
 
             <TextView
                 android:id="@+id/modificaProfilo"
@@ -31,19 +32,18 @@
                 android:textSize="30sp" />
 
             <ImageButton
+                android:id="@+id/imgselector"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:id="@+id/imgselector"
-                android:scaleType="fitXY"
-                android:src="@drawable/studente_default"
-                android:background="@null"
                 android:layout_marginTop="5dp"
-                />
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/studente_default" />
 
             <EditText
                 android:id="@+id/emailField_edit"
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
@@ -54,7 +54,7 @@
 
             <EditText
                 android:id="@+id/passwordField_edit"
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
@@ -64,7 +64,7 @@
 
             <EditText
                 android:id="@+id/confirmPasswordField_edit"
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
@@ -74,7 +74,7 @@
 
             <EditText
                 android:id="@+id/nameField_edit"
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
@@ -84,7 +84,7 @@
 
             <EditText
                 android:id="@+id/surnameField_edit"
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
@@ -96,8 +96,8 @@
                 android:id="@+id/errorSignup_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="90dp"
                 android:text="TextView"
                 android:textColor="@android:color/holo_red_dark"
