@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/fakeMessaggioTOP"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_marginTop="8dp"
+        android:text="BUONASERA METROPOLE, DOLCE VITA GRANDE KOHLE"
+        android:textColor="@color/blackGrey"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="10dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/chatbubble" />
+
+        <TextView
+            android:id="@+id/contenuto_richiesta"
+            android:layout_width="331dp"
+            android:layout_height="62dp"
+            android:layout_alignEnd="@+id/imageView3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:text="Cambia dinamicamente"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/accetta_res_req"
+            android:layout_width="124dp"
+            android:layout_height="59dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="77dp"
+            android:backgroundTint="@color/blueButtons"
+            android:text="Accetta" />
+
+        <Button
+            android:id="@+id/modifica_res_req"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/imageView3"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="93dp"
+            android:layout_marginTop="144dp"
+            android:backgroundTint="#FFF9C4"
+            android:text="Modifica" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="124dp"
+            android:layout_height="59dp"
+            android:layout_alignTop="@+id/imageView3"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="77dp"
+            android:layout_toEndOf="@+id/accetta_res_req"
+            android:backgroundTint="#CA615B"
+            android:text="Cancella" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

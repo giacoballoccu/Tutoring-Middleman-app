@@ -1,8 +1,10 @@
 package com.example.giaco.gerproject;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -15,31 +17,46 @@ import android.widget.CalendarView;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.giaco.gerproject.Classes.Reservation;
+import com.example.giaco.gerproject.Classes.ReservationFactory;
+import com.example.giaco.gerproject.Classes.ReservationRequest;
+import com.example.giaco.gerproject.Classes.ReservationRequestFactory;
+import com.example.giaco.gerproject.Classes.UserStudente;
+import com.example.giaco.gerproject.Classes.UserStudenteFactory;
+import com.example.giaco.gerproject.Classes.UserTutor;
+import com.example.giaco.gerproject.Classes.UserTutorFactory;
+
 import java.util.Calendar;
 
-public class EditAgenda extends Fragment implements View.OnClickListener {
+public class EditAgenda extends Fragment {
     private int anno = 100;
     private int mese = 100;
     private int giorno = 100;
-    private int oraInizio = 10;
-    private int oraFine = 10;
+    private int oraInizio = 8;
+    private int oraFine = 9;
     private int minutoInizio = 10;
     private int minutoFine = 10;
     private int giornoSettimanaN = 0;
     CalendarView calendario;
     SeekBar seekBarOrarioInizio, seekBarOrarioFine;
     TextView oraCorrente, giornoSettimana;
-    Button conferma;
     PersonalPageFragment profilo;
     String loggedUserMail = "";
     Calendar calendarioCorrente;
     Switch interruttore;
     DashBoardFragment dashboard;
+    Button richiediNuovaDataButton;
+    LayoutInflater layoutInflater;
+    View myView;
+    ConstraintLayout mparent;
+    UserStudente loggedUser;
+    UserTutor chosenTutor;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +73,12 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
         getActivity().setTitle("Aggiungi una data");
         super.onViewCreated(view, savedInstanceState);
 
+        if (getArguments() != null) {
+            String emailTutor = getArguments().getString("emailTutor");
+            String emailUtente = getArguments().getString("emailStudente");
+            loggedUser = UserStudenteFactory.getInstance().getUserByEmail(emailUtente);
+            chosenTutor = UserTutorFactory.getInstance().getUserByEmail(emailTutor);
+        }
         //getActivity().setTitle("Aggiungi una data");
         oraCorrente = view.findViewById(R.id.oraSelezionata);
         oraCorrente.setText("8:00 - 9:00");
@@ -67,9 +90,10 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
 
         seekBarOrarioInizio = view.findViewById(R.id.seekBarOrari);
         seekBarOrarioFine = view.findViewById(R.id.seekBarOrariF);
-        conferma = view.findViewById(R.id.salvaAggiunta);
+        richiediNuovaDataButton = getActivity().findViewById(R.id.salvaAggiunta);
         calendario = view.findViewById(R.id.calendario_agenda);
 
+        mparent = (ConstraintLayout) view.findViewById(R.id.parentconstraintlayout);
         /*Sezione calendario*/
         calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -129,6 +153,7 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
         /*Sezione Ora Fine*/
         seekBarOrarioFine.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -154,42 +179,73 @@ public class EditAgenda extends Fragment implements View.OnClickListener {
             }
         });
 
-        conferma.setOnClickListener(this);
+        richiediNuovaDataButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
+                mparent.addView(myView);
+                final Button conferma, cancella;
+                conferma = (Button) myView.findViewById(R.id.prenotazione_yes);
+                cancella = (Button) myView.findViewById(R.id.prenotazione_no);
+                myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
 
+                conferma.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("annoN", getAnno());
+                        bundle.putInt("meseN", getMese());
+                        bundle.putInt("giornoN", getGiorno());
+                        bundle.putInt("oraiN", getOraInizio());
+                        bundle.putInt("oraF", getOraFine());
+                        bundle.putInt("giornoSettimana", 5);
+                        bundle.putString("flagAggiunta", "ok");
+                        bundle.putString("actualUserMail", loggedUserMail);
+                        bundle.putInt("tFlag", 1);
+
+                        //numero di ore
+                        int num_ore = getOraFine() - getOraInizio();
+                        //Converto int in Integer per applicare toString dopo
+
+                        String data = "18 Giugno 2019";
+                        UserStudente u = loggedUser;
+                        UserTutor t = chosenTutor;
+                        String materia = chosenTutor.getMateria();
+
+                        if (getArguments().getInt("tFlag") == 1) {
+                            profilo = new PersonalPageFragment();
+                            profilo.setArguments(bundle);
+                            FragmentManager fm = getActivity().getSupportFragmentManager();
+                            FragmentTransaction transaction = fm.beginTransaction();
+                            transaction.replace(R.id.fragment_container, profilo).addToBackStack("fragment_editagenda");
+                            transaction.commit();
+                        } else {
+                            ReservationRequestFactory reservationRequestFactory = ReservationRequestFactory.getInstance();
+                            ReservationRequest reservation = new ReservationRequest(loggedUser, chosenTutor , data , num_ore, chosenTutor.getMateria(), getOraInizio(), getOraFine());
+                            reservationRequestFactory.addReservation(reservation);
+                            dashboard = new DashBoardFragment();
+                            dashboard.setArguments(bundle);
+                            FragmentManager fm = getActivity().getSupportFragmentManager();
+                            FragmentTransaction transaction = fm.beginTransaction();
+                            transaction.replace(R.id.fragment_container, dashboard);
+                            transaction.commit();
+                        }
+                    }
+                });
+
+                cancella.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mparent.removeView(myView);
+                    }
+                });
+
+            }
+        });
 
     }
 
-    @Override
-    public void onClick(View v) {
-
-        Bundle bundle = new Bundle();
-        bundle.putInt("annoN", getAnno());
-        bundle.putInt("meseN", getMese());
-        bundle.putInt("giornoN", getGiorno());
-        bundle.putInt("oraiN", getOraInizio());
-        bundle.putInt("oraF", getOraFine());
-        bundle.putInt("giornoSettimana", 5);
-        bundle.putString("flagAggiunta", "ok");
-        bundle.putString("actualUserMail", loggedUserMail);
-        bundle.putInt("tFlag", 1);
-
-        if (getArguments().getInt("tFlag") == 1) {
-            profilo = new PersonalPageFragment();
-            profilo.setArguments(bundle);
-            FragmentManager fm = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = fm.beginTransaction();
-            transaction.replace(R.id.fragment_container, profilo);
-            transaction.commit();
-        } else {
-            dashboard = new DashBoardFragment();
-            dashboard.setArguments(bundle);
-            FragmentManager fm = getActivity().getSupportFragmentManager();
-            FragmentTransaction transaction = fm.beginTransaction();
-            transaction.replace(R.id.fragment_container, dashboard);
-            transaction.commit();
-        }
-
-    }
 
 
     public void setAnno(int a) {

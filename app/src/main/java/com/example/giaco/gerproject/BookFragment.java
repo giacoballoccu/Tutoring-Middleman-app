@@ -149,7 +149,10 @@ public class BookFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle bundle5 = new Bundle();
-                bundle5.putString("actualUserMail", loggedUserMail);
+                String emailTutor = getArguments().getString("emailTutor");
+                String emailUser = getArguments().getString("emailStudente");
+                bundle5.putString("emailTutor", emailTutor);
+                bundle5.putString("emailStudente", emailUser);
                 bundle5.putInt("tFlag", 0);
                 agenda = new EditAgenda();
                 agenda.setArguments(bundle5);

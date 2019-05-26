@@ -111,17 +111,25 @@ public class ConversazioniFragment extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("actualUserMail", mail);
-                if (tutorFlag == false)
+                if (tutorFlag == false){
                     bundle.putInt("tFlag", 0);
-                else
+                    chat = new ChatFragment();
+                    chat.setArguments(bundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container, chat).addToBackStack("chat_fragment");
+                    transaction.commit();
+                }
+                else{
                     bundle.putInt("tFlag", 1);
+                    chat = new ChatFragment();
+                    chat.setArguments(bundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container, chat).addToBackStack("chat_fragment");
+                    transaction.commit();
+                }
 
-                chat = new ChatFragment();
-                chat.setArguments(bundle);
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container, chat).addToBackStack("chat_fragment");
-                transaction.commit();
             }
         });
     }
