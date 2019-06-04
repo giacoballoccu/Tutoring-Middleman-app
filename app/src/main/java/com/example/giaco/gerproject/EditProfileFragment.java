@@ -242,7 +242,7 @@ public class EditProfileFragment extends Fragment {
 
                     if (errors == 0) {
                         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                        myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
+                        myView = layoutInflater.inflate(R.layout.pop_up_conferma_profilo, null, false);
                         myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
                         mparent.addView(myView);
                         Button conferma, cancella;
