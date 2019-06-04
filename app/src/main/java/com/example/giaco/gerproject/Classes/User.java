@@ -33,6 +33,11 @@ public abstract class User {
             this.setName(name);
             this.setSurname(surname);
             this.setPhone(phone);
+
+            Context context = ApplicationContextProvider.getContext();
+            Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.studente_default, null);
+
+            this.setImage(img1);
         }
 
     public String getEmail() {

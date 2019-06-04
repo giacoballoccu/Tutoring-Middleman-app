@@ -22,8 +22,6 @@ public class UserStudente extends User{
     public UserStudente(String email, String name, String surname, String password, String phone) { //Immagine default
         super(email, name, surname, password, phone);
         this.setHours("0");
-        Context context = ApplicationContextProvider.getContext();
-        Drawable img1 = ResourcesCompat.getDrawable(context.getResources(), R.drawable.studente_default, null);
     }
 
     public String getHours() {
@@ -33,5 +31,6 @@ public class UserStudente extends User{
     public void setHours(String hours) {
         this.hours = hours;
     }
+
 
 }

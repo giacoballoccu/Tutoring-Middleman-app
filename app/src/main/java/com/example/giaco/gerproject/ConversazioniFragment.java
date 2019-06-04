@@ -33,7 +33,7 @@ public class ConversazioniFragment extends Fragment {
     LayoutInflater layoutInflater;
     User loggedUser;
     ConversationFactory factoryConversazione;
-    TextView nomeCognome;
+    TextView noConversazione;
     ImageView avatarDestinatario;
     //String nomeContatto, cognomeContatto, nomeCognomeContatto;
     View myView;
@@ -58,6 +58,7 @@ public class ConversazioniFragment extends Fragment {
                 setTutorFlag(true);
         }
 
+        noConversazione = view.findViewById(R.id.noConversation);
         coparent = view.findViewById(R.id.coparent);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -76,7 +77,7 @@ public class ConversazioniFragment extends Fragment {
                 update(c, myView);
             }
         else
-            nomeCognome.setText("Nessuna conversazione");    //Nome e cognome del destinatario
+            noConversazione.setText("Nessuna conversazione");    //Nome e cognome del destinatario
     }
 
     public void update(Conversation conv, View view) {
