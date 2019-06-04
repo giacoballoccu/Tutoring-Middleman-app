@@ -89,17 +89,6 @@ public class SignUp extends AppCompatActivity {
                     password.setError(null);
                 }
 
-                /*Check if the user has insert an email andress*/
-                Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[AZa-z0-9.-]+-\\.[A-Za-z]{2,4}");
-                Matcher mat = pattern.matcher(emailStr);
-
-                if (mat.matches()) {
-                    password.setError(null);
-
-                } else {
-                    email.setError("Inserisci un email valida");
-                    errors++;
-                }
 
                 /*Check if user has already sign up to the app*/
                 if (factory.isEmailInUserList(emailStr)) {
@@ -154,10 +143,6 @@ public class SignUp extends AppCompatActivity {
                     phone.setError("Questo campo non può essere vuoto");
                 }
 
-                /*Check if the input is a telephone number (10 digits) and only digits*/
-                if (TextUtils.isDigitsOnly(phoneStr) || phoneStr.length() == 10) {
-                    phone.setError("Inserire un numero di telefono valido");
-                }
 
                 if (errors == 0) {
                     /*Inserimento utente*/
