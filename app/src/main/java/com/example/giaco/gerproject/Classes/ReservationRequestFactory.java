@@ -28,4 +28,8 @@ public class ReservationRequestFactory {
         this.reservations.add(r);
     }
 
+    public void removeReservation(){
+        this.reservations.clear();
+    }
+
 }

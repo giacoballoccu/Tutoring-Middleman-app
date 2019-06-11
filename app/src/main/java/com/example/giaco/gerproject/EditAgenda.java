@@ -194,13 +194,7 @@ public class EditAgenda extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Bundle bundle = new Bundle();
-                        bundle.putInt("annoN", getAnno());
-                        bundle.putInt("meseN", getMese());
-                        bundle.putInt("giornoN", getGiorno());
-                        bundle.putInt("oraiN", getOraInizio());
-                        bundle.putInt("oraF", getOraFine());
-                        bundle.putInt("giornoSettimana", 5);
-                        bundle.putString("flagAggiunta", "ok");
+
                         bundle.putString("actualUserMail", loggedUserMail);
                         bundle.putInt("tFlag", 1);
 
@@ -208,19 +202,25 @@ public class EditAgenda extends Fragment {
                         int num_ore = getOraFine() - getOraInizio();
                         //Converto int in Integer per applicare toString dopo
 
-                        String data = "18 Giugno 2019";
-                        UserStudente u = loggedUser;
-                        UserTutor t = chosenTutor;
-                        String materia = chosenTutor.getMateria();
+                        String data = "24 Giugno 2019";
 
                         if (getArguments().getInt("tFlag") == 1) {
                             profilo = new PersonalPageFragment();
                             profilo.setArguments(bundle);
                             FragmentManager fm = getActivity().getSupportFragmentManager();
                             FragmentTransaction transaction = fm.beginTransaction();
-                            transaction.replace(R.id.fragment_container, profilo).addToBackStack("fragment_editagenda");
+                            transaction.replace(R.id.fragment_container, profilo);
                             transaction.commit();
+                            Toast toast=Toast.makeText(getActivity().getApplicationContext(),"Modifica completata",Toast.LENGTH_SHORT);
+                            toast.show();
                         } else {
+                            bundle.putInt("annoN", getAnno());
+                            bundle.putInt("meseN", getMese());
+                            bundle.putInt("giornoN", getGiorno());
+                            bundle.putInt("oraiN", getOraInizio());
+                            bundle.putInt("oraF", getOraFine());
+                            bundle.putInt("giornoSettimana", 5);
+                            bundle.putString("flagAggiunta", "ok");
                             ReservationRequestFactory reservationRequestFactory = ReservationRequestFactory.getInstance();
                             ReservationRequest reservation = new ReservationRequest(loggedUser, chosenTutor , data , num_ore, chosenTutor.getMateria(), getOraInizio(), getOraFine());
                             reservationRequestFactory.addReservation(reservation);
@@ -230,6 +230,8 @@ public class EditAgenda extends Fragment {
                             FragmentTransaction transaction = fm.beginTransaction();
                             transaction.replace(R.id.fragment_container, dashboard);
                             transaction.commit();
+                            Toast toast=Toast.makeText(getActivity().getApplicationContext(),"Richiesta inoltrata",Toast.LENGTH_SHORT);
+                            toast.show();
                         }
                     }
                 });
