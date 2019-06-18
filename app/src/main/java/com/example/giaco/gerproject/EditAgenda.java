@@ -57,6 +57,7 @@ public class EditAgenda extends Fragment {
     ConstraintLayout mparent;
     UserStudente loggedUser;
     UserTutor chosenTutor;
+    Button backButton;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -245,6 +246,16 @@ public class EditAgenda extends Fragment {
 
             }
         });
+
+        backButton = view.findViewById(R.id.backbutton_editagenda);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
+
 
     }
 

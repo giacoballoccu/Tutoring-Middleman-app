@@ -32,6 +32,7 @@ public class MyReservationsFragment extends Fragment {
     View myView;
     String emailLoggedUser;
     ImageButton delete;
+    Button backButton;
 
     ReservationFactory factory = ReservationFactory.getInstance();
     ArrayList<Reservation> resList = factory.getReservations();
@@ -46,6 +47,7 @@ public class MyReservationsFragment extends Fragment {
         if (getArguments() != null) {
             emailLoggedUser = getArguments().getString("actualUserMail");
         }
+
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Prenotazioni");
@@ -55,7 +57,6 @@ public class MyReservationsFragment extends Fragment {
 
         myView = layoutInflater.inflate(R.layout.reservation_static, null, false);
         mparent.addView(myView);
-
 
         for (int i = 0; i < resList.size(); i++) {
 
@@ -68,6 +69,14 @@ public class MyReservationsFragment extends Fragment {
 
         }
 
+        backButton = view.findViewById(R.id.backbutton_reservation);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
 
     }
 

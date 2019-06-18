@@ -50,6 +50,7 @@ public class BookFragment extends Fragment {
     View myView;
     EditAgenda agenda;
     String loggedUserMail;
+    Button backButton;
 
 
     @Nullable
@@ -162,6 +163,17 @@ public class BookFragment extends Fragment {
                 transaction5.commit();
             }
         });
+
+
+        backButton = view.findViewById(R.id.backbutton_book);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
+
     }
 
 

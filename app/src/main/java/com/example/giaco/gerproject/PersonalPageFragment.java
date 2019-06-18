@@ -1,7 +1,6 @@
 package com.example.giaco.gerproject;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -11,7 +10,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.giaco.gerproject.Classes.Disponibilita;
 import com.example.giaco.gerproject.Classes.DisponibilitaFactory;
 import com.example.giaco.gerproject.Classes.FeedbackFactory;
 import com.example.giaco.gerproject.Classes.User;
@@ -52,6 +49,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     private boolean flagTutor = false;
     EditAgenda agenda;
     ArrayList<String> listaDiDate;
+    Button backButton;
 
     @Nullable
     @Override
@@ -93,7 +91,20 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("I Miei Dati");
+
+
+
         if (getTutorFlag() == false) {  //Dati dello studente
+
+            backButton = view.findViewById(R.id.backbutton_personal_page);
+
+            backButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getFragmentManager().popBackStackImmediate();
+                }
+            });
+
             userName = (TextView) view.findViewById(R.id.username);
             hours = (TextView) view.findViewById(R.id.hours);
             userImg = (ImageView) view.findViewById(R.id.profileImg);

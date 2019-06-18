@@ -33,7 +33,7 @@ public class MessageFactory extends Message{
 
         /*Risposte*/
         Message risposta1 = new Message();
-        risposta1.setContenuto("Salve, sono disponibile ad aiutarla in cambio di danaro ovviamente.");
+        risposta1.setContenuto("Salve, sono disponibile ad aiutarla in cambio di danaro.");
         risposte.add(risposta1);
 
         Message risposta2 = new Message();

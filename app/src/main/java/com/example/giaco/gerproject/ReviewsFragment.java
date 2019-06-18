@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ public class ReviewsFragment extends Fragment {
     UserTutor chosenTutor;
     FeedbackFactory feedbackFactory;
     ArrayList<Feedback> feedbacks;
+    Button backButton;
 
     @Nullable
     @Override
@@ -67,6 +69,16 @@ public class ReviewsFragment extends Fragment {
                 updateDiGhisa(singleReview);
             }
         }
+
+        backButton = view.findViewById(R.id.backbutton_feedback);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
+
     }
 
     public void updateStatsReview(FeedbackFactory f, View statsReview) {

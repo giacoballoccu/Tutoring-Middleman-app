@@ -28,6 +28,7 @@ public class AgendaTutorFragment extends Fragment {
     View myView;
     String emailLoggedUser;
     ImageButton delete;
+    Button backButton;
 
     /*DA FARE*/
     ReservationFactory factory = ReservationFactory.getInstance();
@@ -64,6 +65,16 @@ public class AgendaTutorFragment extends Fragment {
             }
             updatePackage(resList.get(i), myView);
         }
+
+        backButton = view.findViewById(R.id.backbutton_reservation);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
+
 
     }
 

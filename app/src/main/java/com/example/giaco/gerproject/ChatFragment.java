@@ -51,6 +51,7 @@ public class ChatFragment extends Fragment {
     UserTutorFactory tutorFactory = UserTutorFactory.getInstance();
     UserStudenteFactory studenteFactory = UserStudenteFactory.getInstance();
     ReservationRequestFactory resReq = ReservationRequestFactory.getInstance();
+    Button backButton;
 
 
     @Nullable
@@ -208,6 +209,15 @@ public class ChatFragment extends Fragment {
                 nomeCognome.setText("Ancora nessun messaggio!");    //Nome e cognome del destinatario
             }
         }
+
+        backButton = view.findViewById(R.id.backbutton_chat);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
 
     }
 

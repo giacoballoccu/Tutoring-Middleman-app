@@ -39,6 +39,7 @@ public class BuyPackagesFragment extends Fragment {
     ArrayList<Package> packList = factory.getPackages();
     int ore_rimaste;
     Button b;
+    Button backButton;
 
     @Nullable
     @Override
@@ -55,6 +56,15 @@ public class BuyPackagesFragment extends Fragment {
         if (getArguments() != null) {
             emailLoggedUser = getArguments().getString("actualUserMail");
         }
+
+        backButton = view.findViewById(R.id.backbutton_buy_packages);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
 
         mparent = (LinearLayout) view.findViewById(R.id.parentview);
         layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

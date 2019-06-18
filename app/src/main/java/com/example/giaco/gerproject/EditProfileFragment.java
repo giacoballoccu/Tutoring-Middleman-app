@@ -5,29 +5,19 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.giaco.gerproject.Classes.Reservation;
-import com.example.giaco.gerproject.Classes.ReservationFactory;
 import com.example.giaco.gerproject.Classes.User;
 import com.example.giaco.gerproject.Classes.UserStudente;
 import com.example.giaco.gerproject.Classes.UserStudenteFactory;
 import com.example.giaco.gerproject.Classes.UserTutorFactory;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class EditProfileFragment extends Fragment {
     String loggedUserMail;
@@ -42,7 +32,7 @@ public class EditProfileFragment extends Fragment {
     Button signUp;
     View myView;
     RelativeLayout mparent;
-    ImageButton backButton;
+    Button backButton;
     String emailStr, nameStr, surnameStr, passwordStr, confirmPasswordStr;
     int errors = 0;
 
@@ -85,6 +75,7 @@ public class EditProfileFragment extends Fragment {
             emailField.setText(loggedStudente.getEmail());
             nameField.setText(loggedStudente.getName());
             surnameField.setText(loggedStudente.getSurname());
+
 
             signUp.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -277,6 +268,15 @@ public class EditProfileFragment extends Fragment {
             });
 
         }
+
+        backButton = view.findViewById(R.id.backbutton_personal_page);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
     }
 
     protected void setTutorFlag(User usr) {

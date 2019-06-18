@@ -117,9 +117,15 @@
         </LinearLayout>
     </ScrollView>
 
-
-
-
+    <Button
+        android:id="@+id/backbutton_personal_page"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/ic_arrow_back_black_24dp" />
 
 
 </RelativeLayout>

@@ -39,6 +39,7 @@ public class ConversazioniFragment extends Fragment {
     View myView;
     ChatFragment chat;
     ImageButton butt;
+    Button backButton;
 
 
     @Nullable
@@ -78,6 +79,16 @@ public class ConversazioniFragment extends Fragment {
             }
         else
             noConversazione.setText("Nessuna conversazione");    //Nome e cognome del destinatario
+
+        backButton = view.findViewById(R.id.backbutton_conversazioni);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
+
     }
 
     public void update(Conversation conv, View view) {

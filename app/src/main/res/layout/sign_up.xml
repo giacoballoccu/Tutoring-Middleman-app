@@ -26,12 +26,12 @@
 
                 <ImageButton
                     android:id="@+id/pulsante_indietro"
-                    android:layout_width="61dp"
-                    android:layout_height="50dp"
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
                     android:layout_gravity="center"
                     android:layout_weight="0.4"
                     android:background="@null"
-                    app:srcCompat="@drawable/back" />
+                    app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
 
                 <TextView
