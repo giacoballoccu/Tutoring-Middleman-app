@@ -151,6 +151,7 @@
 
         <Spinner
             android:id="@+id/spinnerData"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"
             android:layout_width="261dp"
             android:layout_height="28dp"
             android:layout_below="@+id/textView3"
@@ -163,7 +164,8 @@
             android:layout_marginEnd="77dp"
             android:layout_marginRight="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
         <Button
             android:id="@+id/prenota"

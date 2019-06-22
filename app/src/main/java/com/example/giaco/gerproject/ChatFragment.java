@@ -151,7 +151,7 @@ public class ChatFragment extends Fragment {
 
                         FragmentManager fm = getActivity().getSupportFragmentManager();
                         FragmentTransaction transaction = fm.beginTransaction();
-                        transaction.replace(R.id.fragment_container, personalPage);
+                        transaction.replace(R.id.fragment_container, personalPage).addToBackStack("chat_fragment");
                         transaction.commit();
                         Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Prenotazione confermata", Toast.LENGTH_SHORT);
                         toast.show();
@@ -173,7 +173,7 @@ public class ChatFragment extends Fragment {
 
                         FragmentManager fm = getActivity().getSupportFragmentManager();
                         FragmentTransaction transaction = fm.beginTransaction();
-                        transaction.replace(R.id.fragment_container, editAgenda);
+                        transaction.replace(R.id.fragment_container, editAgenda).addToBackStack("chat_fragment");
                         transaction.commit();
 
                     }
