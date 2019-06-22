@@ -139,8 +139,14 @@ public class SignUp extends AppCompatActivity {
                 }
 
 
-                if (TextUtils.isEmpty(phoneStr)) {
+
+                if (TextUtils.isEmpty(phoneStr) ) {
                     phone.setError("Questo campo non può essere vuoto");
+                    errors++;
+                }
+                else if(phoneStr.length() < 10 ){
+                    phone.setError("Inserisci un numero di telefono valido");
+                    errors++;
                 }
 
 
