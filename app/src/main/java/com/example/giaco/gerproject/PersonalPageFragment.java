@@ -51,7 +51,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     BuyPackagesFragment buyPackages;
     ReviewsFragment review;
     private boolean flagTutor = false;
-    EditAgenda agenda;
     ArrayList<String> listaDiDate;
     Button backButton;
     ImageButton delete_orario;
@@ -136,7 +135,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             } else
                 loggedTutor.setDisponibilitaData(listaDiDate);
             materia = (TextView) view.findViewById(R.id.materia);
-            editAgenda = (ImageButton) view.findViewById(R.id.editAgendaButton);
             orariAgenda = (TextView) view.findViewById(R.id.orari);
             add_orario = view.findViewById(R.id.add_orario);
 
@@ -153,16 +151,52 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             userName.setText("" + loggedTutor.getName() + " " + loggedTutor.getSurname() + "");
             materia.setText("" + loggedTutor.getMateria() + "");
             dparent = view.findViewById(R.id.dparent);
+            mparent = view.findViewById(R.id.mparent12);
 
 
             for (String str : loggedTutor.getDisponibilitaData()) {
                 myView = layoutInflater.inflate(R.layout.disponibilita_tutor, null, false);
                 dparent.addView(myView);
                 updateDisponibilita(str, myView);
+
+                delete_orario = myView.findViewById(R.id.delete_orario);
+                delete_orario.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mparent.removeView(myView);
+                        add_orario.hide();
+                        layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                        myView = layoutInflater.inflate(R.layout.pop_up_rimuovi_orario, null, false);
+                        mparent.addView(myView);
+                        final Button conferma, cancella;
+                        conferma = (Button) myView.findViewById(R.id.orario_yes);
+                        cancella = (Button) myView.findViewById(R.id.orario_no);
+
+                        conferma.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast toast=Toast.makeText(getActivity().getApplicationContext(),"Orario rimosso",Toast.LENGTH_SHORT);
+                                toast.show();
+                                mparent.removeView(myView);
+                                add_orario.show();
+                            }
+                        });
+
+                        cancella.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                Toast toast=Toast.makeText(getActivity().getApplicationContext(),"Azione annullata",Toast.LENGTH_SHORT);
+                                toast.show();
+                                mparent.removeView(myView);
+                                add_orario.show();
+                            }
+                        });
+
+                    }
+                });
             }
             userImg.setImageDrawable(resize(loggedTutor.getImage()));
-            delete_orario = view.findViewById(R.id.delete_orario);
-            mparent = view.findViewById(R.id.dparent);
             switch (loggedTutor.getVotoTotaleMedio()) {
                 case 0:
                     stelline.setImageDrawable(getResources().getDrawable(R.drawable.zerostelle));
@@ -185,7 +219,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             }
 
             recensioni.setOnClickListener(this);
-            editAgenda.setOnClickListener(this);
             add_orario.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -206,39 +239,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 }
             });
 
-            delete_orario.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    add_orario.hide();
-                    layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                    myView = layoutInflater.inflate(R.layout.pop_up_rimuovi_orario, null, false);
-                    mparent.addView(myView);
-                    final Button conferma, cancella;
-                    conferma = (Button) myView.findViewById(R.id.orario_yes);
-                    cancella = (Button) myView.findViewById(R.id.orario_no);
-
-                    conferma.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast toast=Toast.makeText(getActivity().getApplicationContext(),"Orario rimosso",Toast.LENGTH_SHORT);
-                            toast.show();
-                            mparent.removeView(myView);
-                            add_orario.show();
-                        }
-                    });
-
-                    cancella.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast toast=Toast.makeText(getActivity().getApplicationContext(),"Azione annullata",Toast.LENGTH_SHORT);
-                            toast.show();
-                            mparent.removeView(myView);
-                            add_orario.show();
-                        }
-                    });
-
-                }
-            });
         }
         editProfile.setOnClickListener(this);
 
@@ -319,17 +319,6 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
                 transaction4.commit();
                 break;
 
-            case R.id.editAgendaButton:
-                Bundle bundle5 = new Bundle();
-                bundle5.putString("actualUserMail", loggedUserMail);
-                bundle5.putInt("tFlag", 1);
-                agenda = new EditAgenda();
-                agenda.setArguments(bundle5);
-                FragmentManager fm5 = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction5 = fm5.beginTransaction();
-                transaction5.replace(R.id.fragment_container, agenda).addToBackStack("fragment_personal_page");
-                transaction5.commit();
-                break;
 
         }
     }

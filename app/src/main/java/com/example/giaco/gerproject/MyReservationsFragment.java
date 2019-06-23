@@ -120,7 +120,7 @@ public class MyReservationsFragment extends Fragment {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final View myView1 = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
+                final View myView1 = layoutInflater.inflate(R.layout.pop_up_cancella_prenotazione, null, false);
                 mparent_ext.addView(myView1);
                 Button conferma, cancella;
                 conferma = (Button) myView1.findViewById(R.id.prenotazione_yes);
