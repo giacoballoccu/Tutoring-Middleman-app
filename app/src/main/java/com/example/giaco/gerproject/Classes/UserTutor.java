@@ -101,4 +101,9 @@ public class UserTutor extends User{
         }
         return -1;
     }
+
+    public void addDisponibilitaData(int gg, int mm, int aa, int oraI, int oraF ){
+        Disponibilita d = new Disponibilita(gg, mm, aa, oraI, oraF);
+        this.disponibilitaData.add(d.toString());
+    }
 }

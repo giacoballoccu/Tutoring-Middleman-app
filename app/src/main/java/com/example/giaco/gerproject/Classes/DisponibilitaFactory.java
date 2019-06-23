@@ -25,17 +25,6 @@ public class DisponibilitaFactory extends Disponibilita {
         set3.add(4);
         set3.add(6);
 
-        Disponibilita data1 = new Disponibilita();
-        data1.setGiorno(1);
-        data1.setMese(2);
-        data1.setAnno(2019);
-        data1.setOraInizio(10);
-        data1.setOraFine(12);
-        data1.setMinutoInizio(0);
-        data1.setMinutoFine(0);
-        data1.setSettimana(0);
-        date.add(data1);
-
         Disponibilita data2 = new Disponibilita();
         data2.setGiorno(30);
         data2.setMese(3);

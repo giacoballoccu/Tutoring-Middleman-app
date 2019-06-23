@@ -124,7 +124,7 @@ public class ChatFragment extends Fragment {
                 cparentR.addView(myView);
                 TextView contenuto, fakeTOP;
                 contenuto = (TextView) myView.findViewById(R.id.contenuto_richiesta);
-                String message = "Ho richiesto " + r.get(0).getOre() + " ora " + " di ripetizione per il " + r.get(0).getData() + " dalle " + r.get(0).getOra_inizio() + " alle " + r.get(0).getOra_fine();
+                String message = "Ho richiesto " + r.get(0).getOre() + " ore " + " di ripetizione per il " + r.get(0).getData();
                 contenuto.setText(message);
                 tutorNomeCognome = tutorNome + " " + tutorCognome;
                 nomeCognome.setText(tutorNomeCognome);

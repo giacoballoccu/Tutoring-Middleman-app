@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,7 +18,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.giaco.gerproject.Classes.DisponibilitaFactory;
 import com.example.giaco.gerproject.Classes.FeedbackFactory;
@@ -39,6 +42,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     String loggedUserMail;
     TextView userName, hours, materia, orari, orario, orariAgenda;
     Button recharge, recensioni;
+    FloatingActionButton add_orario;
     ImageButton editProfile;
     EditProfileFragment editProfileFS, editProfileFT;
     ImageButton editAgenda;
@@ -50,6 +54,8 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
     EditAgenda agenda;
     ArrayList<String> listaDiDate;
     Button backButton;
+    ImageButton delete_orario;
+    LinearLayout mparent;
 
     @Nullable
     @Override
@@ -132,6 +138,7 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             materia = (TextView) view.findViewById(R.id.materia);
             editAgenda = (ImageButton) view.findViewById(R.id.editAgendaButton);
             orariAgenda = (TextView) view.findViewById(R.id.orari);
+            add_orario = view.findViewById(R.id.add_orario);
 
             recensioni = (Button) view.findViewById(R.id.feedbackButton);
             editProfile = (ImageButton) view.findViewById(R.id.editButtonT);
@@ -147,13 +154,15 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
             materia.setText("" + loggedTutor.getMateria() + "");
             dparent = view.findViewById(R.id.dparent);
 
+
             for (String str : loggedTutor.getDisponibilitaData()) {
                 myView = layoutInflater.inflate(R.layout.disponibilita_tutor, null, false);
                 dparent.addView(myView);
                 updateDisponibilita(str, myView);
             }
             userImg.setImageDrawable(resize(loggedTutor.getImage()));
-
+            delete_orario = view.findViewById(R.id.delete_orario);
+            mparent = view.findViewById(R.id.dparent);
             switch (loggedTutor.getVotoTotaleMedio()) {
                 case 0:
                     stelline.setImageDrawable(getResources().getDrawable(R.drawable.zerostelle));
@@ -177,8 +186,63 @@ public class PersonalPageFragment extends Fragment implements View.OnClickListen
 
             recensioni.setOnClickListener(this);
             editAgenda.setOnClickListener(this);
+            add_orario.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("actualUserMail", loggedUserMail);
+                    if (!getTutorFlag())
+                        bundle.putInt("tFlag", 0);
+                    else
+                        bundle.putInt("tFlag", 1);
+
+                    EditAgenda editAgenda = new EditAgenda();
+                    editAgenda.setArguments(bundle);
+
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.fragment_container, editAgenda).addToBackStack("fragment_tutor_personal_page");
+                    transaction.commit();
+                }
+            });
+
+            delete_orario.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    add_orario.hide();
+                    layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    myView = layoutInflater.inflate(R.layout.pop_up_rimuovi_orario, null, false);
+                    mparent.addView(myView);
+                    final Button conferma, cancella;
+                    conferma = (Button) myView.findViewById(R.id.orario_yes);
+                    cancella = (Button) myView.findViewById(R.id.orario_no);
+
+                    conferma.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast toast=Toast.makeText(getActivity().getApplicationContext(),"Orario rimosso",Toast.LENGTH_SHORT);
+                            toast.show();
+                            mparent.removeView(myView);
+                            add_orario.show();
+                        }
+                    });
+
+                    cancella.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast toast=Toast.makeText(getActivity().getApplicationContext(),"Azione annullata",Toast.LENGTH_SHORT);
+                            toast.show();
+                            mparent.removeView(myView);
+                            add_orario.show();
+                        }
+                    });
+
+                }
+            });
         }
         editProfile.setOnClickListener(this);
+
+
     }
 
     private Drawable resize(Drawable image) {

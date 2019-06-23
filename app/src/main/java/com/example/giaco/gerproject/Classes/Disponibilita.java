@@ -24,6 +24,16 @@ public class Disponibilita {
         this.settimana = set;
     }
 
+    public Disponibilita(int gg, int mm, int aa, int oi, int of){
+        this.giorno = gg;
+        this.mese = mm;
+        this.anno = aa;
+        this.oraInizio = oi;
+        this.oraFine = of;
+        this.minutoInizio = 0;
+        this.minutoFine = 0;
+    }
+
     public Disponibilita(){
         this.giorno = 1;
         this.mese = 1;
@@ -195,4 +205,6 @@ public class Disponibilita {
         else
             return ("Ogni " + set + "di " + mm + " " + aa + " | " + oi + ":00 - " + of + ":00");
     }
+
+
 }

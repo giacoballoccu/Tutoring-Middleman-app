@@ -23,6 +23,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.giaco.gerproject.Classes.Disponibilita;
 import com.example.giaco.gerproject.Classes.Reservation;
 import com.example.giaco.gerproject.Classes.ReservationFactory;
 import com.example.giaco.gerproject.Classes.ReservationRequest;
@@ -35,9 +36,9 @@ import com.example.giaco.gerproject.Classes.UserTutorFactory;
 import java.util.Calendar;
 
 public class EditAgenda extends Fragment {
-    private int anno = 100;
-    private int mese = 100;
-    private int giorno = 100;
+    private int anno = 2019;
+    private int mese = 6;
+    private int giorno = 24;
     private int oraInizio = 8;
     private int oraFine = 9;
     private int minutoInizio = 10;
@@ -56,6 +57,7 @@ public class EditAgenda extends Fragment {
     View myView;
     ConstraintLayout mparent;
     UserStudente loggedUser;
+    UserTutor loggedTutor;
     UserTutor chosenTutor;
     Button backButton;
 
@@ -184,7 +186,7 @@ public class EditAgenda extends Fragment {
             @Override
             public void onClick(View v) {
                 layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
+                myView = layoutInflater.inflate(R.layout.pop_up_conferma_profilo, null, false);
                 mparent.addView(myView);
                 final Button conferma, cancella;
                 conferma = (Button) myView.findViewById(R.id.prenotazione_yes);
@@ -203,9 +205,12 @@ public class EditAgenda extends Fragment {
                         int num_ore = getOraFine() - getOraInizio();
                         //Converto int in Integer per applicare toString dopo
 
-                        String data = "24 Giugno 2019";
+                        Disponibilita d = new Disponibilita(getGiorno(), getMese(), getAnno(), getOraInizio(), getOraFine());
+                        String data = d.toString();
 
                         if (getArguments().getInt("tFlag") == 1) {
+                            loggedTutor = UserTutorFactory.getInstance().getUserByEmail(loggedUserMail);
+                            loggedTutor.addDisponibilitaData(getGiorno(), getMese(), getAnno(), getOraInizio(), getOraFine());
                             profilo = new PersonalPageFragment();
                             profilo.setArguments(bundle);
                             FragmentManager fm = getActivity().getSupportFragmentManager();
