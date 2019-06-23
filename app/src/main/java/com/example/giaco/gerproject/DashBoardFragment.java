@@ -74,7 +74,7 @@ public class DashBoardFragment extends Fragment {
             if (getArguments().getString("materiaSelezionata") != null) {
                 materiaSelezionata = getArguments().getString("materiaSelezionata");
             } else {
-                materiaSelezionata = "DEFAULT";
+                materiaSelezionata = "Rimuovi filtro";
             }
         }
 
@@ -87,8 +87,8 @@ public class DashBoardFragment extends Fragment {
         ArrayList<String> arrayMaterie = new ArrayList<String>();
         final Context context = ApplicationContextProvider.getContext();
 
-        arrayMaterie.add(" ");
-        arrayMaterie.add("DEFAULT");
+        arrayMaterie.add("Filtra per...");
+        arrayMaterie.add("Rimuovi filtro");
         arrayMaterie.add("Matematica");
         arrayMaterie.add("Informatica");
         arrayMaterie.add("Fisica");
@@ -101,7 +101,7 @@ public class DashBoardFragment extends Fragment {
 
         selected = spinner.getSelectedItem().toString();
 
-        if (materiaSelezionata.equals("DEFAULT")) {
+        if (materiaSelezionata.equals("Rimuovi filtro")) {
             for (UserTutor t : UserTutorFactory.getInstance().getUserList()) {
                 switch (t.getMateria()) {
                     case "Fisica":

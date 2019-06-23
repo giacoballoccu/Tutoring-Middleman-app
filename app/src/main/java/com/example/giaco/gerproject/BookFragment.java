@@ -20,6 +20,7 @@ import android.widget.ImageView;
 
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +52,7 @@ public class BookFragment extends Fragment {
     EditAgenda agenda;
     String loggedUserMail;
     Button backButton;
+    SearchView search;
 
 
     @Nullable
@@ -103,7 +105,7 @@ public class BookFragment extends Fragment {
             public void onClick(View v) {
                 layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 myView = layoutInflater.inflate(R.layout.pop_up_prenotazione, null, false);
-                //myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
+                myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
                 mparent.addView(myView);
                 final Button conferma, cancella;
                 conferma = (Button) myView.findViewById(R.id.prenotazione_yes);
@@ -124,6 +126,7 @@ public class BookFragment extends Fragment {
                             final Button accetta;
                             mparent.removeView(myView);
                             myView = layoutInflater.inflate(R.layout.prenotazione_fallita, null, false);
+                            myView.setBackgroundDrawable(getResources().getDrawable(R.drawable.background_trasparency));
                             mparent.addView(myView);
                             accetta = (Button) myView.findViewById(R.id.accetta);
                             accetta.setOnClickListener(new View.OnClickListener() {
